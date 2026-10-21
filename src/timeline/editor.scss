@@ -1,0 +1,4 @@
+/* Timeline, editor only. The "add item" button sits in the list; the year
+   marker holds an editable paragraph. */
+.wrbc-timeline__list > .block-list-appender { position: relative; margin: 0; }
+.wrbc-timeline--horizontal .wrbc-timeline__list > .block-list-appender { grid-row: 1 / -1; align-self: center; }

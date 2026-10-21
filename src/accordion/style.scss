@@ -1,0 +1,194 @@
+/* Accordion / FAQ. */
+.wrbc-accordion { container-type: inline-size; }
+/* With a background of its own (Color panel) the content keeps off its edges,
+   and so do the focus rings. Zero specificity: the Dimensions panel wins. */
+:where(.wrbc-accordion.has-background) { padding-inline: clamp(16px, 4vw, 48px); }
+
+.wrbc-accordion__tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+.wrbc-accordion__search {
+	position: relative;
+	flex: 1 1 260px;
+	max-width: 520px;
+}
+.wrbc-accordion__search-icon {
+	position: absolute;
+	top: 50%;
+	inset-inline-start: 14px;
+	transform: translateY(-50%);
+	color: var(--wrbc-muted);
+	--wrbc-icon-size: 18px;
+	pointer-events: none;
+}
+/* Restated with the block: themes style input[type=search] (0,1,1) and their
+   padding would put the text under the icon. The border is the field's only
+   boundary: --wrbc-control-line (3:1, WCAG 1.4.11), never --wrbc-line. */
+.wrbc-accordion .wrbc-accordion__input {
+	width: 100%;
+	min-height: 46px;
+	padding-block: 10px;
+	padding-inline: 42px 14px;
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: 999px;
+	background: var(--wrbc-surface);
+	color: inherit;
+	font: inherit;
+	/* The shared focus ring (--wrbc-focus), 1 px off the field. */
+	--wrbc-focus-offset: 1px;
+}
+/* The browser's grey placeholder is under 4.5:1 on the field's tint. */
+.wrbc-accordion .wrbc-accordion__input::placeholder { color: var(--wrbc-muted); opacity: 1; }
+/* While the ring shows, it is the field's boundary. */
+.wrbc-accordion .wrbc-accordion__input:focus-visible { border-color: transparent; }
+/* The browser's own parts of the field (clear button, caret, autofill) in
+   the colours of what the block sits on. */
+.wrbc-is-dark .wrbc-accordion__input { color-scheme: dark; }
+.wrbc-is-light .wrbc-accordion__input { color-scheme: light; }
+.wrbc-accordion__all { display: flex; gap: 8px; flex-wrap: wrap; }
+/* Above the theme's [type=button] sizes; colours and states are the shared
+   button's (assets/shared.css restates them for <button> elements). */
+.wrbc-root .wrbc-accordion__all-btn { min-height: 40px; padding: 0.5em 1em; font-size: 0.875em; }
+.wrbc-accordion__empty { margin: 16px 0 0; color: var(--wrbc-muted); }
+/* Search and expand all are view.js: without scripts they would be controls
+   that do nothing. The questions still open and close (native <details>). */
+@media (scripting: none) {
+	.wrbc-accordion__tools { display: none; }
+}
+
+/* One column. With two, render.php splits the items into two column wrappers
+   that sit side by side once the block is wide enough, each flowing on its
+   own: opening a question never moves another one to the other column, and
+   the reading order stays the visual one (first column, then second). */
+.wrbc-accordion__list,
+.wrbc-accordion__col { display: flex; flex-direction: column; gap: var(--wrbc-gap); }
+.wrbc-accordion__col { gap: inherit; min-width: 0; }
+@container (min-width: 880px) {
+	.wrbc-accordion__list--split {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: start;
+	}
+	/* Above the styles' own gap (Lines: 0), which is the gap inside a column. */
+	.wrbc-accordion .wrbc-accordion__list.wrbc-accordion__list--split { column-gap: calc(var(--wrbc-gap) * 2.5); }
+}
+
+/* An item */
+.wrbc-acc-item { margin: 0; }
+.wrbc-acc-item[hidden] { display: none; }
+.wrbc-acc-item__details { interpolate-size: allow-keywords; }
+.wrbc-acc-item__summary {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	min-height: 44px;
+	padding: 18px 4px;
+	list-style: none;
+	cursor: pointer;
+	font-size: 1.075em;
+	font-weight: 600;
+	line-height: 1.4;
+}
+.wrbc-acc-item__summary::-webkit-details-marker { display: none; }
+.wrbc-acc-item__summary::marker { content: ""; }
+/* The shared focus ring (--wrbc-focus, assets/shared.css), rounded. Inside an
+   item that paints a background (Boxes, or its own colour) it stays inside
+   the item: its colour is the one that reads on that background. */
+.wrbc-acc-item__summary:focus-visible { border-radius: 6px; }
+.wrbc-accordion--boxed .wrbc-acc-item__summary,
+.wrbc-acc-item.has-background .wrbc-acc-item__summary { --wrbc-focus-offset: -4px; }
+.wrbc-accordion--boxed .wrbc-acc-item__summary:focus-visible { border-radius: max(4px, calc(var(--wrbc-radius) - 3px)); }
+.wrbc-acc-item__question { flex: 1 1 auto; min-width: 0; overflow-wrap: break-word; }
+/* The question may be a heading (Questions as headings): it looks like the
+   rest of the summary whatever the theme does to headings. */
+.wrbc-acc-item .wrbc-acc-item__question {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+}
+.wrbc-acc-item__lead { color: var(--wrbc-accent-text); }
+.wrbc-acc-item__toggle {
+	display: inline-grid;
+	place-items: center;
+	flex: 0 0 auto;
+	color: var(--wrbc-accent-text);
+}
+.wrbc-acc-item__toggle > .wrbc-icon { grid-area: 1 / 1; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease; }
+.wrbc-accordion--icon-left .wrbc-acc-item__toggle { order: -1; }
+
+/* Toggle states: native [open] on the page, .is-open in the editor */
+.wrbc-acc-item__when-open { opacity: 0; transform: rotate(-90deg); }
+.wrbc-acc-item__details[open] .wrbc-acc-item__when-open,
+.wrbc-acc-item__details.is-open .wrbc-acc-item__when-open { opacity: 1; transform: none; }
+.wrbc-acc-item__details[open] .wrbc-acc-item__when-closed,
+.wrbc-acc-item__details.is-open .wrbc-acc-item__when-closed { opacity: 0; transform: rotate(90deg); }
+.wrbc-acc-item__details[open] .wrbc-acc-item__chevron,
+.wrbc-acc-item__details.is-open .wrbc-acc-item__chevron { transform: rotate(180deg); }
+
+.wrbc-acc-item__panel { padding: 0 4px 20px; }
+.wrbc-accordion--icon-left .wrbc-acc-item__panel { padding-inline-start: calc(var(--wrbc-icon-size) + 18px); }
+/* An item with a background of its own (Color panel) is a box too: its text
+   keeps off the edges, and the focus ring fits inside. Boxes keep theirs. */
+:where(.wrbc-acc-item.has-background) .wrbc-acc-item__summary,
+:where(.wrbc-acc-item.has-background) .wrbc-acc-item__panel { padding-inline: 16px; }
+.wrbc-accordion--icon-left:not(.wrbc-accordion--boxed) .wrbc-acc-item.has-background .wrbc-acc-item__panel { padding-inline-start: calc(var(--wrbc-icon-size) + 30px); }
+.wrbc-acc-item__content { color: var(--wrbc-muted); line-height: 1.65; }
+/* Links in an answer on a background the block paints (Item background, or
+   the item's own): the accent made readable on it, in every state — a
+   theme's link colour is made for its own page — unless the accordion or the
+   item sets a link colour (Color panel: wrbc-has-link-color). */
+.wrbc-acc-item--bg .wrbc-acc-item__content a:not([class*="wrbc-"]):not(.wp-element-button):not(.wp-block-button__link):not(.wrbc-has-link-color *) { color: var(--wrbc-accent-text); }
+.wrbc-acc-item__content > :first-child { margin-top: 0; }
+.wrbc-acc-item__content > :last-child { margin-bottom: 0; }
+
+/* Height animation where the browser can animate to "auto"; elsewhere it opens at once. */
+@supports selector(::details-content) {
+	.wrbc-acc-item__details::details-content {
+		block-size: 0;
+		overflow: clip;
+		transition: block-size 0.35s cubic-bezier(0.16, 1, 0.3, 1), content-visibility 0.35s allow-discrete;
+	}
+	.wrbc-acc-item__details[open]::details-content { block-size: auto; }
+	/* Opened by a link to a question (view.js): at once. */
+	.wrbc-acc-item__details.is-instant::details-content { transition: none; }
+}
+
+/* Styles */
+.wrbc-accordion--separated .wrbc-accordion__list { gap: 0; }
+.wrbc-accordion--separated .wrbc-acc-item { border-bottom: 1px solid var(--wrbc-item-border, var(--wrbc-line)); }
+.wrbc-accordion--separated .wrbc-acc-item:first-child { border-top: 1px solid var(--wrbc-item-border, var(--wrbc-line)); }
+/* Two columns stacked: one line between them, not two. */
+.wrbc-accordion--separated .wrbc-accordion__col + .wrbc-accordion__col > .wrbc-acc-item:first-child { border-top: 0; }
+@container (min-width: 880px) {
+	.wrbc-accordion--separated .wrbc-accordion__col + .wrbc-accordion__col > .wrbc-acc-item:first-child { border-top: 1px solid var(--wrbc-item-border, var(--wrbc-line)); }
+}
+
+.wrbc-accordion--boxed .wrbc-acc-item {
+	border: 1px solid var(--wrbc-item-border, var(--wrbc-line));
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-item-bg, var(--wrbc-surface));
+	transition: border-color 0.2s ease;
+}
+.wrbc-accordion--boxed .wrbc-acc-item:has(.wrbc-acc-item__details[open]) { border-color: var(--wrbc-accent-text); }
+.wrbc-accordion--boxed .wrbc-acc-item__summary { padding-inline: 20px; }
+.wrbc-accordion--boxed .wrbc-acc-item__panel { padding-inline: 20px; }
+/* Same specificity as the boxed padding above, so the indent is restated after it. */
+.wrbc-accordion--boxed.wrbc-accordion--icon-left .wrbc-acc-item__panel { padding-inline-start: calc(var(--wrbc-icon-size) + 34px); }
+
+.wrbc-accordion--minimal .wrbc-acc-item__summary { padding-block: 12px; }
+/* A third of the gap: 4 px at the default 12, and the Gap control still applies. */
+.wrbc-accordion--minimal .wrbc-accordion__list { gap: calc(var(--wrbc-gap) / 3); }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-acc-item__toggle > .wrbc-icon { transition: none; }
+	.wrbc-acc-item__details::details-content { transition: none; }
+	.wrbc-accordion--boxed .wrbc-acc-item { transition: none; }
+}

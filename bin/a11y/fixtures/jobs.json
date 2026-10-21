@@ -1,0 +1,195 @@
+[
+	{
+		"id": "jobs-grouped",
+		"title": "Jobs: grouped by department (variation defaults, no header: H3 departments, H4 positions)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"showFilters\":false} /-->"
+	},
+	{
+		"id": "jobs-grouped-rich",
+		"title": "Jobs: grouped + header (H2) + date, compensation, description disclosure, new tab",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"showFilters\":false,\"showHeader\":true,\"titleLevel\":2,\"showDate\":true,\"showCompensation\":true,\"showDescription\":true,\"newTab\":true,\"title\":\"Open positions\"} /-->"
+	},
+	{
+		"id": "jobs-grouped-h2",
+		"title": "Jobs: list layout grouped, no header, heading level H2, sort by title",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":true,\"headingLevel\":2,\"sort\":\"title\"} /-->"
+	},
+	{
+		"id": "jobs-list",
+		"title": "Jobs: flat list (department, location, type, date in the meta)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showDate\":true} /-->"
+	},
+	{
+		"id": "jobs-cards",
+		"title": "Jobs: cards (variation defaults, 3/2/1 columns)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1} /-->"
+	},
+	{
+		"id": "jobs-cards-rich",
+		"title": "Jobs: cards + header + description + date + compensation + fade in",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"showHeader\":true,\"titleLevel\":2,\"showDate\":true,\"showCompensation\":true,\"showDescription\":true,\"newTab\":true,\"title\":\"Join us\",\"reveal\":true} /-->"
+	},
+	{
+		"id": "jobs-table",
+		"title": "Jobs: compact table + header (caption from the title) + date + compensation + new tab",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"table\",\"showDescription\":false,\"reveal\":false,\"showHeader\":true,\"titleLevel\":2,\"showDate\":true,\"showCompensation\":true,\"newTab\":true,\"title\":\"Open positions\"} /-->"
+	},
+	{
+		"id": "jobs-filters",
+		"title": "Jobs: list with filters (search, department, location, type, remote chip) + descriptions",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"filterSearch\":true,\"filterDepartment\":true,\"filterLocation\":true,\"filterRemote\":true,\"filterType\":true,\"showDescription\":true} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-grouped-filters",
+		"title": "Jobs: grouped with filters, count hidden (screen-reader status only)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"showFilters\":true,\"showCount\":false} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-table-filters",
+		"title": "Jobs: table with filters",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"table\",\"showDescription\":false,\"reveal\":false,\"showFilters\":true} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-cards-filters",
+		"title": "Jobs: cards with filters and a custom apply label",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"showFilters\":true,\"applyLabel\":\"See the role\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-minimal",
+		"title": "Jobs: no apply button, no remote badge, no count, no type",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"showApply\":false,\"showRemote\":false,\"showCount\":false,\"showType\":false} /-->"
+	},
+	{
+		"id": "jobs-empty",
+		"title": "Jobs: board with no positions (empty text)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme-empty\"} /-->"
+	},
+	{
+		"id": "jobs-down",
+		"title": "Jobs: provider down, no saved copy (honest error text)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme-404\"} /-->"
+	},
+	{
+		"id": "jobs-accent-yellow",
+		"title": "Jobs: light custom accent #facc15 (accent text darkened, ink on the pressed chip) with filters and descriptions",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"filterSearch\":true,\"filterDepartment\":true,\"filterLocation\":true,\"filterRemote\":true,\"accentColor\":\"#facc15\",\"showDescription\":true} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-accent-dark",
+		"title": "Jobs: very dark custom accent #1e1b4b with filters and descriptions (lightened on dark)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"filterSearch\":true,\"filterDepartment\":true,\"filterLocation\":true,\"filterRemote\":true,\"accentColor\":\"#1e1b4b\",\"showDescription\":true} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-cards-dark-card",
+		"title": "Jobs: cards with a dark card background #1e293b (cards turn light text)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"cardBg\":\"#1e293b\",\"showDescription\":true,\"showDate\":true} /-->"
+	},
+	{
+		"id": "jobs-cards-light-card",
+		"title": "Jobs: cards with a light card background #fef3c7 and accent #e11d48 (ink text inside dark contexts)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"cardBg\":\"#fef3c7\",\"accentColor\":\"#e11d48\",\"showDescription\":true} /-->"
+	},
+	{
+		"id": "jobs-cards-yellow-on-black",
+		"title": "Jobs: cards #0b1120 with a light accent #facc15",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"cardBg\":\"#0b1120\",\"accentColor\":\"#facc15\",\"showDescription\":true} /-->"
+	},
+	{
+		"id": "jobs-own-dark",
+		"title": "Jobs: the block's own dark background #0f172a, no text colour chosen (tone turns text white)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"filterSearch\":true,\"filterDepartment\":true,\"filterLocation\":true,\"filterRemote\":true,\"style\":{\"color\":{\"background\":\"#0f172a\"},\"spacing\":{\"padding\":{\"left\":\"24px\",\"right\":\"24px\"}}},\"showDescription\":true} /-->",
+		"contexts": [
+			"light"
+		],
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-own-light-in-dark",
+		"title": "Jobs: the block's own white background inside the dark context (tone turns text ink)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"showFilters\":false,\"showHeader\":true,\"titleLevel\":2,\"title\":\"Open positions\",\"showDescription\":true,\"style\":{\"color\":{\"background\":\"#ffffff\"},\"spacing\":{\"padding\":{\"left\":\"24px\",\"right\":\"24px\"}}}} /-->",
+		"contexts": [
+			"dark"
+		]
+	},
+	{
+		"id": "jobs-two-boards",
+		"title": "Jobs: two untitled filtered boards on one page (search landmarks numbered, ids unique)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"filterSearch\":true,\"filterDepartment\":true,\"filterLocation\":true,\"filterRemote\":true,\"maxJobs\":4} /--><!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"table\",\"showDescription\":false,\"reveal\":false,\"showFilters\":true,\"maxJobs\":4} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	},
+	{
+		"id": "jobs-full-width",
+		"title": "Jobs: full width (align full), 4 card columns, filters, descriptions",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"align\":\"full\",\"layout\":\"cards\",\"columnsDesktop\":4,\"showFilters\":true,\"showDescription\":true,\"style\":{\"spacing\":{\"padding\":{\"left\":\"24px\",\"right\":\"24px\"}}}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-jobs__chip",
+				"property": "border-color",
+				"min": 3,
+				"label": "'Remote only' button border"
+			}
+		]
+	}
+]

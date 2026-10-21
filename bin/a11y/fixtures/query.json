@@ -1,0 +1,113 @@
+[
+	{
+		"id": "posts-grid-filters",
+		"title": "Latest posts: grid, bordered, whole-card link, every field, chips + search + sort, numbered pages",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Latest news\",\"showIntro\":true,\"intro\":\"What we shipped and learned.\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"pagination\":\"numbers\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":true,\"sort\":[\"newest\",\"az\"]},\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"date\",\"source\":\"published\",\"dateFormat\":\"\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":20},{\"type\":\"terms\",\"taxonomy\":\"category\",\"max\":3,\"link\":true},{\"type\":\"author\",\"avatar\":true},{\"type\":\"readingTime\",\"wpm\":200},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "posts-list-title",
+		"title": "Latest posts: list, filled, title link, H3 header (cards H4), previous/next, terms as text",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Articles\",\"titleLevel\":3,\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"list\",\"pagination\":\"prevNext\",\"card\":{\"style\":\"filled\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"date\",\"source\":\"modified\",\"dateFormat\":\"\"},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"terms\",\"taxonomy\":\"category\",\"max\":3,\"link\":false}]}} /-->"
+	},
+	{
+		"id": "posts-loadmore-button",
+		"title": "Latest posts: grid, shadow cards, button link only, load more (a button with JS)",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":false,\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"pagination\":\"loadMore\",\"card\":{\"style\":\"shadow\",\"link\":\"button\",\"imageRatio\":\"16/9\",\"imageSize\":\"large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":2},{\"type\":\"excerpt\",\"words\":20},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "related-plain",
+		"title": "Related posts: plain cards (on a page without terms: the empty text)",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Related reading\",\"variant\":\"related\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true,\"related\":{\"taxonomies\":[\"category\"]}},\"layout\":\"grid\",\"emptyText\":\"No related posts yet.\",\"card\":{\"style\":\"plain\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"date\",\"source\":\"published\",\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "team-grid",
+		"title": "Team: plain cards without link, square photos, role / email / LinkedIn fields, department chips",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Our team\",\"variant\":\"team\",\"query\":{\"postType\":\"team\",\"mode\":\"query\",\"orderBy\":\"menu_order\",\"order\":\"ASC\",\"perPage\":8,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":4,\"columnsTablet\":3,\"columnsMobile\":2,\"filters\":{\"taxonomy\":\"department\",\"showAll\":true,\"search\":false,\"sort\":[]},\"card\":{\"style\":\"plain\",\"link\":\"none\",\"imageRatio\":\"1/1\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"team_role\",\"format\":\"text\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"team_email\",\"format\":\"email\",\"label\":\"Email\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"team_linkedin\",\"format\":\"url\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "team-carousel-nolink",
+		"title": "Team carousel: cards without links (the track is the Tab stop), arrows + dots, no loop",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"People\",\"variant\":\"team\",\"query\":{\"postType\":\"team\",\"mode\":\"query\",\"orderBy\":\"menu_order\",\"order\":\"ASC\",\"perPage\":8,\"excludeCurrent\":true},\"layout\":\"carousel\",\"columnsDesktop\":3,\"loop\":false,\"card\":{\"style\":\"filled\",\"link\":\"none\",\"imageRatio\":\"1/1\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"team_role\",\"format\":\"text\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "events-upcoming-list",
+		"title": "Events (upcoming): list, bordered, title link, date shown automatically, venue and price, load more",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Upcoming events\",\"variant\":\"events\",\"query\":{\"postType\":\"event\",\"mode\":\"query\",\"orderBy\":\"upcoming\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true,\"upcoming\":{\"startKey\":\"event_start_date\",\"endKey\":\"event_end_date\",\"format\":\"Ymd\",\"when\":\"upcoming\",\"includeOngoing\":true}},\"layout\":\"list\",\"pagination\":\"loadMore\",\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"event_venue\",\"format\":\"text\",\"label\":\"Where\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"event_price\",\"format\":\"currency\",\"label\":\"\",\"prefix\":\"€\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "events-all-grid",
+		"title": "Events (all): past, happening now and upcoming told apart in words; date field on the card; event type terms",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"All events\",\"variant\":\"events\",\"query\":{\"postType\":\"event\",\"mode\":\"query\",\"orderBy\":\"upcoming\",\"order\":\"DESC\",\"perPage\":8,\"excludeCurrent\":true,\"upcoming\":{\"startKey\":\"event_start_date\",\"endKey\":\"event_end_date\",\"format\":\"Ymd\",\"when\":\"all\",\"includeOngoing\":true}},\"layout\":\"grid\",\"card\":{\"style\":\"filled\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"meta\",\"key\":\"event_start_date\",\"format\":\"date\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"title\",\"level\":3},{\"type\":\"terms\",\"taxonomy\":\"event_type\",\"max\":3,\"link\":false}]}} /-->"
+	},
+	{
+		"id": "locations-map-below",
+		"title": "Locations: map (consent placeholder) with the list below, addresses, title links",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Our offices\",\"variant\":\"locations\",\"query\":{\"postType\":\"location\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":24,\"excludeCurrent\":true},\"layout\":\"map\",\"map\":{\"provider\":\"leaflet\",\"latKey\":\"location_lat\",\"lngKey\":\"location_lng\",\"combinedKey\":\"\",\"addressKey\":\"location_address\",\"height\":360,\"zoom\":12,\"fitBounds\":true,\"cluster\":true,\"markerColor\":\"\",\"listPosition\":\"below\"},\"columnsDesktop\":3,\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3}]}} /-->"
+	},
+	{
+		"id": "locations-map-side",
+		"title": "Locations: list beside the map (scrolls: focusable region), cards without links, phone meta",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Stores\",\"variant\":\"locations\",\"query\":{\"postType\":\"location\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":24,\"excludeCurrent\":true},\"layout\":\"map\",\"map\":{\"provider\":\"leaflet\",\"latKey\":\"location_lat\",\"lngKey\":\"location_lng\",\"combinedKey\":\"\",\"addressKey\":\"location_address\",\"height\":360,\"zoom\":12,\"fitBounds\":true,\"cluster\":true,\"markerColor\":\"\",\"listPosition\":\"side\"},\"card\":{\"style\":\"filled\",\"link\":\"none\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"location_phone\",\"format\":\"phone\",\"label\":\"Phone\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "locations-map-hidden-list",
+		"title": "Locations: \"hidden\" list (visible until the map loads), numbered pages",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Where we are\",\"variant\":\"locations\",\"query\":{\"postType\":\"location\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":4,\"excludeCurrent\":true},\"layout\":\"map\",\"pagination\":\"numbers\",\"map\":{\"provider\":\"leaflet\",\"latKey\":\"location_lat\",\"lngKey\":\"location_lng\",\"combinedKey\":\"\",\"addressKey\":\"location_address\",\"height\":360,\"zoom\":12,\"fitBounds\":true,\"cluster\":true,\"markerColor\":\"\",\"listPosition\":\"none\"},\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3}]}} /-->"
+	},
+	{
+		"id": "resources-gated",
+		"title": "Resource library: filled cards, type chips + search, numbered pages, protected downloads",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Resource library\",\"variant\":\"resources\",\"query\":{\"postType\":\"resource\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"pagination\":\"numbers\",\"filters\":{\"taxonomy\":\"resource_type\",\"showAll\":true,\"search\":true,\"sort\":[]},\"gate\":{\"enabled\":true,\"mode\":\"soft\"},\"card\":{\"style\":\"filled\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"meta\",\"key\":\"_wrbc_download_id\",\"format\":\"download\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "resources-open",
+		"title": "Resources: bordered, whole-card link, plain file links (name + size), sort only",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Downloads\",\"variant\":\"resources\",\"query\":{\"postType\":\"resource\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"pagination\":\"prevNext\",\"filters\":{\"taxonomy\":\"\",\"showAll\":true,\"search\":false,\"sort\":[\"az\",\"za\"]},\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"_wrbc_download_id\",\"format\":\"file\",\"label\":\"File:\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "cases-shadow",
+		"title": "Case studies: two columns, shadow cards (white), whole-card link, client and metric, button",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Case studies\",\"variant\":\"cases\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":4,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"columnsTablet\":2,\"card\":{\"style\":\"shadow\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":20},{\"type\":\"meta\",\"key\":\"case_client\",\"format\":\"text\",\"label\":\"Client\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"case_metric\",\"format\":\"text\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "custom-carousel-autoplay",
+		"title": "Custom query: carousel, autoplay (pause button), controls above, whole-card links",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Featured\",\"variant\":\"custom\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":6,\"excludeCurrent\":true},\"layout\":\"carousel\",\"columnsDesktop\":3,\"autoplay\":true,\"interval\":4,\"controlsPosition\":\"top\",\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12}]}} /-->"
+	},
+	{
+		"id": "colours-light-accent-dark-cards",
+		"title": "Custom colours at extremes: yellow accent #facc15, dark card #1e293b, light border, chips + pages",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Custom colours\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"pagination\":\"numbers\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":true,\"sort\":[]},\"accentColor\":\"#facc15\",\"cardBg\":\"#1e293b\",\"cardBorderColor\":\"#e2e8f0\",\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"date\",\"source\":\"published\",\"dateFormat\":\"\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":20},{\"type\":\"terms\",\"taxonomy\":\"category\",\"max\":3,\"link\":true},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "colours-light-cards",
+		"title": "Custom colours: light card #fef3c7 (light cards in the dark context), sky accent, shadow",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Light cards\",\"variant\":\"cases\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"accentColor\":\"#0ea5e9\",\"cardBg\":\"#fef3c7\",\"card\":{\"style\":\"shadow\",\"link\":\"title\",\"imageRatio\":\"16/9\",\"imageSize\":\"large\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"meta\",\"key\":\"case_client\",\"format\":\"text\",\"label\":\"Client\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "colours-own-dark-background",
+		"title": "The block's own dark background (Color panel) with filled cards, chips and previous/next",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"On dark\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"list\",\"pagination\":\"prevNext\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":false,\"sort\":[\"az\"]},\"style\":{\"color\":{\"background\":\"#0f172a\"}},\"card\":{\"style\":\"filled\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"date\",\"source\":\"published\",\"dateFormat\":\"\"},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"terms\",\"taxonomy\":\"category\",\"max\":3,\"link\":true},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "colours-text-colour-dark-cards",
+		"title": "A text colour chosen on the block (#334155) with dark cards #312e81: the cards get the closest readable text",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Chosen text colour\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"style\":{\"color\":{\"text\":\"#334155\"}},\"cardBg\":\"#312e81\",\"card\":{\"style\":\"filled\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"date\",\"source\":\"published\",\"dateFormat\":\"\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"terms\",\"taxonomy\":\"category\",\"max\":3,\"link\":true},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "colours-mid-grey-cards",
+		"title": "A mid-grey card colour #9ca3af of the same tone as the page: ink text, full-strength muted text",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Grey cards\",\"variant\":\"team\",\"query\":{\"postType\":\"team\",\"mode\":\"query\",\"orderBy\":\"menu_order\",\"order\":\"ASC\",\"perPage\":4,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":4,\"cardBg\":\"#9ca3af\",\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"1/1\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"team_role\",\"format\":\"text\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"team_email\",\"format\":\"email\",\"label\":\"Email\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "empty",
+		"title": "Nothing matches: the empty text",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Werun\",\"title\":\"Nothing here\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true,\"search\":\"zzzz-nothing-matches\"},\"layout\":\"grid\",\"emptyText\":\"No posts match yet.\"} /-->"
+	}
+]

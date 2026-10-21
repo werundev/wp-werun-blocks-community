@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/timeline-item",
+  "version": "1.0.0",
+  "title": "Timeline item",
+  "category": "werun-community",
+  "icon": "marker",
+  "description": "One moment or step of a timeline: date, title, text, and an optional image and icon.",
+  "parent": [
+    "werun-community/timeline"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "date": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "dateTime": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "role": "content",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "icon": {
+      "type": "object",
+      "role": "content"
+    },
+    "highlight": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "usesContext": [
+    "werun-community/timeline/orientation",
+    "werun-community/timeline/markerStyle",
+    "werun-community/timeline/markerIcon",
+    "werun-community/timeline/datePosition",
+    "werun-community/timeline/showImages",
+    "werun-community/timeline/itemTitleLevel",
+    "werun-community/timeline/reveal",
+    "werun-community/timeline/showHeader",
+    "werun-community/timeline/title",
+    "werun-community/timeline/titleLevel",
+    "werun-community/timeline/cardStyle",
+    "werun-community/timeline/cardBg",
+    "werun-community/timeline/accentColor",
+    "werun-community/timeline/textColor",
+    "werun-community/timeline/style"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

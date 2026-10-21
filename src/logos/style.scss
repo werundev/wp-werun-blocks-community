@@ -1,0 +1,298 @@
+/* Logos: a grid, an infinite marquee or a carousel. Sizes in em, so the
+   block's font size scales captions and controls; columns follow the block's
+   own width (container queries). */
+.wrbc-logos {
+	container-type: inline-size;
+	--wrbc-logo-h: 3em;
+	--wrbc-logo-w: 10em;
+	--wrbc-logo-o: 1;
+	--wrbc-gap: 2.5em;
+}
+
+.wrbc-logos__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrbc-logos__item {
+	display: flex;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+}
+.wrbc-logos__item::marker { content: none; }
+
+/* One logo: the image and, when names show, a caption under it. The padding
+   holds the focus ring inside the logo's own box, so the marquee rail and
+   the carousel track (both clip) never cut it (WCAG 2.4.7, 2.4.11). */
+.wrbc-logos__logo {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	max-width: 100%;
+	padding: 0.25em;
+	color: inherit;
+	text-decoration: none;
+}
+.wrbc-root .wrbc-logos__link,
+.wrbc-root .wrbc-logos__link:hover { color: inherit; text-decoration: none; }
+/* A short logo is still a 24 × 24 px target (WCAG 2.5.8). Positioned, so its
+   visually hidden "(opens in a new tab)" stays inside the scrolling track
+   instead of widening the page. */
+.wrbc-logos__link {
+	position: relative;
+	min-width: 24px;
+	min-height: 24px;
+	// The shared ring (2 px --wrbc-focus, assets/shared.css), drawn inside the padding.
+	--wrbc-focus-offset: -2px;
+}
+.wrbc-logos__link:focus-visible { border-radius: 0.25em; }
+/* Not only the colour coming back: a linked name underlines on hover and focus. */
+.wrbc-root .wrbc-logos__link:hover .wrbc-logos__name,
+.wrbc-root .wrbc-logos__link:focus-visible .wrbc-logos__name {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+/* With the block root (0,2,0): a theme's image rules print after the blocks
+   (Hello Elementor: .alignfull img { width: 100% }, 0,1,1, would stretch every
+   logo's box in a full-width block). */
+.wrbc-root .wrbc-logos__img {
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: min(100%, var(--wrbc-logo-w));
+	max-height: var(--wrbc-logo-h);
+	object-fit: contain;
+	opacity: var(--wrbc-logo-o);
+	transition: filter 0.3s ease, opacity 0.3s ease;
+}
+/* An SVG with no intrinsic size would collapse to 0: give it the height. */
+.wrbc-root .wrbc-logos__img[src$=".svg"] { height: var(--wrbc-logo-h); }
+.wrbc-logos__name {
+	color: var(--wrbc-muted);
+	font-size: 0.85em;
+	line-height: 1.3;
+	text-align: center;
+}
+
+/* Filters through one custom property, so grey, a flat logo colour and the
+   hover reveal compose. Logo colour paints every logo in one colour (black
+   or white) so it reads on any background; logos are exempt from contrast
+   minimums (logotypes), but must not disappear. A flat colour stays on
+   hover: only the dimming goes. */
+.wrbc-logos__img { filter: var(--wrbc-logo-filter, none); }
+.wrbc-logos.is-grayscale { --wrbc-logo-filter: grayscale(1); }
+.wrbc-logos--tone-dark {
+	--wrbc-logo-filter: brightness(0);
+	--wrbc-logo-filter-hover: brightness(0);
+}
+.wrbc-logos--tone-light {
+	--wrbc-logo-filter: brightness(0) invert(1);
+	--wrbc-logo-filter-hover: brightness(0) invert(1);
+}
+.wrbc-logos.is-hover-reveal .wrbc-logos__logo:hover .wrbc-logos__img,
+.wrbc-logos.is-hover-reveal .wrbc-logos__link:focus-visible .wrbc-logos__img {
+	filter: var(--wrbc-logo-filter-hover, none);
+	opacity: 1;
+}
+
+/* Alignment of a logo in its cell (grid, carousel). */
+.wrbc-logos--align-left .wrbc-logos__item { justify-content: flex-start; }
+.wrbc-logos--align-center .wrbc-logos__item { justify-content: center; }
+.wrbc-logos--align-right .wrbc-logos__item { justify-content: flex-end; }
+.wrbc-logos--align-left .wrbc-logos__logo { align-items: flex-start; }
+.wrbc-logos--align-right .wrbc-logos__logo { align-items: flex-end; }
+
+/* ── Grid ─────────────────────────────────────────────────────────────── */
+.wrbc-logos__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-cols-m, 2), minmax(0, 1fr));
+	align-items: center;
+	gap: var(--wrbc-gap);
+}
+@container (min-width: 600px) {
+	.wrbc-logos__grid { grid-template-columns: repeat(var(--wrbc-cols-t, 4), minmax(0, 1fr)); }
+}
+@container (min-width: 960px) {
+	.wrbc-logos__grid { grid-template-columns: repeat(var(--wrbc-cols-d, 6), minmax(0, 1fr)); }
+}
+.wrbc-logos__item[data-wrbc-reveal]:nth-child(6n + 2) { --wrbc-reveal-delay: 0.05s; }
+.wrbc-logos__item[data-wrbc-reveal]:nth-child(6n + 3) { --wrbc-reveal-delay: 0.1s; }
+.wrbc-logos__item[data-wrbc-reveal]:nth-child(6n + 4) { --wrbc-reveal-delay: 0.15s; }
+.wrbc-logos__item[data-wrbc-reveal]:nth-child(6n + 5) { --wrbc-reveal-delay: 0.2s; }
+.wrbc-logos__item[data-wrbc-reveal]:nth-child(6n + 6) { --wrbc-reveal-delay: 0.25s; }
+
+/* ── Marquee ──────────────────────────────────────────────────────────────
+ * Two copies of the list side by side, each at least as wide as the block,
+ * both moving by one copy's width (plus the gap between them) and starting
+ * over: the seam never shows. Paused in place on hover and on focus inside.
+ * The pause button (.is-paused, view.js; WCAG 2.2.2) stops it as a still,
+ * wrapped row with every logo in view, as reduced motion does: nothing is
+ * left outside the rail. Keyboard focus on a logo stops the row at its start,
+ * so the focused logo can't sit outside the rail mid-move; the rail then
+ * scrolls to it (view.js). */
+
+/* The still marquee: every logo in a wrapped row, no copy, no fade mask. */
+@mixin wrbc-logos-still {
+	.wrbc-logos__rail {
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+	.wrbc-logos__rail .wrbc-logos__list {
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+		justify-content: center;
+		row-gap: calc(var(--wrbc-gap) * 0.75);
+		animation: none;
+	}
+	.wrbc-logos__copy { display: none; }
+}
+
+.wrbc-logos__marquee {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	--wrbc-marquee-sign: -1;
+}
+.wrbc-logos__marquee:dir(rtl) { --wrbc-marquee-sign: 1; }
+.wrbc-logos__rail {
+	display: flex;
+	gap: var(--wrbc-gap);
+	overflow: hidden;
+	padding-block: 0.15em; // the focus ring is inside each logo's padding
+	-webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+	mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.wrbc-logos__rail .wrbc-logos__list {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: space-around;
+	gap: var(--wrbc-gap);
+	min-width: 100%;
+	animation: wrbc-logos-marquee var(--wrbc-marquee-dur, 30s) linear infinite;
+}
+.wrbc-logos__rail .wrbc-logos__item { flex: 0 0 auto; }
+.wrbc-logos--dir-right .wrbc-logos__rail .wrbc-logos__list { animation-direction: reverse; }
+.wrbc-logos__rail:hover .wrbc-logos__list,
+.wrbc-logos__rail:focus-within .wrbc-logos__list,
+// No pause button until view.js runs (.is-ready), so no motion either (WCAG 2.2.2).
+.wrbc-logos--marquee:not(.is-ready) .wrbc-logos__rail .wrbc-logos__list { animation-play-state: paused; }
+/* :focus-visible, not :focus-within: a mouse click focuses the link too, and
+   a row that jumped under the pointer would swallow the click. */
+.wrbc-logos__rail:has(:focus-visible) {
+	-webkit-mask-image: none;
+	mask-image: none;
+}
+.wrbc-logos__rail:has(:focus-visible) .wrbc-logos__list { animation: none; }
+.wrbc-logos.is-paused { @include wrbc-logos-still; }
+/* Without JavaScript (no html.wrbc-js: wrbc_reveal_guard() in werun-blocks-community.php)
+   there's no pause button: the still row, every logo in view. With it, the
+   class is there before paint, so nothing jumps; the editor sets .is-ready. */
+html:not(.wrbc-js) .wrbc-logos--marquee:not(.is-ready) { @include wrbc-logos-still; }
+
+@keyframes wrbc-logos-marquee {
+	from { transform: translateX(0); }
+	to { transform: translateX(calc(var(--wrbc-marquee-sign) * (100% + var(--wrbc-gap)))); }
+}
+
+/* ── Buttons (marquee pause; the carousel's buttons too) ─────────────── */
+.wrbc-logos__btn {
+	display: inline-grid;
+	place-items: center;
+	width: 2.75em;
+	height: 2.75em;
+	// em follows the block's font size; never under a 24 px target (WCAG 2.5.8).
+	min-width: 24px;
+	min-height: 24px;
+	padding: 0;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+	--wrbc-icon-size: 1.1em;
+}
+/* Focus: the shared ring (2 px --wrbc-focus, offset 2 px). The carousel's
+   arrows at the ends are aria-disabled (they keep focus): assets/modules.css
+   dims their icon (disabled controls are exempt), and hover leaves them be. */
+.wrbc-logos__btn:not([aria-disabled="true"]):hover { border-color: currentColor; background: var(--wrbc-surface); }
+/* The marquee's button: icon and name say what pressing it does (view.js
+   toggles .is-paused). Scoped to it: the carousel's play button is the
+   module's (assets/modules.css). */
+.wrbc-logos__pause .wrbc-logos__when-paused,
+.wrbc-logos.is-paused .wrbc-logos__pause .wrbc-logos__when-playing { display: none; }
+.wrbc-logos.is-paused .wrbc-logos__pause .wrbc-logos__when-paused { display: inline-block; }
+
+.wrbc-logos__pause {
+	align-self: flex-end;
+	width: 2.25em;
+	height: 2.25em;
+	--wrbc-icon-size: 0.95em;
+}
+/* Theme guard: themes style button elements in stylesheets that print after
+   the blocks (Hello Elementor: [type=button] gets width: auto, padding, a
+   pink border and text, a pink fill on :hover / :focus). The pause button
+   restates its look with the block root (0,2,0; 0,3,0 on :hover / :focus),
+   as the carousel's buttons do in assets/modules.css; aspect-ratio keeps it
+   round when a theme sets width: auto. */
+.wrbc-root .wrbc-logos__pause {
+	display: inline-grid;
+	place-items: center;
+	aspect-ratio: 1;
+	padding: 0;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font-size: inherit;
+	line-height: 1;
+	white-space: normal;
+}
+.wrbc-root .wrbc-logos__pause:focus { border-color: var(--wrbc-line); background: transparent; color: inherit; }
+.wrbc-root .wrbc-logos__pause:hover { border-color: currentColor; background: var(--wrbc-surface); color: inherit; }
+/* The pause button needs view.js; until then the row stands still (above). */
+.wrbc-logos:not(.is-ready) .wrbc-logos__pause { display: none; }
+
+/* ── Carousel (wrbc-carousel module) ──────────────────────────────────── */
+.wrbc-logos .wrbc-logos__track {
+	--wrbc-pv: var(--wrbc-pv-m, 2);
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: calc((100% - (var(--wrbc-pv) - 1) * var(--wrbc-gap)) / var(--wrbc-pv));
+	align-items: center;
+	gap: var(--wrbc-gap);
+	margin: 0;
+	padding: 0.15em 0; // the focus ring is inside each logo's padding
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+}
+.wrbc-logos .wrbc-logos__track::-webkit-scrollbar { display: none; }
+.wrbc-logos .wrbc-logos__track > * { scroll-snap-align: start; }
+/* Its focus ring: the shared [tabindex] ring (0,4,0, above a theme's), offset 2 px.
+   A logo tabbed to in a slide out of view comes in at once (wrbc-carousel:
+   no smooth scroll on the track), so its ring shows right away. */
+@container (min-width: 600px) {
+	.wrbc-logos .wrbc-logos__track { --wrbc-pv: var(--wrbc-pv-t, 4); }
+}
+@container (min-width: 960px) {
+	.wrbc-logos .wrbc-logos__track { --wrbc-pv: var(--wrbc-pv-d, 6); }
+}
+
+/* Arrows, dots and play: assets/modules.css (wrbc-carousel__*); the
+   buttons also carry wrbc-logos__btn (prefix of wrbc_carousel_controls()). */
+
+/* ── Reduced motion: the marquee becomes a static, wrapped row ───────── */
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-logos { @include wrbc-logos-still; }
+	.wrbc-logos .wrbc-logos__pause { display: none; }
+	.wrbc-root .wrbc-logos__img,
+	.wrbc-logos__btn { transition: none; }
+	.wrbc-logos .wrbc-logos__track { scroll-behavior: auto; }
+}

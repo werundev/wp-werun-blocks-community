@@ -1,0 +1,46 @@
+/* Query: editor only (sidebar controls and the preview). */
+.wrbc-query.is-loading .wrbc-query__preview { opacity: 0.6; transition: opacity 0.2s ease; }
+.wrbc-query__preview a,
+.wrbc-query__preview button { cursor: default; }
+/* Editor only: 72 % of the text colour stays readable on light and dark canvases. */
+.wrbc-query__editor-count { margin: 1em 0 0; font-size: 12px; color: color-mix(in srgb, currentColor 72%, transparent); }
+.wrbc-query .components-notice { margin: 0 0 16px; }
+
+.wrbc-query-rules { display: grid; gap: 12px; margin-bottom: 16px; }
+.wrbc-query-rules__row {
+	display: grid;
+	gap: 12px;
+	padding: 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+}
+.wrbc-query-rules__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.wrbc-query-rules__head strong { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.wrbc-query-rules__head span { display: inline-flex; }
+.wrbc-query-help { margin: 4px 0 12px; color: #757575; font-size: 12px; }
+.wrbc-query-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.wrbc-query-fieldset { margin: 0 0 16px; padding: 0; border: 0; }
+.wrbc-query-fieldset legend { margin-bottom: 8px; font-size: 11px; font-weight: 500; text-transform: uppercase; }
+.wrbc-query-fieldset .components-checkbox-control { margin-bottom: 6px; }
+
+.wrbc-query-picker { margin-bottom: 16px; }
+.wrbc-query-picker__list { margin: 8px 0 0; padding: 0; list-style: none; counter-reset: wrbc-pick; }
+.wrbc-query-picker__list li {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	padding: 4px 0;
+	border-bottom: 1px solid #f0f0f0;
+	counter-increment: wrbc-pick;
+}
+.wrbc-query-picker__list li span { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wrbc-query-picker__list li span::before { content: counter(wrbc-pick) ". "; color: #757575; }
+
+.wrbc-query-key { display: grid; gap: 2px; }
+.wrbc-query-key__name { font-family: monospace; font-size: 12px; }
+.wrbc-query-key__badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.wrbc-query-key__samples { overflow: hidden; color: #757575; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.wrbc-query-badge { padding: 0 6px; border-radius: 8px; background: #f0f0f0; font-size: 10px; line-height: 16px; }
+.wrbc-query-badge--registered { background: #e7f5ec; color: #1a7f37; }
+.wrbc-query-badge--detected { background: #eef2ff; color: #3730a3; }

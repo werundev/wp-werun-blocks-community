@@ -1,0 +1,121 @@
+/* Testimonials: a scroll-snap carousel or a grid. Slides per view follow the block's width.
+ * The carousel track, controls, dots and buttons are the shared ones
+ * (wrbc-carousel__* in assets/modules.css); what's here is testimonials' own. */
+.wrbc-testimonials { container-type: inline-size; }
+
+.wrbc-testimonials__track {
+	gap: var(--wrbc-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/* On the page each card is in a list item (card.php); in the editor the cards sit in
+ * the track directly. The item only holds its card, so both lay out the same. */
+.wrbc-testimonials__item {
+	display: flex;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+}
+.wrbc-testimonials__item > .wrbc-testi { flex: 1 1 auto; }
+
+/* Grid */
+.wrbc-testimonials--grid .wrbc-testimonials__track {
+	--wrbc-pv: var(--wrbc-cols-m, 1);
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-pv), minmax(0, 1fr));
+}
+@container (min-width: 600px) {
+	.wrbc-testimonials--grid .wrbc-testimonials__track { --wrbc-pv: var(--wrbc-cols-t, 2); }
+}
+@container (min-width: 960px) {
+	.wrbc-testimonials--grid .wrbc-testimonials__track { --wrbc-pv: var(--wrbc-cols-d, 3); }
+}
+
+/* Carousel: room for the card shadows and the focus ring inside the scroller.
+ * The viewport reaches 6px past the block on both sides; the block clips it so
+ * that never scrolls the page sideways (a full-width block, a theme without side
+ * padding), and the clip margin still paints the shadows and the track's focus ring. */
+.wrbc-testimonials--carousel {
+	overflow-x: clip;
+	overflow-clip-margin: 12px;
+}
+.wrbc-testimonials--carousel .wrbc-testimonials__viewport { margin-inline: -6px; }
+.wrbc-testimonials--carousel .wrbc-testimonials__track {
+	padding: 6px;
+	scroll-padding-inline: 6px;
+}
+
+/* Centred cards centre the controls too. */
+.wrbc-testimonials--align-center .wrbc-testimonials__controls { justify-content: center; flex-wrap: wrap; }
+.wrbc-testimonials--align-center .wrbc-testimonials__arrows { margin-inline-start: 0; }
+
+/* A testimonial */
+.wrbc-testi {
+	/* Containing block for the visually hidden text inside (.wrbc-sr-only is absolute): without it,
+	 * that text in a slide scrolled out of view escapes the track's clip and widens the page. */
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	min-width: 0;
+	height: 100%;
+	margin: 0;
+	padding: clamp(22px, 3cqi, 32px);
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-testimonials--plain .wrbc-testi { padding-inline: 0; }
+.wrbc-testimonials--bordered .wrbc-testi { border: 1px solid var(--wrbc-card-border, var(--wrbc-line)); background: var(--wrbc-card-bg, transparent); }
+.wrbc-testimonials--filled .wrbc-testi { background: var(--wrbc-card-bg, var(--wrbc-surface)); }
+.wrbc-testimonials--shadow .wrbc-testi {
+	background: var(--wrbc-card-bg, #fff);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 10px 28px -16px rgba(0, 0, 0, 0.24);
+}
+/* A card with a background of its own (card.php adds .wrbc-testi--painted: the shadow style's white,
+ * the card background, or its own Color panel, when that isn't the surface around it): its text,
+ * the accent for links and the focus ring, the role line and the stars are worked out for that
+ * background (--wrbc-card-text, --wrbc-accent-text, --wrbc-muted, --wrbc-star). Text and link colours
+ * chosen in a Color panel stay as chosen (ContrastAudit warns about those). */
+.wrbc-testi--painted:not(.has-text-color) { color: var(--wrbc-card-text, inherit); }
+.wrbc-testi--painted:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) .wrbc-testi__role a:not([class*="wrbc-"]) { color: var(--wrbc-accent-text); }
+
+.wrbc-testi__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+/* Decorative (aria-hidden): no contrast requirement, but in the accent that reads on the card. */
+.wrbc-testi__mark { color: var(--wrbc-accent-text); width: calc(var(--wrbc-icon-size) * 1.4); height: calc(var(--wrbc-icon-size) * 1.4); }
+/* An autoplaying carousel brings a slide into view every few seconds, and its quote icon would
+ * start a new animation each time ("in view", loop), long after the page loaded (WCAG 2.2.2).
+ * There the icons stay still: the slides moving is the motion, and the pause button stops it.
+ * (0,5,0): beats the shared in-view / draw rules, which hide a drawn icon's strokes until then. */
+.wrbc-root.wrbc-testimonials--autoplay .wrbc-testi__mark.wrbc-anim:is(.wrbc-anim-t--inview, .wrbc-anim-t--loop),
+.wrbc-root.wrbc-testimonials--autoplay .wrbc-testi__mark.wrbc-anim:is(.wrbc-anim-t--inview, .wrbc-anim-t--loop) > * {
+	animation: none;
+	stroke-dashoffset: 0;
+}
+.wrbc-testi__rating { display: inline-flex; flex-wrap: wrap; gap: 2px; }
+/* Stars are a meaningful graphic (WCAG 1.4.11): every star, filled or empty, is drawn in the
+ * star colour, so both need only that colour at 3:1; filled vs empty is told by the shape
+ * (solid vs outline), not by colour. --wrbc-star comes from render.php (wrbc_testimonial_star():
+ * the chosen colour, or the closest that reaches 3:1 on the card; without one, a bright gold
+ * on dark cards). The fallback gold is 3.8:1 on white, 3.5:1 on the filled card and 4.7:1 on
+ * #0f172a. The rating itself is the role="img" label ("Rated 4 out of 5"). */
+.wrbc-testi__star { --wrbc-icon-size: 16px; color: var(--wrbc-star, #b77400); }
+.wrbc-testi__star.is-on { fill: currentColor; }
+
+.wrbc-testi__quote { flex: 1 1 auto; margin: 0; padding: 0; border: 0; font-size: 1.075em; line-height: 1.6; }
+.wrbc-testi__quote p { margin: 0; }
+/* Themes style figcaption (Hello Elementor: #333, italic, 16px): the author line takes
+ * the card's colour and size, so it stays readable on a dark card and scales with the block. */
+.wrbc-testi__author { display: flex; align-items: center; gap: 12px; color: inherit; font-size: inherit; font-style: normal; line-height: inherit; }
+/* (0,2,0): a theme's image rules don't resize the photo (Hello Elementor: .alignfull img { width: 100% }
+ * made it as wide as the card inside a full-width section and squeezed the name to nothing). */
+.wrbc-testimonials .wrbc-testi__avatar { flex: 0 0 auto; width: 48px; max-width: none; height: 48px; border-radius: 999px; object-fit: cover; }
+.wrbc-testi__meta { display: flex; flex-direction: column; min-width: 0; }
+.wrbc-testi__name { font-style: normal; font-weight: 600; }
+.wrbc-testi__role { color: var(--wrbc-muted); font-size: 0.9em; }
+
+.wrbc-testimonials--align-center .wrbc-testi { text-align: center; align-items: center; }
+.wrbc-testimonials--align-center .wrbc-testi__top { flex-direction: column; }
+.wrbc-testimonials--align-center .wrbc-testi__author { flex-direction: column; }
+
+/* From a post type, when nothing matches and the block has a text for it. */
+.wrbc-testimonials__empty { margin: 0; color: var(--wrbc-muted); }

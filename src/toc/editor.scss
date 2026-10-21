@@ -1,0 +1,7 @@
+/* Table of contents, editor only. */
+.wrbc-toc__empty { margin: 0; color: var(--wrbc-muted); font-size: 0.875em; }
+.wrbc-toc .wrbc-toc__link { cursor: default; }
+.wrbc-toc__summary .wrbc-toc__title-text[contenteditable] { cursor: text; }
+/* "Sticky over the text" warning at the top of the sidebar (edit.js). */
+.wrbc-toc__sticky-note { padding: 0 16px 16px; }
+.wrbc-toc__sticky-note .components-notice { margin: 0; }

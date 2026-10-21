@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/accordion-item",
+  "version": "1.0.0",
+  "title": "Accordion item",
+  "category": "werun-community",
+  "icon": "arrow-down-alt2",
+  "description": "One question of an accordion. The answer can hold any blocks.",
+  "parent": [
+    "werun-community/accordion"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "question": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "icon": {
+      "type": "object"
+    },
+    "openByDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "usesContext": [
+    "werun-community/accordion/iconType",
+    "werun-community/accordion/iconClosed",
+    "werun-community/accordion/iconOpen",
+    "werun-community/accordion/iconPosition",
+    "werun-community/accordion/showItemIcons",
+    "werun-community/accordion/itemIcon",
+    "werun-community/accordion/allowMultiple",
+    "werun-community/accordion/questionHeading",
+    "werun-community/accordion/showHeader",
+    "werun-community/accordion/title",
+    "werun-community/accordion/titleLevel",
+    "werun-community/accordion/columns",
+    "werun-community/accordion/accordionStyle",
+    "werun-community/accordion/itemBg",
+    "werun-community/accordion/accentColor"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "reusable": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

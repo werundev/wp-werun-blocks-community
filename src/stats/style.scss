@@ -1,0 +1,135 @@
+/* Stats and their stats. Columns follow the block's own width (container
+   queries); every size is in em, so the block's font size scales it. */
+.wrbc-stats {
+	container-type: inline-size;
+	--wrbc-gap: 32px;
+	--wrbc-card-pad: 28px;
+	--wrbc-radius: 14px;
+	--wrbc-stat-size: 3em;
+}
+.wrbc-stats__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-cols-m, 1), minmax(0, 1fr));
+	gap: var(--wrbc-gap);
+	margin: 0;
+	padding: 0;
+}
+@container (min-width: 600px) {
+	.wrbc-stats__grid { grid-template-columns: repeat(var(--wrbc-cols-t, 2), minmax(0, 1fr)); }
+}
+@container (min-width: 960px) {
+	.wrbc-stats__grid { grid-template-columns: repeat(var(--wrbc-cols-d, 4), minmax(0, 1fr)); }
+}
+
+.wrbc-stat {
+	container-type: inline-size;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	min-width: 0;
+	margin: 0;
+}
+.wrbc-stats--align-center .wrbc-stat { align-items: center; text-align: center; }
+.wrbc-stats--align-left .wrbc-stat { align-items: flex-start; text-align: start; }
+
+/* The accent as text (numbers, icons, links): --wrbc-accent-text is the accent
+   made readable on what the stat sits on (render.php, docs/accessibility.md). */
+.wrbc-stat__icon { color: var(--wrbc-icon-color, var(--wrbc-accent-text)); }
+.wrbc-stat__main {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35em;
+	min-width: 0;
+	max-width: 100%;
+}
+.wrbc-stat__number {
+	margin: 0;
+	color: var(--wrbc-accent-text);
+	/* Never wider than the stat: a big figure in a narrow column (two on a
+	   phone, cards with padding) shrinks instead of breaking "$4.5 / M". */
+	font-size: min(var(--wrbc-stat-size), 26cqi);
+	font-weight: 700;
+	line-height: 1.05;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+	overflow-wrap: anywhere;
+}
+/* A figure (up to 12 characters, render.php) stays on one line, so
+   "$4,500,000" never splits into "$4,500,00 / 0": it shrinks with the stat
+   instead. 0.8 em a character fits the widest common digits (Verdana bold)
+   with the 0.12 em letter spacing a reader may force (WCAG 1.4.12).
+   --wrbc-stat-len: its length (render.php, twin fitLength() in number.js). */
+.wrbc-stat__number--fit {
+	font-size: min(var(--wrbc-stat-size), 26cqi, 100cqi / (var(--wrbc-stat-len, 4) * 0.8));
+	white-space: nowrap;
+}
+.wrbc-stat__label {
+	margin: 0;
+	font-weight: 600;
+	line-height: 1.35;
+}
+.wrbc-stat__desc {
+	/* A flex item sized to its content: never wider than the stat, so a
+	   long word wraps inside it whatever overflow-wrap it inherits. */
+	max-width: 100%;
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: 0.925em;
+	line-height: 1.55;
+}
+/* Links in a description on a background the block paints (a card, the
+   block's or a stat's own colour): the theme's link colour is made for its
+   page (Hello's #c36 is 4.43:1 on #eef2ff), so they take the accent made
+   readable on that background, in every state. A link colour chosen on the
+   block, or around it, wins (wrbc-has-link-color). On dark backgrounds the
+   shared rule in assets/shared.css does the same. */
+.wrbc-stats:not(.wrbc-has-link-color):not(.wrbc-has-link-color *):is(.wrbc-stats--cards, .has-background) .wrbc-stat__desc a,
+.wrbc-stats:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) .wrbc-stat.has-background .wrbc-stat__desc a {
+	color: var(--wrbc-accent-text);
+}
+
+/* Row with separators: lines in the middle of every gap. Each stat draws one
+   box reaching half a gap past each side, with its start and top borders; the
+   grid clips what falls outside, so the first column and the first row get no
+   line, whatever the column count. One pseudo-element only: the editor uses
+   ::after for the selected block's outline. */
+.wrbc-stats--row.wrbc-stats--sep .wrbc-stats__grid { overflow: clip; }
+.wrbc-stats--row.wrbc-stats--sep .wrbc-stat::before {
+	content: "";
+	position: absolute;
+	inset: calc(var(--wrbc-gap) / -2 - 0.5px);
+	border: 0 solid var(--wrbc-stats-sep, var(--wrbc-line));
+	border-block-start-width: 1px;
+	border-inline-start-width: 1px;
+	pointer-events: none;
+}
+
+/* Large: big, lighter figures; separators are a rule above each one. */
+.wrbc-stats--large .wrbc-stat__number { font-weight: 300; letter-spacing: -0.04em; }
+.wrbc-stats--large .wrbc-stat__label { font-size: 1.1em; }
+.wrbc-stats--large.wrbc-stats--sep .wrbc-stat {
+	padding-top: 1.25em;
+	border-top: 1px solid var(--wrbc-stats-sep, var(--wrbc-line));
+}
+
+/* Cards */
+.wrbc-stats--cards .wrbc-stat {
+	padding: var(--wrbc-card-pad);
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-stats--card-bordered .wrbc-stat { border: 1px solid var(--wrbc-card-border, var(--wrbc-line)); background: var(--wrbc-card-bg, transparent); }
+.wrbc-stats--card-filled .wrbc-stat { background: var(--wrbc-card-bg, var(--wrbc-surface)); }
+.wrbc-stats--card-shadow .wrbc-stat {
+	background: var(--wrbc-card-bg, #fff);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px -12px rgba(0, 0, 0, 0.18);
+}
+
+/* Staggered reveal, without the stat knowing its index */
+.wrbc-stats .wrbc-stat[data-wrbc-reveal]:nth-child(4n + 2) { --wrbc-reveal-delay: 0.08s; }
+.wrbc-stats .wrbc-stat[data-wrbc-reveal]:nth-child(4n + 3) { --wrbc-reveal-delay: 0.16s; }
+.wrbc-stats .wrbc-stat[data-wrbc-reveal]:nth-child(4n + 4) { --wrbc-reveal-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-stat[data-wrbc-reveal] { transition: none; }
+}

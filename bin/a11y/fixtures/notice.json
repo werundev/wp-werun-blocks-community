@@ -1,0 +1,247 @@
+[
+    {
+        "id": "notice-top-bar",
+        "title": "Variation \"top bar\": brand, solid, centred, full width, can be closed",
+        "markup": "<!-- wp:werun-community/notice {\"layout\":\"bar\",\"barPosition\":\"top\",\"tone\":\"brand\",\"appearance\":\"solid\",\"dismissible\":true,\"rememberDays\":0,\"contentAlign\":\"center\",\"schedule\":false,\"align\":\"full\",\"noticeId\":\"fxtopbar\",\"showLink\":true,\"linkUrl\":\"#offer\",\"linkLabel\":\"See the offer\"} /--><!-- wp:paragraph --><p>Content after the bar, with <a href=\"#after\">a link</a>.</p><!-- /wp:paragraph -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-inline-info",
+        "title": "Variation \"information\": soft info box (block defaults)",
+        "markup": "<!-- wp:werun-community/notice {\"layout\":\"inline\",\"tone\":\"info\",\"appearance\":\"soft\",\"dismissible\":false,\"schedule\":false} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-inline-warning",
+        "title": "Variation \"warning\": soft warning box, marked urgent (announced once after load)",
+        "markup": "<!-- wp:werun-community/notice {\"layout\":\"inline\",\"tone\":\"warning\",\"appearance\":\"soft\",\"dismissible\":false,\"schedule\":false,\"urgent\":true,\"title\":\"Planned maintenance\",\"message\":\"Checkout is unavailable tonight from 22:00 to 23:00.\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-scheduled",
+        "title": "Variation \"scheduled\": neutral solid bar, between two dates (2026 to 2030), can be closed",
+        "markup": "<!-- wp:werun-community/notice {\"schedule\":true,\"scheduleStart\":\"2026-01-01T00:00:00\",\"scheduleEnd\":\"2030-01-01T00:00:00\",\"layout\":\"bar\",\"barPosition\":\"top\",\"tone\":\"neutral\",\"appearance\":\"solid\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxsched\",\"title\":\"Summer sale\",\"message\":\"Until the end of the month, free shipping on every order.\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-soft-tones",
+        "title": "Soft look, all six tones: title, inline link, link, close button",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"info\",\"appearance\":\"soft\",\"title\":\"Info notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-info\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-info\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoftinfo\"} /--><!-- wp:werun-community/notice {\"tone\":\"success\",\"appearance\":\"soft\",\"title\":\"Success notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-success\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-success\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoftsuccess\"} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"appearance\":\"soft\",\"title\":\"Warning notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-warning\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-warning\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoftwarning\"} /--><!-- wp:werun-community/notice {\"tone\":\"danger\",\"appearance\":\"soft\",\"title\":\"Danger notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-danger\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-danger\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoftdanger\"} /--><!-- wp:werun-community/notice {\"tone\":\"neutral\",\"appearance\":\"soft\",\"title\":\"Neutral notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-neutral\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-neutral\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoftneutral\"} /--><!-- wp:werun-community/notice {\"tone\":\"brand\",\"appearance\":\"soft\",\"title\":\"Brand notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-brand\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-brand\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoftbrand\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-solid-tones",
+        "title": "Solid look, all six tones: title, inline link, link, close button",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"info\",\"appearance\":\"solid\",\"title\":\"Info notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-info\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-info\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsolidinfo\"} /--><!-- wp:werun-community/notice {\"tone\":\"success\",\"appearance\":\"solid\",\"title\":\"Success notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-success\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-success\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsolidsuccess\"} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"appearance\":\"solid\",\"title\":\"Warning notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-warning\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-warning\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsolidwarning\"} /--><!-- wp:werun-community/notice {\"tone\":\"danger\",\"appearance\":\"solid\",\"title\":\"Danger notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-danger\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-danger\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsoliddanger\"} /--><!-- wp:werun-community/notice {\"tone\":\"neutral\",\"appearance\":\"solid\",\"title\":\"Neutral notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-neutral\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-neutral\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsolidneutral\"} /--><!-- wp:werun-community/notice {\"tone\":\"brand\",\"appearance\":\"solid\",\"title\":\"Brand notice\",\"message\":\"A message with an \\u003ca href=\\u0022#inline-brand\\u0022\\u003einline link\\u003c/a\\u003e in the sentence.\",\"showLink\":true,\"linkUrl\":\"#cta-brand\",\"linkLabel\":\"Learn more\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsolidbrand\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-buttons",
+        "title": "Button instead of a link, every tone in both looks (no title; one opens in a new tab)",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"info\",\"appearance\":\"soft\",\"title\":\"\",\"message\":\"Soft info: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-soft-info\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"success\",\"appearance\":\"soft\",\"title\":\"\",\"message\":\"Soft success: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-soft-success\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"appearance\":\"soft\",\"title\":\"\",\"message\":\"Soft warning: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-soft-warning\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"danger\",\"appearance\":\"soft\",\"title\":\"\",\"message\":\"Soft danger: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-soft-danger\",\"linkLabel\":\"Act now\",\"linkNewTab\":true} /--><!-- wp:werun-community/notice {\"tone\":\"neutral\",\"appearance\":\"soft\",\"title\":\"\",\"message\":\"Soft neutral: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-soft-neutral\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"brand\",\"appearance\":\"soft\",\"title\":\"\",\"message\":\"Soft brand: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-soft-brand\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"info\",\"appearance\":\"solid\",\"title\":\"\",\"message\":\"Solid info: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-solid-info\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"success\",\"appearance\":\"solid\",\"title\":\"\",\"message\":\"Solid success: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-solid-success\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"appearance\":\"solid\",\"title\":\"\",\"message\":\"Solid warning: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-solid-warning\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"danger\",\"appearance\":\"solid\",\"title\":\"\",\"message\":\"Solid danger: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-solid-danger\",\"linkLabel\":\"Act now\",\"linkNewTab\":true} /--><!-- wp:werun-community/notice {\"tone\":\"neutral\",\"appearance\":\"solid\",\"title\":\"\",\"message\":\"Solid neutral: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-solid-neutral\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /--><!-- wp:werun-community/notice {\"tone\":\"brand\",\"appearance\":\"solid\",\"title\":\"\",\"message\":\"Solid brand: a message with a button.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#btn-solid-brand\",\"linkLabel\":\"Act now\",\"linkNewTab\":false} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-bars-soft",
+        "title": "Soft bars (layout bar, left aligned), all tones, with link and close",
+        "markup": "<!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"info\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxbarinfo\",\"title\":\"Info bar\",\"message\":\"A soft bar, left aligned.\",\"showLink\":true,\"linkUrl\":\"#bar-info\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"success\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxbarsuccess\",\"title\":\"Success bar\",\"message\":\"A soft bar, left aligned.\",\"showLink\":true,\"linkUrl\":\"#bar-success\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"warning\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxbarwarning\",\"title\":\"Warning bar\",\"message\":\"A soft bar, left aligned.\",\"showLink\":true,\"linkUrl\":\"#bar-warning\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"danger\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxbardanger\",\"title\":\"Danger bar\",\"message\":\"A soft bar, left aligned.\",\"showLink\":true,\"linkUrl\":\"#bar-danger\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"neutral\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxbarneutral\",\"title\":\"Neutral bar\",\"message\":\"A soft bar, left aligned.\",\"showLink\":true,\"linkUrl\":\"#bar-neutral\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"brand\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxbarbrand\",\"title\":\"Brand bar\",\"message\":\"A soft bar, left aligned.\",\"showLink\":true,\"linkUrl\":\"#bar-brand\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-sticky-top",
+        "title": "Bar sticky at the top (soft info), then content to tab through (2.4.11)",
+        "markup": "<!-- wp:werun-community/notice {\"layout\":\"bar\",\"barPosition\":\"sticky-top\",\"tone\":\"info\",\"appearance\":\"soft\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxstickytop\",\"title\":\"Sticky bar\",\"message\":\"It stays at the top of the window while the page scrolls.\",\"showLink\":true,\"linkUrl\":\"#para-12\"} /--><!-- wp:paragraph --><p>Paragraph 1 with <a href=\"#para-1\">link number 1</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 2 with <a href=\"#para-2\">link number 2</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 3 with <a href=\"#para-3\">link number 3</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 4 with <a href=\"#para-4\">link number 4</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 5 with <a href=\"#para-5\">link number 5</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 6 with <a href=\"#para-6\">link number 6</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 7 with <a href=\"#para-7\">link number 7</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 8 with <a href=\"#para-8\">link number 8</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 9 with <a href=\"#para-9\">link number 9</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 10 with <a href=\"#para-10\">link number 10</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 11 with <a href=\"#para-11\">link number 11</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 12 with <a href=\"#para-12\">link number 12</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 13 with <a href=\"#para-13\">link number 13</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 14 with <a href=\"#para-14\">link number 14</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 15 with <a href=\"#para-15\">link number 15</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 16 with <a href=\"#para-16\">link number 16</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 17 with <a href=\"#para-17\">link number 17</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 18 with <a href=\"#para-18\">link number 18</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 19 with <a href=\"#para-19\">link number 19</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 20 with <a href=\"#para-20\">link number 20</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 21 with <a href=\"#para-21\">link number 21</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 22 with <a href=\"#para-22\">link number 22</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 23 with <a href=\"#para-23\">link number 23</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 24 with <a href=\"#para-24\">link number 24</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-sticky-bottom",
+        "title": "Bar fixed at the bottom (solid warning, button), placed last after content to tab through (2.4.11)",
+        "markup": "<!-- wp:paragraph --><p>Paragraph 1 with <a href=\"#para-1\">link number 1</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 2 with <a href=\"#para-2\">link number 2</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 3 with <a href=\"#para-3\">link number 3</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 4 with <a href=\"#para-4\">link number 4</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 5 with <a href=\"#para-5\">link number 5</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 6 with <a href=\"#para-6\">link number 6</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 7 with <a href=\"#para-7\">link number 7</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 8 with <a href=\"#para-8\">link number 8</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 9 with <a href=\"#para-9\">link number 9</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 10 with <a href=\"#para-10\">link number 10</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 11 with <a href=\"#para-11\">link number 11</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 12 with <a href=\"#para-12\">link number 12</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 13 with <a href=\"#para-13\">link number 13</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 14 with <a href=\"#para-14\">link number 14</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 15 with <a href=\"#para-15\">link number 15</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 16 with <a href=\"#para-16\">link number 16</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 17 with <a href=\"#para-17\">link number 17</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 18 with <a href=\"#para-18\">link number 18</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 19 with <a href=\"#para-19\">link number 19</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 20 with <a href=\"#para-20\">link number 20</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 21 with <a href=\"#para-21\">link number 21</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 22 with <a href=\"#para-22\">link number 22</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 23 with <a href=\"#para-23\">link number 23</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Paragraph 24 with <a href=\"#para-24\">link number 24</a>, so the Tab walk passes the bar.</p><!-- /wp:paragraph --><!-- wp:werun-community/notice {\"layout\":\"bar\",\"barPosition\":\"sticky-bottom\",\"tone\":\"warning\",\"appearance\":\"solid\",\"dismissible\":true,\"rememberDays\":0,\"align\":\"full\",\"noticeId\":\"fxstickybottom\",\"title\":\"Fixed bar\",\"message\":\"It stays at the bottom of the window.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#para-3\",\"linkLabel\":\"See the offer\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-content-options",
+        "title": "Title as h2 / h3, no title, link only, no icon, urgent danger bar, Center + Soft dismissible bar",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"info\",\"titleTag\":\"h2\",\"title\":\"Heading 2 title\",\"message\":\"The title is a real heading.\"} /--><!-- wp:werun-community/notice {\"tone\":\"success\",\"titleTag\":\"h3\",\"title\":\"Heading 3 title\",\"message\":\"Saved.\",\"appearance\":\"solid\"} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"title\":\"\",\"message\":\"A warning without a title.\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxnotitle\"} /--><!-- wp:werun-community/notice {\"tone\":\"danger\",\"title\":\"\",\"message\":\"\",\"showLink\":true,\"linkUrl\":\"#only\",\"linkLabel\":\"Read the incident report\"} /--><!-- wp:werun-community/notice {\"tone\":\"neutral\",\"icon\":{},\"title\":\"No icon\",\"message\":\"The tone is still in words for screen readers.\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"danger\",\"appearance\":\"solid\",\"urgent\":true,\"title\":\"\",\"message\":\"Payments are down: we are on it.\",\"align\":\"full\"} /--><!-- wp:werun-community/notice {\"layout\":\"bar\",\"tone\":\"success\",\"appearance\":\"soft\",\"contentAlign\":\"center\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxcentersoft\",\"title\":\"Centred soft bar\",\"message\":\"With a close button on the right.\",\"showLink\":true,\"linkUrl\":\"#c\",\"align\":\"full\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-custom-tones",
+        "title": "Custom tone colours: light yellow Solid (automatic text), white text chosen on yellow (adjusted), light sky Soft with button, translucent tone",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"warning\",\"appearance\":\"solid\",\"toneColor\":\"#facc15\",\"title\":\"Light tone, Solid\",\"message\":\"Text, icon, \\u003ca href=\\u0022#y\\u0022\\u003elink\\u003c/a\\u003e and close follow the tone.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#y1\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxyellow\"} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"appearance\":\"solid\",\"toneColor\":\"#facc15\",\"onToneColor\":\"#ffffff\",\"title\":\"White chosen on yellow\",\"message\":\"Adjusted to stay readable.\",\"showLink\":true,\"linkUrl\":\"#y2\"} /--><!-- wp:werun-community/notice {\"tone\":\"info\",\"appearance\":\"soft\",\"toneColor\":\"#7dd3fc\",\"title\":\"Light tone, Soft\",\"message\":\"Icon and button follow.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#sky\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxsky\"} /--><!-- wp:werun-community/notice {\"tone\":\"danger\",\"appearance\":\"solid\",\"onToneColor\":\"#fca5a5\",\"title\":\"Pink chosen on red\",\"message\":\"Adjusted to stay readable.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#pink\"} /--><!-- wp:werun-community/notice {\"tone\":\"info\",\"appearance\":\"solid\",\"toneColor\":\"#1d4ed880\",\"title\":\"Translucent tone\",\"message\":\"Painted over the page.\",\"showLink\":true,\"linkUrl\":\"#tr\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-own-background",
+        "title": "Own background colour (Color panel): dark Soft without a text colour, light Solid, dark with a chosen text colour, link colour set",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"info\",\"style\":{\"color\":{\"background\":\"#0f172a\"}},\"title\":\"Dark own background\",\"message\":\"Text turns light, with an \\u003ca href=\\u0022#d\\u0022\\u003einline link\\u003c/a\\u003e.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#d1\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxowndark\"} /--><!-- wp:werun-community/notice {\"tone\":\"success\",\"appearance\":\"solid\",\"style\":{\"color\":{\"background\":\"#fef9c3\"}},\"title\":\"Light own background on Solid\",\"message\":\"The text is the block text, not white.\",\"showLink\":true,\"linkStyle\":\"button\",\"linkUrl\":\"#l1\",\"dismissible\":true,\"rememberDays\":0,\"noticeId\":\"fxownlight\"} /--><!-- wp:werun-community/notice {\"tone\":\"warning\",\"style\":{\"color\":{\"background\":\"#1e293b\",\"text\":\"#e2e8f0\"}},\"title\":\"Dark with a chosen text colour\",\"message\":\"Chosen colours stay.\",\"showLink\":true,\"linkUrl\":\"#t1\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            },
+            {
+                "selector": ".wrbc-notice__close svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "close icon"
+            }
+        ]
+    },
+    {
+        "id": "notice-link-colour",
+        "title": "Link colour chosen in the Color panel (dark green, made for a light page)",
+        "markup": "<!-- wp:werun-community/notice {\"tone\":\"brand\",\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#166534\"}}}},\"title\":\"Link colour chosen\",\"message\":\"An \\u003ca href=\\u0022#g\\u0022\\u003einline link\\u003c/a\\u003e in the chosen link colour.\"} /-->",
+        "nonText": [
+            {
+                "selector": ".wrbc-notice__icon svg",
+                "property": "stroke",
+                "min": 3,
+                "label": "tone icon"
+            }
+        ],
+        "contexts": [
+            "light"
+        ]
+    }
+]

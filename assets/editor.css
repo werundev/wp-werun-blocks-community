@@ -1,0 +1,120 @@
+/* werun.Blocks.Community: the editor's own UI (icon picker and controls), outside the canvas. */
+
+.wrbc-picker .components-modal__content { padding-bottom: 24px; }
+.wrbc-picker__tabs .components-tab-panel__tabs { margin: 12px 0 8px; }
+.wrbc-picker__note { margin: 4px 0 12px; color: #50575e; font-size: 12px; line-height: 1.5; }
+.wrbc-picker__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+	gap: 6px;
+}
+.wrbc-picker__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 84px;
+	padding: 10px 6px;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	background: #fff;
+	color: #1e1e1e;
+	cursor: pointer;
+	--wrbc-icon-size: 24px;
+	--wrbc-icon-stroke: 2;
+	--wrbc-anim-dur: 0.7s;
+}
+.wrbc-picker__item:hover { border-color: #1e1e1e; }
+.wrbc-picker__item:focus-visible { outline: 2px solid var(--wp-admin-theme-color, #3858e9); outline-offset: 1px; }
+.wrbc-picker__item.is-selected { border-color: var(--wp-admin-theme-color, #3858e9); box-shadow: inset 0 0 0 1px var(--wp-admin-theme-color, #3858e9); }
+.wrbc-picker__name {
+	max-width: 100%;
+	overflow: hidden;
+	font-size: 10.5px;
+	line-height: 1.3;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #50575e;
+}
+.wrbc-picker__more { display: flex; justify-content: center; margin-top: 14px; }
+.wrbc-picker__empty { color: #50575e; }
+
+.wrbc-icon-control__row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.wrbc-icon-control__preview {
+	display: inline-grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	--wrbc-icon-size: 22px;
+	--wrbc-icon-stroke: 2;
+	--wrbc-anim-dur: 0.7s;
+}
+.wrbc-icon-control__name { display: flex; flex-direction: column; flex: 1 1 80px; min-width: 0; font-size: 12px; overflow-wrap: anywhere; }
+.wrbc-icon-control__name small { color: #757575; }
+.wrbc-icon-control__anim { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+.wrbc-control-label { margin: 0 0 8px; font-size: 11px; font-weight: 500; text-transform: uppercase; }
+.wrbc-panel-list { display: flex; flex-direction: column; gap: 12px; }
+.wrbc-panel-row { display: flex; gap: 8px; align-items: flex-end; }
+.wrbc-panel-row > * { flex: 1 1 auto; }
+
+/* Block icons: Lucide draws with strokes. WordPress fills block icons
+   (.block-editor-block-icon svg { fill: currentColor }), which would turn
+   them into solid shapes. */
+.wrbc-block-icon,
+.block-editor-block-icon svg.wrbc-block-icon {
+	fill: none;
+	stroke: currentColor;
+}
+
+/* werun badge on the blocks in the inserter, top right, like Elementor
+   marks its own widgets: the werun.dev monogram (brand/werun-monograma-oscuro.svg).
+   A background image, because the item's ::after is WordPress's own hover
+   layer. The item class is editor-block-list-item-werun-…. */
+.block-editor-block-types-list__item[class*="editor-block-list-item-werun-"] {
+	background-image: url("brand/werun-monograma-oscuro.svg");
+	background-repeat: no-repeat;
+	background-position: right 6px top 6px;
+	background-size: 16px 16px;
+}
+
+/* Saved styles panel (src/presets). */
+.wrbc-presets__help {
+	margin: 0 0 12px;
+	color: #757575;
+}
+.wrbc-presets__actions {
+	margin: 8px 0 16px;
+}
+.wrbc-presets__save {
+	margin-top: 8px;
+}
+
+/* Contrast warning at the top of a block's sidebar (src/shared/a11y.js). */
+.wrbc-contrast-audit {
+	padding: 0 16px 16px;
+}
+.wrbc-contrast-audit .components-notice {
+	margin: 0;
+}
+.wrbc-contrast-audit__title {
+	margin: 0 0 4px;
+	font-weight: 600;
+}
+.wrbc-contrast-audit__list {
+	margin: 0 0 0 1.1em;
+	padding: 0;
+	list-style: disc;
+}
+.wrbc-contrast-audit__list li {
+	margin: 2px 0;
+}
+.wrbc-contrast-audit__sample {
+	color: #50575e;
+}
+.wrbc-contrast-audit__more {
+	margin: 4px 0 0;
+}

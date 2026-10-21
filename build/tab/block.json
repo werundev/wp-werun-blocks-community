@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/tab",
+  "version": "1.0.0",
+  "title": "Tab",
+  "category": "werun-community",
+  "icon": "index-card",
+  "description": "One tab of a tabs block: its label, an optional icon, and a panel that holds any blocks.",
+  "parent": [
+    "werun-community/tabs"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "icon": {
+      "type": "object"
+    }
+  },
+  "usesContext": [
+    "werun-community/tabs/showIcons",
+    "werun-community/tabs/tabIcon",
+    "werun-community/tabs/showHeader",
+    "werun-community/tabs/titleLevel",
+    "werun-community/tabs/accentColor",
+    "werun-community/tabs/editorActive"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "reusable": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

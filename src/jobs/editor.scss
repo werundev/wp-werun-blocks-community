@@ -1,0 +1,13 @@
+/* Jobs, editor only. The preview is the server render inside this wrapper:
+   the wrapper carries the block supports (colours, spacing, typography), so
+   the inner root drops its own default padding to avoid doubling it. */
+:where(.wrbc-jobs-editor) { padding-block: clamp(48px, 7vw, 96px); }
+.wrbc-jobs-editor > .components-disabled > div > .wrbc-jobs,
+.wrbc-jobs-editor .wrbc-jobs { padding-block: 0; }
+.wrbc-jobs-editor__actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.wrbc-jobs-editor__setup { width: 100%; max-width: 420px; }
+.wrbc-jobs-editor__setup .components-base-control { margin-bottom: 12px; }
+.wrbc-jobs--setup .wrbc-jobs__notice { margin: 0; }
+/* The front end shows the filters once wrbc-filter runs; the preview has no
+   front-end scripts, so it shows them as they will look. */
+.wrbc-jobs-editor .wrbc-jobs:not(.is-ready) .wrbc-jobs__filters { display: flex; }

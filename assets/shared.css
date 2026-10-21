@@ -1,0 +1,462 @@
+/*
+ * werun.Blocks.Community: what every block shares.
+ * Icons and their animations, buttons, the section header, the entrance
+ * reveal and a screen-reader helper. Every rule is under a wrbc- class, so
+ * nothing here touches the theme, and every value a block lets you change is
+ * a custom property set on that block's own wrapper, so two instances on one
+ * page never share a setting.
+ */
+
+/* ── Tokens a block may override on its wrapper ───────────────────────────
+ * Only on a block's outer wrapper (.wrbc-root): an item inside it inherits
+ * its parent's values instead of resetting them. */
+:where(.wrbc-root) {
+	--wrbc-accent: #4f46e5;
+	--wrbc-on-accent: #ffffff;
+	/* The accent as text, links, icons and focus ring on the block's own
+	 * background. wrbc_accent_vars() / accentVars() print a readable one
+	 * (4.5:1) when the background needs it; see docs/accessibility.md. */
+	--wrbc-accent-text: var(--wrbc-accent);
+	--wrbc-focus: var(--wrbc-accent-text);
+	/* 76 %: still 4.5:1 with theme text up to about #4a4a4a, on white and
+	 * on the 4 % tinted surfaces of filled cards. */
+	--wrbc-muted: color-mix(in srgb, currentColor 76%, transparent);
+	/* Decoration only (card borders, separators): about 1.3:1. */
+	--wrbc-line: color-mix(in srgb, currentColor 14%, transparent);
+	/* A boundary that identifies a control (inputs, selects, switches,
+	 * inactive dots): 3:1 with theme text up to about #5a5a5a (WCAG 1.4.11). */
+	--wrbc-control-line: color-mix(in srgb, currentColor 64%, transparent);
+	--wrbc-surface: color-mix(in srgb, currentColor 4%, transparent);
+	--wrbc-radius: 12px;
+	--wrbc-btn-radius: 999px;
+	--wrbc-gap: 24px;
+	--wrbc-icon-size: 24px;
+	--wrbc-icon-stroke: 2;
+	--wrbc-anim-dur: 0.7s;
+	box-sizing: border-box;
+	/* A long word (URL, e-mail, compound) wraps instead of pushing the page
+	 * sideways at 320 px (WCAG 1.4.10). Inherited by everything inside;
+	 * "anywhere" also lets parts sized to their content (badges, buttons,
+	 * flex items) shrink. Tables keep break-word, or auto columns would
+	 * shrink to one letter instead of scrolling. */
+	overflow-wrap: anywhere;
+}
+:where(.wrbc-root) :where(table) { overflow-wrap: break-word; }
+:where([class*="wp-block-werun-community-"]) *,
+:where([class*="wp-block-werun-community-"]) *::before,
+:where([class*="wp-block-werun-community-"]) *::after {
+	box-sizing: border-box;
+}
+
+/* ── Tone: what the block's colours sit on ──────────────────────────────
+ * includes/a11y (PHP) and src/shared/contrast.js (editor) add
+ * .wrbc-is-dark to any element that paints — or sits on — a dark
+ * background (its own, a section's, a group's, a cover's, an overlay), and
+ * .wrbc-is-light to a light one inside a dark context. Text turns light
+ * (or dark) unless a text colour was chosen, and the accent used as text
+ * and focus follows. wrbc_accent_vars() prints the exact readable accent
+ * when it knows the colours; these mixes are the fallback. */
+:where(.wrbc-is-dark) {
+	--wrbc-accent-text: color-mix(in srgb, var(--wrbc-accent) 40%, #fff);
+	--wrbc-focus: var(--wrbc-accent-text);
+	/* Mid-dark backgrounds (an accent fill, an overlay) leave less room:
+	 * secondary text stays closer to the text colour. */
+	--wrbc-muted: color-mix(in srgb, currentColor 85%, transparent);
+}
+:where(.wrbc-is-dark:not(.has-text-color)) { color: #fff; }
+:where(.wrbc-is-light) {
+	--wrbc-accent-text: var(--wrbc-accent);
+	--wrbc-focus: var(--wrbc-accent-text);
+	--wrbc-muted: color-mix(in srgb, currentColor 76%, transparent);
+}
+/* Black, not ink: on the mid-tones counted as light (#6366f1, #8b5cf6) only
+ * pure black reaches 4.5:1 (wrbc_on_color()). */
+:where(.wrbc-is-light:not(.has-text-color)) { color: #000; }
+
+/* ── Focus (WCAG 2.4.7, 1.4.11) ─────────────────────────────────────────
+ * Every focusable part of a block shows a 2 px ring in --wrbc-focus, which
+ * reads on the block's background. Components restate the offset or the
+ * radius with the same specificity (0,2,0), later in the cascade. Not on
+ * the editor's own focus targets: the block wrapper and the text being
+ * edited have the editor's outline. */
+.wrbc-root:focus-visible:where(:not(.block-editor-block-list__block)),
+.wrbc-root :focus-visible:where(:not([contenteditable="true"])) {
+	outline: 2px solid var(--wrbc-focus, currentColor);
+	outline-offset: var(--wrbc-focus-offset, 2px);
+}
+/* Themes ring [tabindex] elements at (0,3,0) — Hello Elementor: a black
+ * outline with a white halo — which beats the block's ring on focusable
+ * scrollers and regions: restated at (0,4,0). A component moves its ring
+ * with --wrbc-focus-offset (e.g. -2px inside a scroller), at any specificity,
+ * instead of outline-offset. */
+.wrbc-root [tabindex]:not([tabindex="-1"]):focus-visible:where(:not([contenteditable="true"])) {
+	outline: 2px solid var(--wrbc-focus, currentColor);
+	outline-offset: var(--wrbc-focus-offset, 2px);
+}
+
+/* Links in a block's text are underlined: colour alone doesn't tell them
+ * apart from the words around them (WCAG 1.4.1). Every link without a
+ * class counts; components that are links (classes wrbc-*, buttons) keep
+ * their own look. On a dark background a theme's link colour (made for
+ * white pages) gives way to the readable accent, in every state, unless the
+ * block's Color panel sets a link colour (wrbc-has-link-color; WordPress
+ * itself only prints wp-elements-N). */
+.wrbc-root a:not([class*="wrbc-"]):not(.wp-element-button):not(.wp-block-button__link) {
+	text-decoration-line: underline;
+	text-underline-offset: 0.15em;
+}
+.wrbc-is-dark:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) a:not([class*="wrbc-"]):not(.wp-element-button):not(.wp-block-button__link) {
+	color: var(--wrbc-accent-text);
+}
+
+/* Breathing room between sections. :where() keeps it at zero specificity,
+ * so the block's own padding setting (Dimensions panel) always wins. */
+:where(.wrbc-features, .wrbc-pricing, .wrbc-accordion, .wrbc-testimonials, .wrbc-carousel, .wrbc-query, .wrbc-jobs, .wrbc-stats, .wrbc-timeline, .wrbc-tabs, .wrbc-comparison) {
+	padding-block: clamp(48px, 7vw, 96px);
+}
+:where(.wrbc-logos) {
+	padding-block: clamp(32px, 5vw, 64px);
+}
+
+.wrbc-sr-only {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ── Icons (Lucide: 24 × 24, stroke only) ─────────────────────────────── */
+.wrbc-icon {
+	display: inline-block;
+	flex: 0 0 auto;
+	width: var(--wrbc-icon-size);
+	height: var(--wrbc-icon-size);
+	stroke: currentColor;
+	stroke-width: var(--wrbc-icon-stroke);
+	fill: none;
+	vertical-align: middle;
+	overflow: visible;
+	transform-origin: 50% 50%;
+	transform-box: fill-box;
+}
+
+/* Icon holders: a plain glyph, or a tinted circle / square / outline. */
+.wrbc-icon-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	color: var(--wrbc-icon-color, var(--wrbc-accent-text));
+	line-height: 0;
+}
+.wrbc-icon-wrap--circle,
+.wrbc-icon-wrap--square,
+.wrbc-icon-wrap--outline {
+	width: calc(var(--wrbc-icon-size) * 2.1);
+	height: calc(var(--wrbc-icon-size) * 2.1);
+}
+.wrbc-icon-wrap--circle,
+.wrbc-icon-wrap--square {
+	background: var(--wrbc-icon-bg, color-mix(in srgb, var(--wrbc-accent) 12%, transparent));
+}
+.wrbc-icon-wrap--circle { border-radius: 999px; }
+.wrbc-icon-wrap--square { border-radius: calc(var(--wrbc-radius) * 0.75); }
+.wrbc-icon-wrap--outline {
+	border: 1px solid color-mix(in srgb, var(--wrbc-icon-color, var(--wrbc-accent-text)) 40%, transparent);
+	border-radius: 999px;
+}
+
+/* ── Icon animations ──────────────────────────────────────────────────────
+ * Lucide Animated (https://lucide-animated.com) ships React components
+ * driven by the motion library. These presets reproduce its usual moves in
+ * CSS on the same Lucide shapes, so they run on any theme without React.
+ * Trigger: hover (the icon or the card that holds it), in view (once, when it
+ * scrolls in), or loop.
+ */
+.wrbc-anim { --wrbc-anim-name: none; --wrbc-anim-ease: cubic-bezier(0.34, 1.56, 0.64, 1); }
+.wrbc-anim--wiggle { --wrbc-anim-name: wrbc-wiggle; transform-origin: 50% 8%; }
+.wrbc-anim--nudge-x { --wrbc-anim-name: wrbc-nudge-x; }
+.wrbc-anim--nudge-y { --wrbc-anim-name: wrbc-nudge-y; }
+.wrbc-anim--bounce { --wrbc-anim-name: wrbc-bounce; }
+.wrbc-anim--pulse { --wrbc-anim-name: wrbc-pulse; }
+.wrbc-anim--spin { --wrbc-anim-name: wrbc-spin; --wrbc-anim-ease: cubic-bezier(0.65, 0, 0.35, 1); }
+.wrbc-anim--pop { --wrbc-anim-name: wrbc-pop; }
+.wrbc-anim--float { --wrbc-anim-name: wrbc-float; --wrbc-anim-ease: ease-in-out; }
+.wrbc-anim--shake { --wrbc-anim-name: wrbc-shake; --wrbc-anim-ease: ease-in-out; }
+.wrbc-anim--tilt { --wrbc-anim-name: wrbc-tilt; }
+.wrbc-anim--draw > * { stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+/* Hover: the icon itself, or anything marked as its host (a card, a button). */
+.wrbc-anim-t--hover:hover,
+.wrbc-anim-host:hover .wrbc-anim-t--hover,
+.wrbc-anim-host:focus-visible .wrbc-anim-t--hover,
+.wrbc-anim-host:focus-within .wrbc-anim-t--hover {
+	animation: var(--wrbc-anim-name) var(--wrbc-anim-dur) var(--wrbc-anim-ease) 1;
+}
+.wrbc-anim--draw.wrbc-anim-t--hover:hover > *,
+.wrbc-anim-host:hover .wrbc-anim--draw.wrbc-anim-t--hover > *,
+.wrbc-anim-host:focus-visible .wrbc-anim--draw.wrbc-anim-t--hover > *,
+.wrbc-anim-host:focus-within .wrbc-anim--draw.wrbc-anim-t--hover > * {
+	animation: wrbc-draw var(--wrbc-anim-dur) ease-out 1 both;
+}
+
+/* In view: shared-view.js adds .is-inview once, when 20% of it is on screen. */
+.wrbc-anim-t--inview.is-inview {
+	animation: var(--wrbc-anim-name) var(--wrbc-anim-dur) var(--wrbc-anim-ease) 0.1s 1 both;
+}
+/* Hidden strokes only while JavaScript runs (html.wrbc-js, see the reveal below):
+ * without it, in print or before it starts, the icon is simply drawn. */
+.wrbc-js .wrbc-anim--draw.wrbc-anim-t--inview:not(.is-inview) > * { stroke-dashoffset: 1; }
+.wrbc-anim--draw.wrbc-anim-t--inview.is-inview > * {
+	animation: wrbc-draw calc(var(--wrbc-anim-dur) * 1.4) ease-out 0.1s 1 both;
+}
+
+/* Loop: a few rounds (under 5 s), then it rests — anything that moves on its
+ * own for longer needs a pause button (WCAG 2.2.2). It starts once it's on
+ * screen (shared-view.js adds .is-inview); the editor always plays it. */
+.wrbc-anim-t--loop {
+	animation: var(--wrbc-anim-name) calc(var(--wrbc-anim-dur) * 2.2) var(--wrbc-anim-ease) 3;
+}
+.wrbc-anim--spin.wrbc-anim-t--loop { animation-timing-function: linear; animation-duration: calc(var(--wrbc-anim-dur) * 3); animation-iteration-count: 2; }
+.wrbc-anim--draw.wrbc-anim-t--loop > * {
+	animation: wrbc-draw-loop calc(var(--wrbc-anim-dur) * 3.5) ease-in-out 2;
+}
+.wrbc-anim-t--loop:not(.is-inview),
+.wrbc-anim-t--loop:not(.is-inview) > * { animation-play-state: paused; }
+.editor-styles-wrapper .wrbc-anim-t--loop,
+.editor-styles-wrapper .wrbc-anim-t--loop > * { animation-play-state: running; }
+
+@keyframes wrbc-wiggle { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-14deg); } 40% { transform: rotate(12deg); } 60% { transform: rotate(-8deg); } 80% { transform: rotate(5deg); } }
+@keyframes wrbc-nudge-x { 0%, 100% { transform: translateX(0); } 45% { transform: translateX(22%); } 70% { transform: translateX(-6%); } }
+@keyframes wrbc-nudge-y { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-22%); } 70% { transform: translateY(6%); } }
+@keyframes wrbc-bounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-24%); } 55% { transform: translateY(0); } 72% { transform: translateY(-10%); } }
+@keyframes wrbc-pulse { 0%, 100% { transform: scale(1); } 35% { transform: scale(1.2); } 60% { transform: scale(0.94); } }
+@keyframes wrbc-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes wrbc-pop { 0% { transform: scale(0.4); opacity: 0; } 60% { transform: scale(1.15); opacity: 1; } 100% { transform: scale(1); } }
+@keyframes wrbc-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16%); } }
+@keyframes wrbc-shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-10%); } 40%, 80% { transform: translateX(10%); } }
+@keyframes wrbc-tilt { 0%, 100% { transform: rotate(0); } 40% { transform: rotate(-12deg) scale(1.06); } }
+@keyframes wrbc-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes wrbc-draw-loop { 0% { stroke-dashoffset: 1; } 45%, 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+.wrbc-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-height: 44px;
+	padding: 0.7em 1.35em;
+	border: 1px solid var(--wrbc-accent);
+	border-radius: var(--wrbc-btn-radius);
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+	font: inherit;
+	font-size: 0.95em;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+	--wrbc-icon-size: 1.1em;
+}
+.wrbc-btn:hover,
+.wrbc-btn:focus-visible {
+	/* --wrbc-accent-hover (wrbc_accent_vars()) lightens instead when the label is dark. */
+	background: var(--wrbc-accent-hover, color-mix(in srgb, var(--wrbc-accent) 86%, #000));
+	border-color: var(--wrbc-accent-hover, color-mix(in srgb, var(--wrbc-accent) 86%, #000));
+	color: var(--wrbc-on-accent);
+	text-decoration: none;
+}
+.wrbc-btn--outline {
+	background: transparent;
+	color: inherit;
+	/* A boundary you can see (3:1), not only the label. */
+	border-color: var(--wrbc-control-line);
+}
+.wrbc-btn--outline:hover,
+.wrbc-btn--outline:focus-visible {
+	background: var(--wrbc-surface);
+	border-color: currentColor;
+	color: inherit;
+}
+.wrbc-btn--link {
+	/* 24 px tall at least (WCAG 2.5.8 target size), underlined like a link
+	 * (colour alone doesn't mark it next to text, WCAG 1.4.1). */
+	min-height: 24px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--wrbc-accent-text);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+.wrbc-btn--link:hover,
+.wrbc-btn--link:focus-visible {
+	background: none;
+	color: var(--wrbc-accent-text);
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+.wrbc-btn--full { width: 100%; }
+
+/* A theme's `.page-content a` / `.entry-content a` underline (0,1,1) would
+   reach link buttons: none for buttons, the link style keeps its own. */
+.wrbc-root .wrbc-btn { text-decoration: none; }
+.wrbc-root .wrbc-btn--link { text-decoration: underline; }
+
+/* Block link colour (supports.color.link) prints `.wp-elements-N a:where(…)`
+   (0,1,1), which beats a single class: the button colours restated with the
+   block root (0,2,0) so a link colour never repaints a button. */
+.wrbc-root .wrbc-btn,
+.wrbc-root .wrbc-btn:hover,
+.wrbc-root .wrbc-btn:focus-visible { color: var(--wrbc-on-accent); }
+.wrbc-root .wrbc-btn--outline,
+.wrbc-root .wrbc-btn--outline:hover,
+.wrbc-root .wrbc-btn--outline:focus-visible { color: inherit; }
+.wrbc-root .wrbc-btn--link,
+.wrbc-root .wrbc-btn--link:hover,
+.wrbc-root .wrbc-btn--link:focus-visible { color: var(--wrbc-accent-text); }
+.wrbc-btn:focus-visible,
+.wrbc-focus:focus-visible {
+	outline: 2px solid var(--wrbc-focus);
+	outline-offset: 3px;
+}
+
+/* A theme's styles for button elements ([type=button], [type=submit],
+   button:hover/:focus — Hello Elementor paints them transparent with a pink
+   border, and pink on hover and focus) print after the blocks and would
+   repaint a .wrbc-btn that is a <button>, contrast included, and keep long
+   labels on one line. Restated for button elements at (0,3,0)+: a block
+   that styles its own <button class="wrbc-btn"> differently needs at least
+   `.wrbc-root .wrbc-x__btn.wrbc-btn`. */
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: var(--wrbc-btn-radius);
+	white-space: normal;
+}
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn:focus {
+	background: var(--wrbc-accent);
+	border-color: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+}
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn:hover,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn:focus-visible {
+	background: var(--wrbc-accent-hover, color-mix(in srgb, var(--wrbc-accent) 86%, #000));
+	border-color: var(--wrbc-accent-hover, color-mix(in srgb, var(--wrbc-accent) 86%, #000));
+	color: var(--wrbc-on-accent);
+}
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--outline,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--outline:focus {
+	background: transparent;
+	border-color: var(--wrbc-control-line);
+	color: inherit;
+}
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--outline:hover,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--outline:focus-visible {
+	background: var(--wrbc-surface);
+	border-color: currentColor;
+	color: inherit;
+}
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--link,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--link:focus,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--link:hover,
+.wrbc-root :is(button, [type="button"], [type="submit"]).wrbc-btn--link:focus-visible {
+	border-color: transparent;
+	background: none;
+	color: var(--wrbc-accent-text);
+}
+
+/* Hello Elementor pulls .alignwide 80 px out on each side with no media
+   query: on narrower windows a wide block is cut off and the page scrolls
+   sideways (WCAG 1.4.10). Never past the window (less a scrollbar). */
+body.wp-theme-hello-elementor .wrbc-root.alignwide {
+	margin-inline: max(-80px, calc((100% - 100vw) / 2 + 8px));
+}
+/* Nested in a column, a group, a tab or another werun block, "wide" has no
+ * room to grow into: it stays in its container. */
+body.wp-theme-hello-elementor :is(.wp-block-column, .wp-block-group, .wp-block-cover__inner-container, .wrbc-root) .wrbc-root.alignwide {
+	margin-inline: 0;
+}
+/* Hello also gives .alignfull overflow-x: hidden, which makes a full-width
+ * block the container its sticky parts (a sticky TOC) stick to: clip clips
+ * the same without that. */
+body.wp-theme-hello-elementor .wrbc-root.alignfull {
+	overflow-x: clip;
+}
+
+/* ── Section header (eyebrow, title, intro) ──────────────────────────── */
+.wrbc-header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6em;
+	max-width: 46rem;
+	margin: 0 0 clamp(1.75rem, 4vw, 2.75rem);
+}
+.wrbc-header--center { margin-inline: auto; text-align: center; align-items: center; }
+.wrbc-header__eyebrow {
+	margin: 0;
+	color: var(--wrbc-accent-text);
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.wrbc-header > * { max-width: 100%; }
+.wrbc-header__title {
+	margin: 0;
+	/* em, not rem: the block's font size setting scales the title too. */
+	font-size: clamp(1.75em, 1.2em + 2.2vw, 2.75em);
+	line-height: 1.12;
+	text-wrap: balance;
+}
+.wrbc-header__intro {
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: 1.075em;
+	line-height: 1.6;
+}
+
+/* ── Entrance reveal (any element with data-wrbc-reveal) ──────────────────
+ * Hidden until it scrolls into view only while JavaScript runs: a script in
+ * the head adds .wrbc-js to <html> and takes it away again when shared-view.js
+ * hasn't started within 3 s, so content never stays invisible without JS,
+ * with a script blocked, or in print. */
+[data-wrbc-reveal] {
+	transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+	transition-delay: var(--wrbc-reveal-delay, 0s);
+}
+.wrbc-js [data-wrbc-reveal]:not(.is-inview) {
+	opacity: 0;
+	transform: translateY(18px);
+}
+/* Something inside got keyboard focus before it scrolled in: show it now. */
+.wrbc-js [data-wrbc-reveal]:focus-within {
+	opacity: 1;
+	transform: none;
+	transition: none;
+}
+@media print, (scripting: none) {
+	.wrbc-js [data-wrbc-reveal]:not(.is-inview) { opacity: 1; transform: none; }
+	.wrbc-js .wrbc-anim--draw.wrbc-anim-t--inview:not(.is-inview) > * { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-anim,
+	.wrbc-anim > *,
+	[data-wrbc-reveal] {
+		animation: none !important;
+		transition: none !important;
+		transform: none !important;
+		opacity: 1 !important;
+		stroke-dashoffset: 0 !important;
+	}
+}

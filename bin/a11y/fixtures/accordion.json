@@ -1,0 +1,192 @@
+[
+	{
+		"id": "acc-default",
+		"title": "Default: lines, chevron right, one open at a time, header (H2 title, H3 questions)",
+		"markup": "<!-- wp:werun-community/accordion -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you work in other languages?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Sites can be built in as many languages as you need.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-faq",
+		"title": "Variation \"FAQ with schema\": lines, chevron, FAQPage JSON-LD, H3 title (H4 questions)",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"separated\",\"columns\":1,\"iconType\":\"chevron\",\"iconPosition\":\"right\",\"showItemIcons\":false,\"allowMultiple\":false,\"firstOpen\":true,\"showSearch\":false,\"showExpandAll\":false,\"faqSchema\":true,\"titleLevel\":3,\"title\":\"FAQ with schema\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-boxed-search",
+		"title": "Variation \"boxes with search\": boxed, + / −, search field, several open, expand / collapse all",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"boxed\",\"columns\":1,\"iconType\":\"plus\",\"iconPosition\":\"right\",\"showItemIcons\":false,\"allowMultiple\":true,\"firstOpen\":true,\"showSearch\":true,\"showExpandAll\":true,\"faqSchema\":false,\"title\":\"Boxes with search\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you work in other languages?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Sites can be built in as many languages as you need.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you host the site?\"} -->\n<!-- wp:paragraph -->\n<p>We can, or we deploy to your own hosting.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-two-columns",
+		"title": "Variation \"two columns\": minimal, + / − on the left, first closed, 7 questions",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"minimal\",\"columns\":2,\"iconType\":\"plus\",\"iconPosition\":\"left\",\"showItemIcons\":false,\"allowMultiple\":false,\"firstOpen\":false,\"showSearch\":false,\"showExpandAll\":false,\"faqSchema\":false,\"title\":\"Two columns\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you work in other languages?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Sites can be built in as many languages as you need.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you host the site?\"} -->\n<!-- wp:paragraph -->\n<p>We can, or we deploy to your own hosting.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Is there a contract?\"} -->\n<!-- wp:paragraph -->\n<p>A short one: scope, dates and price.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can you migrate my old content?\"} -->\n<!-- wp:paragraph -->\n<p>Yes: posts, pages and media.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-lines-2col-many",
+		"title": "Lines in two columns, several open, search + expand all, 8 questions (answers not landmarks)",
+		"markup": "<!-- wp:werun-community/accordion {\"columns\":2,\"allowMultiple\":true,\"showExpandAll\":true,\"showSearch\":true,\"showHeader\":false,\"questionHeading\":\"h2\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you work in other languages?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Sites can be built in as many languages as you need.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you host the site?\"} -->\n<!-- wp:paragraph -->\n<p>We can, or we deploy to your own hosting.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Is there a contract?\"} -->\n<!-- wp:paragraph -->\n<p>A short one: scope, dates and price.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can you migrate my old content?\"} -->\n<!-- wp:paragraph -->\n<p>Yes: posts, pages and media.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you write the texts?\"} -->\n<!-- wp:paragraph -->\n<p>We can, with a copywriter, or edit yours.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-custom-icons-lead",
+		"title": "Boxes, custom open / close icons on the left, an icon before each question (one item without)",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"boxed\",\"iconType\":\"custom\",\"iconPosition\":\"left\",\"iconClosed\":{\"name\":\"arrow-down\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"},\"iconOpen\":{\"name\":\"arrow-up\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"},\"showItemIcons\":true,\"title\":\"Custom icons\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\",\"icon\":{\"name\":\"\"}} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-sep-plus-left",
+		"title": "Lines, + / − on the left, no header, questions as H3 (chosen)",
+		"markup": "<!-- wp:werun-community/accordion {\"iconType\":\"plus\",\"iconPosition\":\"left\",\"showHeader\":false,\"questionHeading\":\"h3\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-minimal-none",
+		"title": "Minimal, no open / close icon, no header, questions as plain text",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"minimal\",\"iconType\":\"none\",\"showHeader\":false,\"questionHeading\":\"none\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->"
+	},
+	{
+		"id": "acc-nested",
+		"title": "An accordion nested in an answer (second question)",
+		"markup": "<!-- wp:werun-community/accordion {\"allowMultiple\":true,\"title\":\"Nested\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- wp:werun-community/accordion {\"showHeader\":false,\"accordionStyle\":\"minimal\",\"iconType\":\"plus\",\"firstOpen\":false} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Do you host the site?\",\"anchor\":\"acc-nested-q1\"} -->\n<!-- wp:paragraph -->\n<p>We can, or we deploy to your own hosting.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Is there a contract?\",\"anchor\":\"acc-nested-q2\"} -->\n<!-- wp:paragraph -->\n<p>A short one: scope, dates and price.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-colors-dark-items",
+		"title": "Custom colours at extremes: light accent #facc15, dark item background #1e293b, borders #334155",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"boxed\",\"accentColor\":\"#facc15\",\"itemBg\":\"#1e293b\",\"itemBorderColor\":\"#334155\",\"iconType\":\"plus\",\"showSearch\":true,\"allowMultiple\":true,\"showExpandAll\":true,\"title\":\"Dark items\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-colors-light-items",
+		"title": "Custom colours: accent #0ea5e9, light item background #fef3c7, borders #fde68a",
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"boxed\",\"accentColor\":\"#0ea5e9\",\"itemBg\":\"#fef3c7\",\"itemBorderColor\":\"#fde68a\",\"title\":\"Light items\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-own-dark-bg",
+		"title": "Own dark background and text (Color panel), boxes, search, expand all",
+		"markup": "<!-- wp:werun-community/accordion {\"title\":\"Own dark background\",\"style\":{\"color\":{\"background\":\"#0f172a\",\"text\":\"#f1f5f9\"}},\"accordionStyle\":\"boxed\",\"showSearch\":true,\"allowMultiple\":true,\"showExpandAll\":true} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-own-light-bg",
+		"title": "Own light background (Color panel, no text colour): readable inside the dark context too",
+		"markup": "<!-- wp:werun-community/accordion {\"title\":\"Own light background\",\"style\":{\"color\":{\"background\":\"#f8fafc\"}},\"showSearch\":true} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-picked-text-items",
+		"title": "Text colour picked for the accordion (#334155) on a dark Item background: corrected on the items only",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/accordion {\"accordionStyle\":\"boxed\",\"itemBg\":\"#1e293b\",\"style\":{\"color\":{\"text\":\"#334155\"}},\"title\":\"Picked text colour\"} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\"} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\"} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\"} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	},
+	{
+		"id": "acc-item-own-colors",
+		"title": "Items with their own Color panel background: dark, light, and one with its own text colour",
+		"markup": "<!-- wp:werun-community/accordion {\"title\":\"Item colours\",\"allowMultiple\":true} -->\n<!-- wp:werun-community/accordion-item {\"question\":\"How long does a project take?\",\"style\":{\"color\":{\"background\":\"#7c2d12\"}}} -->\n<!-- wp:paragraph -->\n<p>Most sites go live in four to eight weeks. See <a href=\"#pricing\">the pricing page</a> for the details.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"Can I edit the site myself?\",\"style\":{\"color\":{\"background\":\"#ecfeff\"}}} -->\n<!-- wp:paragraph -->\n<p>Yes. Every page is built with blocks you can change, and we show your team how.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- wp:werun-community/accordion-item {\"question\":\"What happens after launch, and who looks after the updates, the backups and the security fixes once the site is live?\",\"style\":{\"color\":{\"background\":\"#1e293b\",\"text\":\"#fde68a\"}}} -->\n<!-- wp:paragraph -->\n<p>Updates, backups and fixes for a month are included. After that, a monthly plan if you want one.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/accordion-item -->\n<!-- /wp:werun-community/accordion -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-acc-item__toggle svg",
+				"property": "stroke",
+				"min": 3,
+				"label": "open / close icon (state shape, aria-hidden)"
+			}
+		]
+	}
+]

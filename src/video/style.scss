@@ -1,0 +1,355 @@
+/* Video. Sizes in em: the block's font size scales the play button and corners. */
+:where(.wrbc-video) {
+	line-height: 1.6;
+}
+.wrbc-video {
+	/* The focus colour of the block's own background, taken here as a colour:
+	 * the play button's ring lies just outside the stage, on that background,
+	 * while the stage itself is dark and has its own (.wrbc-is-dark). */
+	--wrbc-video-ring: var(--wrbc-focus);
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+}
+.wrbc-video__figure {
+	margin: 0;
+	min-width: 0;
+}
+
+/* The stage keeps the ratio before anything loads (no layout shift). It
+ * doesn't clip, so the play button's focus ring can lie just outside it: what
+ * fills it takes its rounded corners instead. It's also the container the
+ * play badge measures, so a big badge never outgrows a narrow stage (320 px,
+ * 21:9). */
+.wrbc-video__stage {
+	position: relative;
+	width: 100%;
+	aspect-ratio: var(--wrbc-video-ratio, 16 / 9);
+	border-radius: var(--wrbc-video-radius, 0.75em);
+	background: #0b0b0f;
+	color: #fff;
+	container-type: inline-size;
+}
+/* The poster and what wrbc-video puts on the stage (a .wrbc-video__frame with
+ * the player, the background <video>) fill it, with its corners. */
+.wrbc-video__stage > .wrbc-video__frame,
+.wrbc-video__stage .wrbc-video__media,
+.wrbc-video__stage > .wrbc-video__bg,
+.wrbc-video__stage > .wrbc-video__poster {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border: 0;
+	border-radius: inherit;
+	object-fit: cover;
+}
+.wrbc-video__stage > .wrbc-video__bg { z-index: 1; }
+.wrbc-video__stage .wrbc-video__media { background: #000; }
+/* The poster lies under the (transparent) play button, which dims it on hover. */
+.wrbc-video__stage:has(> .wrbc-video__play:hover) > .wrbc-video__poster { opacity: 0.9; }
+
+/* cmp mode: the consent placeholder takes the poster's place while it asks
+ * (wrbc-video hides the play button and puts .is-asking on the stage). The
+ * stage grows with the placeholder (wrbc-modules lets it grow with its text)
+ * instead of clipping it at 320 px or with wider text spacing (WCAG 1.4.10,
+ * 1.4.12). */
+.wrbc-video__stage.is-asking {
+	aspect-ratio: auto;
+	container-type: normal;
+}
+.wrbc-video__stage > .wrbc-consent { border-radius: inherit; }
+/* Its background is translucent: no poster under the text. */
+.wrbc-video__stage.is-asking > .wrbc-video__poster { display: none; }
+/* White on the dark stage, whatever link colour the block sets. */
+.wrbc-video__stage .wrbc-consent__text a { color: inherit; }
+
+/* ── Facade: poster + play button (inline and window modes) ─────────────── */
+/* Every rule on a class the shared module also draws (wrbc-video__play,
+ * __poster, __bg, __toggle, __frame) goes through this block's stage, so it
+ * never reaches another block's facade. */
+.wrbc-video__stage > .wrbc-video__play {
+	all: unset;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: inherit;
+	cursor: pointer;
+	color: inherit;
+	--wrbc-focus-offset: 2px;
+}
+/* A theme's button states (Hello Elementor paints [type=button]:hover and
+ * :focus pink) never reach the facade. */
+.wrbc-video__stage > .wrbc-video__play:is(:hover, :focus, :active) {
+	background: transparent;
+	color: inherit;
+}
+/* The badge is capped to 30 % of the stage's width, so it fits a narrow stage.
+ * Its edge is a white and a near-black ring: one of them stands out on any
+ * poster (≥ 3.4:1 from white to black posters, WCAG 1.4.11), whatever the
+ * button colour. */
+.wrbc-video__play-btn {
+	--wrbc-video-play-fit: min(var(--wrbc-video-play, 4.5em), 30cqi);
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-width: var(--wrbc-video-play-fit);
+	height: var(--wrbc-video-play-fit);
+	border-radius: 999px;
+	background: var(--wrbc-video-play-bg, var(--wrbc-accent));
+	color: var(--wrbc-video-play-fg, var(--wrbc-on-accent));
+	box-shadow: var(--wrbc-video-play-ring, 0 0 0 2px rgb(255 255 255 / 0.9), 0 0 0 4px rgb(11 11 15 / 0.6)), 0 0.5em 1.5em rgb(0 0 0 / 0.28);
+	transform: scale(var(--wrbc-video-play-scale, 1));
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wrbc-video--play-square .wrbc-video__play-btn { border-radius: calc(var(--wrbc-video-play-fit) * 0.22); }
+.wrbc-video--play-pill .wrbc-video__play-btn {
+	height: calc(var(--wrbc-video-play-fit) * 0.7);
+	padding-inline: 1.1em 1.4em;
+}
+.wrbc-video__play-svg {
+	width: calc(var(--wrbc-video-play-fit) * 0.4);
+	height: calc(var(--wrbc-video-play-fit) * 0.4);
+	fill: currentColor;
+	flex: 0 0 auto;
+}
+.wrbc-video--play-pill .wrbc-video__play-svg {
+	width: calc(var(--wrbc-video-play-fit) * 0.3);
+	height: calc(var(--wrbc-video-play-fit) * 0.3);
+}
+.wrbc-video__play-text {
+	font-size: max(0.875em, calc(var(--wrbc-video-play-fit) * 0.22));
+	font-weight: 600;
+	white-space: nowrap;
+}
+.wrbc-video__stage > .wrbc-video__play:hover .wrbc-video__play-btn,
+.wrbc-video__stage > .wrbc-video__play:focus-visible .wrbc-video__play-btn {
+	--wrbc-video-play-scale: 1.08;
+	box-shadow: var(--wrbc-video-play-ring, 0 0 0 2px rgb(255 255 255 / 0.9), 0 0 0 4px rgb(11 11 15 / 0.6)), 0 0.75em 2em rgb(0 0 0 / 0.36);
+}
+
+/* Focus (WCAG 2.4.7, 1.4.11). The button fills the stage, so its ring (the
+ * shared 2 px, offset 2 px) lies just outside it, on the block's background:
+ * in that background's focus colour, not the dark stage's. The badge's edge
+ * also turns solid and thicker (white 3 px, near black 3 px). Once the player
+ * replaces the button, wrbc-modules rings it inside its frame and the stage
+ * keeps the same outer ring (keyboard focus in a <video>, or in a YouTube /
+ * Vimeo iframe: .is-focus-visible). */
+.wrbc-video__stage > .wrbc-video__play:focus-visible,
+.wrbc-video__stage .wrbc-video__nojs:focus-visible,
+.wrbc-video__stage:has(> .wrbc-video__frame > .wrbc-video__media:focus-visible),
+.wrbc-video__stage:has(> .wrbc-video__frame.is-focus-visible) {
+	outline: 2px solid var(--wrbc-video-ring, var(--wrbc-focus));
+	outline-offset: var(--wrbc-focus-offset, 2px);
+}
+.wrbc-video__stage :is(.wrbc-video__play, .wrbc-video__nojs):focus-visible .wrbc-video__play-btn {
+	--wrbc-video-play-ring: 0 0 0 3px #fff;
+	outline: 3px solid #0b0b0f;
+	outline-offset: 3px;
+}
+
+/* Where the video plays from, before the visitor clicks (consent: click /
+ * cmp). Outside the button, so it describes the button instead of renaming
+ * it; clicks go through to the button. The text sits on a flat band of 62 %
+ * black: 6.2:1 over the lightest poster (WCAG 1.4.3); the fade above it is
+ * drawn apart, so no text ever falls on its light end. */
+.wrbc-video__note {
+	position: absolute;
+	z-index: 1;
+	inset-inline: 0;
+	inset-block-end: 0;
+	padding: 0.6em 1em;
+	background: rgb(0 0 0 / 0.62);
+	color: #fff;
+	font-size: 0.75em;
+	line-height: 1.5;
+	text-align: center;
+	pointer-events: none;
+	border-end-start-radius: inherit;
+	border-end-end-radius: inherit;
+}
+.wrbc-video__note::before {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	inset-block-end: 100%;
+	height: 1.5em;
+	background: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.62));
+}
+.wrbc-video__stage:is(.is-playing, .is-asking) > .wrbc-video__note { display: none; }
+
+/* ── Without JavaScript: a link to the video in the play button's place ── */
+.wrbc-video__stage .wrbc-video__nojs {
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1em;
+	border-radius: inherit;
+	color: inherit;
+	text-decoration: none;
+}
+/* Always with its text, which may wrap on a narrow stage. */
+.wrbc-video__nojs .wrbc-video__play-btn {
+	height: auto;
+	min-height: calc(var(--wrbc-video-play-fit) * 0.7);
+	max-width: 100%;
+	padding: 0.5em 1.4em 0.5em 1.1em;
+	border-radius: calc(var(--wrbc-video-play-fit) * 0.35);
+}
+.wrbc-video__nojs .wrbc-video__play-svg {
+	width: calc(var(--wrbc-video-play-fit) * 0.3);
+	height: calc(var(--wrbc-video-play-fit) * 0.3);
+}
+.wrbc-video__nojs .wrbc-video__play-text { white-space: normal; }
+@media (scripting: none) {
+	.wrbc-video__stage > .wrbc-video__play,
+	.wrbc-video__stage > .wrbc-video__note { display: none; }
+}
+
+/* ── Background: muted loop, pause button always reachable (WCAG 2.2.2) ── */
+/* 2.5em of the block's font size (40 px), never under 24 px (WCAG 2.5.8);
+ * the white icon on 55 % black stays 4.7:1 over the lightest frame. */
+.wrbc-video__stage > .wrbc-video__toggle {
+	position: absolute;
+	z-index: 2;
+	inset-inline-end: 0.75em;
+	inset-block-end: 0.75em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: max(2.5em, 24px);
+	height: max(2.5em, 24px);
+	padding: 0;
+	border: 1px solid rgb(255 255 255 / 0.5);
+	border-radius: 999px;
+	background: rgb(0 0 0 / 0.55);
+	color: #fff;
+	font: inherit;
+	cursor: pointer;
+}
+/* Its own hover; a theme's button states never repaint it. */
+.wrbc-video__stage > .wrbc-video__toggle:is(:hover, :focus, :active) {
+	border-color: rgb(255 255 255 / 0.5);
+	background: rgb(0 0 0 / 0.72);
+	color: #fff;
+}
+.wrbc-video__stage > .wrbc-video__toggle[hidden] { display: none; }
+.wrbc-video__stage > .wrbc-video__toggle svg {
+	width: 1.1em;
+	height: 1.1em;
+	fill: currentColor;
+}
+/* Over the video: a white ring in a dark halo (as wrbc-modules draws it), one
+ * of which stands out on any frame; restated so the shared ring and a theme's
+ * button focus never replace it. */
+.wrbc-video__stage > .wrbc-video__toggle:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: var(--wrbc-focus-offset, 2px);
+	box-shadow: 0 0 0 6px rgb(0 0 0 / 0.75);
+}
+/* Shows the action the button will take: "pause" while it plays
+ * (wrbc-video puts .is-paused on the [data-wrbc-video] root). */
+.wrbc-video__stage .wrbc-video__toggle-play { display: none; }
+.wrbc-video__stage.is-paused > .wrbc-video__toggle .wrbc-video__toggle-play { display: block; }
+.wrbc-video__stage.is-paused > .wrbc-video__toggle .wrbc-video__toggle-pause { display: none; }
+
+/* ── Caption, audio-described version, transcript ───────────────────────── */
+/* Under the video, not over it: wrbc-modules styles a .wrbc-video__caption as an
+ * overlay on the poster (absolute, gradient), so this one is reset with a
+ * more specific selector. */
+.wrbc-video__figure > .wrbc-video__caption {
+	position: static;
+	padding: 0;
+	background: none;
+	margin: 0.75em 0 0;
+	color: var(--wrbc-muted);
+	font-size: 0.875em;
+	text-align: center;
+}
+/* A link under the video (underlined and coloured by the shared link rules). */
+.wrbc-video__described {
+	margin: 0;
+	font-size: 0.875em;
+}
+/* A border only (decorative), no tint: its links and text sit on the block's
+ * own background, the one their readable colours are computed for. */
+.wrbc-video__transcript {
+	border: 1px solid var(--wrbc-line);
+	border-radius: var(--wrbc-video-radius, 0.75em);
+}
+.wrbc-video__transcript-toggle {
+	padding: 0.75em 1em;
+	cursor: pointer;
+	font-weight: 600;
+}
+/* The shared focus ring (--wrbc-focus), rounded like the box. */
+.wrbc-video__transcript-toggle:focus-visible { border-radius: inherit; }
+/* The whole text: the visitor opened it on purpose, so no scroll box inside
+ * the page (better with zoom and screen magnifiers). */
+.wrbc-video__transcript-body { padding: 0 1em 1em; }
+/* Its links sit straight in the body in the editor (the page wraps them in
+ * <p>, which the shared rules cover): the same underline, and the readable
+ * accent on a dark background unless the block has its own link colour. */
+.wrbc-root .wrbc-video__transcript-body a:not([class*="wrbc-"]) {
+	text-decoration-line: underline;
+	text-underline-offset: 0.15em;
+}
+.wrbc-is-dark:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) .wrbc-video__transcript-body a:not([class*="wrbc-"]) {
+	color: var(--wrbc-accent-text);
+}
+.wrbc-video__transcript-body > :first-child { margin-top: 0; }
+.wrbc-video__transcript-body > :last-child { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-video__play-btn,
+	.wrbc-video__stage > .wrbc-video__poster { transition: none; }
+	.wrbc-video__stage > .wrbc-video__play:hover .wrbc-video__play-btn,
+	.wrbc-video__stage > .wrbc-video__play:focus-visible .wrbc-video__play-btn { --wrbc-video-play-scale: 1; }
+}
+
+/* The window wrbc-video opens (appended to <body>). Zero specificity: the
+ * shared wrbc-modules styles win wherever they style it. */
+:where(.wrbc-video__dialog) {
+	width: min(92vw, 1200px);
+	max-width: none;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	overflow: visible;
+}
+:where(.wrbc-video__dialog)::backdrop { background: rgb(0 0 0 / 0.82); }
+:where(.wrbc-video__dialog) :where(.wrbc-video__frame) {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	background: #000;
+}
+:where(.wrbc-video__dialog) :where(.wrbc-video__media) {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+:where(.wrbc-video__dialog) :where(.wrbc-video__close) {
+	position: absolute;
+	top: -2.75em;
+	right: 0;
+	width: 2.5em;
+	height: 2.5em;
+	border: 0;
+	border-radius: 999px;
+	background: rgb(255 255 255 / 0.15);
+	color: #fff;
+	cursor: pointer;
+}
+:where(.wrbc-video__dialog) :where(.wrbc-video__close-icon)::before { content: "\00D7"; font-size: 1.5em; line-height: 1; }
+:where(.wrbc-video__dialog) :where(.wrbc-video__close):focus-visible { outline: 2px solid #fff; outline-offset: 2px; }

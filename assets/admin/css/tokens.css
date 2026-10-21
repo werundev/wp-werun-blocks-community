@@ -1,0 +1,115 @@
+/**
+ * werun.dev design system tokens, scoped to the werun.Blocks.Community screens (copied from werun.Toolkit).
+ * Source: werun.dev design system (tokens/colors, typography, layout, motion).
+ * Fonts: Geist + Geist Mono, self-hosted (SIL OFL 1.1, see ../fonts/OFL.txt).
+ */
+
+@font-face {
+	font-family: "Geist";
+	src: url("../fonts/Geist-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Geist Mono";
+	src: url("../fonts/GeistMono-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+.werun-blocks-community-app {
+	/* Canvas */
+	--wrbc-admin-canvas: #0a0a0a;
+	--wrbc-admin-canvas-soft: #1a1c20;
+	--wrbc-admin-canvas-card: #191919;
+	--wrbc-admin-canvas-mid: #363a3f;
+
+	/* Hairlines */
+	--wrbc-admin-hairline: #212327;
+	--wrbc-admin-hairline-translucent: rgba(255, 255, 255, 0.25);
+	--wrbc-admin-hairline-soft: rgba(255, 255, 255, 0.1);
+
+	/* Text */
+	--wrbc-admin-ink: #ffffff;
+	--wrbc-admin-body: #dadbdf;
+	--wrbc-admin-mute: #7d8187;
+
+	/* Accent */
+	--wrbc-admin-accent: #c8ff00;
+	--wrbc-admin-on-accent: #0a0a0a;
+	--wrbc-admin-accent-dim: rgba(200, 255, 0, 0.1);
+	--wrbc-admin-accent-line: rgba(200, 255, 0, 0.25);
+	--wrbc-admin-accent-glow: rgba(200, 255, 0, 0.3);
+
+	/* Semantic */
+	--wrbc-admin-good: #52c41a;
+	--wrbc-admin-warn: #faad14;
+	--wrbc-admin-danger: #ff4d4f;
+	--wrbc-admin-danger-dim: rgba(255, 77, 79, 0.1);
+	--wrbc-admin-info: #78b4ff;
+
+	/* Type */
+	--wrbc-admin-f-body: "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
+	--wrbc-admin-f-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+	/* Spacing (4px base) */
+	--wrbc-admin-sp-xs: 4px;
+	--wrbc-admin-sp-sm: 8px;
+	--wrbc-admin-sp-md: 12px;
+	--wrbc-admin-sp-lg: 16px;
+	--wrbc-admin-sp-xl: 24px;
+	--wrbc-admin-sp-2xl: 32px;
+	--wrbc-admin-sp-3xl: 48px;
+	--wrbc-admin-sp-4xl: 64px;
+
+	/* Shape */
+	--wrbc-admin-radius: 8px;
+	--wrbc-admin-radius-pill: 9999px;
+	--wrbc-admin-wrap: 1200px;
+
+	/* Depth: hairlines only, shadows for floating layers */
+	--wrbc-admin-shadow-overlay: 0 24px 80px rgba(0, 0, 0, 0.6);
+	--wrbc-admin-shadow-accent: 0 8px 28px var(--wrbc-admin-accent-glow);
+
+	/* Background grid texture */
+	--wrbc-admin-grid-line: rgba(255, 255, 255, 0.022);
+	--wrbc-admin-grid-size: 64px;
+
+	/* Motion */
+	--wrbc-admin-ease: cubic-bezier(0.16, 1, 0.3, 1);
+	--wrbc-admin-t-fast: 150ms;
+	--wrbc-admin-t-med: 250ms;
+	--wrbc-admin-t-slow: 600ms;
+}
+
+@keyframes werun-blocks-community-pulse-indicator {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 rgba(200, 255, 0, 0.5);
+	}
+
+	50% {
+		box-shadow: 0 0 0 5px rgba(200, 255, 0, 0);
+	}
+}
+
+@keyframes werun-blocks-community-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.werun-blocks-community-app *,
+	.werun-blocks-community-app *::before,
+	.werun-blocks-community-app *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

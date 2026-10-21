@@ -1,0 +1,209 @@
+[
+	{
+		"id": "video-inline-lazy",
+		"title": "Video: Inline-lazy variation: YouTube, busy poster, title, circle badge, click consent (note)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-busy}},\"posterUrl\":\"{{url:bg-busy}}\",\"mode\":\"inline\",\"showTranscript\":false,\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			},
+			{
+				"selector": ".wrbc-video__play-btn",
+				"property": "background-color",
+				"min": 3,
+				"label": "play badge on the poster (its white / near-black edge ring is what guarantees 3:1)"
+			}
+		]
+	},
+	{
+		"id": "video-modal-poster",
+		"title": "Video: Window-with-poster variation: YouTube, light poster, pill badge (\"Play video\" text)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-light}},\"posterUrl\":\"{{url:bg-light}}\",\"mode\":\"modal\",\"showTranscript\":false,\"playStyle\":\"pill\",\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			},
+			{
+				"selector": ".wrbc-video__play-btn",
+				"property": "background-color",
+				"min": 3,
+				"label": "play badge on the poster (its white / near-black edge ring is what guarantees 3:1)"
+			}
+		]
+	},
+	{
+		"id": "video-background",
+		"title": "Video: Background variation: self-hosted, muted loop, pause button, 21:9, square corners",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"mode\":\"background\",\"showTranscript\":false,\"showCaption\":false,\"ratio\":\"21/9\",\"radius\":0} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__toggle svg",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "video-with-transcript",
+		"title": "Video: With-transcript variation: file + captions track, caption with a link, transcript, audio-described link (new tab), square badge",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"captionsId\":{{img:captions}},\"captionsUrl\":\"{{url:captions}}\",\"captionsLang\":\"en\",\"captionsLabel\":\"English\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"describedUrl\":\"https://example.com/videos/test-pattern-described\",\"describedNewTab\":true,\"mode\":\"inline\",\"showCaption\":true,\"caption\":\"A six-second colour test pattern. <a href=\\\"{{home}}\\\">More videos</a> on the site.\",\"showTranscript\":true,\"transcript\":\"[No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. [No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. [No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. \",\"playStyle\":\"square\",\"title\":\"Test pattern\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-vimeo-bare",
+		"title": "Video: Vimeo, no poster, no title, consent none (no note): badge on the dark stage",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"vimeo\",\"url\":\"https://vimeo.com/76979871\",\"videoId\":\"76979871\",\"consent\":\"none\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-cmp",
+		"title": "Video: YouTube, consent follows the cookie banner (placeholder hidden until play), dark poster, square",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-dark}},\"posterUrl\":\"{{url:bg-dark}}\",\"consent\":\"cmp\",\"playStyle\":\"square\",\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-file-modal-small",
+		"title": "Video: File in a window, captions, busy poster, pill at the smallest size (40 px)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"captionsId\":{{img:captions}},\"captionsUrl\":\"{{url:captions}}\",\"captionsLang\":\"en\",\"captionsLabel\":\"English\",\"posterId\":{{img:bg-busy}},\"posterUrl\":\"{{url:bg-busy}}\",\"mode\":\"modal\",\"playStyle\":\"pill\",\"playSize\":40,\"title\":\"Test pattern\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-portrait-big",
+		"title": "Video: File inline, 9:16, pill at the largest size (160 px), light poster",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"posterId\":{{img:bg-light}},\"posterUrl\":\"{{url:bg-light}}\",\"ratio\":\"9/16\",\"playStyle\":\"pill\",\"playSize\":160,\"title\":\"Test pattern\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-wide-big",
+		"title": "Video: YouTube inline, 21:9, circle at 160 px (capped on narrow screens), busy poster",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-busy}},\"posterUrl\":\"{{url:bg-busy}}\",\"ratio\":\"21/9\",\"playSize\":160,\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-colours-light",
+		"title": "Video: Custom colours at extremes: yellow button #facc15 with a white icon (becomes ink), pill, light poster",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-light}},\"posterUrl\":\"{{url:bg-light}}\",\"playColor\":\"#facc15\",\"playIconColor\":\"#ffffff\",\"playStyle\":\"pill\",\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-colours-dark",
+		"title": "Video: Custom colours: ink button #0f172a, no icon colour (automatic white), square, dark poster",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-dark}},\"posterUrl\":\"{{url:bg-dark}}\",\"playColor\":\"#0f172a\",\"playStyle\":\"square\",\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-colours-mid",
+		"title": "Video: Custom colours: grey button #808080 with a light grey icon #9ca3af (replaced), circle, busy poster",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:bg-busy}},\"posterUrl\":\"{{url:bg-busy}}\",\"playColor\":\"#808080\",\"playIconColor\":\"#9ca3af\",\"title\":\"Product tour\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-own-dark",
+		"title": "Video: The block's own dark background (#0f172a), no text colour: caption, link, transcript, audio-described link",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"captionsId\":{{img:captions}},\"captionsUrl\":\"{{url:captions}}\",\"captionsLang\":\"en\",\"captionsLabel\":\"English\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"describedUrl\":\"https://example.com/videos/test-pattern-described\",\"describedNewTab\":true,\"showCaption\":true,\"caption\":\"A six-second colour test pattern. <a href=\\\"{{home}}\\\">More videos</a> on the site.\",\"showTranscript\":true,\"transcript\":\"[No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. [No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. [No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. \",\"title\":\"Test pattern\",\"style\":{\"color\":{\"background\":\"#0f172a\"},\"spacing\":{\"padding\":{\"top\":\"24px\",\"right\":\"24px\",\"bottom\":\"24px\",\"left\":\"24px\"}}}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-own-light",
+		"title": "Video: The block's own light background (#f8fafc), no text colour (in the dark context: light block on dark)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"describedUrl\":\"https://example.com/videos/test-pattern-described\",\"describedNewTab\":false,\"showCaption\":true,\"caption\":\"A six-second colour test pattern. <a href=\\\"{{home}}\\\">More videos</a> on the site.\",\"showTranscript\":true,\"transcript\":\"[No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. [No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. [No speech.] A colour test pattern scrolls across the screen: vertical bars in red, green, yellow, blue, magenta and cyan, a diagonal band, a moving checkerboard and a timer in the top-left corner. <br>It lasts six seconds and loops. See <a href=\\\"{{home}}\\\">the video page</a> for details. \",\"title\":\"Test pattern\",\"style\":{\"color\":{\"background\":\"#f8fafc\"},\"spacing\":{\"padding\":{\"top\":\"24px\",\"right\":\"24px\",\"bottom\":\"24px\",\"left\":\"24px\"}}}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__play-svg",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "video-background-noposter",
+		"title": "Video: Background, no poster (dark stage until it plays)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"mode\":\"background\",\"ratio\":\"21/9\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-video__toggle svg",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	}
+]

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/testimonial",
+  "version": "1.0.0",
+  "title": "Testimonial",
+  "category": "werun-community",
+  "icon": "format-quote",
+  "description": "One quote of a testimonials block.",
+  "parent": [
+    "werun-community/testimonials"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "quote": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "avatarId": {
+      "type": "number",
+      "role": "content"
+    },
+    "avatarUrl": {
+      "type": "string",
+      "role": "content"
+    },
+    "rating": {
+      "type": "number",
+      "role": "content",
+      "default": 5
+    },
+    "hideRating": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideAvatar": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "usesContext": [
+    "werun-community/testimonials/showRating",
+    "werun-community/testimonials/showAvatar",
+    "werun-community/testimonials/showRole",
+    "werun-community/testimonials/showQuoteIcon",
+    "werun-community/testimonials/quoteIcon",
+    "werun-community/testimonials/layout",
+    "werun-community/testimonials/reveal",
+    "werun-community/testimonials/cardStyle",
+    "werun-community/testimonials/cardBg",
+    "werun-community/testimonials/starColor",
+    "werun-community/testimonials/accentColor"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "reusable": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

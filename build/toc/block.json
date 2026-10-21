@@ -1,0 +1,115 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/toc",
+  "version": "1.0.0",
+  "title": "Table of contents",
+  "category": "werun-community",
+  "icon": "list-view",
+  "description": "Links to the headings of the page, built from its content: list, numbered or pills, sticky beside long pages, a dropdown on phones, and the section you are reading highlighted.",
+  "keywords": [
+    "toc",
+    "table of contents",
+    "contents",
+    "anchor",
+    "jump links",
+    "on this page",
+    "index"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "On this page"
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "tocStyle": {
+      "type": "string",
+      "default": "list",
+      "enum": [
+        "list",
+        "numbered",
+        "pills"
+      ]
+    },
+    "numberStyle": {
+      "type": "string",
+      "default": "nested",
+      "enum": [
+        "decimal",
+        "nested",
+        "leading-zero"
+      ]
+    },
+    "minLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "maxLevel": {
+      "type": "number",
+      "default": 3
+    },
+    "maxDepth": {
+      "type": "number",
+      "default": 2
+    },
+    "sticky": {
+      "type": "boolean",
+      "default": false
+    },
+    "stickyOffset": {
+      "type": "number",
+      "default": 32
+    },
+    "collapsible": {
+      "type": "boolean",
+      "default": false
+    },
+    "highlight": {
+      "type": "boolean",
+      "default": true
+    },
+    "smoothScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "accentColor": {
+      "type": "string"
+    }
+  },
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view",
+    "file:./view.js"
+  ],
+  "render": "file:./render.php"
+}

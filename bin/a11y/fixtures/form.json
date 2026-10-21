@@ -1,0 +1,105 @@
+[
+	{
+		"id": "form-hubspot-card",
+		"title": "HubSpot variation: card, consent placeholder (click), defaults",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"hubspot\",\"formId\":\"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e6f\",\"extra\":{\"portal\":\"12345678\"},\"title\":\"Talk to sales\",\"intro\":\"Tell us what you need and we'll get back to you within one working day.\"} /-->"
+	},
+	{
+		"id": "form-hubspot-cmp-plain",
+		"title": "HubSpot, plain style, consent via the site's banner (cmp), H3 title",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"hubspot\",\"formId\":\"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e6f\",\"extra\":{\"portal\":\"12345678\",\"embed\":\"v2\"},\"formStyle\":\"plain\",\"consent\":\"cmp\",\"titleLevel\":3,\"title\":\"Request a demo\"} /-->"
+	},
+	{
+		"id": "form-calendly-meeting",
+		"title": "Book a meeting (Calendly): plain, full width",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"calendly\",\"formId\":\"https://calendly.com/your-name/30min\",\"formStyle\":\"plain\",\"width\":0,\"title\":\"Book a call\",\"intro\":\"Pick a time that suits you.\"} /-->"
+	},
+	{
+		"id": "form-newsletter-compact",
+		"title": "Newsletter (compact): Mailchimp, inline style",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"extra\":{\"button\":\"Subscribe\"},\"formStyle\":\"inline\",\"width\":960,\"title\":\"Stay in the loop\",\"intro\":\"Product news, once a month.\"} /-->"
+	},
+	{
+		"id": "form-mailchimp-card-name",
+		"title": "Mailchimp in a card, first name field, custom button label",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"extra\":{\"name\":true,\"button\":\"Join the list\"},\"title\":\"Newsletter\",\"intro\":\"One email a month. Unsubscribe any time.\"} /-->"
+	},
+	{
+		"id": "form-gated-mailchimp",
+		"title": "Gated download (soft): Mailchimp card + note",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"title\":\"Get the report\",\"intro\":\"Leave your email and download it.\",\"successMessage\":\"Your report is ready.\",\"gate\":{\"enabled\":true,\"resourceId\":{{post:resource-1}},\"label\":\"Download the report\"}} /-->"
+	},
+	{
+		"id": "form-gated-typeform",
+		"title": "Gated download: Typeform behind the consent placeholder",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"typeform\",\"formId\":\"AbC123xy\",\"title\":\"Get the guide\",\"gate\":{\"enabled\":true,\"resourceId\":{{post:resource-2}},\"label\":\"Download the guide\"}} /-->"
+	},
+	{
+		"id": "form-pardot-plain",
+		"title": "Pardot frame, plain style",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"pardot\",\"formId\":\"https://go.pardot.com/l/123456/2024-01-31/abc12\",\"formStyle\":\"plain\",\"title\":\"Contact sales\"} /-->"
+	},
+	{
+		"id": "form-jotform-inline",
+		"title": "Jotform (EU) frame, inline style",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"jotform\",\"formId\":\"123456789012\",\"region\":\"eu\",\"formStyle\":\"inline\",\"title\":\"Quick survey\",\"intro\":\"Three questions, one minute.\"} /-->"
+	},
+	{
+		"id": "form-zoho-untitled",
+		"title": "Zoho frame without title or intro (no header, frame named after the provider)",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"zoho\",\"formId\":\"https://forms.zohopublic.com/yourorg/form/Contact/formperma/AbCdEfGhIjKlMn\",\"title\":\"\",\"intro\":\"\"} /-->"
+	},
+	{
+		"id": "form-accent-yellow",
+		"title": "Extreme: light accent #facc15 (button label and focus ring follow), plain Mailchimp",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"accentColor\":\"#facc15\",\"formStyle\":\"plain\",\"title\":\"Yellow accent\"} /-->"
+	},
+	{
+		"id": "form-card-dark",
+		"title": "Extreme: dark card background #111827 (card text turns white)",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"extra\":{\"name\":true},\"cardBg\":\"#111827\",\"title\":\"Dark card\",\"intro\":\"The card's own tone.\"} /-->"
+	},
+	{
+		"id": "form-card-cream",
+		"title": "Extreme: light card background #fef3c7 with the consent placeholder",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"hubspot\",\"formId\":\"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e6f\",\"extra\":{\"portal\":\"12345678\"},\"cardBg\":\"#fef3c7\",\"accentColor\":\"#b45309\",\"title\":\"Cream card\"} /-->"
+	},
+	{
+		"id": "form-own-dark-inline",
+		"title": "Block's own dark background (black) + padding, inline newsletter",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"formStyle\":\"inline\",\"width\":960,\"backgroundColor\":\"black\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"24px\",\"bottom\":\"24px\",\"left\":\"16px\",\"right\":\"16px\"}}},\"title\":\"On its own dark background\"} /-->"
+	},
+	{
+		"id": "form-own-dark-card",
+		"title": "Block's own dark background and white text, card style (the card stays light)",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"style\":{\"color\":{\"background\":\"#111827\",\"text\":\"#f9fafb\"},\"spacing\":{\"padding\":{\"top\":\"32px\",\"bottom\":\"32px\",\"left\":\"16px\",\"right\":\"16px\"}}},\"title\":\"Own colours, light card\"} /-->"
+	},
+	{
+		"id": "form-legacy-style",
+		"title": "Content saved with 2.0.0 (look in \"style\": plain)",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"style\":\"plain\",\"title\":\"Saved with 2.0.0\"} /-->"
+	},
+	{
+		"id": "form-two-on-a-page",
+		"title": "Two forms on one page (unique ids, own names)",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"title\":\"Product news\"} /-->\n<!-- wp:werun-community/form {\"provider\":\"mailchimp\",\"formId\":\"https://example.us1.list-manage.com/subscribe/post?u=0123456789abcdef0123&id=abcdef1234\",\"extra\":{\"name\":true},\"formStyle\":\"plain\",\"title\":\"Event invitations\"} /-->"
+	},
+	{
+		"id": "form-wp-contact",
+		"title": "Contact variation: a Contact Form 7 form (the harness's stand-in CF7) in the default card",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"cf7\",\"formId\":\"{{post:cf7-contact}}\",\"formTitle\":\"Contact form\"} /-->"
+	},
+	{
+		"id": "form-wp-gated",
+		"title": "Gated download, hard gating through CF7: the ticket rides in CF7's hidden fields, wpcf7_mail_sent marks it",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"cf7\",\"formId\":\"{{post:cf7-download}}\",\"formTitle\":\"Download request\",\"title\":\"Get the accessibility checklist\",\"intro\":\"Leave your name and email and the checklist is yours.\",\"successMessage\":\"Thanks! Your download is ready.\",\"gate\":{\"enabled\":true,\"resourceId\":{{post:resource-1}},\"label\":\"Download the checklist\"}} /-->"
+	},
+	{
+		"id": "form-wp-error",
+		"title": "Contact Form 7 error state as printed after a failed submission (name missing, bad email, response output, tips)",
+		"markup": "<!-- wp:werun-community/form {\"provider\":\"cf7\",\"formId\":\"{{post:cf7-invalid}}\",\"formTitle\":\"Contact form (error state)\",\"title\":\"Contact us\"} /-->"
+	}
+]

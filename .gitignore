@@ -1,0 +1,6 @@
+node_modules/
+*.zip
+.DS_Store
+*.log
+bin/a11y/reports/
+bin/a11y/tmp/

@@ -1,0 +1,91 @@
+/* Comparison table, editor only: the table editor's tools. */
+/* A caption that's only for screen readers on the page: told apart by its
+ * dashed outline and italics, not by fading it under 4.5:1. */
+.wrbc-comparison__caption.is-editor-hidden {
+	outline: 1px dashed currentColor;
+	outline-offset: 2px;
+	font-style: italic;
+}
+/* Tools show on hover and keyboard focus, over the cell's edge so they
+ * don't change the row heights the page will have. */
+.wrbc-comparison__plan-tools,
+.wrbc-comparison__row-tools {
+	position: absolute;
+	z-index: 3;
+	display: flex;
+	gap: 0;
+	padding: 1px;
+	border-radius: 4px;
+	background: #fff;
+	color: #1e1e1e;
+	box-shadow: 0 0 0 1px #ddd, 0 2px 6px rgba(0, 0, 0, 0.12);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.15s ease;
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: 0;
+	text-transform: none;
+}
+.wrbc-comparison__plan-tools { top: -14px; left: 50%; transform: translateX(-50%); }
+.wrbc-comparison__row-tools { top: 50%; inset-inline-end: 4px; transform: translateY(-50%); }
+.wrbc-comparison__table :is(.wrbc-comparison__plan, .wrbc-comparison__label, .wrbc-comparison__group > th) { position: relative; }
+.wrbc-comparison__plan:hover .wrbc-comparison__plan-tools,
+.wrbc-comparison__plan:focus-within .wrbc-comparison__plan-tools,
+tr:hover .wrbc-comparison__row-tools,
+tr:focus-within .wrbc-comparison__row-tools { opacity: 1; pointer-events: auto; }
+/* Buttons fill their SVG; Lucide icons are strokes only. */
+.wrbc-comparison .components-button svg.wrbc-icon { fill: none; }
+.wrbc-comparison__tool-icon { --wrbc-icon-size: 16px; --wrbc-icon-stroke: 2; }
+.wrbc-comparison .components-button.wrbc-comparison__tool {
+	min-width: 24px;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	color: inherit;
+}
+.wrbc-comparison .components-button.wrbc-comparison__tool.is-pressed { background: #1e1e1e; color: #fff; }
+.wrbc-comparison__cell-edit {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.15em;
+}
+.wrbc-comparison .components-dropdown-menu .components-button.wrbc-comparison__type {
+	min-width: 28px;
+	height: 28px;
+	padding: 2px;
+	color: inherit;
+}
+.wrbc-comparison__cell.is-check .components-button.wrbc-comparison__type { color: var(--wrbc-accent-text); }
+.wrbc-comparison__cell .wrbc-comparison__text[contenteditable] { min-width: 2ch; }
+.wrbc-comparison__corner [contenteditable] { display: block; min-width: 4ch; }
+.wrbc-comparison__editor-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-top: 12px;
+	font-size: 13px;
+}
+.wrbc-comparison__editor-count { margin-inline-start: auto; color: var(--wrbc-muted); }
+/* Above the phone cards (outside their list), only while they show. */
+.wrbc-comparison__editor-note {
+	display: none;
+	margin: 0 0 8px;
+	color: var(--wrbc-muted);
+	font-size: 12px;
+}
+@container (max-width: 719px) {
+	.wrbc-comparison--mobile-stacked .wrbc-comparison__editor-note { display: block; }
+}
+/* Sidebar: plan buttons without a URL (the page prints their labels as text). */
+.wrbc-comparison__notice { padding: 0 16px 16px; }
+.wrbc-comparison__notice .components-notice { margin: 0; }
+.wrbc-comparison__panel-note {
+	margin: 8px 0 0;
+	/* WordPress's help text colour: 4.6:1 on the sidebar's white. */
+	color: #757575;
+	font-size: 12px;
+}

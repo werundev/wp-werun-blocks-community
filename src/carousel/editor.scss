@@ -1,0 +1,28 @@
+/* Carousel, editor only: the track scrolls freely (no snapping while editing),
+   the controls and thumbnails are a preview, the appender ends the row. */
+.wrbc-carousel .wrbc-carousel__track { scroll-snap-type: none; }
+.wrbc-carousel .wrbc-carousel__controls,
+.wrbc-carousel .wrbc-carousel__thumbs { pointer-events: none; }
+.wrbc-carousel .wrbc-carousel__thumbs { visibility: visible; }
+.wrbc-carousel__track > .block-list-appender {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 160px;
+	margin: 0;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+}
+
+.wrbc-slide-edit__media { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.wrbc-slide-edit__preview {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+.wrbc-slide-edit__preview img { display: block; width: 100%; max-height: 140px; object-fit: cover; border-radius: 2px; }
+.wrbc-slide-edit__help { color: #757575; }

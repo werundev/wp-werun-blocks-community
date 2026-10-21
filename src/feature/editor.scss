@@ -1,0 +1,4 @@
+/* Feature card, editor only: a link with no URL yet is shown faded (it is
+   not printed on the page until it has one). */
+.wrbc-feature__link.is-missing-url { opacity: 0.5; }
+.wrbc-feature__link { white-space: nowrap; }

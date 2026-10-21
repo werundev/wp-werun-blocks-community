@@ -1,0 +1,258 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/section",
+  "version": "1.0.0",
+  "title": "Section",
+  "category": "werun-community",
+  "icon": "align-wide",
+  "description": "A page section that holds any blocks: width, padding scale, background colour, gradient or image with overlay, minimum height, optional header and two columns.",
+  "keywords": [
+    "section",
+    "group",
+    "container",
+    "wrapper",
+    "background",
+    "columns"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "tagName": {
+      "type": "string",
+      "default": "section",
+      "enum": [
+        "section",
+        "div",
+        "article",
+        "aside"
+      ]
+    },
+    "paddingY": {
+      "type": "string",
+      "default": "lg",
+      "enum": [
+        "none",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ]
+    },
+    "paddingYTablet": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "none",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ]
+    },
+    "paddingYMobile": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "none",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ]
+    },
+    "innerWidth": {
+      "type": "string",
+      "default": "wide",
+      "enum": [
+        "content",
+        "wide",
+        "full",
+        "custom"
+      ]
+    },
+    "innerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "bgType": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "image"
+      ]
+    },
+    "bgImageId": {
+      "type": "number",
+      "role": "content"
+    },
+    "bgImageUrl": {
+      "type": "string",
+      "role": "content"
+    },
+    "bgFocal": {
+      "type": "object",
+      "role": "content",
+      "default": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "bgFixed": {
+      "type": "boolean",
+      "default": false
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 55
+    },
+    "minHeight": {
+      "type": "number",
+      "default": 0
+    },
+    "minHeightUnit": {
+      "type": "string",
+      "default": "vh",
+      "enum": [
+        "vh",
+        "px"
+      ]
+    },
+    "verticalAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "start",
+        "center",
+        "end"
+      ]
+    },
+    "showHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "showEyebrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIntro": {
+      "type": "boolean",
+      "default": true
+    },
+    "eyebrow": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "center"
+      ]
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "columns": {
+      "type": "string",
+      "default": "one",
+      "enum": [
+        "one",
+        "two"
+      ]
+    },
+    "columnsRatio": {
+      "type": "string",
+      "default": "50-50",
+      "enum": [
+        "50-50",
+        "60-40",
+        "40-60"
+      ]
+    },
+    "columnGap": {
+      "type": "number",
+      "default": 48
+    },
+    "mobileReverse": {
+      "type": "boolean",
+      "default": false
+    },
+    "textTone": {
+      "type": "string",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "light",
+        "dark"
+      ]
+    },
+    "reveal": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ]
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    },
+    "__experimentalBorder": {
+      "radius": true,
+      "color": true,
+      "width": true,
+      "style": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view"
+  ],
+  "render": "file:./render.php"
+}

@@ -1,0 +1,335 @@
+/* Timeline and its items. Every item draws its own piece of the line (from
+   its top to the next item, through the gap), so the line follows any item
+   height; the first starts and the last ends at its marker. Layout switches
+   on the block's own width (container queries); sizes are in em. */
+.wrbc-timeline {
+	container-type: inline-size;
+	--wrbc-gap: 32px;
+	--wrbc-card-pad: 24px;
+	--wrbc-radius: 14px;
+	--wrbc-tl-line-w: 2px;
+	--wrbc-tl-line-style: solid;
+	--wrbc-tl-line-color: color-mix(in srgb, currentColor 20%, transparent);
+	--wrbc-tl-item-w: 300px;
+	--wrbc-tl-date-w: 7.5em;
+	--wrbc-tl-col-gap: 1.25em;
+	/* Marker height and the width of the column it sits in. */
+	--wrbc-tl-m: 0.875em;
+	--wrbc-tl-axis: 1.5em;
+	/* Card padding the marker lines up with (none on plain cards). */
+	--wrbc-tl-pad: var(--wrbc-card-pad);
+	/* Marker offset from the top, so its centre meets the card's first line. */
+	--wrbc-tl-mt: max(0px, calc(var(--wrbc-tl-pad) + 0.75em - var(--wrbc-tl-m) / 2));
+}
+.wrbc-timeline--line-dashed { --wrbc-tl-line-style: dashed; }
+.wrbc-timeline--line-dotted { --wrbc-tl-line-style: dotted; }
+.wrbc-timeline--card-plain { --wrbc-tl-pad: 0px; }
+.wrbc-timeline--marker-icon { --wrbc-tl-m: max(2.5em, calc(var(--wrbc-icon-size, 18px) + 0.9em)); --wrbc-tl-axis: var(--wrbc-tl-m); }
+.wrbc-timeline--marker-number { --wrbc-tl-m: 2.25em; --wrbc-tl-axis: 2.25em; }
+.wrbc-timeline--marker-year { --wrbc-tl-m: 2em; --wrbc-tl-axis: 5.5em; }
+
+.wrbc-timeline__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: wrbc-tl;
+}
+.wrbc-timeline-item {
+	position: relative;
+	min-width: 0;
+	margin: 0;
+	counter-increment: wrbc-tl;
+}
+
+/* ── Marker ─────────────────────────────────────────────────────────── */
+.wrbc-timeline-item__axis {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-width: 0;
+}
+.wrbc-timeline-item__marker {
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	box-sizing: border-box;
+	min-width: var(--wrbc-tl-m);
+	height: var(--wrbc-tl-m);
+	margin-top: var(--wrbc-tl-mt);
+	border-radius: 999px;
+	background: var(--wrbc-tl-marker, var(--wrbc-accent));
+	color: var(--wrbc-tl-marker-text, var(--wrbc-on-accent));
+	transition: box-shadow 0.25s ease;
+}
+.wrbc-timeline-item__marker--number::before {
+	content: counter(wrbc-tl);
+	font-size: 0.9em;
+	font-weight: 600;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+}
+.wrbc-timeline-item__marker--year {
+	max-width: 100%;
+	height: auto;
+	min-height: var(--wrbc-tl-m);
+	padding: 0.3em 0.8em;
+	text-align: center;
+	/* A long label wraps inside the line's column instead of overflowing it. */
+	overflow-wrap: anywhere;
+}
+.wrbc-timeline-item__marker--year > * {
+	margin: 0;
+	font-size: 0.85em;
+	font-weight: 600;
+	line-height: 1.2;
+	font-variant-numeric: tabular-nums;
+}
+/* A year marker without a date is a dot. */
+.wrbc-timeline-item__marker--year:empty { min-width: 0.875em; min-height: 0.875em; width: 0.875em; padding: 0; }
+/* Highlight, not by colour alone: a ring inside the marker's edge, in the
+   marker's own text colour (so it reads on any page background), a larger
+   dot, and the soft halo around it. */
+.wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker {
+	box-shadow:
+		inset 0 0 0 0.14em var(--wrbc-tl-marker, var(--wrbc-accent)),
+		inset 0 0 0 0.26em var(--wrbc-tl-marker-text, var(--wrbc-on-accent)),
+		0 0 0 0.3em color-mix(in srgb, var(--wrbc-tl-marker, var(--wrbc-accent)) 22%, transparent);
+}
+.wrbc-timeline--marker-dot .wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker { scale: 1.4; }
+
+/* ── Line ───────────────────────────────────────────────────────────── */
+.wrbc-timeline:not(.wrbc-timeline--line-none) .wrbc-timeline-item__axis::after {
+	content: "";
+	position: absolute;
+	z-index: 0;
+	pointer-events: none;
+	top: 0;
+	bottom: calc(-1 * var(--wrbc-gap));
+	inset-inline-start: calc(50% - var(--wrbc-tl-line-w) / 2);
+	border-inline-start: var(--wrbc-tl-line-w) var(--wrbc-tl-line-style) var(--wrbc-tl-line-color);
+}
+.wrbc-timeline-item:first-of-type .wrbc-timeline-item__axis::after { top: calc(var(--wrbc-tl-mt) + var(--wrbc-tl-m) / 2); }
+.wrbc-timeline-item:last-of-type .wrbc-timeline-item__axis::after { bottom: auto; height: calc(var(--wrbc-tl-mt) + var(--wrbc-tl-m) / 2); }
+.wrbc-timeline-item:only-of-type .wrbc-timeline-item__axis::after { content: none; }
+
+/* ── Card ───────────────────────────────────────────────────────────── */
+.wrbc-timeline-item__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	min-width: 0;
+	padding: var(--wrbc-tl-pad);
+	border-radius: var(--wrbc-radius);
+	box-shadow: var(--wrbc-tl-ring, inset 0 0 0 0 transparent), var(--wrbc-tl-shadow, 0 0 0 0 transparent);
+	/* A long word wraps in a narrow column (320 px) instead of scrolling the page. */
+	overflow-wrap: break-word;
+}
+.wrbc-timeline--card-bordered .wrbc-timeline-item__card { border: 1px solid var(--wrbc-card-border, var(--wrbc-line)); background: var(--wrbc-card-bg, transparent); }
+.wrbc-timeline--card-filled .wrbc-timeline-item__card { background: var(--wrbc-card-bg, var(--wrbc-surface)); }
+.wrbc-timeline--card-shadow .wrbc-timeline-item__card {
+	background: var(--wrbc-card-bg, #fff);
+	--wrbc-tl-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px -12px rgba(0, 0, 0, 0.18);
+}
+/* The accent as a line or text on the card's (or the block's) background:
+   --wrbc-accent-text, which reads on it (the marker ring carries the state). */
+.wrbc-timeline-item.is-highlight .wrbc-timeline-item__card { border-color: var(--wrbc-accent-text); }
+.wrbc-timeline:not(.wrbc-timeline--card-plain) .wrbc-timeline-item.is-highlight .wrbc-timeline-item__card { --wrbc-tl-ring: inset 0 0 0 1px var(--wrbc-accent-text); }
+.wrbc-timeline--card-plain .wrbc-timeline-item.is-highlight .wrbc-timeline-item__title { color: var(--wrbc-accent-text); }
+
+.wrbc-timeline-item__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	margin-bottom: 0.5em;
+	object-fit: cover;
+	border-radius: max(0px, calc(var(--wrbc-radius) - 4px));
+}
+.wrbc-timeline--card-plain .wrbc-timeline-item__img { border-radius: var(--wrbc-radius); }
+.wrbc-timeline-item__date {
+	margin: 0;
+	color: var(--wrbc-accent-text);
+	font-size: 0.875em;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	line-height: 1.5;
+	font-variant-numeric: tabular-nums;
+	overflow-wrap: break-word;
+}
+.wrbc-timeline-item__title {
+	margin: 0;
+	font-size: 1.15em;
+	line-height: 1.3;
+}
+.wrbc-timeline-item__text {
+	margin: 0;
+	color: var(--wrbc-muted);
+	line-height: 1.6;
+}
+/* Links in the text of a card colour the block controls (a picked card
+   colour, filled cards' tint, or a card with a tone of its own): the accent
+   made readable on that card, in every state; the theme's link colour is made
+   for the page. Not when the block has its own link colour (Color panel).
+   Underlined by shared.css. */
+.wrbc-timeline:not(.wrbc-has-link-color) .wrbc-timeline-item__card--colored .wrbc-timeline-item__text a:not([class*="wrbc-"]) { color: var(--wrbc-accent-text); }
+
+/* ── Vertical and alternating: narrow first, one rail at the start ────── */
+:is(.wrbc-timeline--vertical, .wrbc-timeline--alternating) .wrbc-timeline__list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wrbc-gap);
+}
+:is(.wrbc-timeline--vertical, .wrbc-timeline--alternating) .wrbc-timeline-item {
+	display: grid;
+	grid-template-columns: var(--wrbc-tl-axis) minmax(0, 1fr);
+	column-gap: var(--wrbc-tl-col-gap);
+}
+:is(.wrbc-timeline--vertical, .wrbc-timeline--alternating) .wrbc-timeline-item__axis { grid-column: 1; grid-row: 1 / span 2; }
+:is(.wrbc-timeline--vertical, .wrbc-timeline--alternating) .wrbc-timeline-item__card { grid-column: 2; grid-row: 2; }
+:is(.wrbc-timeline--vertical, .wrbc-timeline--alternating) .wrbc-timeline-item__date--opposite { grid-column: 2; grid-row: 1; margin-bottom: 0.5em; }
+/* The date above the card: the marker lines up with the date instead. */
+:is(.wrbc-timeline--vertical, .wrbc-timeline--alternating).wrbc-timeline--date-opposite .wrbc-timeline-item.has-opposite-date { --wrbc-tl-mt: max(0px, calc(0.65em - var(--wrbc-tl-m) / 2)); }
+
+@container (min-width: 600px) {
+	/* Vertical, date beside the line: date | line | card. */
+	.wrbc-timeline--vertical.wrbc-timeline--date-opposite .wrbc-timeline-item {
+		grid-template-columns: var(--wrbc-tl-date-w) var(--wrbc-tl-axis) minmax(0, 1fr);
+	}
+	.wrbc-timeline--vertical.wrbc-timeline--date-opposite .wrbc-timeline-item.has-opposite-date { --wrbc-tl-mt: max(0px, calc(var(--wrbc-tl-pad) + 0.75em - var(--wrbc-tl-m) / 2)); }
+	.wrbc-timeline--vertical.wrbc-timeline--date-opposite .wrbc-timeline-item__date--opposite {
+		grid-column: 1;
+		grid-row: 1;
+		margin: 0;
+		padding-top: calc(var(--wrbc-tl-pad) + 0.1em);
+		text-align: end;
+	}
+	.wrbc-timeline--vertical.wrbc-timeline--date-opposite .wrbc-timeline-item__axis { grid-column: 2; grid-row: 1; }
+	.wrbc-timeline--vertical.wrbc-timeline--date-opposite .wrbc-timeline-item__card { grid-column: 3; grid-row: 1; }
+
+	/* Alternating: card | line | card, sides swap every item. */
+	.wrbc-timeline--alternating .wrbc-timeline-item {
+		grid-template-columns: minmax(0, 1fr) var(--wrbc-tl-axis) minmax(0, 1fr);
+	}
+	.wrbc-timeline--alternating.wrbc-timeline--date-opposite .wrbc-timeline-item.has-opposite-date { --wrbc-tl-mt: max(0px, calc(var(--wrbc-tl-pad) + 0.75em - var(--wrbc-tl-m) / 2)); }
+	.wrbc-timeline--alternating .wrbc-timeline-item__axis { grid-column: 2; grid-row: 1; }
+	.wrbc-timeline--alternating .wrbc-timeline-item__card,
+	.wrbc-timeline--alternating .wrbc-timeline-item__date--opposite { grid-row: 1; }
+	.wrbc-timeline--alternating .wrbc-timeline-item__date--opposite { margin: 0; padding-top: calc(var(--wrbc-tl-pad) + 0.1em); }
+	.wrbc-timeline--start-end .wrbc-timeline-item:nth-of-type(odd) .wrbc-timeline-item__card,
+	.wrbc-timeline--start-start .wrbc-timeline-item:nth-of-type(even) .wrbc-timeline-item__card { grid-column: 3; }
+	.wrbc-timeline--start-end .wrbc-timeline-item:nth-of-type(odd) .wrbc-timeline-item__date--opposite,
+	.wrbc-timeline--start-start .wrbc-timeline-item:nth-of-type(even) .wrbc-timeline-item__date--opposite { grid-column: 1; text-align: end; }
+	.wrbc-timeline--start-end .wrbc-timeline-item:nth-of-type(even) .wrbc-timeline-item__card,
+	.wrbc-timeline--start-start .wrbc-timeline-item:nth-of-type(odd) .wrbc-timeline-item__card { grid-column: 1; }
+	.wrbc-timeline--start-end .wrbc-timeline-item:nth-of-type(even) .wrbc-timeline-item__date--opposite,
+	.wrbc-timeline--start-start .wrbc-timeline-item:nth-of-type(odd) .wrbc-timeline-item__date--opposite { grid-column: 3; text-align: start; }
+}
+
+/* ── Horizontal: a scroll-snap track, dates | line | cards in rows ─────── */
+.wrbc-timeline--horizontal { --wrbc-tl-mt: 0px; }
+.wrbc-timeline__viewport {
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: thin;
+	padding-block: 0.25em 1em;
+}
+/* The shared focus ring, drawn inside the track so a full-width block at the
+   window's edge can't clip it (set only while the track itself has focus:
+   the links inside keep the ring outside them). */
+.wrbc-timeline__viewport:focus-visible { --wrbc-focus-offset: -2px; border-radius: 4px; }
+.wrbc-timeline--horizontal .wrbc-timeline__list {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: min(var(--wrbc-tl-item-w), 85cqi);
+	grid-template-rows: auto auto 1fr;
+	column-gap: var(--wrbc-gap);
+	row-gap: 0;
+}
+/* Each item spans the three rows and shares them (subgrid), so dates, the
+   line and the cards line up across items of any height. */
+.wrbc-timeline--horizontal .wrbc-timeline-item {
+	display: grid;
+	grid-row: 1 / -1;
+	grid-template-rows: subgrid;
+	scroll-snap-align: start;
+}
+.wrbc-timeline--horizontal .wrbc-timeline-item__date--opposite { grid-row: 1; align-self: end; margin: 0 0 0.6em; }
+.wrbc-timeline--horizontal .wrbc-timeline-item__axis {
+	grid-row: 2;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: var(--wrbc-tl-m);
+	margin-bottom: 1em;
+}
+.wrbc-timeline--horizontal .wrbc-timeline-item__card { grid-row: 3; }
+.wrbc-timeline--horizontal:not(.wrbc-timeline--line-none) .wrbc-timeline-item__axis::after {
+	top: calc(50% - var(--wrbc-tl-line-w) / 2);
+	bottom: auto;
+	height: 0;
+	inset-inline-start: 0;
+	inset-inline-end: calc(-1 * var(--wrbc-gap));
+	border-inline-start: 0;
+	border-top: var(--wrbc-tl-line-w) var(--wrbc-tl-line-style) var(--wrbc-tl-line-color);
+}
+.wrbc-timeline--horizontal .wrbc-timeline-item:first-of-type .wrbc-timeline-item__axis::after { top: calc(50% - var(--wrbc-tl-line-w) / 2); inset-inline-start: calc(var(--wrbc-tl-m) / 2); }
+.wrbc-timeline--horizontal .wrbc-timeline-item:last-of-type .wrbc-timeline-item__axis::after { height: 0; inset-inline-end: auto; width: calc(var(--wrbc-tl-m) / 2); }
+
+.wrbc-timeline__nav {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5em;
+	margin-top: 0.75em;
+}
+.wrbc-timeline__nav[hidden] { display: none; }
+.wrbc-root .wrbc-timeline__arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	/* The block's font size, not the browser's 13.33px for buttons: 44 px at 16 px. */
+	font: inherit;
+	width: 2.75em;
+	height: 2.75em;
+	padding: 0;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	--wrbc-icon-size: 1.25em;
+	transition: border-color 0.2s ease;
+}
+/* A theme's own button:hover / :focus fill (Hello Elementor's pink) stays out. */
+.wrbc-root .wrbc-timeline__arrow:is(:hover, :focus) { background: transparent; color: inherit; }
+.wrbc-root .wrbc-timeline__arrow:hover:not([aria-disabled="true"]) { border-color: currentColor; }
+/* At an end of the track only the chevron dims: the button stays focusable,
+   and its focus ring keeps full contrast (opacity would fade the ring too). */
+.wrbc-root .wrbc-timeline__arrow[aria-disabled="true"] { cursor: default; }
+.wrbc-root .wrbc-timeline__arrow[aria-disabled="true"] .wrbc-icon { opacity: 0.4; }
+.wrbc-timeline__arrow .wrbc-icon { width: var(--wrbc-icon-size); height: var(--wrbc-icon-size); }
+[dir="rtl"] .wrbc-timeline__arrow .wrbc-icon,
+.wrbc-timeline:dir(rtl) .wrbc-timeline__arrow .wrbc-icon { scale: -1 1; }
+
+/* Staggered reveal along the horizontal track */
+.wrbc-timeline--horizontal .wrbc-timeline-item[data-wrbc-reveal]:nth-of-type(3n + 2) { --wrbc-reveal-delay: 0.08s; }
+.wrbc-timeline--horizontal .wrbc-timeline-item[data-wrbc-reveal]:nth-of-type(3n + 3) { --wrbc-reveal-delay: 0.16s; }
+/* Tab can reach a link in an item before it has scrolled into view (off to
+   the side of the track): the item shows at once, so the focused link and its
+   ring are never on a card that is still invisible. */
+.wrbc-js .wrbc-timeline-item[data-wrbc-reveal]:focus-within { opacity: 1; transform: none; transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-timeline-item__marker,
+	.wrbc-root .wrbc-timeline__arrow { transition: none; }
+}
+
+/* Forced colours drop backgrounds and shadows: the markers keep an edge and
+   the highlight a ring (outlines and borders survive). */
+@media (forced-colors: active) {
+	.wrbc-timeline-item__marker { border: 1px solid CanvasText; }
+	.wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker { outline: 2px solid CanvasText; outline-offset: 2px; }
+}

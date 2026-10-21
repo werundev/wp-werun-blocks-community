@@ -1,0 +1,911 @@
+[
+	{
+		"id": "cmp-default",
+		"title": "Defaults (featured plan 2, prices under the table, scrolls on phones; buttons without URLs)",
+		"markup": "<!-- wp:werun-community/comparison /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-plans-features",
+		"title": "Variation: plans x features (no featured plan)",
+		"markup": "<!-- wp:werun-community/comparison {\"featuredColumn\":0,\"showGroups\":true,\"showPrices\":true,\"showCta\":true,\"pricesOnTop\":false,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-checks",
+		"title": "Variation: checks and crosses (no prices or buttons, stripes)",
+		"markup": "<!-- wp:werun-community/comparison {\"showPrices\":false,\"showCta\":false,\"showToggle\":false,\"zebra\":true,\"featuredColumn\":0} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-featured",
+		"title": "Variation: featured plan, badge, filled button, stripes, descriptions under the names",
+		"markup": "<!-- wp:werun-community/comparison {\"featuredColumn\":2,\"showBadge\":true,\"zebra\":true,\"descriptionDisplay\":\"below\",\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-featured-nobadge",
+		"title": "Featured plan without badge (hidden \"Featured plan\" text)",
+		"markup": "<!-- wp:werun-community/comparison {\"featuredColumn\":2,\"showBadge\":false,\"zebra\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-prices-top",
+		"title": "Variation: prices and buttons in the sticky header, billing switch",
+		"markup": "<!-- wp:werun-community/comparison {\"pricesOnTop\":true,\"stickyHeader\":true,\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-toggle-yearly",
+		"title": "Switch on yearly, all filled, compact, corner label, visible caption",
+		"markup": "<!-- wp:werun-community/comparison {\"showToggle\":true,\"defaultPeriod\":\"yearly\",\"buttonStyle\":\"fill\",\"density\":\"compact\",\"cornerLabel\":\"Features\",\"showCaption\":true,\"headerAlign\":\"left\",\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-outline-noheader",
+		"title": "All outline buttons, no section header, no sticky header or column",
+		"markup": "<!-- wp:werun-community/comparison {\"buttonStyle\":\"outline\",\"showHeader\":false,\"stickyHeader\":false,\"stickyFirstColumn\":false,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-stacked",
+		"title": "Phone layout: a card per plan, switch, descriptions under the names, caption, stripes",
+		"markup": "<!-- wp:werun-community/comparison {\"mobileLayout\":\"stacked\",\"showToggle\":true,\"descriptionDisplay\":\"below\",\"showCaption\":true,\"zebra\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__card-item.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card.is-featured",
+				"property": "border-color",
+				"min": 3,
+				"label": "featured card outline"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		],
+		"widths": [
+			375
+		]
+	},
+	{
+		"id": "cmp-stacked-tips",
+		"title": "Phone layout: info buttons, excluded lines left out, no badge, no title (H2 plan names)",
+		"markup": "<!-- wp:werun-community/comparison {\"mobileLayout\":\"stacked\",\"stackedHideExcluded\":true,\"showBadge\":false,\"showHeader\":false,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__card-item.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card.is-featured",
+				"property": "border-color",
+				"min": 3,
+				"label": "featured card outline"
+			}
+		],
+		"widths": [
+			375
+		]
+	},
+	{
+		"id": "cmp-six-plans",
+		"title": "Six long plans, links in cells, a new-tab button, compact, stripes, featured 5",
+		"markup": "<!-- wp:werun-community/comparison {\"plans\":[{\"id\":\"p0\",\"name\":\"Starter\",\"price\":\"9\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/0\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p1\",\"name\":\"Growth\",\"price\":\"29\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/1\",\"ctaNewTab\":true,\"badge\":\"\"},{\"id\":\"p2\",\"name\":\"Professional\",\"price\":\"49\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/2\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p3\",\"name\":\"Business\",\"price\":\"69\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/3\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p4\",\"name\":\"Enterprise plus\",\"price\":\"89\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/4\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"p5\",\"name\":\"Custom\",\"price\":\"Custom\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/5\",\"ctaNewTab\":false,\"badge\":\"\"}],\"rows\":[{\"id\":\"g1\",\"type\":\"group\",\"label\":\"Platform\",\"values\":{}},{\"id\":\"r0\",\"type\":\"feature\",\"label\":\"Pages\",\"description\":\"Every page you can publish, <a href=\\\"https://example.com/pages\\\">see the list</a>.\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"cross\",\"text\":\"\"},\"p2\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p3\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r1\",\"type\":\"feature\",\"label\":\"Users\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"cross\",\"text\":\"\"},\"p1\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p2\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r2\",\"type\":\"feature\",\"label\":\"Storage\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p1\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"cross\",\"text\":\"\"}}},{\"id\":\"r3\",\"type\":\"feature\",\"label\":\"API access\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"cross\",\"text\":\"\"},\"p5\":{\"type\":\"partial\",\"text\":\"Beta\"}}},{\"id\":\"r4\",\"type\":\"feature\",\"label\":\"Single sign-on\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"cross\",\"text\":\"\"},\"p4\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p5\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"}}}],\"featuredColumn\":5,\"density\":\"compact\",\"zebra\":true} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-six-plans-top",
+		"title": "Six plans with prices on top, outline buttons",
+		"markup": "<!-- wp:werun-community/comparison {\"plans\":[{\"id\":\"p0\",\"name\":\"Starter\",\"price\":\"9\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/0\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p1\",\"name\":\"Growth\",\"price\":\"29\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/1\",\"ctaNewTab\":true,\"badge\":\"\"},{\"id\":\"p2\",\"name\":\"Professional\",\"price\":\"49\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/2\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p3\",\"name\":\"Business\",\"price\":\"69\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/3\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p4\",\"name\":\"Enterprise plus\",\"price\":\"89\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/4\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"p5\",\"name\":\"Custom\",\"price\":\"Custom\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/5\",\"ctaNewTab\":false,\"badge\":\"\"}],\"rows\":[{\"id\":\"g1\",\"type\":\"group\",\"label\":\"Platform\",\"values\":{}},{\"id\":\"r0\",\"type\":\"feature\",\"label\":\"Pages\",\"description\":\"Every page you can publish, <a href=\\\"https://example.com/pages\\\">see the list</a>.\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"cross\",\"text\":\"\"},\"p2\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p3\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r1\",\"type\":\"feature\",\"label\":\"Users\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"cross\",\"text\":\"\"},\"p1\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p2\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r2\",\"type\":\"feature\",\"label\":\"Storage\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p1\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"cross\",\"text\":\"\"}}},{\"id\":\"r3\",\"type\":\"feature\",\"label\":\"API access\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"cross\",\"text\":\"\"},\"p5\":{\"type\":\"partial\",\"text\":\"Beta\"}}},{\"id\":\"r4\",\"type\":\"feature\",\"label\":\"Single sign-on\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"cross\",\"text\":\"\"},\"p4\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p5\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"}}}],\"featuredColumn\":5,\"pricesOnTop\":true,\"buttonStyle\":\"outline\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-links-featured",
+		"title": "Links in the featured column, cards, stripes",
+		"markup": "<!-- wp:werun-community/comparison {\"plans\":[{\"id\":\"p0\",\"name\":\"Starter\",\"price\":\"9\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/0\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p1\",\"name\":\"Growth\",\"price\":\"29\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/1\",\"ctaNewTab\":true,\"badge\":\"\"},{\"id\":\"p2\",\"name\":\"Professional\",\"price\":\"49\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/2\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p3\",\"name\":\"Business\",\"price\":\"69\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/3\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p4\",\"name\":\"Enterprise plus\",\"price\":\"89\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/4\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"p5\",\"name\":\"Custom\",\"price\":\"Custom\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/5\",\"ctaNewTab\":false,\"badge\":\"\"}],\"rows\":[{\"id\":\"g1\",\"type\":\"group\",\"label\":\"Platform\",\"values\":{}},{\"id\":\"r0\",\"type\":\"feature\",\"label\":\"Pages\",\"description\":\"Every page you can publish, <a href=\\\"https://example.com/pages\\\">see the list</a>.\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"cross\",\"text\":\"\"},\"p2\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p3\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r1\",\"type\":\"feature\",\"label\":\"Users\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"cross\",\"text\":\"\"},\"p1\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p2\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r2\",\"type\":\"feature\",\"label\":\"Storage\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p1\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"cross\",\"text\":\"\"}}},{\"id\":\"r3\",\"type\":\"feature\",\"label\":\"API access\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"cross\",\"text\":\"\"},\"p5\":{\"type\":\"partial\",\"text\":\"Beta\"}}},{\"id\":\"r4\",\"type\":\"feature\",\"label\":\"Single sign-on\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"cross\",\"text\":\"\"},\"p4\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p5\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"}}}],\"featuredColumn\":4,\"zebra\":true,\"mobileLayout\":\"stacked\",\"descriptionDisplay\":\"below\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__card-item.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card.is-featured",
+				"property": "border-color",
+				"min": 3,
+				"label": "featured card outline"
+			}
+		],
+		"widths": [
+			375
+		]
+	},
+	{
+		"id": "cmp-alignfull",
+		"title": "Full width (align: full), stripes, switch, featured plan",
+		"markup": "<!-- wp:werun-community/comparison {\"align\":\"full\",\"zebra\":true,\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-two",
+		"title": "Two tables on one page (stacked + scroll, featured plan 1)",
+		"markup": "<!-- wp:werun-community/comparison {\"mobileLayout\":\"stacked\",\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /--><!-- wp:werun-community/comparison {\"showHeader\":false,\"featuredColumn\":1,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-own-dark",
+		"title": "Own dark background + white text (Color panel), switch",
+		"markup": "<!-- wp:werun-community/comparison {\"style\":{\"color\":{\"background\":\"#0f172a\",\"text\":\"#ffffff\"}},\"showToggle\":true,\"zebra\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-own-dark-notext",
+		"title": "Own dark background, no text colour",
+		"markup": "<!-- wp:werun-community/comparison {\"style\":{\"color\":{\"background\":\"#1e293b\"}},\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-own-gradient",
+		"title": "Own dark gradient background",
+		"markup": "<!-- wp:werun-community/comparison {\"style\":{\"color\":{\"gradient\":\"linear-gradient(135deg,#0f172a 0%,#312e81 100%)\"}},\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-dark-table",
+		"title": "Dark Table background + header row on a light page, stripes, switch",
+		"markup": "<!-- wp:werun-community/comparison {\"tableBg\":\"#0f172a\",\"headBg\":\"#111827\",\"zebra\":true,\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-light-table",
+		"title": "White Table background (a light table inside a dark section)",
+		"markup": "<!-- wp:werun-community/comparison {\"tableBg\":\"#ffffff\",\"zebra\":true,\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-accent-light",
+		"title": "Light accent #facc15 (automatic on-colour), switch",
+		"markup": "<!-- wp:werun-community/comparison {\"accentColor\":\"#facc15\",\"showToggle\":true,\"zebra\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-picked-fail",
+		"title": "Picked colours that fail: #facc15 accent + white on it, light featured, dark header, stripes",
+		"markup": "<!-- wp:werun-community/comparison {\"accentColor\":\"#facc15\",\"onAccentColor\":\"#ffffff\",\"featuredBg\":\"#e0e7ff\",\"headBg\":\"#1e293b\",\"zebra\":true,\"zebraColor\":\"#eef2ff\",\"lineColor\":\"#e5e7eb\",\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-mid-tones",
+		"title": "Mid-tone table, header, stripes and featured backgrounds, sky accent",
+		"markup": "<!-- wp:werun-community/comparison {\"tableBg\":\"#64748b\",\"headBg\":\"#94a3b8\",\"zebra\":true,\"zebraColor\":\"#475569\",\"featuredBg\":\"#a5b4fc\",\"accentColor\":\"#0ea5e9\",\"showToggle\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			},
+			{
+				"selector": ".wrbc-comparison__radio:checked + .wrbc-comparison__option",
+				"property": "border-color",
+				"min": 3,
+				"label": "checked billing period"
+			}
+		]
+	},
+	{
+		"id": "cmp-dark-featured",
+		"title": "Dark featured column on a light table (accent fills made to stand out), stripes",
+		"markup": "<!-- wp:werun-community/comparison {\"featuredBg\":\"#1e293b\",\"zebra\":true,\"buttonStyle\":\"auto\",\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		]
+	},
+	{
+		"id": "cmp-stacked-dark-featured",
+		"title": "Cards with a dark featured card and a light table in any context",
+		"markup": "<!-- wp:werun-community/comparison {\"mobileLayout\":\"stacked\",\"featuredBg\":\"#312e81\",\"tableBg\":\"#f8fafc\",\"zebra\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__card-item.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card-item.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "card partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__card.is-featured",
+				"property": "border-color",
+				"min": 3,
+				"label": "featured card outline"
+			}
+		],
+		"widths": [
+			375
+		]
+	},
+	{
+		"id": "cmp-text-colour",
+		"title": "Color panel text #1f2937 with a dark Table background (text made readable in the table)",
+		"markup": "<!-- wp:werun-community/comparison {\"style\":{\"color\":{\"text\":\"#1f2937\"}},\"tableBg\":\"#111827\",\"zebra\":true,\"plans\":[{\"id\":\"starter\",\"name\":\"Starter\",\"price\":\"19\",\"period\":\"/month\",\"priceYearly\":\"15\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"https://example.com/starter\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"growth\",\"name\":\"Growth\",\"price\":\"49\",\"period\":\"/month\",\"priceYearly\":\"39\",\"periodYearly\":\"/month, billed yearly\",\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/growth\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"scale\",\"name\":\"Scale\",\"price\":\"Custom\",\"period\":\"\",\"priceYearly\":\"Custom\",\"periodYearly\":\"\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"https://example.com/contact\",\"ctaNewTab\":true,\"badge\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		],
+		"contexts": [
+			"light"
+		]
+	},
+	{
+		"id": "cmp-link-colour",
+		"title": "Color panel link colour (kept in the featured column)",
+		"markup": "<!-- wp:werun-community/comparison {\"plans\":[{\"id\":\"p0\",\"name\":\"Starter\",\"price\":\"9\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/0\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p1\",\"name\":\"Growth\",\"price\":\"29\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/1\",\"ctaNewTab\":true,\"badge\":\"\"},{\"id\":\"p2\",\"name\":\"Professional\",\"price\":\"49\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/2\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p3\",\"name\":\"Business\",\"price\":\"69\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/3\",\"ctaNewTab\":false,\"badge\":\"\"},{\"id\":\"p4\",\"name\":\"Enterprise plus\",\"price\":\"89\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/4\",\"ctaNewTab\":false,\"badge\":\"Most popular\"},{\"id\":\"p5\",\"name\":\"Custom\",\"price\":\"Custom\",\"period\":\"/month\",\"ctaLabel\":\"Choose\",\"ctaUrl\":\"https://example.com/5\",\"ctaNewTab\":false,\"badge\":\"\"}],\"rows\":[{\"id\":\"g1\",\"type\":\"group\",\"label\":\"Platform\",\"values\":{}},{\"id\":\"r0\",\"type\":\"feature\",\"label\":\"Pages\",\"description\":\"Every page you can publish, <a href=\\\"https://example.com/pages\\\">see the list</a>.\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"cross\",\"text\":\"\"},\"p2\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p3\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r1\",\"type\":\"feature\",\"label\":\"Users\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"cross\",\"text\":\"\"},\"p1\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p2\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"check\",\"text\":\"\"}}},{\"id\":\"r2\",\"type\":\"feature\",\"label\":\"Storage\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p1\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"check\",\"text\":\"\"},\"p5\":{\"type\":\"cross\",\"text\":\"\"}}},{\"id\":\"r3\",\"type\":\"feature\",\"label\":\"API access\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"check\",\"text\":\"\"},\"p4\":{\"type\":\"cross\",\"text\":\"\"},\"p5\":{\"type\":\"partial\",\"text\":\"Beta\"}}},{\"id\":\"r4\",\"type\":\"feature\",\"label\":\"Single sign-on\",\"description\":\"\",\"values\":{\"p0\":{\"type\":\"check\",\"text\":\"\"},\"p1\":{\"type\":\"check\",\"text\":\"\"},\"p2\":{\"type\":\"check\",\"text\":\"\"},\"p3\":{\"type\":\"cross\",\"text\":\"\"},\"p4\":{\"type\":\"partial\",\"text\":\"Beta\"},\"p5\":{\"type\":\"text\",\"text\":\"Up to <a href=\\\"https://example.com/limits\\\">50</a>\"}}}],\"featuredColumn\":4,\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#1d4ed8\"}}}}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-comparison__cell.is-check .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-cross .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "not-included icon"
+			},
+			{
+				"selector": ".wrbc-comparison__cell.is-partial .wrbc-comparison__icon",
+				"property": "color",
+				"min": 3,
+				"label": "partial icon"
+			},
+			{
+				"selector": ".wrbc-comparison__tip",
+				"property": "color",
+				"min": 3,
+				"label": "info button icon"
+			}
+		],
+		"contexts": [
+			"light"
+		]
+	}
+]

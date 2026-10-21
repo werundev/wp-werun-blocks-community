@@ -1,0 +1,289 @@
+/* Pricing table and its plans. */
+.wrbc-pricing {
+	container-type: inline-size;
+	/* The featured plan's ring, readable on the table's background (3:1),
+	 * even where a plan sets its own accent text for its own background. */
+	--wrbc-featured-ring: var(--wrbc-accent-text);
+}
+
+/* The switch: a radio group drawn as a segmented control. Each radio covers
+ * its option (invisible, on top), so a click anywhere on the option picks it
+ * and the browser handles the keyboard; the option shows its state. */
+.wrbc-pricing__switch-wrap {
+	display: flex;
+	margin: 0 0 clamp(24px, 4cqi, 40px);
+}
+.wrbc-pricing__switch-wrap.is-center { justify-content: center; }
+.wrbc-pricing__switch {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	padding: 4px;
+	/* The outline that tells it's a control (3:1, WCAG 1.4.11). */
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: 999px;
+	background: var(--wrbc-surface);
+}
+.wrbc-pricing__choice {
+	position: relative;
+	display: inline-flex;
+	margin: 0;
+	/* Themes set label { line-height: 1 }. */
+	line-height: inherit;
+	cursor: pointer;
+}
+.wrbc-pricing__radio {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	appearance: none;
+	cursor: pointer;
+}
+.wrbc-pricing__option {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 0.5em 1.1em;
+	/* Transparent until checked (forced-colours mode draws it on each option). */
+	border: 2px solid transparent;
+	border-radius: 999px;
+	font-size: 0.95em;
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.wrbc-pricing__radio:checked + .wrbc-pricing__option {
+	background: var(--wrbc-accent);
+	/* The selected state reads on any track (3:1): a ring in the readable
+	 * accent, the same colour as the fill wherever the fill already does. */
+	border-color: var(--wrbc-accent-text);
+	color: var(--wrbc-on-accent);
+}
+.wrbc-pricing__radio:focus-visible + .wrbc-pricing__option { outline: 2px solid var(--wrbc-focus); outline-offset: 2px; }
+.wrbc-pricing__save {
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--wrbc-accent) 14%, transparent);
+	/* render.php works out the accent that reads on this tint over the track. */
+	color: var(--wrbc-save-text, var(--wrbc-accent-text));
+	font-size: 0.78em;
+	font-weight: 600;
+	white-space: nowrap;
+}
+/* On the checked option the note keeps the option's own pair (on-accent on
+ * the accent) inside a thin ring: a white tint behind white text left it at 4:1. */
+.wrbc-pricing__radio:checked + .wrbc-pricing__option .wrbc-pricing__save {
+	background: transparent;
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--wrbc-on-accent) 60%, transparent);
+	color: var(--wrbc-on-accent);
+}
+
+/* Columns follow the block's own width */
+.wrbc-pricing__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-cols-m, 1), minmax(0, 1fr));
+	gap: var(--wrbc-gap);
+	align-items: stretch;
+}
+@container (min-width: 600px) {
+	.wrbc-pricing__grid { grid-template-columns: repeat(var(--wrbc-cols-t, 2), minmax(0, 1fr)); }
+}
+@container (min-width: 960px) {
+	.wrbc-pricing__grid { grid-template-columns: repeat(var(--wrbc-cols-d, 3), minmax(0, 1fr)); }
+	/* Every plan fills its row (height: 100%), so extra padding alone made the
+	 * whole row taller. The featured plan grows 18px past the row at the top
+	 * and bottom instead, and its padding keeps its content in line. */
+	.wrbc-pricing.has-featured-scale .wrbc-plan.is-featured {
+		height: calc(100% + 36px);
+		margin-block: -18px;
+		padding-block: calc(var(--wrbc-plan-pad) + 18px);
+	}
+}
+
+/* A plan */
+.wrbc-plan {
+	--wrbc-plan-pad: clamp(22px, 3cqi, 32px);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	min-width: 0;
+	height: 100%;
+	padding: var(--wrbc-plan-pad);
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-pricing--bordered .wrbc-plan { border: 1px solid var(--wrbc-card-border, var(--wrbc-line)); background: var(--wrbc-card-bg, transparent); }
+.wrbc-pricing--filled .wrbc-plan { background: var(--wrbc-card-bg, var(--wrbc-surface)); }
+.wrbc-pricing--shadow .wrbc-plan {
+	background: var(--wrbc-card-bg, #fff);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 32px -16px rgba(0, 0, 0, 0.22);
+}
+/* A background the plan knows (render.php): text that reads on it when the
+ * colour it would inherit doesn't. */
+.wrbc-plan.has-plan-text { color: var(--wrbc-plan-text); }
+/* Links on a plan background the author chose: the theme's link colour was
+ * made for the page, the readable accent for this background (unless the
+ * plan or the table has a link colour of its own: wrbc-has-link-color). */
+.wrbc-plan.has-plan-bg:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) :where(.wrbc-plan__desc, .wrbc-plan__feature) a:not([class*="wrbc-"]) {
+	color: var(--wrbc-accent-text);
+}
+/* The featured plan: a 2 px ring that reads on the table's background, a
+ * shape that says "featured" even without the badge (with the heading's
+ * "(Featured plan)" for screen readers). */
+.wrbc-plan.is-featured {
+	border: 1px solid var(--wrbc-featured-ring);
+	background: var(--wrbc-featured-bg, color-mix(in srgb, var(--wrbc-accent) 6%, var(--wrbc-card-bg, transparent)));
+	box-shadow: inset 0 0 0 1px var(--wrbc-featured-ring);
+}
+/* Shadow style: the featured plan is a white card too (tinted), not the
+ * table's background showing through. */
+.wrbc-pricing--shadow .wrbc-plan.is-featured {
+	background: var(--wrbc-featured-bg, color-mix(in srgb, var(--wrbc-accent) 6%, var(--wrbc-card-bg, #fff)));
+}
+
+.wrbc-plan__head {
+	display: flex;
+	/* A narrow plan (two columns on a phone, 400 % zoom) puts the badge under the icon. */
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	min-height: 1px;
+}
+.wrbc-plan__icon { --wrbc-icon-size: 22px; }
+.wrbc-plan__badge {
+	margin-left: auto;
+	padding: 3px 11px;
+	/* Transparent here; forced-colours mode draws it, so the badge keeps its shape. */
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+	font-size: 0.75em;
+	font-weight: 600;
+	line-height: 1.4;
+	text-align: center;
+}
+.wrbc-plan__name {
+	margin: 0;
+	font-size: 1.25em;
+	line-height: 1.3;
+}
+.wrbc-plan__desc {
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: 0.95em;
+	line-height: 1.55;
+}
+
+.wrbc-plan__price {
+	display: flex;
+	margin: 4px 0;
+	min-height: 3.2em;
+	align-items: flex-end;
+}
+.wrbc-plan__amount {
+	display: inline-flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 2px 4px;
+	animation: wrbc-price-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wrbc-pricing[data-period="monthly"] .wrbc-plan__amount--yearly,
+.wrbc-pricing[data-period="yearly"] .wrbc-plan__amount--monthly { display: none; }
+/* Without JavaScript nothing flips data-period: the checked radio itself
+ * shows its prices (these selectors outweigh the data-period ones). */
+.wrbc-pricing:has(.wrbc-pricing__radio[value="monthly"]:checked) .wrbc-plan__amount--monthly,
+.wrbc-pricing:has(.wrbc-pricing__radio[value="yearly"]:checked) .wrbc-plan__amount--yearly { display: inline-flex; }
+.wrbc-pricing:has(.wrbc-pricing__radio[value="monthly"]:checked) .wrbc-plan__amount--yearly,
+.wrbc-pricing:has(.wrbc-pricing__radio[value="yearly"]:checked) .wrbc-plan__amount--monthly { display: none; }
+/* em, not rem: the block's font size (Typography panel) scales the prices too. */
+.wrbc-plan__currency { font-size: 1.4em; align-self: flex-start; margin-top: 0.35em; }
+.wrbc-plan__value {
+	font-size: clamp(2.25em, 1.8em + 1.6cqi, 3em);
+	line-height: 1;
+	letter-spacing: -0.03em;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+.wrbc-plan__period { color: var(--wrbc-muted); font-size: 0.9em; }
+@keyframes wrbc-price-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.wrbc-plan__cta { margin-top: 2px; }
+/* The Link color setting (block supports) prints ".wp-elements-N a:where(…)",
+ * which outranks .wrbc-btn and recoloured the buttons. Links in the feature
+ * lines take it; the buttons keep their own colors. */
+.wrbc-pricing .wrbc-plan .wrbc-plan__cta.wrbc-btn { color: var(--wrbc-on-accent); }
+.wrbc-pricing .wrbc-plan .wrbc-plan__cta.wrbc-btn--outline { color: inherit; }
+/* A button without a URL is printed as its label with the button's look:
+ * nothing reacts to the pointer. */
+.wrbc-pricing .wrbc-plan__cta.is-static { cursor: default; }
+.wrbc-pricing .wrbc-plan__cta.wrbc-btn.is-static:hover {
+	background: var(--wrbc-accent);
+	border-color: var(--wrbc-accent);
+}
+.wrbc-pricing .wrbc-plan__cta.wrbc-btn--outline.is-static:hover {
+	background: transparent;
+	border-color: var(--wrbc-control-line);
+}
+.wrbc-plan__note {
+	margin: -4px 0 0;
+	color: var(--wrbc-muted);
+	font-size: 0.82em;
+	text-align: center;
+}
+
+.wrbc-plan__features {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 6px 0 0;
+	padding: 18px 0 0;
+	border-top: 1px solid var(--wrbc-line);
+	list-style: none;
+}
+.wrbc-plan__feature {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin: 0;
+	font-size: 0.95em;
+	line-height: 1.45;
+}
+/* The check carries meaning (included): the readable accent, 3:1 at least. */
+.wrbc-plan__feature .wrbc-icon { margin-top: 0.08em; color: var(--wrbc-accent-text); }
+.wrbc-plan__feature.is-excluded { color: var(--wrbc-muted); }
+/* The line is muted already: the icon takes its colour (muting it again left it at 2.6:1). */
+.wrbc-plan__feature.is-excluded .wrbc-icon { color: inherit; }
+.wrbc-plan__feature.is-excluded > span:not(.wrbc-sr-only) { text-decoration: line-through; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+
+.wrbc-pricing--align-center .wrbc-plan { text-align: center; }
+.wrbc-pricing--align-center .wrbc-plan__head,
+.wrbc-pricing--align-center .wrbc-plan__price { justify-content: center; }
+.wrbc-pricing--align-center .wrbc-plan__badge { margin-left: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-plan__amount { animation: none; }
+	.wrbc-pricing__option { transition: none; }
+}
+
+/* Forced colours drop backgrounds and shadows: the checked option, the
+ * featured plan and its badge keep a shape of their own. */
+@media (forced-colors: active) {
+	.wrbc-pricing__radio:checked + .wrbc-pricing__option {
+		forced-color-adjust: none;
+		border-color: SelectedItem;
+		background: SelectedItem;
+		color: SelectedItemText;
+	}
+	.wrbc-pricing__radio:checked + .wrbc-pricing__option .wrbc-pricing__save {
+		box-shadow: inset 0 0 0 1px currentColor;
+		color: inherit;
+	}
+	.wrbc-pricing__radio:focus-visible + .wrbc-pricing__option { outline-color: CanvasText; }
+	/* An SVG with a colour of its own keeps it here: the line's system colour instead. */
+	.wrbc-plan__feature .wrbc-icon { color: inherit; }
+	.wrbc-plan.is-featured { border-width: 2px; }
+}

@@ -1,0 +1,22 @@
+[
+	{
+		"id": "cta-centered",
+		"title": "CTA: centred banner (defaults: eyebrow, title, text, two buttons)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\"} /-->"
+	},
+	{
+		"id": "cta-split",
+		"title": "CTA: split with image on the right",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"split\",\"showMedia\":true,\"mediaPosition\":\"right\",\"mediaRatio\":\"4/3\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "cta-strip",
+		"title": "CTA: compact strip (title + one button)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"strip\",\"showEyebrow\":false,\"showText\":false,\"showSecondary\":false} /-->"
+	},
+	{
+		"id": "cta-card",
+		"title": "CTA: floating card over a busy background image",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"card\",\"contentAlign\":\"center\",\"contentWidth\":760,\"align\":\"full\",\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	}
+]

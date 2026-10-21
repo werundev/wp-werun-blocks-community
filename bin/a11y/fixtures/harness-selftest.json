@@ -1,0 +1,201 @@
+[
+	{
+		"id": "st-focus",
+		"title": "Self-test: focus indicators (none, low contrast, clipped) next to a good one",
+		"contexts": [
+			"light"
+		],
+		"expect": [
+			"focus:focus-visible",
+			"focus:focus-contrast"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p><a href=\"#st-good\" class=\"st-good\">Good focus ring</a></p>\n<p><a href=\"#st-none\" class=\"st-nofocus\">No focus style</a></p>\n<p><a href=\"#st-low\" class=\"st-low\">Low contrast ring</a></p>\n<div style=\"overflow:hidden\"><a href=\"#st-clip\" class=\"st-clip\" style=\"display:block\">Ring clipped by overflow hidden</a></div>\n<p><a href=\"#st-under\" class=\"st-under\">Underline on focus only</a></p>\n<style>.st-good:focus-visible{outline:2px solid #111!important;outline-offset:2px!important}.st-nofocus:focus,.st-nofocus:focus-visible{outline:none!important}.st-low:focus-visible{outline:2px solid #c7d2fe!important;outline-offset:2px!important}.st-clip:focus-visible{outline:3px solid #000!important;outline-offset:2px!important}.st-under{text-decoration:none}.st-under:focus-visible{outline:none!important;text-decoration:underline;text-decoration-thickness:2px}</style>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-target",
+		"title": "Self-test: 12 px targets side by side (fail) and one alone (spacing exception)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"target:target-size"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p><a href=\"#t1\" style=\"display:inline-block;width:12px;height:12px;background:#333\" aria-label=\"Dot one\"></a><a href=\"#t2\" style=\"display:inline-block;width:12px;height:12px;background:#333;margin-left:2px\" aria-label=\"Dot two\"></a></p>\n<p style=\"margin-top:60px\"><a href=\"#t3\" style=\"display:inline-block;width:12px;height:12px;background:#333;margin-left:120px\" aria-label=\"Lonely dot\"></a></p>\n<p>Inline <a href=\"#t4\">link</a> inside a sentence is exempt.</p>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-form",
+		"title": "Self-test: input boundary 1.2:1 (fail), placeholder #c0c0c0 (fail), a good input",
+		"contexts": [
+			"light"
+		],
+		"expect": [
+			"nontext:control-boundary",
+			"nontext:placeholder-contrast"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p><label for=\"st-in1\">Faint border</label> <input id=\"st-in1\" type=\"text\" style=\"border:1px solid #e5e7eb;background:#fff\"></p>\n<p><label for=\"st-in2\">Light placeholder</label> <input id=\"st-in2\" class=\"st-ph\" type=\"email\" placeholder=\"you@example.com\" style=\"border:1px solid #6b7280;background:#fff\"></p>\n<p><label for=\"st-in3\">Good field</label> <input id=\"st-in3\" type=\"text\" style=\"border:1px solid #6b7280;background:#fff\"></p>\n<style>.st-ph::placeholder{color:#c0c0c0;opacity:1}</style>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-motion",
+		"title": "Self-test: an infinite spin and a 6 s one-shot slide, no reduced-motion rule (fail in both motion runs)",
+		"contexts": [
+			"light"
+		],
+		"expect": [
+			"motion:animation-over-5s",
+			"motion:reduced-motion-animation"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p><span class=\"st-spin\" aria-hidden=\"true\">★</span> Spinning star</p>\n<p><span class=\"st-long\" aria-hidden=\"true\">▶</span> A six-second slide</p>\n<style>@keyframes st-spin{to{transform:rotate(360deg)}}.st-spin{display:inline-block;animation:st-spin 2s linear infinite}@keyframes st-slide{to{transform:translateX(200px)}}.st-long{display:inline-block;animation:st-slide 6s linear 1}</style>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-motion-late",
+		"title": "Self-test: a 1.2 s animation that a script starts 5.5 s after load (short: must not be reported)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expectNot": [
+			"motion:animation-over-5s"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p><span class=\"st-late\" aria-hidden=\"true\">●</span> Starts late, runs 1.2 s</p>\n<style>@keyframes st-pop{from{transform:scale(.4)}to{transform:scale(1)}}.st-late{display:inline-block}.st-late.go{animation:st-pop 1.2s ease 1}</style>\n<script>setTimeout(function(){var e=document.querySelector('.st-late');if(e){e.classList.add('go');}},5500);</script>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-carousel",
+		"title": "Self-test: an autoplay query carousel (its root has no id): auto-advance found, with its own pause button",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"motion:auto-advance"
+		],
+		"expectNot": [
+			"motion:autoplay-no-pause"
+		],
+		"markup": "<!-- wp:werun-community/query {\"variant\":\"posts\",\"layout\":\"carousel\",\"autoplay\":true,\"interval\":3,\"columnsDesktop\":2,\"query\":{\"postType\":\"post\",\"perPage\":6},\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":10}]}} /-->"
+	},
+	{
+		"id": "st-layout",
+		"title": "Self-test: 600 px box (reflow), unreachable scroller, fixed-height clipped text (spacing)",
+		"contexts": [
+			"light"
+		],
+		"expect": [
+			"reflow:reflow-overflow",
+			"reflow:scroller-keyboard",
+			"spacing:text-spacing-clip"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\",\"innerWidth\":\"full\"} -->\n<!-- wp:html -->\n<div class=\"st-wide\" style=\"width:600px;background:#eee\">A fixed 600 px wide box.</div>\n<div class=\"st-scroller\" style=\"overflow-x:auto;white-space:nowrap;max-width:100%\"><span>A long line that only scrolls sideways and holds nothing focusable, so a keyboard user cannot scroll it at all.</span></div>\n<div class=\"st-fixed\" style=\"height:40px;overflow:hidden;line-height:1.2;font-size:16px;max-width:260px\">Two short lines of text in a box of fixed height.</div>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-clip-margin",
+		"title": "Self-test: a scroller reaching 6 px into its parent's 12 px overflow-clip-margin (not clipped) next to text cut by overflow:hidden (clipped)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"reflow:reflow-clipped"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<div class=\"st-clipm\" style=\"overflow-x:clip;overflow-clip-margin:12px;max-width:280px\"><div class=\"st-clipm-track\" style=\"margin-inline:-6px;padding:6px;overflow-x:auto;white-space:nowrap\" tabindex=\"0\" role=\"region\" aria-label=\"Scroller in a clip margin\"><span>Item one</span> <span>Item two</span> <span>Item three</span> <span>Item four</span> <span>Item five</span></div></div>\n<div class=\"st-clipped\" style=\"overflow:hidden;max-width:280px;margin-top:16px\"><p class=\"st-cut\" style=\"margin:0;white-space:nowrap\">This sentence is wider than its box and gets cut off at the edge.</p></div>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-slides",
+		"title": "Self-test: amber stars on dark slides, two slides scrolled out of the track (measured where they show, not against the white page)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			375
+		],
+		"expectNot": [
+			"nontext:fixture-rule"
+		],
+		"nonText": [
+			{
+				"selector": ".st-star",
+				"property": "color",
+				"min": 3,
+				"label": "stars on dark slides"
+			}
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<div class=\"st-track\" style=\"display:flex;gap:12px;overflow-x:auto;width:300px;scroll-snap-type:x mandatory\" tabindex=\"0\" role=\"region\" aria-label=\"Slides\"><div class=\"st-slide\" style=\"flex:0 0 280px;background:#0f172a;color:#f8fafc;padding:16px;scroll-snap-align:start\"><span class=\"st-star\" style=\"color:#f59e0b\" role=\"img\" aria-label=\"5 stars\">★★★★★</span> Slide one</div><div class=\"st-slide\" style=\"flex:0 0 280px;background:#0f172a;color:#f8fafc;padding:16px;scroll-snap-align:start\"><span class=\"st-star\" style=\"color:#f59e0b\" role=\"img\" aria-label=\"4 stars\">★★★★</span> Slide two</div><div class=\"st-slide\" style=\"flex:0 0 280px;background:#0f172a;color:#f8fafc;padding:16px;scroll-snap-align:start\"><span class=\"st-star\" style=\"color:#f59e0b\" role=\"img\" aria-label=\"3 stars\">★★★</span> Slide three</div></div>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-obscured",
+		"title": "Self-test: a fixed bar covers the focused link (2.4.11) and low-contrast text",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"obscured:focus-not-obscured",
+			"axe:color-contrast"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p style=\"color:#aaaaaa\">Low contrast text #aaa on white.</p>\n<div style=\"height:1400px\"></div>\n<p><a href=\"#st-cov\" class=\"st-covered\">Covered link</a></p>\n<div style=\"height:40px\"></div>\n<div class=\"st-bar\" style=\"position:fixed;left:0;right:0;bottom:0;height:160px;background:#000;color:#fff;z-index:9999\">Fixed bar</div>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-image",
+		"title": "Self-test: white text straight on a light image (review: worst 1:1) and on a 70% overlay (resolved)",
+		"contexts": [
+			"light"
+		],
+		"expect": [
+			"axe-review:color-contrast"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<div style=\"position:relative;isolation:isolate\"><img src=\"{{url:bg-light}}\" alt=\"\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1\"><p class=\"st-on-image\" style=\"color:#fff;margin:0;padding:40px\">White text on a light image, no overlay.</p></div>\n<div style=\"position:relative;isolation:isolate;margin-top:16px\"><img src=\"{{url:bg-light}}\" alt=\"\" style=\"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2\"><span style=\"position:absolute;inset:0;background:#000;opacity:.7;z-index:-1\"></span><p class=\"st-on-overlay\" style=\"color:#fff;margin:0;padding:40px\">White text over a 70% black overlay.</p></div>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-pseudo",
+		"title": "Self-test: step numbers drawn with ::before counters (#bbb fails), a ::after badge on its own fill (passes)",
+		"contexts": [
+			"light",
+			"dark"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"pseudo:pseudo-text-contrast"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<ol class=\"st-steps\" style=\"list-style:none;padding:0;counter-reset:st\"><li>Plan</li><li>Build</li></ol>\n<p class=\"st-badge\">Release</p>\n<ul class=\"st-numbers\" style=\"list-style-type:decimal\"><li>Numbered by ::marker</li></ul>\n<style>.st-steps li{counter-increment:st}.st-steps li::before{content:counter(st) \". \";color:#bbbbbb;font-weight:700}.st-badge::after{content:\"New\";margin-left:8px;padding:2px 8px;border-radius:999px;background:#4f46e5;color:#ffffff;font-size:12px}</style>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-hidden-control",
+		"title": "Self-test: visually hidden checkboxes whose focus ring is drawn on the label (good ring, low ring)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"focus:focus-contrast"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:html -->\n<p><input type=\"checkbox\" id=\"st-c1\" class=\"st-vh\"><label for=\"st-c1\" class=\"st-opt st-good-ring\">Good ring on the label</label></p>\n<p><input type=\"checkbox\" id=\"st-c2\" class=\"st-vh\"><label for=\"st-c2\" class=\"st-opt st-low-ring\">Low ring on the label</label></p>\n<style>.st-vh{position:absolute;opacity:0;width:1px;height:1px;margin:0}.st-opt{display:inline-block;padding:8px 14px;border:1px solid #6b7280;border-radius:8px}.st-vh:focus-visible+.st-good-ring{outline:2px solid #111;outline-offset:2px}.st-vh:focus-visible+.st-low-ring{outline:2px solid #dddddd;outline-offset:2px}</style>\n<!-- /wp:html -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "st-invalid",
+		"title": "Self-test (with --editor): a block type that doesn't exist and a quote with broken markup (editor warnings)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"expect": [
+			"editor:block-warning"
+		],
+		"markup": "<!-- wp:werun-community/section {\"paddingY\":\"sm\"} -->\n<!-- wp:wrbc-a11y/does-not-exist {\"x\":1} /-->\n<!-- wp:quote -->\n<div class=\"st-broken-quote\"><span>Not a blockquote</span></div>\n<!-- /wp:quote -->\n<!-- /wp:werun-community/section -->"
+	}
+]

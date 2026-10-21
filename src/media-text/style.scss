@@ -1,0 +1,231 @@
+/* Media and text. Two columns from 720 px of block width (container query). */
+.wrbc-media-text {
+	container-type: inline-size;
+}
+/* Zero specificity: the block's Dimensions padding and Typography line height win. */
+/* A side gutter like hero and CTA: themes that don't constrain wide blocks
+   (Hello Elementor) would otherwise put the text against the screen edge. */
+:where(.wrbc-media-text) {
+	padding-block: clamp(48px, 7vw, 96px);
+	padding-inline: clamp(16px, 4vw, 40px);
+	line-height: 1.6;
+}
+
+/* Stacked, the parts follow the DOM (render.php prints them in the "On phones"
+   order), so what is read and focused is what is seen: no column-reverse. */
+.wrbc-media-text__inner {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(1.5em, 5cqi, 4em);
+}
+
+/* The media column: the media box, and a video's transcript under it. */
+.wrbc-media-text__media-col {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	min-width: 0;
+}
+.wrbc-media-text__media {
+	position: relative;
+	margin: 0;
+	min-width: 0;
+	overflow: hidden;
+	aspect-ratio: var(--wrbc-mt-ratio, 4 / 3);
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-surface);
+}
+/* A video clips its own layers (play button, player), so the frame doesn't
+   clip what must stay visible: the focus ring around the play button and the
+   consent placeholder, which grows with its text instead of being cut. */
+.wrbc-media-text.has-video .wrbc-media-text__media { overflow: visible; }
+.wrbc-media-text__poster {
+	/* Under the play badge, not a flex item beside it. */
+	position: absolute;
+	inset: 0;
+}
+.wrbc-media-text__img,
+.wrbc-media-text__poster {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	object-position: var(--wrbc-mt-focal, 50% 50%);
+}
+
+/* Video: the facade button fills the frame; the player the module adds does too
+ * (its .wrbc-video__frame is 16:9 in wrbc-modules: here it takes the block's ratio). */
+.wrbc-media-text__video .wrbc-video__frame {
+	position: absolute;
+	inset: 0;
+	aspect-ratio: auto;
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-media-text__video,
+.wrbc-media-text__video iframe,
+.wrbc-media-text__video video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+/* The facade button. Not .wrbc-video__play (wrbc-video finds it by
+ * data-wrbc-video-play), so the module's and the video block's facade styles
+ * (.wrbc-root .wrbc-video__play { all: unset … }) never reach it; (0,2,0) and its
+ * own states so a theme's button look ([type=button]:hover) doesn't either. */
+.wrbc-root .wrbc-media-text__play {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	border-radius: var(--wrbc-radius);
+	background: transparent;
+	color: var(--wrbc-on-accent);
+	font: inherit;
+	cursor: pointer;
+	transition: none; /* a theme's button transition; the badge has its own */
+	/* The shared ring, outside the frame: against the block's background
+	   (--wrbc-focus reads on it), not over the poster (any colour). */
+	--wrbc-focus-offset: 3px;
+}
+.wrbc-root .wrbc-media-text__play:is(:hover, :focus, :active) {
+	background: transparent;
+	color: var(--wrbc-on-accent);
+}
+/* While the cmp consent placeholder asks, it takes the facade's place. */
+.wrbc-media-text__video.is-asking .wrbc-media-text__play { display: none; }
+.wrbc-media-text__play-icon {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 4em;
+	height: 4em;
+	border-radius: 999px;
+	background: var(--wrbc-accent);
+	box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.45);
+	transition: transform 0.2s ease;
+}
+.wrbc-media-text__play-icon .wrbc-icon {
+	--wrbc-icon-size: 1.5em;
+	margin-inline-start: 0.15em;
+	fill: currentColor;
+}
+.wrbc-media-text__play:hover .wrbc-media-text__play-icon,
+.wrbc-media-text__play:focus-visible .wrbc-media-text__play-icon { transform: scale(1.08); }
+
+/* cmp consent: while wrbc-video asks (.is-asking), the placeholder takes the
+   frame's place in the flow, at the block's ratio or taller when its text needs
+   it (phones, 200 % zoom, text spacing): with min-height auto (wrbc-modules) both
+   aspect-ratio boxes (placeholder, unclipped frame) grow with their content. */
+.wrbc-media-text__video.is-asking {
+	position: relative;
+	inset: auto;
+	height: auto;
+}
+.wrbc-media-text__video .wrbc-consent {
+	aspect-ratio: var(--wrbc-mt-ratio, 4 / 3);
+	border-radius: var(--wrbc-radius);
+}
+
+/* Transcript of a video (a disclosure under it). */
+.wrbc-media-text__transcript {
+	border: 1px solid var(--wrbc-line); /* decorative: the summary's text and marker identify the control */
+	border-radius: var(--wrbc-radius);
+}
+/* The shared focus ring follows the box's corners. */
+.wrbc-media-text__transcript-toggle {
+	padding: 0.6em 1em;
+	border-radius: var(--wrbc-radius);
+	cursor: pointer;
+	font-weight: 600;
+}
+.wrbc-media-text__transcript-body { padding: 0 1em 1em; }
+.wrbc-media-text__transcript-body > :first-child { margin-top: 0; }
+.wrbc-media-text__transcript-body > :last-child { margin-bottom: 0; }
+
+.wrbc-media-text__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.1em;
+	/* Long words wrap (overflow-wrap: anywhere on .wrbc-root, shared): needed
+	   here, where the parts are sized to their content (align-items: flex-start).
+	   Links in the text are underlined by the shared rule too (WCAG 1.4.1). */
+	min-width: 0;
+}
+.wrbc-media-text__title {
+	margin: 0;
+	/* em, not rem: the block's font size scales the title. */
+	font-size: clamp(1.6em, 1.1em + 2cqi, 2.5em);
+	line-height: 1.12;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+}
+.wrbc-media-text__text {
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: 1.075em;
+}
+.wrbc-media-text__points {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrbc-media-text__point {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6em;
+	margin: 0;
+}
+/* Decorative (aria-hidden), in the readable accent all the same. */
+.wrbc-media-text__point .wrbc-icon {
+	margin-top: 0.15em;
+	color: var(--wrbc-accent-text);
+}
+.wrbc-media-text__actions { margin: 0.4em 0 0; }
+/* The button icon follows the block's icon size (shared .wrbc-btn would reset it to 1.1em). */
+.wrbc-media-text .wrbc-media-text__btn { --wrbc-icon-size: inherit; }
+/* "Text link" style: underlined, 24 px tall and in the readable accent come
+   from the shared .wrbc-btn--link. */
+
+@container (min-width: 720px) {
+	.wrbc-media-text.has-media .wrbc-media-text__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: center;
+	}
+	.wrbc-media-text--valign-start .wrbc-media-text__inner { align-items: start; }
+	.wrbc-media-text--valign-end .wrbc-media-text__inner { align-items: end; }
+	/* Side by side, the grid places the columns whatever the DOM order. */
+	.wrbc-media-text__media-col,
+	.wrbc-media-text__content { grid-row: 1; }
+	.wrbc-media-text--media-left .wrbc-media-text__media-col,
+	.wrbc-media-text--media-right .wrbc-media-text__content { grid-column: 1; }
+	.wrbc-media-text--media-left .wrbc-media-text__content,
+	.wrbc-media-text--media-right .wrbc-media-text__media-col { grid-column: 2; }
+}
+
+/* Without media the text keeps a readable measure. */
+.wrbc-media-text--no-media .wrbc-media-text__content { max-width: 46em; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-media-text__play-icon { transition: none; }
+	.wrbc-media-text__play:hover .wrbc-media-text__play-icon,
+	.wrbc-media-text__play:focus-visible .wrbc-media-text__play-icon { transform: none; }
+}
+@media (forced-colors: active) {
+	.wrbc-media-text__play-icon { border: 2px solid ButtonText; }
+}

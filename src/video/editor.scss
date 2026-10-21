@@ -1,0 +1,25 @@
+/* Video, editor only. */
+.wrbc-video .components-placeholder { border-radius: var(--wrbc-video-radius, 0.75em); }
+.wrbc-video-placeholder {
+	display: grid;
+	gap: 12px;
+	width: 100%;
+	max-width: 32em;
+}
+.wrbc-video-media-field {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+.wrbc-video-media-field .wrbc-control-label,
+.wrbc-video-media-field__file {
+	flex: 1 0 100%;
+	margin: 0;
+	overflow-wrap: anywhere;
+	font-size: 12px;
+}
+/* The preview never plays in the editor. */
+.wrbc-video .wrbc-video__play { cursor: default; }
+.wrbc-video .wrbc-video__toggle { pointer-events: none; }

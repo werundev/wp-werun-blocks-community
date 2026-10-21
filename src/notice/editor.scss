@@ -1,0 +1,44 @@
+/* Notice, editor only. A fixed bar would float over the editor canvas: it
+ * stays in place there, labelled, and sticks / floats on the page. */
+.editor-styles-wrapper .wrbc-notice--pos-sticky-bottom,
+.editor-styles-wrapper .wrbc-notice--pos-sticky-top {
+	position: relative;
+	inset: auto;
+	z-index: auto;
+}
+/* Nothing scrolls under it here: the soft tint needs no opaque backdrop (on a
+   dark section a white one would hide its light text). */
+.editor-styles-wrapper .wrbc-notice--bar.wrbc-notice--soft:is(.wrbc-notice--pos-sticky-top, .wrbc-notice--pos-sticky-bottom):not(.has-background) {
+	background: transparent;
+}
+.wrbc-notice--pos-sticky-bottom::before,
+.wrbc-notice--pos-sticky-top::before {
+	position: absolute;
+	inset-inline-end: 4px;
+	top: -18px;
+	padding: 0 6px;
+	border-radius: 3px;
+	background: #1e1e1e;
+	color: #fff;
+	font: 11px/16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	content: "sticky top";
+	opacity: 0.7;
+}
+.wrbc-notice--pos-sticky-bottom::before { content: "fixed bottom"; }
+/* Off schedule: a dashed frame and the flag, not faded colours (the preview
+   keeps the colours the page will show, and the contrast check reads them). */
+.wrbc-notice.is-off-schedule .wrbc-notice__inner { outline: 2px dashed #b45309; outline-offset: 2px; }
+/* Its own light chip: readable on a light page and inside a dark section. */
+.wrbc-notice__schedule-flag {
+	display: inline-block;
+	margin: 0 0 6px;
+	padding: 1px 6px;
+	border-radius: 3px;
+	background: #fffbeb;
+	color: #92400e;
+	font: 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.wrbc-notice__title:empty,
+.wrbc-notice__title [data-rich-text-placeholder] { opacity: 0.75; }
+.wrbc-notice-date__row { display: flex; align-items: center; gap: 8px; }
+.wrbc-notice-date__picker { padding: 8px; }

@@ -1,0 +1,277 @@
+[
+	{
+		"id": "section-contained",
+		"title": "Section: contained (variation), header + core content",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Contained section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"align\":\"wide\",\"innerWidth\":\"content\",\"columns\":\"one\",\"bgType\":\"none\",\"paddingY\":\"md\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-full-bg",
+		"title": "Section: full width with background (variation: #f1f5f9, dark text)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Full background section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"align\":\"full\",\"innerWidth\":\"wide\",\"columns\":\"one\",\"bgType\":\"none\",\"paddingY\":\"lg\",\"textTone\":\"dark\",\"style\":{\"color\":{\"background\":\"#f1f5f9\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-image-overlay",
+		"title": "Section: background image with overlay (variation: 55 % black, light text) over the light image, a CTA strip inside",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Image section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"align\":\"full\",\"bgType\":\"image\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\",\"columns\":\"one\",\"overlayColor\":\"#000000\",\"overlayOpacity\":55,\"textTone\":\"light\",\"minHeight\":60,\"minHeightUnit\":\"vh\",\"verticalAlign\":\"center\",\"paddingY\":\"xl\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"strip\",\"showEyebrow\":false,\"showText\":false,\"title\":\"A strip over the picture\",\"titleLevel\":3,\"reveal\":false} /-->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-image-auto",
+		"title": "Section: image (busy stripes), text tone automatic, stored overlay 20 % (raised to the floor)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Automatic text over a picture\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"align\":\"full\",\"bgType\":\"image\",\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\",\"overlayOpacity\":20} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-image-light-overlay",
+		"title": "Section: image (dark), white overlay, text tone automatic (dark text)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Light overlay\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"align\":\"full\",\"bgType\":\"image\",\"bgImageId\":{{img:bg-dark}},\"bgImageUrl\":\"{{url:bg-dark}}\",\"overlayColor\":\"#ffffff\",\"overlayOpacity\":30} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-two-columns",
+		"title": "Section: two columns (variation), second column first on phones",
+		"markup": "<!-- wp:werun-community/section {\"columns\":\"two\",\"columnsRatio\":\"60-40\",\"verticalAlign\":\"center\",\"mobileReverse\":true} -->\n<!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Column one</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>First column with <a href=\"https://example.com/one\">a link</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->\n<!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group\"><!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Column two</h3>\n<!-- /wp:heading --><!-- wp:paragraph -->\n<p>Second column text.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-dark-bg",
+		"title": "Section: own dark background #0f172a, automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Dark band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"style\":{\"color\":{\"background\":\"#0f172a\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-accent-bg",
+		"title": "Section: background in the accent colour #4f46e5, light text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Accent band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"textTone\":\"light\",\"style\":{\"color\":{\"background\":\"#4f46e5\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-gradient",
+		"title": "Section: dark gradient #0f172a → #312e81, automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Gradient band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"style\":{\"color\":{\"gradient\":\"linear-gradient(135deg,#0f172a 0%,#312e81 100%)\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-light-bg",
+		"title": "Section: light background #f8fafc (inside the dark context it turns ink)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Light band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"style\":{\"color\":{\"background\":\"#f8fafc\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-mid-bg",
+		"title": "Section: mid-grey background #767676 (only white reaches 4.5:1), automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Grey band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"style\":{\"color\":{\"background\":\"#767676\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-tone-mismatch",
+		"title": "Section: light tone picked on a light colour #f1f5f9 (made readable on the page)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Light tone on a light band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"textTone\":\"light\",\"style\":{\"color\":{\"background\":\"#f1f5f9\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/core\">Core button</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-tags",
+		"title": "Section: div / aside / article elements with headers, a header with only an eyebrow",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"A div section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"tagName\":\"div\"} -->\n<!-- wp:paragraph -->\n<p>A div section.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->\n<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"An aside section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"tagName\":\"aside\"} -->\n<!-- wp:paragraph -->\n<p>An aside section.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->\n<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"An article section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"tagName\":\"article\"} -->\n<!-- wp:paragraph -->\n<p>An article section.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->\n<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Only an eyebrow\",\"title\":\"\",\"intro\":\"\"} -->\n<!-- wp:paragraph -->\n<p>No title: no aria-labelledby.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "section-nested-ctas",
+		"title": "Section: dark band holding CTAs (centred, strip, card, split with image)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"CTAs inside a dark section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"textTone\":\"light\",\"style\":{\"color\":{\"background\":\"#0f172a\"}}} -->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"title\":\"Centred inside\",\"titleLevel\":3,\"reveal\":false} /-->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"strip\",\"showEyebrow\":true,\"showText\":true,\"title\":\"Strip inside\",\"titleLevel\":3,\"reveal\":false} /-->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"title\":\"Card inside\",\"titleLevel\":3,\"reveal\":false} /-->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"split\",\"showMedia\":true,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard illustration\",\"title\":\"Split inside\",\"titleLevel\":3,\"reveal\":false} /-->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "cta-centered",
+		"title": "CTA: centred banner (variation) with links",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"centered\",\"showMedia\":false,\"showSecondary\":true,\"showEyebrow\":true,\"showText\":true} /-->"
+	},
+	{
+		"id": "cta-no-links",
+		"title": "CTA: block defaults, no URLs yet (labels print as text)",
+		"markup": "<!-- wp:werun-community/cta /-->"
+	},
+	{
+		"id": "cta-centered-media",
+		"title": "CTA: centred with an illustration above the text",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"showMedia\":true,\"mediaId\":{{img:illustration-square}},\"mediaUrl\":\"{{url:illustration-square}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "cta-split",
+		"title": "CTA: split with image on the right (variation)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"split\",\"showMedia\":true,\"mediaPosition\":\"right\",\"mediaRatio\":\"4/3\",\"showEyebrow\":true,\"showText\":true,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard illustration\"} /-->"
+	},
+	{
+		"id": "cta-split-left",
+		"title": "CTA: split, image left and first on phones, decorative image, new-tab links, icon on the second button",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"split\",\"showMedia\":true,\"mediaPosition\":\"left\",\"mobileMediaFirst\":true,\"mediaRatio\":\"1/1\",\"mediaId\":{{img:illustration-square}},\"mediaUrl\":\"{{url:illustration-square}}\",\"mediaAlt\":\"\",\"primaryNewTab\":true,\"secondaryNewTab\":true,\"secondaryIcon\":{\"name\":\"play\",\"lib\":\"lucide\"}} /-->"
+	},
+	{
+		"id": "cta-strip",
+		"title": "CTA: compact strip (variation)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"strip\",\"showEyebrow\":false,\"showText\":false,\"showSecondary\":false} /-->"
+	},
+	{
+		"id": "cta-card",
+		"title": "CTA: floating card (variation) over the busy image",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"contentAlign\":\"center\",\"contentWidth\":760,\"align\":\"full\",\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "cta-card-left",
+		"title": "CTA: floating card aligned left on a light block colour",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"contentAlign\":\"left\",\"contentWidth\":760,\"align\":\"full\",\"style\":{\"color\":{\"background\":\"#e2e8f0\"}}} /-->"
+	},
+	{
+		"id": "cta-bg-image",
+		"title": "CTA: centred over the light image, automatic text, stored overlay 30 % (raised to the floor)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\",\"overlayOpacity\":30} /-->"
+	},
+	{
+		"id": "cta-bg-image-light-overlay",
+		"title": "CTA: split layout over the dark image with a white overlay (dark text)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"split\",\"showMedia\":false,\"bgImageId\":{{img:bg-dark}},\"bgImageUrl\":\"{{url:bg-dark}}\",\"overlayColor\":\"#ffffff\",\"overlayOpacity\":40} /-->"
+	},
+	{
+		"id": "cta-dark-bg",
+		"title": "CTA: own dark background #0f172a, automatic text",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"style\":{\"color\":{\"background\":\"#0f172a\"}}} /-->"
+	},
+	{
+		"id": "cta-accent-bg",
+		"title": "CTA: strip on a background in the accent colour (button ring)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"strip\",\"showEyebrow\":true,\"showText\":true,\"showSecondary\":true,\"style\":{\"color\":{\"background\":\"#4f46e5\"}}} /-->"
+	},
+	{
+		"id": "cta-light-accent",
+		"title": "CTA: light custom accent #facc15 (automatic text on it, readable accent text, ring)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"accentColor\":\"#facc15\",\"buttonShape\":\"rounded\"} /-->"
+	},
+	{
+		"id": "cta-mid-accent",
+		"title": "CTA: mid-tone custom accent #3b82f6 (ink label, hover/focus lighten the fill)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"accentColor\":\"#3b82f6\"} /-->"
+	},
+	{
+		"id": "cta-picked-pairs",
+		"title": "CTA: card with picked colours that don't read (text on accent #ccc, card text #333 on #0f172a): made readable",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"onAccentColor\":\"#cccccc\",\"cardBg\":\"#0f172a\",\"cardText\":\"#333333\"} /-->"
+	},
+	{
+		"id": "cta-dark-card",
+		"title": "CTA: card with a dark card colour and no card text colour",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"cardBg\":\"#0f172a\"} /-->"
+	},
+	{
+		"id": "cta-accent-card",
+		"title": "CTA: card in the accent colour (button ring, secondary text)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"cardBg\":\"#4f46e5\",\"buttonShape\":\"square\"} /-->"
+	},
+	{
+		"id": "cta-light-card-dark-bg",
+		"title": "CTA: default white card on a dark block colour",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"style\":{\"color\":{\"background\":\"#0f172a\"}}} /-->"
+	},
+	{
+		"id": "cta-mid-bg",
+		"title": "CTA: mid-grey block colour #767676 (only white reaches 4.5:1)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"style\":{\"color\":{\"background\":\"#767676\"}}} /-->"
+	},
+	{
+		"id": "cta-long-words",
+		"title": "CTA: strip with a very long word (reflow and text spacing)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"https://example.com/contact\",\"secondaryUrl\":\"https://example.com/work\",\"layout\":\"strip\",\"title\":\"Supercalifragilisticexpialidociousandsomemoreletters in a title\",\"showText\":true} /-->"
+	},
+	{
+		"id": "p3-section-fixed-bg",
+		"title": "Section: image fixed while scrolling (off with reduced motion), automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Fixed background\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"bgType\":\"image\",\"bgFixed\":true,\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\",\"minHeight\":400,\"minHeightUnit\":\"px\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-header-center-h3",
+		"title": "Section: no alignment, centred header H3, inner width none, padding S, top aligned",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Centred H3 header\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"headerAlign\":\"center\",\"titleLevel\":3,\"align\":\"\",\"innerWidth\":\"full\",\"paddingY\":\"sm\",\"paddingYMobile\":\"none\",\"verticalAlign\":\"start\"} -->\n<!-- wp:heading {\"level\":4} -->\n<h4 class=\"wp-block-heading\">A level-4 heading inside</h4>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Text.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-custom-width",
+		"title": "Section: custom inner width 640 px, 400 px tall, bottom aligned, padding XL / tablet M",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Custom width\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"innerWidth\":\"custom\",\"innerMaxWidth\":640,\"minHeight\":400,\"minHeightUnit\":\"px\",\"verticalAlign\":\"end\",\"paddingY\":\"xl\",\"paddingYTablet\":\"md\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-tone-dark-nobg",
+		"title": "Section: dark text tone without a colour of its own (dark text inside the dark group)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Dark tone, no background\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"textTone\":\"dark\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-tone-light-nobg",
+		"title": "Section: light text tone without a colour of its own (light text on the white page)",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Light tone, no background\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"textTone\":\"light\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-text-link-colors",
+		"title": "Section: own background #111827, chosen text #e5e7eb and link colour #93c5fd",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Chosen colours\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"style\":{\"color\":{\"background\":\"#111827\",\"text\":\"#e5e7eb\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#93c5fd\"}}}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-rgba-bg",
+		"title": "Section: translucent background rgba(79,70,229,0.15), automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Translucent band\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"style\":{\"color\":{\"background\":\"rgba(79,70,229,0.15)\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-red-overlay",
+		"title": "Section: light image under a red overlay #ef4444, automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Red overlay\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"bgType\":\"image\",\"overlayColor\":\"#ef4444\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-grey-overlay",
+		"title": "Section: busy image under a mid-grey overlay #808080, automatic text",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Grey overlay\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"bgType\":\"image\",\"overlayColor\":\"#808080\",\"overlayOpacity\":80,\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Inside the section</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Running text with <a href=\"https://example.com/inline\">an inline link</a> in the middle of a sentence.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-nested-blocks",
+		"title": "Section (H2 header, light band) holding a hero H2, media and text H3, a CTA H3 and a section with an H3 header and a CTA H4",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Outer section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"titleLevel\":2,\"style\":{\"color\":{\"background\":\"#f8fafc\"}}} -->\n<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"headingLevel\":2,\"align\":\"wide\",\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"reveal\":false,\"heading\":\"A hero inside a section\"} /-->\n<!-- wp:werun-community/media-text {\"titleLevel\":3,\"buttonUrl\":\"/more/\",\"reveal\":false,\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"titleLevel\":3,\"reveal\":false,\"title\":\"A CTA inside\"} /-->\n<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Inner section\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"titleLevel\":3,\"align\":\"\",\"style\":{\"color\":{\"background\":\"#0f172a\"}}} -->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"layout\":\"strip\",\"titleLevel\":4,\"reveal\":false,\"title\":\"A strip in the inner section\"} /-->\n<!-- /wp:werun-community/section -->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-section-image-media-text",
+		"title": "Section over the light image (55 % black) holding a media and text block with a text-link button and a CTA card",
+		"markup": "<!-- wp:werun-community/section {\"showHeader\":true,\"eyebrow\":\"Eyebrow text\",\"title\":\"Blocks over a picture\",\"intro\":\"An intro line in the secondary colour, long enough to wrap on a phone screen.\",\"bgType\":\"image\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\"} -->\n<!-- wp:werun-community/media-text {\"buttonUrl\":\"/more/\",\"buttonStyle\":\"link\",\"reveal\":false,\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"text\":\"Text with <a href=\\\"/inline/\\\">an inline link</a>.\"} /-->\n<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"layout\":\"card\",\"reveal\":false,\"title\":\"A card over the picture\"} /-->\n<!-- /wp:werun-community/section -->"
+	},
+	{
+		"id": "p3-cta-red-overlay",
+		"title": "CTA: centred over the light image with a red overlay #ef4444, automatic text",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"overlayColor\":\"#ef4444\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\"} /-->"
+	},
+	{
+		"id": "p3-cta-strip-image",
+		"title": "CTA: strip over the busy image, indigo overlay #6366f1 at 90 %",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"layout\":\"strip\",\"showSecondary\":true,\"overlayColor\":\"#6366f1\",\"overlayOpacity\":90,\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "p3-cta-card-rgba",
+		"title": "CTA: translucent white card rgba(255,255,255,0.4) over the busy image, overlay 20 %",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"cardBg\":\"rgba(255,255,255,0.4)\",\"overlayOpacity\":20,\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "p3-cta-card-rgba-solid",
+		"title": "CTA: translucent dark card rgba(17,24,39,0.6) on a block colour #f1f5f9",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"cardBg\":\"rgba(17,24,39,0.6)\",\"style\":{\"color\":{\"background\":\"#f1f5f9\"}}} /-->"
+	},
+	{
+		"id": "p3-cta-dark-card-indigo",
+		"title": "CTA: dark card #111827 with the mid-tone accent #6366f1",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"layout\":\"card\",\"align\":\"full\",\"contentWidth\":760,\"cardBg\":\"#111827\",\"accentColor\":\"#6366f1\"} /-->"
+	},
+	{
+		"id": "p3-cta-align-none-split",
+		"title": "CTA: no alignment, split with a decorative 3:2 image on the left, H4",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"align\":\"\",\"layout\":\"split\",\"showMedia\":true,\"mediaPosition\":\"left\",\"mediaRatio\":\"3/2\",\"titleLevel\":4,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"\"} /-->"
+	},
+	{
+		"id": "p3-cta-minimal",
+		"title": "CTA: title only (no eyebrow, text or buttons)",
+		"markup": "<!-- wp:werun-community/cta {\"showEyebrow\":false,\"showText\":false,\"showPrimary\":false,\"showSecondary\":false} /-->"
+	},
+	{
+		"id": "p3-cta-buttons-only",
+		"title": "CTA: one button, no title (no landmark name), accent #6366f1",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"title\":\"\",\"showEyebrow\":false,\"showText\":false,\"showSecondary\":false,\"accentColor\":\"#6366f1\"} /-->"
+	},
+	{
+		"id": "p3-cta-strip-long",
+		"title": "CTA: strip with text and two long button labels, one without a URL",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"\",\"layout\":\"strip\",\"showText\":true,\"showSecondary\":true,\"primaryLabel\":\"Book a thirty-minute introduction call\",\"secondaryLabel\":\"Download the full capabilities brochure\"} /-->"
+	},
+	{
+		"id": "p3-cta-wide-card-gradient",
+		"title": "CTA: card on a dark gradient, align wide, left aligned",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/work/\",\"layout\":\"card\",\"align\":\"wide\",\"contentAlign\":\"left\",\"style\":{\"color\":{\"gradient\":\"linear-gradient(135deg,#0f172a 0%,#312e81 100%)\"}}} /-->"
+	}
+]

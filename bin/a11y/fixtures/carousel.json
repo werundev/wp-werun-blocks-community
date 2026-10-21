@@ -1,0 +1,397 @@
+[
+	{
+		"id": "carousel-default",
+		"title": "Default (no attributes): filled slides, arrows + dots, a button and an inline link",
+		"markup": "<!-- wp:werun-community/carousel -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Read <a href=\"https://example.com/guide\">the full guide</a> or keep going.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Arrows, dots, keyboard and swipe move between slides.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-content",
+		"title": "Variation: content slides (min height 360)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Read <a href=\"https://example.com/guide\">the full guide</a> or keep going.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Arrows, dots, keyboard and swipe move between slides.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-images",
+		"title": "Variation: image slides 16:9 — white text over bg-light (worst case), a stored 20% overlay, an indigo overlay, a dark photo with alt",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":48} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-light}},\"bgUrl\":\"{{url:bg-light}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">White text over a light photo</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>The default overlay keeps it readable, with <a href=\"https://example.com/more\">a link</a>.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Shop now</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-busy}},\"bgUrl\":\"{{url:bg-busy}}\",\"overlayOpacity\":20} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Overlay set too low</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A stored 20% is raised to the readable minimum.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-light}},\"bgUrl\":\"{{url:bg-light}}\",\"overlayColor\":\"#312e81\",\"overlayOpacity\":40} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Indigo overlay</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A coloured overlay needs more opacity (70%).</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-dark}},\"bgUrl\":\"{{url:bg-dark}}\",\"bgAlt\":\"A night skyline\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Dark photo</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Same rules over a dark image.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-cards",
+		"title": "Variation: cards, 3 / 2 / 1 in view, peek 48, bordered, links in every card",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"slideStyle\":\"bordered\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":0,\"peek\":48,\"verticalAlign\":\"top\",\"slidePadding\":28} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 1</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 1, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-1\">Read case study 1</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 2</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 2, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-2\">Read case study 2</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 3</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 3, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-3\">Read case study 3</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 4</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 4, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-4\">Read case study 4</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 5</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 5, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-5\">Read case study 5</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 6</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 6, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-6\">Read case study 6</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-thumbnails",
+		"title": "Variation: with thumbnails (photo slides, own thumbnail, image block, number thumbnail)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":true,\"showDots\":false,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":40} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-1}},\"bgUrl\":\"{{url:case-img-1}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project one</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A background image slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-2}},\"bgUrl\":\"{{url:case-img-2}}\",\"thumbId\":{{img:case-img-3}},\"thumbUrl\":\"{{url:case-img-3}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project two</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>This slide has its own thumbnail.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project three</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>An image block inside, no background.</p>\n<!-- /wp:paragraph -->\n<!-- wp:image {\"id\":{{img:illustration}},\"sizeSlug\":\"large\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"{{url:illustration}}\" alt=\"A dashboard with a bar chart\" class=\"wp-image-{{img:illustration}}\"/></figure>\n<!-- /wp:image -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project four</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>No image at all: the thumbnail shows the number.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			},
+			{
+				"selector": ".wrbc-carousel__thumb[aria-current=\"true\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "current thumbnail border"
+			}
+		]
+	},
+	{
+		"id": "carousel-gallery",
+		"title": "Photo gallery: image-only slides with alt text, overlay 0 (no text: no floor), thumbnails 40 px left + dots",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":true,\"showDots\":true,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":40,\"thumbSize\":40,\"thumbsAlign\":\"left\"} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-1}},\"bgUrl\":\"{{url:case-img-1}}\",\"bgAlt\":\"Project photo 1\",\"overlayOpacity\":0} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\"></h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-2}},\"bgUrl\":\"{{url:case-img-2}}\",\"bgAlt\":\"Project photo 2\",\"overlayOpacity\":0} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\"></h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-3}},\"bgUrl\":\"{{url:case-img-3}}\",\"bgAlt\":\"Project photo 3\",\"overlayOpacity\":0} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\"></h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-4}},\"bgUrl\":\"{{url:case-img-4}}\",\"bgAlt\":\"Project photo 4\",\"overlayOpacity\":0} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\"></h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			},
+			{
+				"selector": ".wrbc-carousel__thumb[aria-current=\"true\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "current thumbnail border"
+			}
+		]
+	},
+	{
+		"id": "carousel-header",
+		"title": "Section header (eyebrow, H2 title, intro) + autoplay with pause, controls on top",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40,\"showHeader\":true,\"showIntro\":true,\"intro\":\"An intro under the title, in the muted colour.\",\"autoplay\":true,\"interval\":4,\"controlsPosition\":\"top\"} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Read <a href=\"https://example.com/guide\">the full guide</a> or keep going.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Arrows, dots, keyboard and swipe move between slides.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-autoplay-noloop",
+		"title": "Autoplay without loop, arrows only (no dots), named by the author",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":false,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40,\"autoplay\":true,\"loop\":false,\"label\":\"Product highlights\"} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Read <a href=\"https://example.com/guide\">the full guide</a> or keep going.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Arrows, dots, keyboard and swipe move between slides.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-shadow",
+		"title": "Shadow style (white cards), 2 in view on desktop",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":2,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"shadow\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Read <a href=\"https://example.com/guide\">the full guide</a> or keep going.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Arrows, dots, keyboard and swipe move between slides.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-accent-light",
+		"title": "Custom colours: light accent #facc15 (dots, thumbnails, focus) with thumbnails + dots",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":true,\"showDots\":true,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":40,\"accentColor\":\"#facc15\"} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-1}},\"bgUrl\":\"{{url:case-img-1}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project one</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A background image slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-2}},\"bgUrl\":\"{{url:case-img-2}}\",\"thumbId\":{{img:case-img-3}},\"thumbUrl\":\"{{url:case-img-3}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project two</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>This slide has its own thumbnail.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project three</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>An image block inside, no background.</p>\n<!-- /wp:paragraph -->\n<!-- wp:image {\"id\":{{img:illustration}},\"sizeSlug\":\"large\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"{{url:illustration}}\" alt=\"A dashboard with a bar chart\" class=\"wp-image-{{img:illustration}}\"/></figure>\n<!-- /wp:image -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project four</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>No image at all: the thumbnail shows the number.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			},
+			{
+				"selector": ".wrbc-carousel__thumb[aria-current=\"true\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "current thumbnail border"
+			}
+		]
+	},
+	{
+		"id": "carousel-slidebg-dark",
+		"title": "Custom colours: dark slide background #0f172a + border #334155 (cards with links)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"slideStyle\":\"bordered\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":0,\"peek\":48,\"verticalAlign\":\"top\",\"slidePadding\":28,\"slideBg\":\"#0f172a\",\"slideBorderColor\":\"#334155\"} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 1</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 1, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-1\">Read case study 1</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 2</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 2, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-2\">Read case study 2</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 3</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 3, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-3\">Read case study 3</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 4</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 4, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-4\">Read case study 4</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 5</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 5, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-5\">Read case study 5</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 6</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 6, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-6\">Read case study 6</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-slidebg-light",
+		"title": "Custom colours: light slide background #fef9c3 (filled), also inside the dark section",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40,\"slideBg\":\"#fef9c3\"} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Read <a href=\"https://example.com/guide\">the full guide</a> or keep going.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Arrows, dots, keyboard and swipe move between slides.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-root-dark",
+		"title": "Carousel with its own dark background (#111827, Color panel), no text colour",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"slideStyle\":\"bordered\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":0,\"peek\":48,\"verticalAlign\":\"top\",\"slidePadding\":28,\"style\":{\"color\":{\"background\":\"#111827\"}}} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 1</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 1, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-1\">Read case study 1</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 2</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 2, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-2\">Read case study 2</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 3</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 3, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-3\">Read case study 3</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 4</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 4, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-4\">Read case study 4</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 5</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 5, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-5\">Read case study 5</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 6</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 6, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-6\">Read case study 6</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-slide-colors",
+		"title": "Slides with their own Color panel background: dark without text colour, light with dark text",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40} -->\n<!-- wp:werun-community/slide {\"style\":{\"color\":{\"background\":\"#1e293b\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Own dark background</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>No text colour picked: the slide makes it light, links too: <a href=\"https://example.com/a\">details</a>.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"style\":{\"color\":{\"background\":\"#f1f5f9\",\"text\":\"#0f172a\"}}} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Own light background</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Dark text picked by the author.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Default slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Nothing set.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-light-overlay",
+		"title": "Image slide with a white overlay: ink text, raised to its readable minimum",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":48} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-busy}},\"bgUrl\":\"{{url:bg-busy}}\",\"overlayColor\":\"#ffffff\",\"overlayOpacity\":10} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Light overlay</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Ink text over a white veil, with <a href=\"https://example.com/x\">a link</a>.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-light}},\"bgUrl\":\"{{url:bg-light}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Black overlay</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>White text.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-one-slide",
+		"title": "A single slide: no controls, no track Tab stop",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First slide</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks: text, buttons, images, columns.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Start a project</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->"
+	},
+	{
+		"id": "carousel-narrow",
+		"title": "Extreme spacing: peek 240, gap 96, 2 in view on phones, padding 120 (reflow 320)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":2,\"slideStyle\":\"bordered\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":0,\"peek\":240,\"verticalAlign\":\"top\",\"slidePadding\":120,\"gap\":96} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 1</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 1, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-1\">Read case study 1</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 2</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 2, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-2\">Read case study 2</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 3</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 3, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-3\">Read case study 3</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 4</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 4, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-4\">Read case study 4</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 5</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 5, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-5\">Read case study 5</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Case study 6</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>What we built for client 6, in two lines of text.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"https://example.com/case-6\">Read case study 6</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-empty-heading",
+		"title": "Slides whose template heading was left empty (not printed)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"filled\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"auto\",\"minHeight\":360,\"peek\":0,\"verticalAlign\":\"center\",\"slidePadding\":40} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\"></h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A slide whose heading was left empty.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">A real heading</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Second slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "carousel-full",
+		"title": "Full width (align full): thumbnails, photo slides and an image block (Hello sizes .alignfull img)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":true,\"showDots\":true,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":40,\"align\":\"full\"} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-1}},\"bgUrl\":\"{{url:case-img-1}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project one</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A background image slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:case-img-2}},\"bgUrl\":\"{{url:case-img-2}}\",\"thumbId\":{{img:case-img-3}},\"thumbUrl\":\"{{url:case-img-3}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project two</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>This slide has its own thumbnail.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project three</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>An image block inside, no background.</p>\n<!-- /wp:paragraph -->\n<!-- wp:image {\"id\":{{img:illustration}},\"sizeSlug\":\"large\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"{{url:illustration}}\" alt=\"A dashboard with a bar chart\" class=\"wp-image-{{img:illustration}}\"/></figure>\n<!-- /wp:image -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Project four</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>No image at all: the thumbnail shows the number.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			},
+			{
+				"selector": ".wrbc-carousel__thumb[aria-current=\"true\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "current thumbnail border"
+			}
+		]
+	},
+	{
+		"id": "carousel-link-color",
+		"title": "Carousel link colour (Color panel) over photo slides: the author colour is kept",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"slideStyle\":\"plain\",\"showThumbs\":false,\"showDots\":true,\"aspectRatio\":\"16/9\",\"minHeight\":0,\"peek\":0,\"verticalAlign\":\"bottom\",\"slidePadding\":48,\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#fde68a\"}}}}} -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-light}},\"bgUrl\":\"{{url:bg-light}}\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">White text over a light photo</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>The default overlay keeps it readable, with <a href=\"https://example.com/more\">a link</a>.</p>\n<!-- /wp:paragraph -->\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://example.com/start\">Shop now</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide {\"bgId\":{{img:bg-busy}},\"bgUrl\":\"{{url:bg-busy}}\",\"overlayOpacity\":20} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Overlay set too low</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>A stored 20% is raised to the readable minimum.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	}
+]

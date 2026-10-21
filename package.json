@@ -1,0 +1,20 @@
+{
+  "name": "werun-blocks-community",
+  "version": "1.0.0",
+  "private": true,
+  "description": "werun.Blocks.Community: corporate Gutenberg blocks with Lucide icons, free edition for WordPress.org.",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "icons": "node scripts/build-icons.mjs",
+    "vendor": "node scripts/vendor.mjs",
+    "build": "node scripts/vendor.mjs && node scripts/build-icons.mjs && wp-scripts build --webpack-copy-php",
+    "start": "wp-scripts start --webpack-copy-php",
+    "zip": "node bin/make-zip.mjs"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^36.1.0",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "lucide-static": "^1.58.0"
+  }
+}

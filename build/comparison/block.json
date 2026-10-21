@@ -1,0 +1,518 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/comparison",
+  "version": "1.0.0",
+  "title": "Comparison table",
+  "category": "werun-community",
+  "icon": "editor-table",
+  "description": "Plans side by side against a list of features: checks, crosses, partial and text values, group headings, a featured plan, prices on top or below, a sticky header and a phone layout that scrolls or turns into one card per plan.",
+  "keywords": [
+    "comparison",
+    "compare",
+    "plans",
+    "features",
+    "table",
+    "pricing",
+    "matrix"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "showHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEyebrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIntro": {
+      "type": "boolean",
+      "default": true
+    },
+    "eyebrow": {
+      "type": "string",
+      "role": "content",
+      "default": "Compare"
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "Every plan, side by side"
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": "What each plan includes, so you can pick the one that fits."
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "caption": {
+      "type": "string",
+      "role": "content",
+      "default": "Plan comparison"
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "cornerLabel": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "plans": {
+      "type": "array",
+      "role": "content",
+      "default": [
+        {
+          "id": "starter",
+          "name": "Starter",
+          "price": "19",
+          "period": "/month",
+          "priceYearly": "15",
+          "periodYearly": "/month, billed yearly",
+          "ctaLabel": "Start with Starter",
+          "ctaUrl": "",
+          "ctaNewTab": false,
+          "badge": ""
+        },
+        {
+          "id": "growth",
+          "name": "Growth",
+          "price": "49",
+          "period": "/month",
+          "priceYearly": "39",
+          "periodYearly": "/month, billed yearly",
+          "ctaLabel": "Choose Growth",
+          "ctaUrl": "",
+          "ctaNewTab": false,
+          "badge": "Most popular"
+        },
+        {
+          "id": "scale",
+          "name": "Scale",
+          "price": "Custom",
+          "period": "",
+          "priceYearly": "Custom",
+          "periodYearly": "",
+          "ctaLabel": "Talk to us",
+          "ctaUrl": "",
+          "ctaNewTab": false,
+          "badge": ""
+        }
+      ]
+    },
+    "rows": {
+      "type": "array",
+      "role": "content",
+      "default": [
+        {
+          "id": "g-site",
+          "type": "group",
+          "label": "Your site",
+          "description": "",
+          "values": {}
+        },
+        {
+          "id": "r-pages",
+          "type": "feature",
+          "label": "Pages",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "text",
+              "text": "Up to 5"
+            },
+            "growth": {
+              "type": "text",
+              "text": "Up to 20"
+            },
+            "scale": {
+              "type": "text",
+              "text": "Unlimited"
+            }
+          }
+        },
+        {
+          "id": "r-form",
+          "type": "feature",
+          "label": "Contact form",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "check",
+              "text": ""
+            },
+            "growth": {
+              "type": "check",
+              "text": ""
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        },
+        {
+          "id": "r-blog",
+          "type": "feature",
+          "label": "Blog and newsletter",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "cross",
+              "text": ""
+            },
+            "growth": {
+              "type": "check",
+              "text": ""
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        },
+        {
+          "id": "r-lang",
+          "type": "feature",
+          "label": "Languages",
+          "description": "Every language is a full copy of the site, with its own menus and SEO.",
+          "values": {
+            "starter": {
+              "type": "cross",
+              "text": ""
+            },
+            "growth": {
+              "type": "partial",
+              "text": "2"
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        },
+        {
+          "id": "g-support",
+          "type": "group",
+          "label": "Support",
+          "description": "",
+          "values": {}
+        },
+        {
+          "id": "r-email",
+          "type": "feature",
+          "label": "Email support",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "check",
+              "text": ""
+            },
+            "growth": {
+              "type": "check",
+              "text": ""
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        },
+        {
+          "id": "r-priority",
+          "type": "feature",
+          "label": "Priority support",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "cross",
+              "text": ""
+            },
+            "growth": {
+              "type": "check",
+              "text": ""
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        },
+        {
+          "id": "r-onboarding",
+          "type": "feature",
+          "label": "Onboarding call",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "cross",
+              "text": ""
+            },
+            "growth": {
+              "type": "partial",
+              "text": "30 min"
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        },
+        {
+          "id": "r-engineer",
+          "type": "feature",
+          "label": "Dedicated engineer",
+          "description": "",
+          "values": {
+            "starter": {
+              "type": "cross",
+              "text": ""
+            },
+            "growth": {
+              "type": "cross",
+              "text": ""
+            },
+            "scale": {
+              "type": "check",
+              "text": ""
+            }
+          }
+        }
+      ]
+    },
+    "featuredColumn": {
+      "type": "number",
+      "default": 2
+    },
+    "showBadge": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPrices": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCta": {
+      "type": "boolean",
+      "default": true
+    },
+    "pricesOnTop": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonStyle": {
+      "type": "string",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "fill",
+        "outline"
+      ]
+    },
+    "showToggle": {
+      "type": "boolean",
+      "default": false
+    },
+    "defaultPeriod": {
+      "type": "string",
+      "default": "monthly",
+      "enum": [
+        "monthly",
+        "yearly"
+      ]
+    },
+    "monthlyLabel": {
+      "type": "string",
+      "role": "content",
+      "default": "Monthly"
+    },
+    "yearlyLabel": {
+      "type": "string",
+      "role": "content",
+      "default": "Yearly"
+    },
+    "yearlyNote": {
+      "type": "string",
+      "role": "content",
+      "default": "Save 20%"
+    },
+    "showYearlyNote": {
+      "type": "boolean",
+      "default": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "$"
+    },
+    "currencyPosition": {
+      "type": "string",
+      "default": "before",
+      "enum": [
+        "before",
+        "after"
+      ]
+    },
+    "showGroups": {
+      "type": "boolean",
+      "default": true
+    },
+    "descriptionDisplay": {
+      "type": "string",
+      "default": "toggle",
+      "enum": [
+        "below",
+        "toggle"
+      ]
+    },
+    "zebra": {
+      "type": "boolean",
+      "default": false
+    },
+    "density": {
+      "type": "string",
+      "default": "comfortable",
+      "enum": [
+        "comfortable",
+        "compact"
+      ]
+    },
+    "labelWidth": {
+      "type": "number",
+      "default": 32
+    },
+    "stickyHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "stickyOffset": {
+      "type": "number",
+      "default": 0
+    },
+    "mobileLayout": {
+      "type": "string",
+      "default": "scroll",
+      "enum": [
+        "scroll",
+        "stacked"
+      ]
+    },
+    "stickyFirstColumn": {
+      "type": "boolean",
+      "default": true
+    },
+    "stackedHideExcluded": {
+      "type": "boolean",
+      "default": false
+    },
+    "includedIcon": {
+      "type": "object",
+      "default": {
+        "name": "check",
+        "lib": "lucide",
+        "anim": "none",
+        "trigger": "hover"
+      }
+    },
+    "excludedIcon": {
+      "type": "object",
+      "default": {
+        "name": "x",
+        "lib": "lucide",
+        "anim": "none",
+        "trigger": "hover"
+      }
+    },
+    "partialIcon": {
+      "type": "object",
+      "default": {
+        "name": "minus",
+        "lib": "lucide",
+        "anim": "none",
+        "trigger": "hover"
+      }
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 20
+    },
+    "iconStroke": {
+      "type": "number",
+      "default": 2.25
+    },
+    "accentColor": {
+      "type": "string"
+    },
+    "onAccentColor": {
+      "type": "string"
+    },
+    "featuredBg": {
+      "type": "string"
+    },
+    "tableBg": {
+      "type": "string"
+    },
+    "headBg": {
+      "type": "string"
+    },
+    "lineColor": {
+      "type": "string"
+    },
+    "zebraColor": {
+      "type": "string"
+    },
+    "tableRadius": {
+      "type": "number",
+      "default": 14
+    },
+    "reveal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view",
+    "file:./view.js"
+  ],
+  "render": "file:./render.php"
+}

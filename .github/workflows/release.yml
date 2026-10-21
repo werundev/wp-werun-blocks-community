@@ -1,0 +1,44 @@
+# Builds werun-blocks-community.zip and attaches it to the GitHub release of a
+# v* tag. That zip is the package uploaded to WordPress.org.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build blocks and icons
+        run: npm run build
+
+      - name: Version matches the tag
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          grep -q "Version:           ${TAG}$" werun-blocks-community.php || { echo "werun-blocks-community.php Version does not match tag ${TAG}"; exit 1; }
+          grep -q "define( 'WERUN_BLOCKS_COMMUNITY_VERSION', '${TAG}' );" werun-blocks-community.php || { echo "WERUN_BLOCKS_COMMUNITY_VERSION does not match tag ${TAG}"; exit 1; }
+          grep -q "^Stable tag: ${TAG}$" readme.txt || { echo "readme.txt Stable tag does not match tag ${TAG}"; exit 1; }
+
+      - name: Build zip
+        run: npm run zip
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: werun-blocks-community.zip
+          generate_release_notes: true

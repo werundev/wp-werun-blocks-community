@@ -1,0 +1,536 @@
+[
+	{
+		"id": "tl-vertical",
+		"title": "Timeline: vertical (variation defaults: bordered cards, dots, date in the card), header, image, link, highlight",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"bordered\",\"lineStyle\":\"solid\",\"showHeader\":true,\"eyebrow\":\"Our story\",\"title\":\"How we got here\",\"intro\":\"The moments that shaped the company, year by year.\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\",\"imageId\":{{img:illustration}},\"imageUrl\":\"{{url:illustration}}\",\"imageAlt\":\"\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-vertical-full-image",
+		"title": "Timeline: vertical, full width (align full), shadow cards, an image in every item",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"shadow\",\"lineStyle\":\"solid\",\"align\":\"full\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\",\"imageId\":{{img:illustration}},\"imageUrl\":\"{{url:illustration}}\",\"imageAlt\":\"A dashboard with a bar chart\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\",\"imageId\":{{img:illustration}},\"imageUrl\":\"{{url:illustration}}\",\"imageAlt\":\"\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true,\"imageId\":{{img:illustration}},\"imageUrl\":\"{{url:illustration}}\",\"imageAlt\":\"\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\",\"imageId\":{{img:illustration}},\"imageUrl\":\"{{url:illustration}}\",\"imageAlt\":\"\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-vertical-plain",
+		"title": "Timeline: vertical, plain cards (highlight = accent title)",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"plain\",\"lineStyle\":\"solid\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-vertical-filled-opposite-icon",
+		"title": "Timeline: vertical, filled cards, date beside the line, icon markers",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"icon\",\"datePosition\":\"opposite\",\"cardStyle\":\"filled\",\"lineStyle\":\"solid\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-vertical-shadow-number",
+		"title": "Timeline: vertical, shadow cards (white), numbers, dotted line",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"number\",\"datePosition\":\"card\",\"cardStyle\":\"shadow\",\"lineStyle\":\"dotted\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-alternating",
+		"title": "Timeline: alternating (variation defaults: filled cards, dates across the line, dots)",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"dot\",\"datePosition\":\"opposite\",\"cardStyle\":\"filled\",\"lineStyle\":\"solid\",\"alternateStart\":\"end\",\"showHeader\":true,\"eyebrow\":\"Our story\",\"title\":\"How we got here\",\"intro\":\"The moments that shaped the company, year by year.\",\"titleLevel\":3} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-alternating-shadow-start",
+		"title": "Timeline: alternating, shadow cards, numbers, first item on the left",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"number\",\"datePosition\":\"opposite\",\"cardStyle\":\"shadow\",\"lineStyle\":\"solid\",\"alternateStart\":\"start\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-alternating-bordered-icon",
+		"title": "Timeline: alternating, bordered cards, date in the card, icon markers",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"icon\",\"datePosition\":\"card\",\"cardStyle\":\"bordered\",\"lineStyle\":\"solid\",\"alternateStart\":\"end\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-alternating-plain",
+		"title": "Timeline: alternating, plain cards",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"dot\",\"datePosition\":\"opposite\",\"cardStyle\":\"plain\",\"lineStyle\":\"solid\",\"alternateStart\":\"end\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-horizontal",
+		"title": "Timeline: horizontal scroll (variation defaults: numbers, plain, dashed, arrows), header, 8 items",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"horizontal\",\"markerStyle\":\"number\",\"datePosition\":\"card\",\"cardStyle\":\"plain\",\"lineStyle\":\"dashed\",\"showArrows\":true,\"itemWidth\":300,\"showHeader\":true,\"eyebrow\":\"Our story\",\"title\":\"How we work\",\"intro\":\"The moments that shaped the company, year by year.\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Discovery\",\"text\":\"A sentence or two about step 1 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2017\",\"title\":\"Strategy\",\"text\":\"A sentence or two about step 2 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2018\",\"title\":\"Design\",\"text\":\"A sentence or two about step 3 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2019\",\"title\":\"Build\",\"text\":\"A sentence or two about step 4 and what it delivers.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"2020\",\"title\":\"Content\",\"text\":\"A sentence or two about step 5 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2021\",\"title\":\"Testing\",\"text\":\"A sentence or two about step 6 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Launch\",\"text\":\"A sentence or two about step 7 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2023\",\"title\":\"Care\",\"text\":\"A sentence or two about step 8 and what it delivers.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-horizontal-bordered-icon-opposite",
+		"title": "Timeline: horizontal, bordered cards, icons, dates above the line, solid line, 6 items",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"horizontal\",\"markerStyle\":\"icon\",\"datePosition\":\"opposite\",\"cardStyle\":\"bordered\",\"lineStyle\":\"solid\",\"showArrows\":true,\"itemWidth\":300} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Discovery\",\"text\":\"A sentence or two about step 1 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2017\",\"title\":\"Strategy\",\"text\":\"A sentence or two about step 2 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2018\",\"title\":\"Design\",\"text\":\"A sentence or two about step 3 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2019\",\"title\":\"Build\",\"text\":\"A sentence or two about step 4 and what it delivers.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"2020\",\"title\":\"Content\",\"text\":\"A sentence or two about step 5 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2021\",\"title\":\"Testing\",\"text\":\"A sentence or two about step 6 and what it delivers.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-horizontal-filled-year-noarrows",
+		"title": "Timeline: horizontal, filled cards, year markers, no arrows, 6 items",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"horizontal\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"filled\",\"lineStyle\":\"dashed\",\"showArrows\":false,\"itemWidth\":300} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Discovery\",\"text\":\"A sentence or two about step 1 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2017\",\"title\":\"Strategy\",\"text\":\"A sentence or two about step 2 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2018\",\"title\":\"Design\",\"text\":\"A sentence or two about step 3 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2019\",\"title\":\"Build\",\"text\":\"A sentence or two about step 4 and what it delivers.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"2020\",\"title\":\"Content\",\"text\":\"A sentence or two about step 5 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2021\",\"title\":\"Testing\",\"text\":\"A sentence or two about step 6 and what it delivers.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-horizontal-shadow-dot-links",
+		"title": "Timeline: horizontal, shadow cards, dots, a link in every item (track not a Tab stop), 5 items",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"horizontal\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"shadow\",\"lineStyle\":\"dashed\",\"showArrows\":true,\"itemWidth\":360} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Discovery\",\"text\":\"Read the <a href=\\\"https://example.com/step-1\\\">notes on step 1</a>.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2017\",\"title\":\"Strategy\",\"text\":\"Read the <a href=\\\"https://example.com/step-2\\\">notes on step 2</a>.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2018\",\"title\":\"Design\",\"text\":\"Read the <a href=\\\"https://example.com/step-3\\\">notes on step 3</a>.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2019\",\"title\":\"Build\",\"text\":\"Read the <a href=\\\"https://example.com/step-4\\\">notes on step 4</a>.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"2020\",\"title\":\"Content\",\"text\":\"Read the <a href=\\\"https://example.com/step-5\\\">notes on step 5</a>.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-years",
+		"title": "Timeline: by year (variation defaults: plain, the year on the line)",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"plain\",\"lineStyle\":\"solid\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-years-shadow",
+		"title": "Timeline: by year, shadow cards",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"shadow\",\"lineStyle\":\"solid\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-years-bordered-noline",
+		"title": "Timeline: by year, bordered cards, no line",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"bordered\",\"lineStyle\":\"none\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-years-filled",
+		"title": "Timeline: by year, filled cards",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"filled\",\"lineStyle\":\"solid\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-accent-yellow",
+		"title": "Timeline custom: light accent #facc15 (markers, dates, highlight), numbers, bordered",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"number\",\"datePosition\":\"card\",\"cardStyle\":\"bordered\",\"lineStyle\":\"solid\",\"accentColor\":\"#facc15\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-accent-light-years",
+		"title": "Timeline custom: light accent #a5b4fc, year markers, plain",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"plain\",\"lineStyle\":\"solid\",\"accentColor\":\"#a5b4fc\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-dark-cards",
+		"title": "Timeline custom: dark card background #1e293b (filled) with the default accent",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"filled\",\"lineStyle\":\"solid\",\"cardBg\":\"#1e293b\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-light-cards",
+		"title": "Timeline custom: light card background #fef9c3 (shadow), dates across the line",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"dot\",\"datePosition\":\"opposite\",\"cardStyle\":\"shadow\",\"lineStyle\":\"solid\",\"alternateStart\":\"end\",\"cardBg\":\"#fef9c3\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-accent-cards",
+		"title": "Timeline custom: cards in the accent colour #4f46e5 (bordered), date in the card",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"bordered\",\"lineStyle\":\"solid\",\"cardBg\":\"#4f46e5\",\"cardBorderColor\":\"#4f46e5\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-marker",
+		"title": "Timeline custom: yellow markers #fde047 with white marker text chosen (clamped), years",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"year\",\"datePosition\":\"card\",\"cardStyle\":\"plain\",\"lineStyle\":\"solid\",\"markerColor\":\"#fde047\",\"markerTextColor\":\"#ffffff\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-marker-number",
+		"title": "Timeline custom: marker #4f46e5 with low marker text #818cf8 (clamped), horizontal numbers",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"horizontal\",\"markerStyle\":\"number\",\"datePosition\":\"card\",\"cardStyle\":\"plain\",\"lineStyle\":\"dashed\",\"showArrows\":true,\"itemWidth\":300,\"markerColor\":\"#4f46e5\",\"markerTextColor\":\"#818cf8\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Discovery\",\"text\":\"A sentence or two about step 1 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2017\",\"title\":\"Strategy\",\"text\":\"A sentence or two about step 2 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2018\",\"title\":\"Design\",\"text\":\"A sentence or two about step 3 and what it delivers.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2019\",\"title\":\"Build\",\"text\":\"A sentence or two about step 4 and what it delivers.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"2020\",\"title\":\"Content\",\"text\":\"A sentence or two about step 5 and what it delivers.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-own-dark-bg",
+		"title": "Timeline custom: its own dark background #0f172a, no text colour chosen (automatic light text)",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"number\",\"datePosition\":\"card\",\"cardStyle\":\"shadow\",\"lineStyle\":\"solid\",\"style\":{\"color\":{\"background\":\"#0f172a\"}}} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		],
+		"contexts": [
+			"light"
+		]
+	},
+	{
+		"id": "tl-custom-own-light-bg",
+		"title": "Timeline custom: its own light background #f8fafc inside the dark context (automatic dark text)",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"dot\",\"datePosition\":\"opposite\",\"cardStyle\":\"filled\",\"lineStyle\":\"solid\",\"alternateStart\":\"end\",\"style\":{\"color\":{\"background\":\"#f8fafc\"}}} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		],
+		"contexts": [
+			"dark"
+		]
+	},
+	{
+		"id": "tl-custom-text-on-dark-cards",
+		"title": "Timeline custom: chosen text colour #111111 with dark cards #1e293b (card text corrected), links in the text",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"filled\",\"lineStyle\":\"solid\",\"cardBg\":\"#1e293b\",\"style\":{\"color\":{\"text\":\"#111111\"}}} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		],
+		"contexts": [
+			"light"
+		]
+	},
+	{
+		"id": "tl-custom-midtone-cards",
+		"title": "Timeline custom: mid-grey cards #9ca3af (the card takes a tone of its own), numbers",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"alternating\",\"markerStyle\":\"number\",\"datePosition\":\"opposite\",\"cardStyle\":\"shadow\",\"lineStyle\":\"solid\",\"alternateStart\":\"end\",\"cardBg\":\"#9ca3af\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			},
+			{
+				"selector": ".wrbc-timeline-item__marker--year, .wrbc-timeline-item__marker--number, .wrbc-timeline-item__marker--icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 4.5,
+				"label": "marker text/number/icon on the marker"
+			}
+		]
+	},
+	{
+		"id": "tl-custom-lines",
+		"title": "Timeline custom: line #000 4 px, card border #e11d48 (decoration), translucent card rgba(255,255,255,.1)",
+		"markup": "<!-- wp:werun-community/timeline {\"orientation\":\"vertical\",\"markerStyle\":\"dot\",\"datePosition\":\"card\",\"cardStyle\":\"bordered\",\"lineStyle\":\"solid\",\"lineColor\":\"#000000\",\"lineWidth\":4,\"cardBorderColor\":\"#e11d48\",\"cardBg\":\"rgba(255,255,255,0.1)\"} --><!-- wp:werun-community/timeline-item {\"date\":\"2016\",\"title\":\"Two people, one laptop\",\"text\":\"The first client site goes live from a kitchen table.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"March 2019\",\"title\":\"A team of twelve\",\"text\":\"Design, development and <a href=\\\"https://example.com/team\\\">support</a> under one roof.\"} /--><!-- wp:werun-community/timeline-item {\"date\":\"2022\",\"title\":\"Our own platform\",\"text\":\"Hosting and care plans for every site we build.\",\"highlight\":true} /--><!-- wp:werun-community/timeline-item {\"date\":\"Q3 2025\",\"title\":\"300 sites and counting\",\"text\":\"Clients in 35 countries, the same team that built them.\"} /--><!-- /wp:werun-community/timeline -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-timeline-item.is-highlight .wrbc-timeline-item__marker",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "highlight ring (drawn in the marker text colour inside the marker)"
+			}
+		]
+	}
+]

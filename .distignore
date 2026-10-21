@@ -1,0 +1,16 @@
+# Excluded from the release zip (bin/make-zip.mjs).
+.git
+.github
+.gitignore
+.distignore
+.DS_Store
+node_modules
+bin
+scripts
+src
+package.json
+package-lock.json
+*.zip
+*.log
+docs
+webpack.config.js

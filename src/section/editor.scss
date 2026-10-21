@@ -1,0 +1,5 @@
+/* Section, editor only. */
+/* Two columns: the "add block" button spans the whole row, it isn't a column. */
+.wrbc-section--cols-two .wrbc-section__content > .block-list-appender { grid-column: 1 / -1; }
+/* An empty section still shows where it is. */
+.wrbc-section__content:empty { min-height: 80px; }
