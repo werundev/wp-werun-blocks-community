@@ -1,6 +1,6 @@
 === werun.Blocks.Community ===
 Contributors: werundev
-Tags: blocks, gutenberg, hero, pricing, faq
+Tags: blocks, accessibility, gdpr, jobs, query
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -8,27 +8,39 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Corporate blocks for the block editor: hero, sections, CTAs, pricing, FAQ, testimonials, tabs, carousels, a query builder, jobs and forms.
+Accessible corporate blocks that fix their own contrast, wait for cookie consent, and pull jobs from your ATS and content from any post type.
 
 == Description ==
 
-werun.Blocks.Community adds a catalog of accessible, customizable blocks for corporate sites, with Lucide icons and Lucide Animated style animations.
+werun.Blocks.Community is a set of blocks for company websites built around three things most block libraries leave to you: **accessibility that checks itself**, **privacy by default**, and **real data from the tools a company already uses**.
 
-* **Structure and conversion:** Hero, Section, CTA, Media + text.
-* **Social proof:** Logos (grid, marquee, carousel), Testimonials, Stats with counters.
+= What makes it different =
+
+* **Contrast that fixes itself.** Each block knows the background it sits on (its own colour, an image with an overlay, or a dark section around it) and picks text, accent and focus colours that pass WCAG 2.2 AA there. When a choice still fails, the sidebar says so and offers a one-click fix. Every block, variation and option is tested on light and dark backgrounds.
+* **Nothing loads before consent.** Maps, YouTube / Vimeo videos and third-party forms show a placeholder until the visitor clicks, or wait for your cookie banner (WP Consent API, Complianz, CookieYes, Cookiebot). Leaflet maps and all icons are bundled, so nothing comes from a CDN.
+* **Jobs straight from your ATS.** The Jobs block lists open positions from Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Personio, Teamtailor or BambooHR, fetched and cached by your server, with filters and search.
+* **A query builder for any post type.** Team, events, locations on a map, resource libraries, case studies: filter by terms and custom fields, order by upcoming dates, map fields to cards, add visitor filters and pagination that also work without JavaScript. Its settings are signed in the page and checked on every request, and it never shows drafts, private posts or protected fields.
+* **Gated downloads you can trust.** Ask for a form before a file. With a WordPress form plugin the server verifies the submission before handing out a short-lived signed link, and can stream the file so its address is never revealed.
+* **One form block for every provider.** HubSpot, Marketo, Salesforce Account Engagement, Dynamics 365, Typeform, Jotform, Mailchimp, ActiveCampaign, Zoho, Calendly, Gravity Forms, WPForms, Contact Form 7, Fluent Forms, Ninja Forms and Formidable. API keys are stored encrypted and never reach the browser.
+
+= The blocks =
+
+* **Structure and conversion:** Hero, Section, Call to action, Media and text.
+* **Social proof:** Logos (grid, marquee, carousel), Testimonials (by hand or from a post type), Stats with count-up numbers.
 * **Organization:** Feature grid, Tabs, Accordion / FAQ with schema, Table of contents.
-* **Dynamic:** Query — a visual query builder for any public post type, with taxonomy and meta filters, cards, grid, list, carousel or map, and visitor filters, search and pagination (also without JavaScript). Jobs from your ATS. Forms from the usual providers and WordPress form plugins.
-* **More:** Pricing, Comparison table, Timeline, Video, Carousel, Notice.
+* **Pricing:** Pricing table with a working monthly / yearly switch, Comparison table.
+* **Dynamic:** Query, Jobs, Form.
+* **More:** Timeline, Video (loaded only when played, with captions and transcript), Carousel, Notice (scheduled, dismissible).
 
-Every block ships with ready-made variations and **Saved styles**: save a block's styles and options and reuse them anywhere on the site.
+Every block ships with ready-made variations, Lucide icons with optional animations, and **Saved styles**: save a block's look and options and reuse them anywhere on the site.
 
 = Accessibility =
 
-Every block, variation and option targets WCAG 2.2 AA on light and dark backgrounds: colours adapt to the background a block sits on, the editor warns about low contrast and offers a one-click fix, focus is always visible, ARIA patterns are used for tabs, accordions, carousels and dialogs, and anything that moves for more than 5 seconds can be paused and respects "reduce motion".
+Besides contrast: focus is always visible, ARIA patterns are used for tabs, accordions, carousels and dialogs, and anything that moves for more than 5 seconds can be paused and respects "reduce motion".
 
 = Privacy =
 
-Maps, YouTube / Vimeo videos and third-party forms load nothing before consent. Consent can be given per click or taken from your cookie banner (WP Consent API, Complianz, CookieYes, Cookiebot). API keys are stored encrypted and never reach the browser.
+Consent is remembered per kind of embed for as long as you choose, and each block can override the site setting. The Integrations screen lists every outside host a visitor's browser may contact with your settings, ready for a Content-Security-Policy.
 
 = Documentation and support =
 
