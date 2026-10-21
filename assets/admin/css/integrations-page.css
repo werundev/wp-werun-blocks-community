@@ -94,3 +94,32 @@
 		animation: none;
 	}
 }
+
+/* Help: documentation, support on GitHub and custom work. */
+.werun-blocks-community-integrations-help {
+	margin-top: var(--wrbc-admin-sp-xl);
+}
+
+.werun-blocks-community-integrations-help-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: var(--wrbc-admin-sp-xl);
+	margin-top: var(--wrbc-admin-sp-lg);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item h3 {
+	margin: 0 0 var(--wrbc-admin-sp-sm);
+	color: var(--wrbc-admin-ink);
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item p {
+	margin: 0 0 var(--wrbc-admin-sp-md);
+	color: var(--wrbc-admin-body);
+}
+
+.werun-blocks-community-integrations-help-cta {
+	padding-left: var(--wrbc-admin-sp-xl);
+	border-left: 2px solid var(--wrbc-admin-accent-line);
+}

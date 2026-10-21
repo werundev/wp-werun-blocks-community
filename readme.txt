@@ -30,6 +30,12 @@ Every block, variation and option targets WCAG 2.2 AA on light and dark backgrou
 
 Maps, YouTube / Vimeo videos and third-party forms load nothing before consent. Consent can be given per click or taken from your cookie banner (WP Consent API, Complianz, CookieYes, Cookiebot). API keys are stored encrypted and never reach the browser.
 
+= Documentation and support =
+
+* **Documentation:** every block, every setting and common problems, in English and Spanish: https://crm.werun.dev/knowledge-base/category/werun-blocks-community
+* **Support:** please open an issue on GitHub: https://github.com/werundev/wp-werun-blocks-community/issues
+* **Need something custom?** werun.dev builds custom blocks, variations for your brand, integrations and whole WordPress sites: https://werun.dev/contact?utm_source=werun-blocks-community&utm_medium=wporg&utm_campaign=custom-work
+
 == External services ==
 
 The plugin does not contact any service by default. Each service below is only used when a site administrator or editor configures the related block or setting.
@@ -40,7 +46,7 @@ The plugin does not contact any service by default. Each service below is only u
 * **Form providers** — the Form block embeds the form of the provider you choose (HubSpot, Marketo, Salesforce Account Engagement / Pardot, Microsoft Dynamics 365, Typeform, Jotform, Mailchimp, ActiveCampaign, Zoho Forms, Calendly). The provider's script is loaded in the visitor's browser after consent and the visitor's answers are sent to that provider. The HubSpot token you enter is used server side to read your forms. See each provider's terms and privacy policy: [HubSpot](https://legal.hubspot.com/privacy-policy), [Adobe Marketo](https://www.adobe.com/privacy.html), [Salesforce](https://www.salesforce.com/company/privacy/), [Microsoft](https://privacy.microsoft.com/), [Typeform](https://www.typeform.com/help/a/privacy-policy-360054301192/), [Jotform](https://www.jotform.com/privacy/), [Mailchimp](https://www.intuit.com/privacy/statement/), [ActiveCampaign](https://www.activecampaign.com/legal/privacy-policy), [Zoho](https://www.zoho.com/privacy.html), [Calendly](https://calendly.com/legal/privacy-notice).
 * **Applicant tracking systems** — the Jobs block reads your public job openings from the ATS you choose (Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Personio, Teamtailor, BambooHR). Your site's server requests the job board you configured (and the API key for Teamtailor and BambooHR) on a schedule and caches the result; no visitor data is sent. See each provider's terms and privacy policy: [Greenhouse](https://www.greenhouse.com/privacy-policy), [Lever](https://www.lever.co/privacy-notice/), [Ashby](https://www.ashbyhq.com/privacy), [Workable](https://www.workable.com/privacy), [SmartRecruiters](https://www.smartrecruiters.com/legal/privacy-policy/), [Personio](https://www.personio.com/privacy-policy/), [Teamtailor](https://www.teamtailor.com/en/privacy-policy/), [BambooHR](https://www.bamboohr.com/legal/privacy-policy).
 
-The icon picker links to lucide.dev and lucide-animated.com for reference; nothing is loaded from those sites. Leaflet and all Lucide icons are bundled with the plugin.
+The plugin's admin screen links to the documentation (crm.werun.dev), GitHub issues and werun.dev; they are plain links and nothing is loaded from those sites. The icon picker links to lucide.dev and lucide-animated.com for reference; nothing is loaded from those sites. Leaflet and all Lucide icons are bundled with the plugin.
 
 == Source code ==
 
@@ -53,6 +59,10 @@ The JavaScript and CSS in `build/` are compiled from the human-readable sources 
 3. Optional: configure maps, consent, form providers, jobs and gated downloads in **werun.Blocks.Community → Integrations**.
 
 == Frequently Asked Questions ==
+
+= Where do I get help? =
+
+Read the documentation at https://crm.werun.dev/knowledge-base/category/werun-blocks-community, and report bugs or ask questions in the GitHub issues: https://github.com/werundev/wp-werun-blocks-community/issues
 
 = Do I need a license or an account? =
 

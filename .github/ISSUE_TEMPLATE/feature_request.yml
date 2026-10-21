@@ -1,0 +1,15 @@
+name: Feature request
+description: An idea for a block, a variation or an option.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to build?
+      description: The page or the result you need helps more than the name of an option.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea

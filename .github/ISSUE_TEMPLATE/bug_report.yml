@@ -1,0 +1,50 @@
+name: Bug report
+description: Something in a block or a setting doesn't work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Check the [troubleshooting guide](https://crm.werun.dev/knowledge-base/article/werun-blocks-community-support) first.
+        **Never post passwords, API keys or tokens here: issues are public.**
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Plugin, WordPress and PHP.
+      placeholder: werun.Blocks.Community 1.0.0, WordPress 6.8, PHP 8.2
+    validations:
+      required: true
+  - type: input
+    id: block
+    attributes:
+      label: Block and variation
+      placeholder: Query, locations on a map
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Add the block…
+        2. Set…
+        3. Open the page…
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected and what happened
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Theme and related plugins
+      description: Theme, and any cache, optimization, cookie banner or page builder plugin.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots and errors
+      description: Browser console errors or lines from wp-content/debug.log.

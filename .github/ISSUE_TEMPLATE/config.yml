@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://crm.werun.dev/knowledge-base/category/werun-blocks-community
+    about: Every block, every setting and common problems, in English and Spanish.
+  - name: Need something custom?
+    url: https://werun.dev/contact?utm_source=werun-blocks-community&utm_medium=github&utm_campaign=custom-work
+    about: werun.dev builds custom blocks, variations for your brand, integrations and whole WordPress sites.

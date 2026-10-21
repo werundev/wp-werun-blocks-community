@@ -42,6 +42,23 @@ final class Integrations_Page {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
 		add_filter( 'admin_body_class', array( $this, 'body_class' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( WERUN_BLOCKS_COMMUNITY_FILE ), array( $this, 'action_link' ) );
+		add_filter( 'plugin_row_meta', array( $this, 'row_meta' ), 10, 2 );
+	}
+
+	/**
+	 * "Documentation" and "Support" under the description on the Plugins screen.
+	 *
+	 * @param array  $meta Row meta links.
+	 * @param string $file Plugin file.
+	 */
+	public function row_meta( $meta, $file ): array {
+		$meta = (array) $meta;
+		if ( plugin_basename( WERUN_BLOCKS_COMMUNITY_FILE ) !== $file ) {
+			return $meta;
+		}
+		$meta[] = '<a href="' . esc_url( Ui::DOCS_URL ) . '" target="_blank" rel="noopener">' . esc_html__( 'Documentation', 'werun-blocks-community' ) . '<span class="screen-reader-text"> ' . esc_html__( '(opens in a new tab)', 'werun-blocks-community' ) . '</span></a>';
+		$meta[] = '<a href="' . esc_url( Ui::SUPPORT_URL ) . '" target="_blank" rel="noopener">' . esc_html__( 'Support', 'werun-blocks-community' ) . '<span class="screen-reader-text"> ' . esc_html__( '(opens in a new tab)', 'werun-blocks-community' ) . '</span></a>';
+		return $meta;
 	}
 
 	/**
@@ -185,7 +202,7 @@ final class Integrations_Page {
 					if ( current_user_can( 'manage_options' ) ) {
 						return true;
 					}
-					return new WP_Error( 'rest_forbidden', __( 'Sorry, you are not allowed to manage werun.Blocks.', 'werun-blocks-community' ), array( 'status' => rest_authorization_required_code() ) );
+					return new WP_Error( 'rest_forbidden', __( 'Sorry, you are not allowed to manage werun.Blocks.Community.', 'werun-blocks-community' ), array( 'status' => rest_authorization_required_code() ) );
 				},
 			)
 		);
@@ -767,7 +784,7 @@ final class Integrations_Page {
 	 */
 	public function render(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Sorry, you are not allowed to manage werun.Blocks.', 'werun-blocks-community' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'Sorry, you are not allowed to manage werun.Blocks.Community.', 'werun-blocks-community' ), '', array( 'response' => 403 ) );
 		}
 
 		// Read-only flag set by options.php after a successful save.

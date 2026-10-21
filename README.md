@@ -43,6 +43,12 @@ Todos los bloques cumplen WCAG 2.2 AA en cada variante y opción, sobre fondo cl
 - **Gating**: con los plugins de formularios de WordPress es "duro" (se verifica el envío en el servidor); con HubSpot, Marketo y los demás servicios es "suave" (se confía en el evento del proveedor). La descarga es un enlace firmado de pocos minutos; el archivo sigue estando en `uploads`, así que quien conozca su URL directa puede bajarlo (para protegerlo de verdad: entrega "stream" y una carpeta no pública).
 - **Query**: la configuración de cada bloque va firmada en la página y se valida de nuevo en cada pedido; solo muestra contenido publicado de tipos públicos y nunca meta protegida o sensible.
 
+## Documentación y soporte
+
+- Documentación pública (EN + ES) en la KB de werun: https://crm.werun.dev/knowledge-base/category/werun-blocks-community — cuatro artículos: primeros pasos, bloques, Integrations, problemas frecuentes y soporte. Si cambia un bloque o un ajuste, actualizá el artículo correspondiente en los dos idiomas.
+- Soporte: issues de GitHub (https://github.com/werundev/wp-werun-blocks-community/issues).
+- El CTA "Need something custom?" (pantalla Integrations, readme.txt y cada artículo de la KB) lleva a werun.dev/contact (o /es/contacto) con `utm_source=werun-blocks-community`, `utm_campaign=custom-work` y `utm_medium` según el lugar (`plugin`, `kb`, `wporg`, `github`). Las URLs viven en `Werun\BlocksCommunity\Admin\Ui`.
+
 ## Licencia y distribución
 
 - GPL-2.0-or-later. Versión gratuita para el directorio de WordPress.org: sin licencias, sin claves de activación y sin conexión a servidores de werun.dev. Las actualizaciones llegan por WordPress.org.

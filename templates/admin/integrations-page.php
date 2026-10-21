@@ -49,6 +49,10 @@ foreach ( get_settings_errors( Integrations::OPTION ) as $werun_blocks_community
 					<h1 class="werun-blocks-community-ui-display"><?php esc_html_e( 'Integrations', 'werun-blocks-community' ); ?></h1>
 					<p class="werun-blocks-community-ui-lead"><?php esc_html_e( 'Maps, consent, form providers, job boards and gated downloads used by the werun.Blocks.Community blocks.', 'werun-blocks-community' ); ?></p>
 				</div>
+				<div class="werun-blocks-community-settings-header-actions">
+					<a class="werun-blocks-community-ui-button werun-blocks-community-ui-button-outline werun-blocks-community-ui-button-sm" href="<?php echo esc_url( Ui::DOCS_URL ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Documentation', 'werun-blocks-community' ); ?><span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a>
+					<a class="werun-blocks-community-ui-button werun-blocks-community-ui-button-ghost werun-blocks-community-ui-button-sm" href="<?php echo esc_url( Ui::SUPPORT_URL ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Support on GitHub', 'werun-blocks-community' ); ?><span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a>
+				</div>
 			</header>
 
 			<hr class="wp-header-end">
@@ -140,6 +144,27 @@ foreach ( get_settings_errors( Integrations::OPTION ) as $werun_blocks_community
 								<?php endforeach; ?>
 							</tbody>
 						</table>
+					</div>
+				</section>
+
+				<section class="werun-blocks-community-ui-card werun-blocks-community-integrations-help" aria-labelledby="werun-blocks-community-integrations-help-title">
+					<h2 class="werun-blocks-community-ui-eyebrow" id="werun-blocks-community-integrations-help-title"><?php esc_html_e( 'Help', 'werun-blocks-community' ); ?></h2>
+					<div class="werun-blocks-community-integrations-help-grid">
+						<div class="werun-blocks-community-integrations-help-item">
+							<h3><?php esc_html_e( 'Documentation', 'werun-blocks-community' ); ?></h3>
+							<p><?php esc_html_e( 'Every block, every setting on this screen, privacy and common problems, in English and Spanish.', 'werun-blocks-community' ); ?></p>
+							<a href="<?php echo esc_url( Ui::DOCS_URL ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Read the documentation', 'werun-blocks-community' ); ?><span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a>
+						</div>
+						<div class="werun-blocks-community-integrations-help-item">
+							<h3><?php esc_html_e( 'Support', 'werun-blocks-community' ); ?></h3>
+							<p><?php esc_html_e( 'Found a bug or have an idea? Search the issues on GitHub or open a new one. Never post keys or passwords there: it is public.', 'werun-blocks-community' ); ?></p>
+							<a href="<?php echo esc_url( Ui::SUPPORT_URL ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Open GitHub issues', 'werun-blocks-community' ); ?><span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a>
+						</div>
+						<div class="werun-blocks-community-integrations-help-item werun-blocks-community-integrations-help-cta">
+							<h3><?php esc_html_e( 'Need something custom?', 'werun-blocks-community' ); ?></h3>
+							<p><?php esc_html_e( 'werun.dev builds custom blocks, variations for your brand, integrations with your tools and whole WordPress sites.', 'werun-blocks-community' ); ?></p>
+							<a class="werun-blocks-community-ui-button werun-blocks-community-ui-button-primary werun-blocks-community-ui-button-sm" href="<?php echo esc_url( Ui::custom_work_url( 'plugin' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Tell us about your project', 'werun-blocks-community' ); ?><span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a>
+						</div>
 					</div>
 				</section>
 			</div>
