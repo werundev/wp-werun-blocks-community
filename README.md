@@ -43,6 +43,12 @@ Todos los bloques cumplen WCAG 2.2 AA en cada variante y opción, sobre fondo cl
 - **Gating**: con los plugins de formularios de WordPress es "duro" (se verifica el envío en el servidor); con HubSpot, Marketo y los demás servicios es "suave" (se confía en el evento del proveedor). La descarga es un enlace firmado de pocos minutos; el archivo sigue estando en `uploads`, así que quien conozca su URL directa puede bajarlo (para protegerlo de verdad: entrega "stream" y una carpeta no pública).
 - **Query**: la configuración de cada bloque va firmada en la página y se valida de nuevo en cada pedido; solo muestra contenido publicado de tipos públicos y nunca meta protegida o sensible.
 
+## Desarrollo
+
+- Este repo vive fuera de WordPress (`/Volumes/ExtHDD/DevStuff/Projects/wp-werun-blocks-community`). En el sitio de prueba, `wp-content/plugins/werun-blocks-community/` tiene **solo el paquete de release**, así Plugin Check revisa exactamente lo que se sube a WordPress.org (las herramientas de `bin/`, `.github` y los dotfiles no pasan nunca).
+- Después de `npm run build` (o de editar PHP/CSS): `npm run sync -- <ruta a wp-content/plugins>` (o `WRBC_PLUGINS_DIR=… npm run sync`). Copia todo menos lo que lista `.distignore` y borra en el sitio lo que ya no va en el release.
+- `npm run zip` arma el mismo contenido en `werun-blocks-community.zip`.
+
 ## Documentación y soporte
 
 - Documentación pública (EN + ES) en la KB de werun: https://crm.werun.dev/knowledge-base/category/werun-blocks-community — cuatro artículos: primeros pasos, bloques, Integrations, problemas frecuentes y soporte. Si cambia un bloque o un ajuste, actualizá el artículo correspondiente en los dos idiomas.
