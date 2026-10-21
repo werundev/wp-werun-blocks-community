@@ -15,6 +15,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a   = $attributes;
 $ctx = $block->context;
 $uid = wrbc_uid( $a, 'wrbc-tab' );
@@ -66,3 +68,5 @@ if ( $vars ) {
 	?>
 	<div class="wrbc-tab__content"><?php echo $content; // phpcs:ignore -- rendered inner blocks ?></div>
 </section>
+<?php
+} )( $attributes, $content, $block );

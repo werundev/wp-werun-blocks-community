@@ -11,6 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 require_once dirname( __DIR__ ) . '/feature/colors.php';
 
 $a   = $attributes;
@@ -95,3 +97,5 @@ if ( '' === trim( $content ) && '' === $header ) {
 		</div>
 	<?php endif; ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

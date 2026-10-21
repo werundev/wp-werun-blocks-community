@@ -14,6 +14,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a     = $attributes;
 $uid   = wrbc_uid( $a, 'wrbc-section' );
 $scale = array( 'none', 'sm', 'md', 'lg', 'xl' );
@@ -248,3 +250,4 @@ if ( $has_content || '' !== $header ) {
 	echo '</div>';
 }
 printf( '</%s>', tag_escape( $tag ) );
+} )( $attributes, $content, $block );

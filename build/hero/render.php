@@ -11,6 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a        = $attributes;
 $uid      = wrbc_uid( $a, 'wrbc-hero' );
 $layout   = 'centered' === $a['layout'] ? 'centered' : 'split';
@@ -325,3 +327,5 @@ $level   = max( 1, min( 3, (int) $a['headingLevel'] ) );
 		<?php endif; ?>
 	</div>
 </section>
+<?php
+} )( $attributes, $content, $block );

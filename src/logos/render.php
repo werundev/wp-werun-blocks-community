@@ -19,6 +19,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a = $attributes;
 
 // The logos, validated: an image needs an attachment id or a URL. Block
@@ -297,3 +299,5 @@ $body = ob_get_clean();
 	<?php echo wrbc_section_header( $a, $uid ); // phpcs:ignore ?>
 	<?php echo $body; // phpcs:ignore -- built above, escaped ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

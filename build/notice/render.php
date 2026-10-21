@@ -31,6 +31,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a = $attributes;
 
 // ── Schedule (twin: scheduleState() in edit.js) ──
@@ -258,3 +260,5 @@ $close_icon['trigger'] = 'hover';
 		<?php endif; ?>
 	</div>
 </div>
+<?php
+} )( $attributes, $content, $block );

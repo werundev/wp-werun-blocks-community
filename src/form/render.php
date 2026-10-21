@@ -19,6 +19,8 @@ use Werun\BlocksCommunity\Gate\Gate;
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_form_colors' ) ) {
 	/**
 	 * What the form's content sits on and what keeps it readable there
@@ -293,3 +295,4 @@ printf(
 	$body, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- provider markup, escaped there.
 	$inner // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
 );
+} )( $attributes, $content, $block );

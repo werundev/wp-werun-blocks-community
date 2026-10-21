@@ -20,6 +20,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a = $attributes;
 
 require_once dirname( __DIR__ ) . '/testimonial/card.php';
@@ -149,3 +151,5 @@ $controls = $carousel && $wrbc_track
 <?php endif; ?>
 	<?php echo 'top' !== $a['controlsPosition'] ? $controls : ''; // phpcs:ignore ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

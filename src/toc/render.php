@@ -17,6 +17,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! class_exists( '\Werun\BlocksCommunity\Toc\Toc' ) ) {
 	return;
 }
@@ -146,3 +148,5 @@ if ( $has_title ) {
 		<div class="wrbc-toc__body"><?php echo $list; // phpcs:ignore -- built from escaped parts ?></div>
 	<?php endif; ?>
 </nav>
+<?php
+} )( $attributes, $content, $block );

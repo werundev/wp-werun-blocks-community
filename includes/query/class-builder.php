@@ -73,7 +73,7 @@ final class Builder {
 		}
 
 		if ( $not_in ) {
-			$args['post__not_in'] = array_values( array_unique( $not_in ) );
+			$args['post__not_in'] = array_values( array_unique( $not_in ) ); // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- the editor's own exclusions: at most 50 ids plus the current post.
 		}
 
 		// Taxonomies: the editor's rules, related terms of the current post, the visitor's chip.
@@ -183,7 +183,7 @@ final class Builder {
 				}
 				$args['post__in'] = $sticky;
 			} elseif ( $sticky ) {
-				$args['post__not_in'] = array_values( array_unique( array_merge( $args['post__not_in'] ?? array(), $sticky ) ) );
+				$args['post__not_in'] = array_values( array_unique( array_merge( $args['post__not_in'] ?? array(), $sticky ) ) ); // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- "exclude sticky posts": only the site's sticky posts.
 			}
 		}
 

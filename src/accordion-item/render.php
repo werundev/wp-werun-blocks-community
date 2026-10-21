@@ -11,6 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_acc_item_colors' ) ) {
 	/**
 	 * An item that paints a background (its own Color panel one, or the
@@ -161,3 +163,5 @@ if ( '' !== $own_bg ) {
 		</div>
 	</details>
 </div>
+<?php
+} )( $attributes, $content, $block );

@@ -151,7 +151,7 @@ final class Config {
 			'offset'        => 0,
 			'maxPages'      => 10,
 			'excludeCurrent' => true,
-			'exclude'       => array(),
+			'exclude'       => array(), // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- a block setting, not a WP_Query argument.
 			'related'       => array( 'taxonomies' => array() ),
 			'author'        => array( 'mode' => 'any', 'ids' => array() ),
 			'sticky'        => 'include',
@@ -267,7 +267,7 @@ final class Config {
 		$c['offset']   = self::clamp( $raw['offset'] ?? 0, 0, 50 );
 		$c['maxPages'] = self::clamp( $raw['maxPages'] ?? $d['maxPages'], 1, 50 );
 		$c['excludeCurrent'] = array_key_exists( 'excludeCurrent', $raw ) ? (bool) $raw['excludeCurrent'] : true;
-		$c['exclude']  = self::ids( $raw['exclude'] ?? array(), 50 );
+		$c['exclude']  = self::ids( $raw['exclude'] ?? array(), 50 ); // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- a block setting (at most 50 ids), not a WP_Query argument.
 
 		$related = array();
 		foreach ( array_slice( (array) ( $raw['related']['taxonomies'] ?? array() ), 0, 3 ) as $tax ) {

@@ -13,6 +13,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 require_once __DIR__ . '/helpers.php';
 
 $a = $attributes;
@@ -292,3 +294,5 @@ $play_icon = '<svg class="wrbc-video__play-svg" viewBox="0 0 24 24" width="24" h
 	}
 	?>
 </div>
+<?php
+} )( $attributes, $content, $block );

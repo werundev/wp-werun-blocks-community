@@ -13,7 +13,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( class_exists( '\\Werun\\BlocksCommunity\\Jobs\\Render' ) ) {
 	// $block: the render context (what the block sits on) for its colours.
 	echo \Werun\BlocksCommunity\Jobs\Render::block( is_array( $attributes ) ? $attributes : array(), isset( $block ) && $block instanceof WP_Block ? $block : null ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped piece by piece in Render.
 }
+} )( $attributes, $content, $block );

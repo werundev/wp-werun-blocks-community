@@ -19,6 +19,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a   = $attributes;
 $uid = wrbc_uid( $a, 'wrbc-tabs' );
 
@@ -176,3 +178,5 @@ $default = is_array( $a['tabIcon'] ?? null ) ? $a['tabIcon'] : array( 'name' => 
 		</div>
 	</div>
 </section>
+<?php
+} )( $attributes, $content, $block );

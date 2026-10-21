@@ -13,6 +13,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a      = $attributes;
 $uid    = wrbc_uid( $a, 'wrbc-cta' );
 $layout = in_array( $a['layout'] ?? '', array( 'centered', 'split', 'strip', 'card' ), true ) ? $a['layout'] : 'centered';
@@ -292,3 +294,5 @@ $button = static function ( $class, $label, $icon_before, $icon_after, $url, $ne
 		<?php endif; ?>
 	</div>
 </section>
+<?php
+} )( $attributes, $content, $block );

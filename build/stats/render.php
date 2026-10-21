@@ -11,6 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_stats_effective' ) ) {
 	/**
 	 * The values the stats block renders with. Twin of effective() in
@@ -132,3 +134,5 @@ if ( ! $has_stats && '' === $header_html ) {
 		</div>
 	<?php endif; ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

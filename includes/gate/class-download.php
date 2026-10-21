@@ -109,6 +109,6 @@ final class Download {
 		nocache_headers();
 		header( 'X-Robots-Tag: noindex, nofollow' );
 		// The page title says what happened, not just "Download" (WCAG 2.4.2).
-		wp_die( esc_html( $message ), esc_html__( 'Download not available', 'werun-blocks-community' ), array( 'response' => $status, 'back_link' => true ) );
+		wp_die( esc_html( $message ), esc_html__( 'Download not available', 'werun-blocks-community' ), array( 'response' => absint( $status ), 'back_link' => true ) );
 	}
 }

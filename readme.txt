@@ -42,6 +42,10 @@ The plugin does not contact any service by default. Each service below is only u
 
 The icon picker links to lucide.dev and lucide-animated.com for reference; nothing is loaded from those sites. Leaflet and all Lucide icons are bundled with the plugin.
 
+== Source code ==
+
+The JavaScript and CSS in `build/` are compiled from the human-readable sources in `src/`, published at https://github.com/werundev/wp-werun-blocks-community. To build: `npm ci` and `npm run build`.
+
 == Installation ==
 
 1. Install from Plugins → Add New, or upload the zip and activate it.

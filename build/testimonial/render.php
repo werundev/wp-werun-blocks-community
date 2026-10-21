@@ -13,6 +13,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 require_once __DIR__ . '/card.php';
 
 $a   = $attributes;
@@ -42,3 +44,4 @@ echo wrbc_testimonial_card( // phpcs:ignore -- escaped inside
 	),
 	wrbc_testimonial_ctx( $ctx )
 );
+} )( $attributes, $content, $block );

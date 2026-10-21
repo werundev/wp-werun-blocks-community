@@ -13,6 +13,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_timeline_effective' ) ) {
 	/**
 	 * The values the timeline renders with. Twin of effective() in
@@ -213,3 +215,5 @@ $list = $has_items ? '<ol class="wrbc-timeline__list" role="list">' . $content .
 		<?php echo $list; // phpcs:ignore -- rendered inner blocks ?>
 	<?php endif; ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

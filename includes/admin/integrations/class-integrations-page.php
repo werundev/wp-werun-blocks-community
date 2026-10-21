@@ -354,7 +354,8 @@ final class Integrations_Page {
 
 		if ( 'google' === Integrations::get( 'maps.provider' ) ) {
 			$add( __( 'Google Maps', 'werun-blocks-community' ), 'maps.googleapis.com', 'script-src, connect-src, img-src' );
-			$add( __( 'Google Maps', 'werun-blocks-community' ), 'maps.gstatic.com', 'img-src' );
+			// A row of the CSP table shown to the admin (Google Maps' image host); nothing is loaded from here.
+			$add( __( 'Google Maps', 'werun-blocks-community' ), 'maps.gstatic.com', 'img-src' ); // phpcs:ignore PluginCheck.CodeAnalysis.Offloading.OffloadedContent
 		} else {
 			$tiles = strtr(
 				(string) Integrations::get( 'maps.tiles' ),

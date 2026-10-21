@@ -12,6 +12,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 // wrbc_pricing_plan_colors(): the plans render before their table, so they load it.
 require_once dirname( __DIR__ ) . '/pricing/colors.php';
 
@@ -208,3 +210,5 @@ $featured_in_name = $featured && $has_name;
 		</ul>
 	<?php endif; ?>
 </div>
+<?php
+} )( $attributes, $content, $block );

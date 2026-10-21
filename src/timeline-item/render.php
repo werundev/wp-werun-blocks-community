@@ -12,6 +12,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_timeline_datetime' ) ) {
 	/**
 	 * The machine-readable form of a timeline date for <time datetime>, or ''
@@ -285,3 +287,5 @@ if ( $get( 'reveal', true ) ) {
 		<div class="<?php echo esc_attr( $card_class ); ?>"<?php echo '' !== $card_style ? ' style="' . esc_attr( $card_style ) . '"' : ''; ?>><?php echo $card; // phpcs:ignore -- escaped above ?></div>
 	<?php endif; ?>
 </li>
+<?php
+} )( $attributes, $content, $block );

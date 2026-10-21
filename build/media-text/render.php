@@ -22,6 +22,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a      = $attributes;
 $uid    = wrbc_uid( $a, 'wrbc-media-text' );
 $media  = isset( $a['media'] ) && is_array( $a['media'] ) ? $a['media'] : array();
@@ -364,3 +366,5 @@ $content_part = ob_get_clean();
 		<?php echo 'text-first' === $order ? $content_part . $media_part : $media_part . $content_part; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built above ?>
 	</div>
 </section>
+<?php
+} )( $attributes, $content, $block );

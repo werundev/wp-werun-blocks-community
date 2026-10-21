@@ -22,6 +22,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a      = $attributes;
 $ctx    = is_array( $block->context ?? null ) ? $block->context : array();
 $bg_id  = is_numeric( $a['bgId'] ?? null ) ? absint( $a['bgId'] ) : 0;
@@ -172,3 +174,5 @@ $attrs = get_block_wrapper_attributes( $extra );
 		<?php echo $content; // phpcs:ignore -- rendered inner blocks ?>
 	</div>
 </div>
+<?php
+} )( $attributes, $content, $block );

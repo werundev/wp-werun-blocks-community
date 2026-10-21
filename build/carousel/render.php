@@ -15,6 +15,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a   = $attributes;
 $uid = wrbc_uid( $a, 'wrbc-carousel' );
 $num = static function ( $value, $min, $max, $fallback ) {
@@ -234,3 +236,5 @@ $controls = wrbc_carousel_controls(
 	<?php endif; ?>
 	<?php echo 'top' !== $position ? $controls : ''; // phpcs:ignore -- escaped above ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

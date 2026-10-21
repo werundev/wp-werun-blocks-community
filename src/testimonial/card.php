@@ -267,7 +267,7 @@ if ( ! function_exists( 'wrbc_testimonial_card' ) ) {
 			<?php
 			echo ! empty( $avatar['id'] )
 				? wp_get_attachment_image( $avatar['id'], 'thumbnail', false, $img_attr )
-				: '<img class="wrbc-testi__avatar" src="' . $avatar['url'] . '" alt="" loading="lazy" width="48" height="48">'; // Escaped above.
+				: '<img class="wrbc-testi__avatar" src="' . esc_url( $avatar['url'] ) . '" alt="" loading="lazy" width="48" height="48">';
 			?>
 		<?php endif; ?>
 		<?php if ( $show_n || $show_o ) : ?>

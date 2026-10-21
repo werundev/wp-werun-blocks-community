@@ -18,6 +18,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 $a        = $attributes;
 $uid      = wrbc_uid( $a, 'wrbc-accordion' );
 $multiple = wrbc_on( $a, 'allowMultiple', false );
@@ -326,3 +328,5 @@ if ( $tools ) {
 	}
 	?>
 </section>
+<?php
+} )( $attributes, $content, $block );

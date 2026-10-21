@@ -18,6 +18,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_comparison_area' ) ) {
 	/**
 	 * One part of the table that paints its own background (the table, the
@@ -835,3 +837,5 @@ $tip_html = static function ( $label, $desc_id ) {
 		<?php endif; ?>
 	</div>
 </section>
+<?php
+} )( $attributes, $content, $block );

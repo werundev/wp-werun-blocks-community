@@ -16,6 +16,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! function_exists( 'wrbc_stat_parse' ) ) {
 	/**
 	 * The number of a stat split for the counter, or null when there is
@@ -288,7 +290,8 @@ if ( '' !== $number ) {
 		// Same range as the editor control (src/stats/effective.js).
 		$duration = max( 300, min( 5000, (int) $get( 'counterDuration', 1600 ) ) );
 		$options  = array(
-			'to'       => $count['to'],
+			// A float goes as its exact decimal string (4.9, not 4.9000000000000004); the module reads it with Number().
+			'to'       => is_float( $count['to'] ) ? number_format( $count['to'], (int) $count['decimals'], '.', '' ) : $count['to'],
 			'from'     => 0,
 			'decimals' => $count['decimals'],
 			'grouping' => $count['grouping'],
@@ -296,11 +299,7 @@ if ( '' !== $number ) {
 			'suffix'   => $count['suffix'],
 			'duration' => $duration,
 		);
-		// Shortest form of the float (4.9, not 4.9000000000000004) whatever php.ini says.
-		$precision = ini_get( 'serialize_precision' );
-		ini_set( 'serialize_precision', '-1' ); // phpcs:ignore WordPress.PHP.IniSet.Risky
 		$json = wp_json_encode( $options );
-		ini_set( 'serialize_precision', $precision ); // phpcs:ignore WordPress.PHP.IniSet.Risky
 		$value = '<span class="wrbc-stat__value" data-wrbc-count="' . esc_attr( $json ) . '">' . $value . '</span>';
 	} else {
 		$value = '<span class="wrbc-stat__value">' . $value . '</span>';
@@ -318,3 +317,5 @@ $main = 'above' === $get( 'labelPosition', 'below' ) ? $label_html . $number_htm
 		<p class="wrbc-stat__desc"><?php echo wrbc_rich( $a['description'] ); // phpcs:ignore ?></p>
 	<?php endif; ?>
 </div>
+<?php
+} )( $attributes, $content, $block );

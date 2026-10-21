@@ -12,6 +12,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 require_once __DIR__ . '/colors.php';
 
 $a   = $attributes;
@@ -141,3 +143,5 @@ if ( $get( 'reveal', true ) ) {
 	</div>
 	<?php endif; ?>
 </div>
+<?php
+} )( $attributes, $content, $block );

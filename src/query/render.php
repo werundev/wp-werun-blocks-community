@@ -13,6 +13,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Runs in its own scope: nothing here becomes a global.
+( static function ( $attributes, $content, $block ) {
 if ( ! class_exists( '\Werun\BlocksCommunity\Query\Renderer' ) ) {
 	return;
 }
@@ -114,3 +116,5 @@ if ( $built['token'] ) {
 	<?php echo wrbc_section_header( $a, $uid ); // phpcs:ignore ?>
 	<?php echo $built['html']; // phpcs:ignore -- escaped by Renderer ?>
 </section>
+<?php
+} )( $attributes, $content, $block );

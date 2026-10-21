@@ -111,7 +111,7 @@ final class Hard {
 		$ticket = self::posted();
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Fluent verified its own nonce; the ticket is signed.
 		if ( '' === $ticket && isset( $_POST['data'] ) && is_string( $_POST['data'] ) ) {
-			parse_str( wp_unslash( $_POST['data'] ), $raw ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- only one field is read, and sanitised.
+			parse_str( wp_unslash( $_POST['data'] ), $raw ); // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Fluent verified its own nonce; only one field is read, and sanitised.
 			$ticket = isset( $raw[ Forms::TICKET_FIELD ] ) && is_string( $raw[ Forms::TICKET_FIELD ] ) ? sanitize_text_field( $raw[ Forms::TICKET_FIELD ] ) : '';
 		}
 		self::mark( $ticket, 'fluent', is_object( $form ) && isset( $form->id ) ? $form->id : 0 );
