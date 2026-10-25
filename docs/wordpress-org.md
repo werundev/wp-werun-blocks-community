@@ -167,6 +167,7 @@ Con `WP_DEBUG` encendido, en un WordPress limpio y con PHP de la versión mínim
 ### 3.10 Prefijos, i18n y otros
 
 - Prefijo propio en funciones, clases, constantes, opciones, transients, handles, rutas REST y bloques.
+- Al portar código entre ediciones, buscar el prefijo viejo también escrito de otras formas: dentro de una expresión regular (`/^werun\//`) no aparece al buscar `werun/`. Mejor aún, que el código no dependa del namespace.
 - Text domain igual al slug.
 - Sin `ini_set()` ni cambios globales de PHP.
 
@@ -296,3 +297,11 @@ Lo que quedaba abierto, también resuelto el mismo día:
   - Community, que es lo único que revisa WordPress.org, no contacta werun.dev;
   - en los productos premium, los términos son el contrato de cada cliente con werun.dev; el readme de werun.Toolkit lo dice junto al enlace de privacidad.
 - **Historial del repo público.** El repo con los commits viejos se renombró y pasó a privado. `werundev/wp-werun-blocks-community` se volvió a crear con un único commit limpio, con la identidad noreply y sin trailers, y con la misma descripción, homepage e issues.
+
+### 2026-10-25: los bloques mostraban el ícono genérico en el editor (detectado internamente)
+
+- En el insertador, la barra y la tarjeta del bloque, los 28 bloques aparecían con el ícono por defecto de WordPress en vez de su ícono de Lucide.
+- La causa: `src/shared/block-icons.js` vino de werun.Blocks y buscaba la forma quitando el prefijo `werun/`. Los bloques de Community se llaman `werun-community/…`, así que no encontraba ninguna y devolvía `undefined`, que además pisaba el dashicon de cada `block.json`.
+- Se corrigió tomando lo que va después del namespace, sea cual sea. Verificado en el editor: los 28 bloques muestran su ícono.
+- La regla quedó en 3.10.
+- Se armó un zip nuevo con el arreglo para reemplazar el enviado, antes de la siguiente revisión.

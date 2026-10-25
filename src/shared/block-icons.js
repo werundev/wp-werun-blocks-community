@@ -98,7 +98,9 @@ const SHAPES = {
  * @param {string} name Block name.
  */
 export function blockIcon( name ) {
-	const shapes = SHAPES[ name.replace( /^werun\//, '' ) ];
+	// The part after the namespace, whichever edition registers the block
+	// (werun-community/hero here, werun/hero in werun.Blocks).
+	const shapes = SHAPES[ name.slice( name.indexOf( '/' ) + 1 ) ];
 	if ( ! shapes ) {
 		return undefined;
 	}
