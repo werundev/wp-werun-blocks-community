@@ -1,0 +1,225 @@
+[
+	{
+		"id": "mod-carousel-text",
+		"title": "Carousel block: text-only slides, 2 per view, autoplay, dots + arrows (track Tab stop, play/pause, dots)",
+		"markup": "<!-- wp:werun-community/carousel {\"columnsDesktop\":2,\"columnsTablet\":2,\"autoplay\":true,\"interval\":4} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Alpha</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Only text in this slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Beta</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Only text in this slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Gamma</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Only text in this slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Delta</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Only text in this slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Epsilon</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Only text in this slide.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "mod-carousel-links",
+		"title": "Carousel block: a link in every slide, loop off (no track Tab stop, aria-disabled arrows)",
+		"markup": "<!-- wp:werun-community/carousel {\"loop\":false} -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">First</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"/first/\">Read about First</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Second</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"/second/\">Read about Second</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Third</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"/third/\">Read about Third</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- wp:werun-community/slide -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Fourth</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>Each slide holds any blocks.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p><a href=\"/fourth/\">Read about Fourth</a></p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/slide -->\n<!-- /wp:werun-community/carousel -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "mod-testimonials",
+		"title": "Testimonials carousel, autoplay (module controls with prefix)",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"carousel\",\"autoplay\":true,\"interval\":4} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks.\",\"name\":\"Ana Pérez\",\"role\":\"CEO, Acme\",\"rating\":4,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"On time, on budget.\",\"name\":\"Bob Smith\",\"role\":\"CTO, Globex\",\"rating\":5,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards differ in height and the text wraps over several lines.\",\"name\":\"Carla Ruiz\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars here.\",\"name\":\"Dan Wu\",\"role\":\"Founder, Initech\",\"rating\":0,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Fifth card.\",\"name\":\"Eva Lind\",\"role\":\"COO, Hooli\",\"rating\":5,\"hideAvatar\":true} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "mod-logos",
+		"title": "Logos carousel, dots + autoplay",
+		"markup": "<!-- wp:werun-community/logos {\"layout\":\"carousel\",\"showArrows\":true,\"showDots\":true,\"autoplay\":true,\"columnsDesktop\":4,\"columnsTablet\":3,\"columnsMobile\":2,\"showNames\":true,\"logos\":[{\"id\":{{img:logo-1}},\"url\":\"{{url:logo-1}}\",\"alt\":\"\",\"name\":\"Northwind\",\"link\":\"https://example.com/1\"},{\"id\":{{img:logo-2}},\"url\":\"{{url:logo-2}}\",\"alt\":\"\",\"name\":\"Contoso\",\"link\":\"\"},{\"id\":{{img:logo-3}},\"url\":\"{{url:logo-3}}\",\"alt\":\"\",\"name\":\"Fabrikam\",\"link\":\"https://example.com/3\"},{\"id\":{{img:logo-4}},\"url\":\"{{url:logo-4}}\",\"alt\":\"\",\"name\":\"Tailspin\",\"link\":\"\"},{\"id\":{{img:logo-5}},\"url\":\"{{url:logo-5}}\",\"alt\":\"\",\"name\":\"Lumen Labs\",\"link\":\"https://example.com/5\"},{\"id\":{{img:logo-6}},\"url\":\"{{url:logo-6}}\",\"alt\":\"\",\"name\":\"Acme Co\",\"link\":\"\"}]} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "mod-query-carousel",
+		"title": "Query carousel (posts): list track, li slides",
+		"markup": "<!-- wp:werun-community/query {\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"perPage\":4},\"layout\":\"carousel\",\"autoplay\":true,\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"date\"}]}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "mod-map",
+		"title": "Query locations: consent placeholder, map list, show-on-map buttons",
+		"markup": "<!-- wp:werun-community/query {\"variant\":\"locations\",\"query\":{\"postType\":\"location\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":8},\"layout\":\"map\",\"map\":{\"latKey\":\"location_lat\",\"lngKey\":\"location_lng\",\"addressKey\":\"location_address\",\"height\":360,\"markerColor\":\"#c2410c\"},\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"fields\":[{\"type\":\"title\",\"level\":3}]}} /-->"
+	},
+	{
+		"id": "mod-gate",
+		"title": "Query resources, gated downloads (soft): Get the file → status → link",
+		"markup": "<!-- wp:werun-community/query {\"variant\":\"resources\",\"query\":{\"postType\":\"resource\",\"mode\":\"query\",\"perPage\":3},\"layout\":\"grid\",\"card\":{\"style\":\"filled\",\"link\":\"title\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"_wrbc_download_id\",\"format\":\"download\",\"label\":\"\"}]},\"gate\":{\"enabled\":true,\"mode\":\"soft\"}} /-->"
+	},
+	{
+		"id": "mod-video-modal",
+		"title": "Video: YouTube in a window (dialog, close button, focus)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=aqz-KE-bpKQ\",\"videoId\":\"aqz-KE-bpKQ\",\"mode\":\"modal\",\"title\":\"Product tour\",\"posterId\":{{img:poster-2}},\"posterUrl\":\"{{url:poster-2}}\",\"playStyle\":\"pill\"} /-->"
+	},
+	{
+		"id": "mod-video-bg",
+		"title": "Video: background file with its pause button",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"file\",\"fileId\":{{img:video}},\"fileUrl\":\"{{url:video}}\",\"mode\":\"background\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"title\":\"Background\"} /-->"
+	},
+	{
+		"id": "mod-video-cmp",
+		"title": "Video: cmp consent (hidden placeholder shown on play)",
+		"markup": "<!-- wp:werun-community/video {\"provider\":\"youtube\",\"url\":\"https://www.youtube.com/watch?v=aqz-KE-bpKQ\",\"videoId\":\"aqz-KE-bpKQ\",\"title\":\"Consent video\",\"consent\":\"cmp\",\"posterId\":{{img:poster-3}},\"posterUrl\":\"{{url:poster-3}}\"} /-->"
+	},
+	{
+		"id": "mod-tabs",
+		"title": "Tabs (wrbc-tabs): roving tabindex, panels, focus",
+		"markup": "<!-- wp:werun-community/tabs {\"showHeader\":true,\"title\":\"Everything in one place\"} -->\n<!-- wp:werun-community/tab {\"label\":\"Overview\"} -->\n<!-- wp:paragraph -->\n<p>Overview panel text.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/tab -->\n<!-- wp:werun-community/tab {\"label\":\"Pricing\"} -->\n<!-- wp:paragraph -->\n<p>Pricing with <a href=\"/pricing/\">a link</a>.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/tab -->\n<!-- wp:werun-community/tab {\"label\":\"Support\"} -->\n<!-- wp:paragraph -->\n<p>Support panel text.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:werun-community/tab -->\n<!-- /wp:werun-community/tabs -->"
+	},
+	{
+		"id": "mod-jobs-filter",
+		"title": "Jobs with filters (wrbc-filter): search, selects, chip, live count",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"greenhouse\",\"board\":\"acme\",\"showFilters\":true,\"filterType\":true} /-->"
+	},
+	{
+		"id": "mod-stats",
+		"title": "Stats counters (wrbc-counter): separators as typed, aria-hidden digits",
+		"markup": "<!-- wp:werun-community/stats {\"counterDuration\":1600} -->\n<!-- wp:werun-community/stat {\"number\":\"1.200.000\",\"label\":\"Visitors\"} /-->\n<!-- wp:werun-community/stat {\"number\":\"4,9\",\"label\":\"Rating\"} /-->\n<!-- wp:werun-community/stat {\"number\":\"98%\",\"label\":\"Clients who stay\"} /-->\n<!-- wp:werun-community/stat {\"number\":\"ISO 9001\",\"label\":\"Certified\"} /-->\n<!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "mod-filter-chips",
+		"title": "wrbc-filter markup bar (search, select, chips; one pressed) in a root without tone class: the tick carries the pressed state",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"greenhouse\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"maxJobs\":2} /-->\n<!-- wp:html -->\n<div class=\"wrbc-root wrbc-filter-demo\" data-wrbc-filter='{\"live\":\"%d results\",\"liveOne\":\"1 result\"}'><div class=\"wrbc-filter__bar\" role=\"search\" aria-label=\"Filter the list\"><label for=\"mfc-q\">Search</label><input id=\"mfc-q\" class=\"wrbc-filter__search\" type=\"search\" data-wrbc-filter-search placeholder=\"Type to filter\"><label for=\"mfc-s\">Kind</label><select id=\"mfc-s\" class=\"wrbc-filter__select\" data-wrbc-filter-select=\"kind\"><option value=\"\">All kinds</option><option value=\"a\">A</option><option value=\"b\">B</option></select><ul class=\"wrbc-filter__chips\"><li><button type=\"button\" class=\"wrbc-filter__chip\" data-wrbc-filter-chip=\"tone\" data-value=\"warm\" aria-pressed=\"true\">Warm</button></li><li><button type=\"button\" class=\"wrbc-filter__chip\" data-wrbc-filter-chip=\"tone\" data-value=\"cool\" aria-pressed=\"false\">Cool</button></li></ul></div><ul><li data-wrbc-filter-item data-kind=\"a\" data-tone=\"warm\">Alpha</li><li data-wrbc-filter-item data-kind=\"b\" data-tone=\"cool\">Beta</li><li data-wrbc-filter-item data-kind=\"a\" data-tone=\"warm\">Gamma</li></ul><p class=\"wrbc-filter__empty\" data-wrbc-filter-empty hidden>Nothing matches.</p><p class=\"wrbc-sr-only\" data-wrbc-filter-status aria-live=\"polite\"></p></div>\n<!-- /wp:html -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"true\"]",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "pressed chip: tick (drawn in the text colour) on its fill"
+			},
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"false\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "chip boundary"
+			}
+		]
+	},
+	{
+		"id": "mod-filter-chips-toned",
+		"title": "Same bar in a root with its tone class (.wrbc-is-dark on the dark page): pressed border in --wrbc-accent-text",
+		"contexts": [
+			"dark"
+		],
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"greenhouse\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"maxJobs\":2} /-->\n<!-- wp:html -->\n<div class=\"wrbc-root wrbc-is-dark wrbc-filter-demo\" data-wrbc-filter='{\"live\":\"%d results\",\"liveOne\":\"1 result\"}'><div class=\"wrbc-filter__bar\" role=\"search\" aria-label=\"Filter the list\"><label for=\"mft-q\">Search</label><input id=\"mft-q\" class=\"wrbc-filter__search\" type=\"search\" data-wrbc-filter-search placeholder=\"Type to filter\"><label for=\"mft-s\">Kind</label><select id=\"mft-s\" class=\"wrbc-filter__select\" data-wrbc-filter-select=\"kind\"><option value=\"\">All kinds</option><option value=\"a\">A</option><option value=\"b\">B</option></select><ul class=\"wrbc-filter__chips\"><li><button type=\"button\" class=\"wrbc-filter__chip\" data-wrbc-filter-chip=\"tone\" data-value=\"warm\" aria-pressed=\"true\">Warm</button></li><li><button type=\"button\" class=\"wrbc-filter__chip\" data-wrbc-filter-chip=\"tone\" data-value=\"cool\" aria-pressed=\"false\">Cool</button></li></ul></div><ul><li data-wrbc-filter-item data-kind=\"a\" data-tone=\"warm\">Alpha</li><li data-wrbc-filter-item data-kind=\"b\" data-tone=\"cool\">Beta</li><li data-wrbc-filter-item data-kind=\"a\" data-tone=\"warm\">Gamma</li></ul><p class=\"wrbc-filter__empty\" data-wrbc-filter-empty hidden>Nothing matches.</p><p class=\"wrbc-sr-only\" data-wrbc-filter-status aria-live=\"polite\"></p></div>\n<!-- /wp:html -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"true\"]",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "pressed chip: tick (drawn in the text colour) on its fill"
+			},
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"false\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "chip boundary"
+			},
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"true\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "pressed chip: border on the page"
+			}
+		]
+	},
+	{
+		"id": "mod-filter-chips-light",
+		"title": "Same bar on the light page (light context only): pressed border = accent on white",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"greenhouse\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"maxJobs\":2} /-->\n<!-- wp:html -->\n<div class=\"wrbc-root wrbc-filter-demo\" data-wrbc-filter='{\"live\":\"%d results\",\"liveOne\":\"1 result\"}'><div class=\"wrbc-filter__bar\" role=\"search\" aria-label=\"Filter the list\"><label for=\"mfl-q\">Search</label><input id=\"mfl-q\" class=\"wrbc-filter__search\" type=\"search\" data-wrbc-filter-search placeholder=\"Type to filter\"><label for=\"mfl-s\">Kind</label><select id=\"mfl-s\" class=\"wrbc-filter__select\" data-wrbc-filter-select=\"kind\"><option value=\"\">All kinds</option><option value=\"a\">A</option><option value=\"b\">B</option></select><ul class=\"wrbc-filter__chips\"><li><button type=\"button\" class=\"wrbc-filter__chip\" data-wrbc-filter-chip=\"tone\" data-value=\"warm\" aria-pressed=\"true\">Warm</button></li><li><button type=\"button\" class=\"wrbc-filter__chip\" data-wrbc-filter-chip=\"tone\" data-value=\"cool\" aria-pressed=\"false\">Cool</button></li></ul></div><ul><li data-wrbc-filter-item data-kind=\"a\" data-tone=\"warm\">Alpha</li><li data-wrbc-filter-item data-kind=\"b\" data-tone=\"cool\">Beta</li><li data-wrbc-filter-item data-kind=\"a\" data-tone=\"warm\">Gamma</li></ul><p class=\"wrbc-filter__empty\" data-wrbc-filter-empty hidden>Nothing matches.</p><p class=\"wrbc-sr-only\" data-wrbc-filter-status aria-live=\"polite\"></p></div>\n<!-- /wp:html -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"true\"]",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "pressed chip: tick (drawn in the text colour) on its fill"
+			},
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"false\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "chip boundary"
+			},
+			{
+				"selector": ".wrbc-filter__chip[aria-pressed=\"true\"]",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "pressed chip: border on the page"
+			}
+		]
+	}
+]

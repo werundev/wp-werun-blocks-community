@@ -1,0 +1,123 @@
+/* Table of contents (werun-community/toc). Front end and editor. */
+:where(.wrbc-toc) { line-height: 1.5; }
+// On its own background: room inside the box, so the links don't touch its
+// edge and their focus rings stay on that background. Zero specificity:
+// the Dimensions panel's padding wins.
+:where(.wrbc-toc.has-background) { padding: 1em 1.25em; border-radius: var(--wrbc-radius); }
+
+.wrbc-toc__title {
+	margin: 0 0 0.75em;
+	color: var(--wrbc-muted);
+	font-size: 0.8125em;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.wrbc-toc__list { margin: 0; padding: 0; list-style: none; }
+.wrbc-toc__list--sub { margin-top: 0.25em; padding-inline-start: 1em; }
+.wrbc-toc__item { margin: 0; }
+.wrbc-toc__item + .wrbc-toc__item { margin-top: 0.125em; }
+
+// .wrbc-root specificity: the theme's content-link rules must not repaint it.
+.wrbc-root .wrbc-toc__link {
+	display: block;
+	padding: 0.3em 0.75em;
+	border-inline-start: 2px solid var(--wrbc-line);
+	color: var(--wrbc-muted);
+	text-decoration: none;
+	transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.wrbc-root .wrbc-toc__link:hover { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+// The section being read: bolder (not only another colour), in the accent
+// made readable on the list's background.
+.wrbc-root .wrbc-toc__link[aria-current] { border-color: var(--wrbc-accent-text); color: var(--wrbc-accent-text); font-weight: 600; }
+// No glow from a theme's a:focus-visible (box-shadow): the ring is the indicator.
+.wrbc-root .wrbc-toc__link:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: 2px; border-radius: 4px; box-shadow: none; }
+
+/* Numbered: CSS counters (1. / 1.1 / 01) */
+.wrbc-toc--numbered {
+	.wrbc-toc__list { counter-reset: wrbc-toc; }
+	.wrbc-toc__item { counter-increment: wrbc-toc; }
+	.wrbc-toc__link { display: flex; gap: 0.5em; }
+	.wrbc-toc__link::before {
+		content: counter(wrbc-toc) ".";
+		flex: 0 0 auto;
+		min-width: 1.5em;
+		color: var(--wrbc-accent-text);
+		font-variant-numeric: tabular-nums;
+		font-weight: 600;
+	}
+}
+.wrbc-toc--num-nested .wrbc-toc__link::before { content: counters(wrbc-toc, "."); }
+.wrbc-toc--num-leading-zero .wrbc-toc__link::before { content: counter(wrbc-toc, decimal-leading-zero); }
+.wrbc-toc--num-leading-zero .wrbc-toc__list--sub .wrbc-toc__link::before { content: counters(wrbc-toc, ".", decimal-leading-zero); }
+
+/* Pills: one wrapping row of chips */
+.wrbc-toc--pills {
+	.wrbc-toc__list { display: flex; flex-wrap: wrap; gap: 0.5em; }
+	.wrbc-toc__item + .wrbc-toc__item { margin-top: 0; }
+}
+.wrbc-root.wrbc-toc--pills .wrbc-toc__link {
+	padding: 0.4em 0.9em;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	font-size: 0.9375em;
+}
+.wrbc-root.wrbc-toc--pills .wrbc-toc__link:hover { background: var(--wrbc-surface); text-decoration: none; }
+// Filled with the accent; its edge is the readable accent, so the pill stands
+// out (3:1) even where the fill alone wouldn't, on a dark background.
+.wrbc-root.wrbc-toc--pills .wrbc-toc__link[aria-current] { border-color: var(--wrbc-accent-text); background: var(--wrbc-accent); color: var(--wrbc-on-accent); }
+
+/* Dropdown: a <details> folded on phones (view.js keeps it open from 782 px) */
+.wrbc-toc__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5em;
+	min-height: 2.75em;
+	margin: 0;
+	cursor: pointer;
+	list-style: none;
+}
+.wrbc-toc__summary::-webkit-details-marker { display: none; }
+.wrbc-toc__summary::marker { content: ""; }
+// (0,4,0): the summary carries a tabindex, and a theme's
+// [tabindex]:not([tabindex="-1"]):focus-visible ring (0,3,0) must not replace it.
+.wrbc-root .wrbc-toc__details > .wrbc-toc__summary:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: 2px; border-radius: 4px; box-shadow: none; }
+.wrbc-toc__chevron { flex: 0 0 auto; --wrbc-icon-size: 1.25em; transition: transform 0.25s ease; }
+.wrbc-toc__details[open] > .wrbc-toc__summary .wrbc-toc__chevron { transform: rotate(180deg); }
+.wrbc-toc--collapsible .wrbc-toc__body { padding-bottom: 0.75em; }
+
+@media (max-width: 781.98px) {
+	.wrbc-toc--collapsible .wrbc-toc__details {
+		padding: 0 1em;
+		border: 1px solid var(--wrbc-line);
+		border-radius: var(--wrbc-radius);
+	}
+}
+@media (min-width: 782px) {
+	.wrbc-toc--collapsible .wrbc-toc__summary { min-height: 0; margin-bottom: 0.75em; cursor: default; }
+	.wrbc-toc--collapsible .wrbc-toc__chevron { display: none; }
+	.wrbc-toc--collapsible .wrbc-toc__body { padding-bottom: 0; }
+
+	/* Sticky: stays in view while its column scrolls; scrolls itself when taller than the window. */
+	.wrbc-toc--sticky {
+		position: sticky;
+		top: calc(var(--wrbc-toc-top, 32px) + var(--wp-admin--admin-bar--height, 0px));
+		align-self: flex-start;
+		max-height: calc(100vh - var(--wrbc-toc-top, 32px) - var(--wp-admin--admin-bar--height, 0px) - 1em);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		scrollbar-width: thin;
+	}
+	// Room for the focus ring (2 px wide, 2 px out) on every side: the
+	// scrolling box clips what goes past its padding (WCAG 2.4.7). On its own
+	// background the list already has more.
+	.wrbc-toc--sticky:not(.has-background) { padding: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-root .wrbc-toc__link,
+	.wrbc-toc__chevron { transition: none; }
+}

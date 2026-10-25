@@ -1,0 +1,250 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/features",
+  "version": "1.0.0",
+  "title": "Feature grid",
+  "category": "werun-community",
+  "icon": "grid-view",
+  "description": "Cards with an icon, title, text and link, in 1 to 6 columns per screen size. Every part of a card can be switched off for the whole grid or for one card.",
+  "keywords": [
+    "features",
+    "services",
+    "cards",
+    "grid",
+    "icons",
+    "benefits"
+  ],
+  "textdomain": "werun-blocks-community",
+  "allowedBlocks": [
+    "werun-community/feature"
+  ],
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "showHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEyebrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIntro": {
+      "type": "boolean",
+      "default": true
+    },
+    "eyebrow": {
+      "type": "string",
+      "role": "content",
+      "default": "Features"
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "Everything you need, nothing you don't"
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": "Six reasons teams switch, in one short paragraph each."
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 24
+    },
+    "cardStyle": {
+      "type": "string",
+      "default": "bordered",
+      "enum": [
+        "plain",
+        "bordered",
+        "filled",
+        "shadow"
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "default": "stacked",
+      "enum": [
+        "stacked",
+        "inline"
+      ]
+    },
+    "contentAlign": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "center"
+      ]
+    },
+    "hover": {
+      "type": "string",
+      "default": "lift",
+      "enum": [
+        "none",
+        "lift",
+        "border",
+        "accent"
+      ]
+    },
+    "equalHeight": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "showText": {
+      "type": "boolean",
+      "default": true
+    },
+    "showLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "showBadge": {
+      "type": "boolean",
+      "default": true
+    },
+    "linkStyle": {
+      "type": "string",
+      "default": "link",
+      "enum": [
+        "link",
+        "button",
+        "card"
+      ]
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "square",
+      "enum": [
+        "none",
+        "circle",
+        "square",
+        "outline"
+      ]
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 24
+    },
+    "iconStroke": {
+      "type": "number",
+      "default": 2
+    },
+    "itemTitleLevel": {
+      "type": "number",
+      "default": 3
+    },
+    "accentColor": {
+      "type": "string"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "iconBg": {
+      "type": "string"
+    },
+    "cardBg": {
+      "type": "string"
+    },
+    "cardBorderColor": {
+      "type": "string"
+    },
+    "cardRadius": {
+      "type": "number",
+      "default": 14
+    },
+    "cardPadding": {
+      "type": "number",
+      "default": 28
+    },
+    "reveal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "providesContext": {
+    "werun-community/features/showHeader": "showHeader",
+    "werun-community/features/title": "title",
+    "werun-community/features/titleLevel": "titleLevel",
+    "werun-community/features/showIcon": "showIcon",
+    "werun-community/features/showTitle": "showTitle",
+    "werun-community/features/showText": "showText",
+    "werun-community/features/showLink": "showLink",
+    "werun-community/features/showBadge": "showBadge",
+    "werun-community/features/linkStyle": "linkStyle",
+    "werun-community/features/iconStyle": "iconStyle",
+    "werun-community/features/itemTitleLevel": "itemTitleLevel",
+    "werun-community/features/reveal": "reveal",
+    "werun-community/features/cardStyle": "cardStyle",
+    "werun-community/features/cardBg": "cardBg",
+    "werun-community/features/accentColor": "accentColor",
+    "werun-community/features/textColor": "textColor",
+    "werun-community/features/style": "style",
+    "werun-community/features/iconColor": "iconColor",
+    "werun-community/features/iconBg": "iconBg"
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view"
+  ],
+  "render": "file:./render.php"
+}

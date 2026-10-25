@@ -1,0 +1,6 @@
+/* Call to action, editor only: the image placeholder fills its column. */
+.wrbc-cta__media .components-placeholder {
+	min-height: 240px;
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-cta .wrbc-btn [contenteditable] { cursor: text; }

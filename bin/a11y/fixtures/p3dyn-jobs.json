@@ -1,0 +1,82 @@
+[
+	{
+		"id": "p3-jobs-greenhouse-grouped",
+		"title": "p3 · Greenhouse board: grouped rows (its data shape: several locations, no compensation)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"greenhouse\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"showDate\":true} /-->"
+	},
+	{
+		"id": "p3-jobs-lever-cards",
+		"title": "p3 · Lever board: cards with compensation, date and descriptions, header H3 (positions H4)",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"lever\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"showHeader\":true,\"titleLevel\":3,\"title\":\"Open roles\",\"showCompensation\":true,\"showDate\":true,\"showDescription\":true} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-workable-table",
+		"title": "p3 · Workable board: table with every column, filters, at phone widths",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"workable\",\"board\":\"acme\",\"layout\":\"table\",\"showDescription\":false,\"reveal\":false,\"showFilters\":true,\"filterType\":true,\"showDate\":true,\"showCompensation\":true} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-smartrecruiters-list",
+		"title": "p3 · SmartRecruiters board: flat list with filters and new-tab links",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"smartrecruiters\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"newTab\":true} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-personio-bamboo",
+		"title": "p3 · Personio grouped + BambooHR list on one page (two untitled boards, numbered filter areas)",
+		"contexts": [ "light" ],
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"personio\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"showFilters\":true} /--><!-- wp:werun-community/jobs {\"provider\":\"bamboohr\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true} /-->"
+	},
+	{
+		"id": "p3-jobs-table-full",
+		"title": "p3 · Table at full width (align full), header, every column, new tab",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"align\":\"full\",\"layout\":\"table\",\"showDescription\":false,\"reveal\":false,\"showHeader\":true,\"title\":\"All positions\",\"showDate\":true,\"showCompensation\":true,\"newTab\":true,\"style\":{\"spacing\":{\"padding\":{\"left\":\"16px\",\"right\":\"16px\"}}}} /-->"
+	},
+	{
+		"id": "p3-jobs-accent-indigo",
+		"title": "p3 · Mid-tone accent #6366f1: pressed chip label (black), badge, toggle and ring",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showFilters\":true,\"accentColor\":\"#6366f1\",\"showDescription\":true} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-card-translucent",
+		"title": "p3 · Cards with a translucent card colour rgba(17,24,39,.7) and a dark #111827-like look",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"cardBg\":\"rgba(17,24,39,0.7)\",\"showDescription\":true,\"showFilters\":true} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-long-text",
+		"title": "p3 · Long texts: header centred at H3, long apply label, placeholder, eyebrow and intro, two columns on phones",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":4,\"columnsTablet\":2,\"columnsMobile\":2,\"showHeader\":true,\"headerAlign\":\"center\",\"titleLevel\":3,\"eyebrow\":\"Careers at a company with an extraordinarily long name\",\"title\":\"Open positions in engineering, design, sales and everything in between\",\"intro\":\"Every role is open to remote candidates unless it says otherwise, and we answer every application within a week.\",\"applyLabel\":\"Send us your application today\",\"searchPlaceholder\":\"Search by role, team, city or country\",\"showFilters\":true} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-grouped-h4",
+		"title": "p3 · Grouped rows at heading level H4 (positions H5), no count, no filters, compensation",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"grouped-list\",\"groupBy\":true,\"headingLevel\":4,\"showCount\":false,\"showCompensation\":true} /-->"
+	},
+	{
+		"id": "p3-jobs-link-colour",
+		"title": "p3 · A link colour from the Color panel (#9f1239): titles and description links keep it (light page only)",
+		"contexts": [ "light" ],
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"list\",\"groupBy\":false,\"showDescription\":true,\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#9f1239\"}}}}} /-->"
+	},
+	{
+		"id": "p3-jobs-own-gradient",
+		"title": "p3 · The block's own dark gradient background, filters, cards",
+		"contexts": [ "light" ],
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme\",\"layout\":\"cards\",\"columnsDesktop\":3,\"showFilters\":true,\"showDescription\":true,\"style\":{\"color\":{\"gradient\":\"linear-gradient(135deg,#0f172a 0%,#312e81 100%)\"},\"spacing\":{\"padding\":{\"left\":\"24px\",\"right\":\"24px\"}}}} /-->",
+		"nonText": [ { "selector": ".wrbc-jobs__chip", "property": "border-color", "min": 3, "label": "'Remote only' button border" } ]
+	},
+	{
+		"id": "p3-jobs-empty-header",
+		"title": "p3 · Empty board with a header (title + intro) and a custom empty text with a link",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme-empty\",\"showHeader\":true,\"title\":\"Open positions\",\"emptyText\":\"No openings right now. <a href=\\\"https://example.com/\\\">Send us an open application</a> instead.\"} /-->"
+	},
+	{
+		"id": "p3-jobs-down-header",
+		"title": "p3 · Board down (no saved copy) with a header and filters on",
+		"markup": "<!-- wp:werun-community/jobs {\"provider\":\"ashby\",\"board\":\"acme-404\",\"showHeader\":true,\"title\":\"Careers\",\"showFilters\":true} /-->"
+	}
+]

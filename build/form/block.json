@@ -1,0 +1,150 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/form",
+  "version": "1.0.0",
+  "title": "Form",
+  "category": "werun-community",
+  "icon": "feedback",
+  "description": "A form from HubSpot, Marketo, Pardot, Dynamics 365, Typeform, Jotform, Mailchimp, ActiveCampaign, Zoho, Calendly or a form plugin on this site, with a title, consent before third-party embeds and optional gated downloads.",
+  "keywords": [
+    "form",
+    "contact",
+    "hubspot",
+    "newsletter",
+    "lead",
+    "gated",
+    "download",
+    "calendly"
+  ],
+  "textdomain": "werun-blocks-community",
+  "usesContext": [
+    "postId"
+  ],
+  "attributes": {
+    "provider": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "formId": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "formTitle": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "region": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "extra": {
+      "type": "object",
+      "role": "content",
+      "default": {}
+    },
+    "consent": {
+      "type": "string",
+      "default": "inherit",
+      "enum": [
+        "inherit",
+        "click",
+        "cmp",
+        "none"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "Get in touch"
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": "Tell us what you need and we'll get back to you within one working day."
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "successMessage": {
+      "type": "string",
+      "role": "content",
+      "default": "Thanks! We got it."
+    },
+    "redirectUrl": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "formStyle": {
+      "type": "string",
+      "default": "card",
+      "enum": [
+        "card",
+        "plain",
+        "inline"
+      ]
+    },
+    "width": {
+      "type": "number",
+      "default": 640
+    },
+    "radius": {
+      "type": "number",
+      "default": 16
+    },
+    "accentColor": {
+      "type": "string"
+    },
+    "cardBg": {
+      "type": "string"
+    },
+    "gate": {
+      "type": "object",
+      "role": "content",
+      "default": {
+        "enabled": false,
+        "resourceId": 0,
+        "label": "Download"
+      }
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "wrbc-modules",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-consent",
+    "file:./view.js"
+  ],
+  "render": "file:./render.php"
+}

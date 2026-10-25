@@ -1,0 +1,230 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/video",
+  "version": "1.0.0",
+  "title": "Video",
+  "category": "werun-community",
+  "icon": "video-alt3",
+  "description": "YouTube, Vimeo or a video from the media library, loaded only when it is played: a poster with a play button, in the page or in a window, or a muted looping background. Captions, transcript, a link to an audio-described version and VideoObject schema.",
+  "keywords": [
+    "video",
+    "youtube",
+    "vimeo",
+    "embed",
+    "modal",
+    "lightbox",
+    "background"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "provider": {
+      "type": "string",
+      "role": "content",
+      "default": "youtube",
+      "enum": [
+        "youtube",
+        "vimeo",
+        "file"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "videoId": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "fileId": {
+      "type": "number",
+      "role": "content"
+    },
+    "fileUrl": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "posterId": {
+      "type": "number",
+      "role": "content"
+    },
+    "posterUrl": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "useProviderThumb": {
+      "type": "boolean",
+      "default": false
+    },
+    "mode": {
+      "type": "string",
+      "default": "inline",
+      "enum": [
+        "inline",
+        "modal",
+        "background"
+      ]
+    },
+    "start": {
+      "type": "number",
+      "role": "content",
+      "default": 0
+    },
+    "captionsId": {
+      "type": "number",
+      "role": "content"
+    },
+    "captionsUrl": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "captionsLang": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "captionsLabel": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "ratio": {
+      "type": "string",
+      "default": "16/9",
+      "enum": [
+        "16/9",
+        "4/3",
+        "1/1",
+        "9/16",
+        "21/9"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "caption": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "showTranscript": {
+      "type": "boolean",
+      "default": false
+    },
+    "transcript": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "describedUrl": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "describedNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "playStyle": {
+      "type": "string",
+      "default": "circle",
+      "enum": [
+        "circle",
+        "square",
+        "pill"
+      ]
+    },
+    "playSize": {
+      "type": "number",
+      "default": 72
+    },
+    "playColor": {
+      "type": "string"
+    },
+    "playIconColor": {
+      "type": "string"
+    },
+    "radius": {
+      "type": "number",
+      "default": 12
+    },
+    "consent": {
+      "type": "string",
+      "default": "inherit",
+      "enum": [
+        "inherit",
+        "click",
+        "cmp",
+        "none"
+      ]
+    },
+    "schema": {
+      "type": "boolean",
+      "default": false
+    },
+    "schemaDescription": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "schemaDate": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Product tour",
+      "mode": "modal"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "wrbc-modules",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view",
+    "wrbc-video"
+  ],
+  "render": "file:./render.php"
+}

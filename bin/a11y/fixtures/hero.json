@@ -1,0 +1,263 @@
+[
+	{
+		"id": "hero-split-right",
+		"title": "Split, image on the right (variation split-right): defaults + image, links in the text and the checklist",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\",\"points\":[{\"text\":\"Set up in a week\"},{\"text\":\"No <a href=\\\"/pricing/\\\">long contracts</a>\"},{\"text\":\"Support in your language\"}]} /-->"
+	},
+	{
+		"id": "hero-split-left",
+		"title": "Split, image on the left (variation split-left), image first on phones, plain eyebrow, square buttons, both in a new tab",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"split\",\"mediaPosition\":\"left\",\"showMedia\":true,\"showPoints\":true,\"showStats\":false,\"mobileMediaFirst\":true,\"eyebrowStyle\":\"plain\",\"buttonShape\":\"square\",\"primaryNewTab\":true,\"secondaryNewTab\":true,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "hero-centered-stats",
+		"title": "Centred (variation centered): image underneath, figures, rounded buttons",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":true,\"showPoints\":false,\"showStats\":true,\"buttonShape\":\"rounded\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "hero-figures-left",
+		"title": "With figures (variation figures): image on the left, 1:1, decorative (empty alt)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"split\",\"mediaPosition\":\"left\",\"showMedia\":true,\"showStats\":true,\"showPoints\":false,\"mediaRatio\":\"1/1\",\"mediaId\":{{img:illustration-square}},\"mediaUrl\":\"{{url:illustration-square}}\",\"mediaAlt\":\"\"} /-->"
+	},
+	{
+		"id": "hero-text-only",
+		"title": "Text only (variation text-only): centred, 60vh",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"minHeight\":60,\"minHeightUnit\":\"vh\"} /-->"
+	},
+	{
+		"id": "hero-video",
+		"title": "Video background (variation video-background): video + poster, default overlay, no text colour (white from the tone), figures",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"showStats\":true,\"minHeight\":80,\"minHeightUnit\":\"vh\",\"overlayOpacity\":55,\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgVideoPosterId\":{{img:video-poster}},\"bgVideoPosterUrl\":\"{{url:video-poster}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle .wrbc-hero__video-pause",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "hero-video-top",
+		"title": "Video, pause button top left, no minimum height, no eyebrow, white text chosen",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"style\":{\"color\":{\"text\":\"#ffffff\"}},\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"showEyebrow\":false,\"bgVideoControls\":\"top-left\",\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle .wrbc-hero__video-pause",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "hero-video-no-mobile",
+		"title": "Video off on phones (poster under 768 px), pause button bottom left, split without image",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"split\",\"showMedia\":false,\"bgVideoControls\":\"bottom-left\",\"bgVideoMobile\":false,\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgVideoPosterId\":{{img:video-poster}},\"bgVideoPosterUrl\":\"{{url:video-poster}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle .wrbc-hero__video-pause",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "hero-bg-light",
+		"title": "Background image (light), default 55 % black overlay, no text colour; pill eyebrow, links, checklist, figures",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"split\",\"showMedia\":false,\"showStats\":true,\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\",\"points\":[{\"text\":\"Set up in a week\"},{\"text\":\"No <a href=\\\"/pricing/\\\">long contracts</a>\"},{\"text\":\"Support in your language\"}]} /-->"
+	},
+	{
+		"id": "hero-bg-busy-low",
+		"title": "Busy image, overlay stored at 20 % (clamped to the readable floor, 54 %)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showStats\":true,\"overlayOpacity\":20,\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "hero-bg-white-overlay",
+		"title": "Dark image under a 60 % white overlay, no text colour (dark text)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showStats\":true,\"overlayColor\":\"#ffffff\",\"overlayOpacity\":60,\"bgImageId\":{{img:bg-dark}},\"bgImageUrl\":\"{{url:bg-dark}}\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\"} /-->"
+	},
+	{
+		"id": "hero-bg-accent-overlay",
+		"title": "Busy image under an accent-coloured overlay (#4f46e5, floor 84 %)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"overlayColor\":\"#4f46e5\",\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "hero-bg-text-amber",
+		"title": "Light image, chosen text colour #fde68a on the black overlay (floor 60 %)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"split\",\"showMedia\":false,\"showStats\":true,\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\",\"style\":{\"color\":{\"text\":\"#fde68a\"}}} /-->"
+	},
+	{
+		"id": "hero-dark-own",
+		"title": "Own background #0f172a, no text colour; links, figures",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"showStats\":true,\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\",\"points\":[{\"text\":\"Set up in a week\"},{\"text\":\"No <a href=\\\"/pricing/\\\">long contracts</a>\"},{\"text\":\"Support in your language\"}],\"style\":{\"color\":{\"background\":\"#0f172a\"}}} /-->"
+	},
+	{
+		"id": "hero-light-own",
+		"title": "Own background #f8fafc (a light island in the dark context), figures",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"showStats\":true,\"style\":{\"color\":{\"background\":\"#f8fafc\"}}} /-->"
+	},
+	{
+		"id": "hero-gradient",
+		"title": "Own dark gradient background, no text colour, centred",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showStats\":true,\"style\":{\"color\":{\"gradient\":\"linear-gradient(135deg,#0f172a 0%,#312e81 100%)\"}}} /-->"
+	},
+	{
+		"id": "hero-accent-light",
+		"title": "Custom light accent #facc15 (automatic dark text on it; accent as text darkened)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"accentColor\":\"#facc15\",\"showStats\":true,\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\"} /-->"
+	},
+	{
+		"id": "hero-accent-dark",
+		"title": "Custom very dark accent #1e1b4b (accent as text lightened in the dark)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"accentColor\":\"#1e1b4b\",\"showStats\":true} /-->"
+	},
+	{
+		"id": "hero-accent-mid",
+		"title": "Custom mid-tone accent #6d8a00: automatic black label, lighter fill on hover/focus",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"accentColor\":\"#6d8a00\"} /-->"
+	},
+	{
+		"id": "hero-accent-picked",
+		"title": "Accent #c8ff00 with a picked white label (printed as the closest readable grey; hover fill lighter)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"accentColor\":\"#c8ff00\",\"onAccentColor\":\"#ffffff\"} /-->"
+	},
+	{
+		"id": "hero-accent-pair",
+		"title": "Brand pair: accent #c8ff00, text on it #0a0a0a, background #0a0a0a, text #fafafa",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"accentColor\":\"#c8ff00\",\"onAccentColor\":\"#0a0a0a\",\"style\":{\"color\":{\"background\":\"#0a0a0a\",\"text\":\"#fafafa\"}}} /-->"
+	},
+	{
+		"id": "hero-options",
+		"title": "H2, no icons, no reveal, rounded buttons, HTML anchor",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"headingLevel\":2,\"buttonShape\":\"rounded\",\"reveal\":false,\"anchor\":\"wrbc-a11y-hero-anchor\",\"eyebrowIcon\":{},\"pointsIcon\":{},\"primaryIcon\":{},\"secondaryIcon\":{}} /-->"
+	},
+	{
+		"id": "hero-no-url",
+		"title": "Buttons without a URL (the default \"#\" and an empty one): printed as text, not as links",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"#\",\"secondaryUrl\":\"\"} /-->"
+	},
+	{
+		"id": "hero-link-color",
+		"title": "Block link colour #b91c1c (an author pick for a light page)",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\",\"points\":[{\"text\":\"Set up in a week\"},{\"text\":\"No <a href=\\\"/pricing/\\\">long contracts</a>\"},{\"text\":\"Support in your language\"}],\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#b91c1c\"}}}}} /-->"
+	},
+	{
+		"id": "hero-long-words",
+		"title": "Long words, a URL and a long button label (reflow)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"heading\":\"Internationalisierungsdienstleistungen for Donaudampfschifffahrtsgesellschaften\",\"text\":\"Rechtsschutzversicherungsgesellschaften und Kraftfahrzeughaftpflichtversicherung https://example.com/a-very-long-url-without-any-breaks-at-all\",\"showStats\":true,\"stats\":[{\"value\":\"1,000,000+\",\"label\":\"Kundenzufriedenheitsbefragungen\"},{\"value\":\"99.99 %\",\"label\":\"Uptime\"}],\"primaryLabel\":\"Jetzt kostenlos registrieren und sofort loslegen\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "hero-two",
+		"title": "Two heroes on one page (H1, then H2): unique ids",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"showPoints\":false} /-->\n<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"headingLevel\":2,\"layout\":\"centered\",\"showMedia\":false,\"heading\":\"A second hero further down\"} /-->"
+	},
+	{
+		"id": "hero-small-font",
+		"title": "Block font size 10 px with a video (pause button stays 24 px or more)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\",\"style\":{\"typography\":{\"fontSize\":\"10px\"}}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle .wrbc-hero__video-pause",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "p3-hero-align-wide",
+		"title": "Split with image, align wide (Hello pulls .alignwide 80 px out)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"align\":\"wide\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "p3-hero-align-none",
+		"title": "Split with image, no alignment (content width), image first on phones",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"align\":\"\",\"mobileMediaFirst\":true,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "p3-hero-layout-options",
+		"title": "Top aligned, 600 px tall, 30 % text column, 16:9 image fitted (contain), plain eyebrow",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"verticalAlign\":\"start\",\"minHeight\":600,\"minHeightUnit\":\"px\",\"splitRatio\":30,\"mediaRatio\":\"16/9\",\"mediaFit\":\"contain\",\"eyebrowStyle\":\"plain\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "p3-hero-minimal",
+		"title": "Minimal: heading only (no eyebrow, text, checklist, buttons, image)",
+		"markup": "<!-- wp:werun-community/hero {\"showEyebrow\":false,\"showText\":false,\"showPoints\":false,\"showPrimary\":false,\"showSecondary\":false,\"showMedia\":false,\"layout\":\"centered\"} /-->"
+	},
+	{
+		"id": "p3-hero-primary-only",
+		"title": "Only the main button (new tab), bottom aligned, 70 % text column",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"primaryNewTab\":true,\"showSecondary\":false,\"verticalAlign\":\"end\",\"splitRatio\":70,\"minHeight\":50,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "p3-hero-secondary-only-nourl",
+		"title": "Only the second button, without a URL (text, not a link), over a dark own background",
+		"markup": "<!-- wp:werun-community/hero {\"secondaryUrl\":\"\",\"showPrimary\":false,\"style\":{\"color\":{\"background\":\"#111827\"}}} /-->"
+	},
+	{
+		"id": "p3-hero-red-overlay",
+		"title": "Light image under a red overlay #ef4444 (mid-tone: neither white nor ink reaches 4.5:1 at 95 %), no text colour",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showStats\":true,\"overlayColor\":\"#ef4444\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\"} /-->"
+	},
+	{
+		"id": "p3-hero-grey-overlay",
+		"title": "Busy image under a mid-grey overlay #777777 (no colour reaches 4.5:1 at 95 %), no text colour",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"overlayColor\":\"#777777\",\"overlayOpacity\":95,\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "p3-hero-indigo-overlay",
+		"title": "Light image under a mid-tone indigo overlay #6366f1, no text colour, figures",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"split\",\"showMedia\":false,\"showStats\":true,\"overlayColor\":\"#6366f1\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\"} /-->"
+	},
+	{
+		"id": "p3-hero-rgba-overlay",
+		"title": "Translucent overlay colour rgba(15,23,42,0.5) at the default opacity over the light image",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"overlayColor\":\"rgba(15,23,42,0.5)\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\"} /-->"
+	},
+	{
+		"id": "p3-hero-accent-indigo",
+		"title": "Mid-tone accent #6366f1 (only black reads on it), figures",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"accentColor\":\"#6366f1\",\"showStats\":true,\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\"} /-->"
+	},
+	{
+		"id": "p3-hero-dark-card-text",
+		"title": "Own background #111827 with a chosen text colour #e5e7eb and link colour #93c5fd",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\",\"style\":{\"color\":{\"background\":\"#111827\",\"text\":\"#e5e7eb\"},\"elements\":{\"link\":{\"color\":{\"text\":\"#93c5fd\"}}}}} /-->"
+	},
+	{
+		"id": "p3-hero-rgba-bg",
+		"title": "Translucent own background rgba(79,70,229,0.12) (light tint on white, dark over the dark group)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"text\":\"Say what you do, who it is for and <a href=\\\"/about/\\\">why it matters</a> in two lines.\",\"style\":{\"color\":{\"background\":\"rgba(79,70,229,0.12)\"}}} /-->"
+	},
+	{
+		"id": "p3-hero-video-light-overlay",
+		"title": "Video, white 70 % overlay (dark text), pause button top right",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"overlayColor\":\"#ffffff\",\"overlayOpacity\":70,\"bgVideoControls\":\"top-right\",\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgVideoPosterId\":{{img:video-poster}},\"bgVideoPosterUrl\":\"{{url:video-poster}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle .wrbc-hero__video-pause",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "p3-hero-long-video",
+		"title": "Video background with a long text at phone width (pause button room), H2",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"/contact/\",\"secondaryUrl\":\"/how-it-works/\",\"headingLevel\":2,\"layout\":\"centered\",\"showMedia\":false,\"text\":\"A much longer paragraph than usual that runs over many lines on a phone, so the block grows and the pause button must keep its own room in the padding instead of sitting on the last line or the buttons. A much longer paragraph than usual that runs over many lines on a phone, so the block grows and the pause button must keep its own room in the padding instead of sitting on the last line or the buttons. A much longer paragraph than usual that runs over many lines on a phone, so the block grows and the pause button must keep its own room in the padding instead of sitting on the last line or the buttons.\",\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgImageId\":{{img:bg-dark}},\"bgImageUrl\":\"{{url:bg-dark}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle .wrbc-hero__video-pause",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	}
+]

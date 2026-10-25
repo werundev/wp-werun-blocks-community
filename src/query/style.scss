@@ -1,0 +1,460 @@
+/* Query: cards from any post type. Columns follow the block's own width
+   (container queries); sizes in em so the block's font size scales them. */
+:where(.wrbc-query) {
+	padding-block: clamp(48px, 7vw, 96px);
+	line-height: 1.5;
+}
+/* With a background of its own, the content keeps off its edges (a field
+   touching the edge would have its border against the page, not the block).
+   Zero specificity: the Dimensions panel wins. */
+:where(.wrbc-query.has-background) { padding-inline: clamp(16px, 4vw, 48px); }
+.wrbc-query {
+	container-type: inline-size;
+	--wrbc-card-pad: 1.25em;
+	/* The ring round a whole-card link is drawn outside the card, on the
+	   block's own surface: the block's focus colour, not the card's. */
+	--wrbc-query-ring: var(--wrbc-focus);
+}
+
+/* ── Visitor filters ─────────────────────────────────────────────────── */
+.wrbc-query__filters {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75em 1.5em;
+	margin-bottom: 1.5em;
+}
+.wrbc-query__chips ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrbc-root .wrbc-query__chip {
+	display: inline-flex;
+	align-items: center;
+	min-height: 2.5em;
+	padding: 0.35em 1em;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	color: inherit;
+	font-size: 0.9em;
+	line-height: 1.2;
+	text-decoration: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.wrbc-root .wrbc-query__chip:hover { border-color: currentColor; }
+.wrbc-root .wrbc-query__chip[aria-current="true"] {
+	gap: 0.45em;
+	/* The accent fill can be faint on the surface (dark sections, light
+	   accents): its border in the readable accent keeps the state 3:1. */
+	border-color: var(--wrbc-accent-text);
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+}
+/* The chosen chip also gets a tick: its state isn't told by colour alone (WCAG 1.4.1). */
+.wrbc-root .wrbc-query__chip[aria-current="true"]::before {
+	content: "";
+	flex: 0 0 auto;
+	width: 0.3em;
+	height: 0.6em;
+	margin-block-start: -0.15em;
+	border: solid currentColor;
+	border-width: 0 0.13em 0.13em 0;
+	transform: rotate(45deg);
+}
+/* Focus rings: the shared .wrbc-root :focus-visible ring (2 px --wrbc-focus)
+   for chips, fields, pages, links and buttons; cards restate theirs below. */
+.wrbc-query__tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5em 1em;
+	margin: 0;
+}
+.wrbc-query__tools p { margin: 0; }
+.wrbc-query__tools input,
+.wrbc-query__tools select {
+	min-height: 2.75em;
+	padding: 0.4em 0.8em;
+	/* A control's boundary: 3:1 (WCAG 1.4.11). */
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: 0.5em;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: 0.95em;
+}
+/* Placeholder at the muted text colour, not the browser's faint default (WCAG 1.4.3). */
+.wrbc-query__tools input::placeholder { color: var(--wrbc-muted); opacity: 1; }
+.wrbc-query__tools input { width: 100%; min-width: 14em; }
+/* A magnifier inside the field: it stays once the placeholder is gone. It
+   sits under the (transparent) field, so nothing covers the focused field. */
+.wrbc-query__search { position: relative; flex: 0 1 18em; }
+.wrbc-query__search .wrbc-query__search-icon {
+	position: absolute;
+	inset-inline-start: 0.75em;
+	top: 50%;
+	z-index: 0;
+	--wrbc-icon-size: 1em;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+.wrbc-query__tools .wrbc-query__search input { position: relative; z-index: 1; padding-inline-start: 2.3em; }
+.wrbc-query__sort label { margin-inline-end: 0.4em; font-size: 0.9em; line-height: 1.5; color: var(--wrbc-muted); }
+/* Without JS the Apply button submits; with JS the fields apply as you type. */
+.wrbc-query.is-js .wrbc-query__apply { display: none; }
+
+/* ── Results ─────────────────────────────────────────────────────────── */
+.wrbc-query__results { position: relative; }
+/* Loading: a bar above the results, not faded cards (faded text drops under 4.5:1). */
+.wrbc-query__results[aria-busy="true"] { cursor: progress; }
+.wrbc-query__results[aria-busy="true"]::before {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	top: -0.9em;
+	height: 3px;
+	border-radius: 3px;
+	background: var(--wrbc-accent-text);
+}
+.wrbc-query__items {
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-cols-m, 1), minmax(0, 1fr));
+	gap: var(--wrbc-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+@container (min-width: 600px) {
+	.wrbc-query__items { grid-template-columns: repeat(var(--wrbc-cols-t, 2), minmax(0, 1fr)); }
+}
+@container (min-width: 960px) {
+	.wrbc-query__items { grid-template-columns: repeat(var(--wrbc-cols-d, 3), minmax(0, 1fr)); }
+}
+.wrbc-query--list .wrbc-query__items { grid-template-columns: minmax(0, 1fr); }
+.wrbc-query__item { display: flex; min-width: 0; margin: 0; }
+.wrbc-query__empty { margin: 0; color: var(--wrbc-muted); }
+
+/* ── Card ────────────────────────────────────────────────────────────── */
+.wrbc-query__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-width: 0;
+	overflow: hidden;
+	border-radius: var(--wrbc-radius);
+	transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.wrbc-query--bordered .wrbc-query__card { border: 1px solid var(--wrbc-card-border, var(--wrbc-line)); background: var(--wrbc-card-bg, transparent); }
+.wrbc-query--filled .wrbc-query__card { background: var(--wrbc-card-bg, var(--wrbc-surface)); }
+.wrbc-query--shadow .wrbc-query__card {
+	background: var(--wrbc-card-bg, #fff);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px -12px rgba(0, 0, 0, 0.18);
+}
+.wrbc-query--plain .wrbc-query__card { border-radius: 0; overflow: visible; }
+.wrbc-query__card.is-card-link:hover { translate: 0 -3px; }
+.wrbc-query--shadow .wrbc-query__card.is-card-link:hover { box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 18px 40px -16px rgba(0, 0, 0, 0.28); }
+/* Whole-card link: the ring goes round the card while its link has keyboard
+   focus, and only then (not when a term or the button inside is focused,
+   those draw their own ring). */
+.wrbc-query__card.is-card-link:has(.wrbc-query__stretched:focus-visible) { outline: 2px solid var(--wrbc-query-ring); outline-offset: 3px; }
+@supports not selector(:has(*)) {
+	.wrbc-query__card.is-card-link:focus-within { outline: 2px solid var(--wrbc-query-ring); outline-offset: 3px; }
+}
+
+/* Card colours (render.php: Renderer::card_colors(); editor: cardColors()).
+   Cards painted in the other tone than the block (white shadow cards in a
+   dark section, a dark card colour on a white page) get their own readable
+   text, muted text, accent text and focus ring; --wrbc-card-accent-text also
+   when only the accent needs adjusting on the card. */
+.wrbc-query--cards-dark .wrbc-query__card {
+	--wrbc-muted: var(--wrbc-card-muted, color-mix(in srgb, currentColor 85%, transparent));
+	color: var(--wrbc-card-text, #fff);
+}
+.wrbc-query--cards-light .wrbc-query__card {
+	--wrbc-muted: var(--wrbc-card-muted, color-mix(in srgb, currentColor 76%, transparent));
+	color: var(--wrbc-card-text, #0f172a);
+}
+/* Only the accent as text changes on a card: the fill (--wrbc-accent) and so
+   --wrbc-on-accent / --wrbc-accent-hover stay the block's, right for its buttons. */
+.wrbc-query--cards-dark .wrbc-query__card,
+.wrbc-query--cards-light .wrbc-query__card,
+.wrbc-query--cards-accent .wrbc-query__card {
+	--wrbc-accent-text: var(--wrbc-card-accent-text);
+	--wrbc-focus: var(--wrbc-card-accent-text);
+}
+/* A theme's link colour is made for the page, not for a card colour: on cards
+   with their own text colour, links take the accent made readable there
+   (--wrbc-card-accent-text), unless the block has its own link colour. */
+.wrbc-query--cards-dark:not(.wrbc-has-link-color) .wrbc-query__meta a:not(.wrbc-btn),
+.wrbc-query--cards-light:not(.wrbc-has-link-color) .wrbc-query__meta a:not(.wrbc-btn) { color: var(--wrbc-accent-text); }
+
+.wrbc-query__media {
+	margin: 0;
+	overflow: hidden;
+	background: var(--wrbc-surface);
+}
+.wrbc-query--plain .wrbc-query__media { border-radius: var(--wrbc-radius); }
+.wrbc-query__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: scale 0.4s ease;
+}
+.wrbc-query__card.is-card-link:hover .wrbc-query__img { scale: 1.03; }
+.wrbc-query__body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	gap: 0.5em;
+	min-width: 0;
+	padding: var(--wrbc-card-pad);
+}
+.wrbc-query--plain .wrbc-query__body { padding-inline: 0; }
+.wrbc-query__body > * { margin: 0; }
+.wrbc-query__title {
+	font-size: 1.15em;
+	line-height: 1.3;
+}
+.wrbc-root .wrbc-query__title a { color: inherit; text-decoration: none; }
+/* Inline padding: the title link is a 24 px tall target without moving the text (WCAG 2.5.8). */
+.wrbc-root .wrbc-query__title-link { padding-block: 0.1em; }
+.wrbc-root .wrbc-query__title a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+.wrbc-root .wrbc-query__stretched:hover { text-decoration: none; }
+/* Whole card is the link: the title's link stretches over the card. */
+.wrbc-query__stretched::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+/* The ring is the card's (above), not the title text's: .wrbc-root beats the
+   shared focus baseline (and a theme's halo round the title text goes too). */
+.wrbc-root .wrbc-query__stretched:focus-visible { outline: none; box-shadow: none; }
+/* Other links and buttons in a linked card stay clickable above it. */
+.wrbc-query__card.is-card-link .wrbc-query__body a:not(.wrbc-query__stretched),
+.wrbc-query__card.is-card-link .wrbc-query__body button { position: relative; z-index: 2; }
+
+.wrbc-query__date,
+.wrbc-query__reading,
+.wrbc-query__author { color: var(--wrbc-muted); font-size: 0.85em; }
+.wrbc-query__author { display: flex; align-items: center; gap: 0.5em; }
+.wrbc-query__avatar { width: 2em; height: 2em; border-radius: 50%; }
+.wrbc-query__excerpt { color: var(--wrbc-muted); line-height: 1.6; }
+.wrbc-query__terms {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35em;
+	padding: 0;
+	list-style: none;
+}
+.wrbc-root .wrbc-query__term {
+	display: inline-block;
+	padding: 0.15em 0.65em;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--wrbc-accent) 12%, transparent);
+	/* The accent made readable on its own tint over the card (--wrbc-query-term,
+	   render.php), else the accent as text. */
+	color: var(--wrbc-query-term, var(--wrbc-accent-text));
+	font-size: 0.75em;
+	font-weight: 600;
+	line-height: 1.5;
+	text-decoration: none;
+}
+/* Linked terms sit inside a whole-card link: 24 px tall targets (WCAG 2.5.8). */
+.wrbc-root a.wrbc-query__term {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+}
+.wrbc-root a.wrbc-query__term:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+.wrbc-query__meta { font-size: 0.92em; overflow-wrap: anywhere; }
+.wrbc-query__meta-label { color: var(--wrbc-muted); }
+/* Links in a meta line read as links without relying on colour (WCAG 1.4.1). */
+.wrbc-root .wrbc-query__meta a:not(.wrbc-btn) {
+	/* Inline padding: a 24 px tall target without moving the line (WCAG 2.5.8). */
+	padding-block: 0.25em;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+.wrbc-query__address { font-size: 0.92em; font-style: normal; color: var(--wrbc-muted); }
+/* Events: the state in words ("Upcoming", "Happening now", "Past event") and the date. */
+.wrbc-query__event {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35em 0.6em;
+	font-size: 0.85em;
+}
+.wrbc-query__event-state {
+	padding: 0.1em 0.6em;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	font-size: 0.9em;
+	font-weight: 600;
+	line-height: 1.5;
+}
+.wrbc-query__event-date { color: var(--wrbc-muted); }
+.wrbc-query__meta-img { display: block; max-width: 100%; height: auto; border-radius: calc(var(--wrbc-radius) * 0.5); }
+.wrbc-query__size { color: var(--wrbc-muted); font-size: 0.9em; }
+/* Inside a link the size keeps the link's colour (a muted link colour drops under 4.5:1). */
+.wrbc-query__meta a .wrbc-query__size { color: inherit; }
+.wrbc-query__action { margin-top: auto; padding-top: 0.5em; }
+.wrbc-query__button { font-size: 0.9em; }
+
+/* List: image beside the text when there is room. */
+@container (min-width: 600px) {
+	.wrbc-query--list .wrbc-query__card.has-media { flex-direction: row; }
+	.wrbc-query--list .wrbc-query__card.has-media .wrbc-query__media { flex: 0 0 34%; max-width: 20em; }
+	.wrbc-query--list .wrbc-query__card.has-media .wrbc-query__img { height: 100%; }
+}
+
+/* ── Pagination ──────────────────────────────────────────────────────── */
+.wrbc-query__pagination { margin-top: 2em; }
+.wrbc-query__pagination ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrbc-root .wrbc-query__page {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35em;
+	min-width: 2.75em;
+	min-height: 2.75em;
+	padding: 0.3em 0.8em;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	color: inherit;
+	line-height: 1;
+	text-decoration: none;
+	--wrbc-icon-size: 1em;
+}
+.wrbc-root a.wrbc-query__page:hover { border-color: currentColor; }
+.wrbc-root .wrbc-query__page.is-current {
+	border-color: var(--wrbc-accent-text);
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+	/* Not by colour alone (WCAG 1.4.1): the current page is also bold and underlined. */
+	font-weight: 700;
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+.wrbc-query__gap,
+.wrbc-query__count { padding-inline: 0.5em; color: var(--wrbc-muted); }
+.wrbc-query__pagination--more { display: flex; justify-content: center; }
+
+/* ── Carousel ────────────────────────────────────────────────────────
+   Track, controls and dots come from wrbc-modules (wrbc-carousel contract);
+   the list keeps its grid look only outside a carousel. */
+.wrbc-query .wrbc-carousel__track {
+	grid-template-columns: none;
+	gap: var(--wrbc-gap);
+	/* Room for a card's focus ring above and below: the scrolling track clips. */
+	padding-block: 6px;
+}
+.wrbc-query .wrbc-carousel__track > .wrbc-query__item { scroll-snap-align: start; }
+
+/* ── Map ─────────────────────────────────────────────────────────────── */
+.wrbc-query__map-layout { display: grid; gap: var(--wrbc-gap); }
+.wrbc-query__map {
+	position: relative;
+	display: grid;
+	place-items: center;
+	min-height: var(--wrbc-map-h, 420px);
+	overflow: hidden;
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-surface);
+}
+@container (min-width: 960px) {
+	.wrbc-query__map-layout--side { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: start; }
+	.wrbc-query__map-layout--side .wrbc-query__map-list { max-height: var(--wrbc-map-h, 420px); overflow-y: auto; }
+	.wrbc-query__map-layout--side .wrbc-query__items { grid-template-columns: minmax(0, 1fr); }
+}
+.wrbc-query__map-layout--side .wrbc-query__items { grid-template-columns: minmax(0, 1fr); }
+/* The list beside the map scrolls at the map's height: while it does, it's a
+   Tab stop (view.js), with the shared ring inside its box. */
+.wrbc-query__map-list:focus-visible { --wrbc-focus-offset: -2px; }
+/* "Hidden (screen readers only)": the list stays visible until the map has
+   loaded (consent given, no error); then it's the map's text alternative,
+   hidden visually but shown while a link in it has keyboard focus. */
+.wrbc-query__map.is-ready ~ .wrbc-query__map-list--hidden:not(:focus-within) {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+.wrbc-root .wrbc-query__consent {
+	min-height: 44px;
+	padding: 0.6em 1.2em;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	/* Tinted, not white: the text is inherited, so it reads on any background. */
+	background: var(--wrbc-surface);
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.wrbc-root .wrbc-query__locate-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35em;
+	min-height: 24px; /* WCAG 2.5.8 */
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--wrbc-accent-text);
+	font: inherit;
+	font-size: 0.9em;
+	cursor: pointer;
+	--wrbc-icon-size: 1em;
+}
+.wrbc-root .wrbc-query__locate-btn:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+/* The map needs JS and consent: without the map there is nothing to show. */
+.wrbc-query__map:not(.is-ready) ~ .wrbc-query__map-list .wrbc-query__locate { display: none; }
+
+/* ── Gate ────────────────────────────────────────────────────────────── */
+.wrbc-query__gate { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75em; }
+.wrbc-query__gate-btn { font-size: 0.9em; }
+.wrbc-query__gate-btn[hidden] { display: none; }
+/* Once the link is there, the button that asked for it has done its job
+   (wrbc-gate focuses the link first). */
+.wrbc-query__gate.is-unlocked .wrbc-query__gate-btn { display: none; }
+.wrbc-query__gate-result { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em 0.75em; }
+.wrbc-query__gate-result > p { margin: 0; }
+
+/* ── Status (view.js): screen readers only, except an error ─────────── */
+.wrbc-query__status.is-error {
+	margin: 0 0 1.5em;
+	padding: 0.75em 1em;
+	border-inline-start: 4px solid currentColor;
+	border-radius: 0.25em;
+	background: var(--wrbc-surface);
+}
+
+/* ── Motion ──────────────────────────────────────────────────────────── */
+.wrbc-query__item.is-new { animation: wrbc-query-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes wrbc-query-in { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-query__card,
+	.wrbc-query__img,
+	.wrbc-query__chip { transition: none; }
+	.wrbc-query__card.is-card-link:hover { translate: none; }
+	.wrbc-query__card.is-card-link:hover .wrbc-query__img { scale: none; }
+	.wrbc-query__item.is-new { animation: none; }
+	.wrbc-query .wrbc-carousel__track { scroll-behavior: auto; }
+}

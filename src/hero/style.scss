@@ -1,0 +1,306 @@
+/* Hero. Container queries: the layout follows the width the block has.
+ * No overflow clipping on the root: it would cut a focus ring near the edge
+ * (with a small padding) and a long word; the background layers round
+ * themselves to the block's radius instead. */
+.wrbc-hero {
+	container-type: inline-size;
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	align-items: center;
+	min-height: var(--wrbc-hero-min-h, auto);
+}
+:where(.wrbc-hero) {
+	padding: clamp(48px, 8vw, 112px) clamp(16px, 4vw, 40px);
+	/* Zero specificity: the block's Typography line height (inline) wins and the text inherits it. */
+	line-height: 1.6;
+}
+.wrbc-hero--valign-start { align-items: flex-start; }
+.wrbc-hero--valign-end { align-items: flex-end; }
+
+.wrbc-hero__bg {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+/* Video background (wrbc-video background mode). The holder covers the hero
+ * but lets clicks through; the video sits with the image, under the overlay,
+ * and the pause button above the content (WCAG 2.2.2).
+ * .wrbc-hero scope: wrbc-modules' [data-wrbc-video] { position: relative } (loaded
+ * when another block on the page uses it) must not pull it into the flex row. */
+.wrbc-hero .wrbc-hero__video {
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+}
+/* .wrbc-hero scope: the shared .wrbc-video__bg (wrbc-modules, z-index 0) must not lift it over the content. */
+.wrbc-hero .wrbc-hero__bg-video {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+.wrbc-root .wrbc-hero__video-toggle {
+	position: absolute;
+	z-index: 2;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	/* 24 px at least whatever the block's font size (WCAG 2.5.8). */
+	width: max(2.5em, 24px);
+	height: max(2.5em, 24px);
+	margin: 0;
+	font-size: inherit; /* a <button> has its own font size: 2.5em of the hero's (40px by default) */
+	padding: 0;
+	border: 1px solid rgb(255 255 255 / 0.5);
+	border-radius: 999px;
+	background: rgb(0 0 0 / 0.55);
+	color: #fff;
+	cursor: pointer;
+	pointer-events: auto;
+}
+/* Theme button rules ([type=button]:hover / :focus, 0,2,0) must not repaint
+ * it: the white icon keeps 4.5:1 on its own dark fill over any frame. */
+.wrbc-root .wrbc-hero__video-toggle:hover,
+.wrbc-root .wrbc-hero__video-toggle:focus {
+	border-color: #fff;
+	background: rgb(0 0 0 / 0.75);
+	color: #fff;
+}
+.wrbc-root .wrbc-hero__video-toggle[hidden] { display: none; }
+.wrbc-hero__video-toggle--bottom-right { right: 1em; bottom: 1em; }
+.wrbc-hero__video-toggle--bottom-left { left: 1em; bottom: 1em; }
+.wrbc-hero__video-toggle--top-right { right: 1em; top: 1em; }
+.wrbc-hero__video-toggle--top-left { left: 1em; top: 1em; }
+/* The button sits in the hero's padding: on its side the padding keeps at
+ * least its size plus a gap, so it never covers the first or last line of
+ * content (the block's own padding setting still wins). */
+:where(.wrbc-hero.wrbc-hero--toggle-bottom) { padding-block-end: max(clamp(48px, 8vw, 112px), 4.5em); }
+:where(.wrbc-hero.wrbc-hero--toggle-top) { padding-block-start: max(clamp(48px, 8vw, 112px), 4.5em); }
+.wrbc-hero__video-toggle svg {
+	width: 1.1em;
+	height: 1.1em;
+	fill: currentColor;
+}
+.wrbc-root .wrbc-hero__video-toggle:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 2px;
+	/* Dark ring in the offset: the focus stays visible over a light video too. */
+	box-shadow: 0 0 0 2px #000;
+}
+/* The icon shows the action: pause while it plays, play once paused (.is-paused from wrbc-video). */
+.wrbc-hero__video-play { display: none; }
+.is-paused > .wrbc-hero__video-toggle .wrbc-hero__video-play { display: block; }
+.is-paused > .wrbc-hero__video-toggle .wrbc-hero__video-pause { display: none; }
+/* "Poster on phones": hidden there even before wrbc-video honours "mobile": false. */
+@media (max-width: 767px) {
+	.wrbc-hero--video-no-mobile .wrbc-hero__video { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+	/* wrbc-video never starts it; the poster (background image) shows. */
+	.wrbc-hero .wrbc-hero__bg-video { display: none; }
+}
+
+.wrbc-hero__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	border-radius: inherit;
+	background: var(--wrbc-overlay, #000);
+	opacity: var(--wrbc-overlay-o, 0.55);
+}
+
+.wrbc-hero__inner {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: clamp(32px, 6cqi, 72px);
+	align-items: center;
+	width: 100%;
+	max-width: var(--wrbc-hero-max, 1200px);
+	margin-inline: auto;
+}
+.wrbc-hero--valign-start .wrbc-hero__inner { align-items: start; }
+.wrbc-hero--valign-end .wrbc-hero__inner { align-items: end; }
+
+.wrbc-hero__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+	/* With the root's overflow-wrap: anywhere (assets/shared.css), a word
+	 * longer than the column breaks instead of running out at 320 px. */
+	min-width: 0;
+}
+
+.wrbc-hero__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	font-size: 0.875em;
+	line-height: 1.3;
+	color: inherit;
+}
+/* Decorative (aria-hidden), but readable on the hero's background: the accent as text. */
+.wrbc-hero__eyebrow .wrbc-icon { color: var(--wrbc-accent-text); }
+.wrbc-hero__eyebrow--pill {
+	padding: 6px 14px 6px 10px;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: var(--wrbc-surface);
+}
+
+.wrbc-hero__heading {
+	margin: 0;
+	/* em, not rem: the block's Typography font size scales the whole hero. */
+	font-size: clamp(2.25em, 1.1em + 4.6cqi, 4.25em);
+	line-height: 1.04;
+	letter-spacing: -0.02em;
+	text-wrap: balance;
+}
+.wrbc-hero__text {
+	max-width: 38em;
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: clamp(1.05em, 0.95em + 0.5cqi, 1.25em);
+}
+
+.wrbc-hero__points {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 22px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrbc-hero__point {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	font-size: 0.95em;
+}
+.wrbc-hero__point .wrbc-icon { color: var(--wrbc-accent-text); }
+
+/* Every icon follows the block's Icons size (shared .wrbc-btn would reset it to 1.1em). */
+.wrbc-hero .wrbc-hero__btn { --wrbc-icon-size: inherit; }
+/* A button without a URL prints its label as text with the button's look
+ * (render.php): no pointer and no hover, since there's nothing to press. */
+.wrbc-root .wrbc-hero__btn--static { cursor: default; }
+.wrbc-root .wrbc-hero__btn--static:hover {
+	border-color: var(--wrbc-accent);
+	background: var(--wrbc-accent);
+}
+.wrbc-root .wrbc-hero__btn--static.wrbc-btn--outline:hover {
+	border-color: var(--wrbc-control-line);
+	background: transparent;
+}
+
+.wrbc-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 6px;
+}
+
+.wrbc-hero__stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 20px 32px;
+	width: 100%;
+	margin: 16px 0 0;
+	padding-top: 24px;
+	border-top: 1px solid var(--wrbc-line);
+}
+.wrbc-hero__stat {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 4px;
+	min-width: 0;
+}
+.wrbc-hero__stat-value {
+	margin: 0;
+	font-size: clamp(1.6em, 1.2em + 1.6cqi, 2.25em);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+.wrbc-hero__stat-label {
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: 0.875em;
+}
+
+.wrbc-hero__media {
+	margin: 0;
+	min-width: 0;
+}
+.wrbc-hero__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: var(--wrbc-media-ratio, auto);
+	object-fit: var(--wrbc-media-fit, cover);
+	border-radius: var(--wrbc-radius);
+}
+
+.wrbc-hero--mobile-media-first .wrbc-hero__media { order: -1; }
+
+/* Split: two columns once the block is 820px wide. */
+@container (min-width: 820px) {
+	.wrbc-hero--split.has-media .wrbc-hero__inner {
+		grid-template-columns: minmax(0, var(--wrbc-split-a, 55fr)) minmax(0, var(--wrbc-split-b, 45fr));
+	}
+	/* "Image first on phones" stops at this width in both layouts. */
+	.wrbc-hero--split .wrbc-hero__media,
+	.wrbc-hero--centered .wrbc-hero__media { order: 0; }
+	.wrbc-hero--split.wrbc-hero--media-left .wrbc-hero__media { order: -1; }
+}
+
+/* Centred: everything in one column, the image under it. */
+.wrbc-hero--centered .wrbc-hero__inner { justify-items: center; }
+.wrbc-hero--centered .wrbc-hero__content {
+	align-items: center;
+	max-width: 52rem;
+	text-align: center;
+}
+.wrbc-hero--centered .wrbc-hero__points,
+.wrbc-hero--centered .wrbc-hero__actions { justify-content: center; }
+.wrbc-hero--centered .wrbc-hero__stats { text-align: center; }
+.wrbc-hero--centered .wrbc-hero__media { width: 100%; max-width: 64rem; }
+
+/* Over a background image or video nothing is known about the pixels under
+ * the text: only the overlay keeps it readable, and render.php never lets it
+ * go under the opacity the text needs (white on black: 54 %, the default is
+ * 55 %). At that floor muted text would need about 67 %, so the text and the
+ * figures' labels take the full text colour, and so does the outline
+ * button's border (64 % of white is 2.96:1 there). The eyebrow pill and the
+ * outline button's hover deepen the overlay instead of lightening it: a
+ * light layer under light text drops it to 3.9:1, the overlay's own colour
+ * lifts it to 8.8:1. */
+.wrbc-hero.has-bg-image {
+	--wrbc-muted: currentColor;
+	--wrbc-control-line: currentColor;
+	--wrbc-surface: color-mix(in srgb, var(--wrbc-overlay, #000) 35%, transparent);
+}
+/* Links in the texts: the text colour, underlined, since no link colour
+ * reads over every image (this beats the shared accent-text links of dark
+ * tones). A link colour chosen in the Color panel, on the hero or on a block
+ * around it (wrbc-has-link-color), is left alone: ContrastAudit warns. */
+.wrbc-hero.has-bg-image:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) .wrbc-hero__content a:not(.wrbc-btn):not(.wp-element-button) {
+	color: inherit;
+	text-decoration-line: underline;
+	text-underline-offset: 0.15em;
+}
+
+@container (max-width: 480px) {
+	.wrbc-hero__actions { flex-direction: column; align-items: stretch; width: 100%; }
+	.wrbc-hero__btn { width: 100%; }
+}

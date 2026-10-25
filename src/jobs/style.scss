@@ -1,0 +1,288 @@
+/* Jobs: rows grouped by department, a flat list, cards or a table.
+   Sizes in em (the block's font size scales everything); columns follow the
+   block's width (container queries). */
+.wrbc-jobs { container-type: inline-size; }
+:where(.wrbc-jobs) {
+	padding-block: clamp(48px, 7vw, 96px);
+	line-height: 1.5;
+}
+/* wrbc-filter hides with [hidden]: never let a display rule bring an item back. */
+.wrbc-jobs [hidden] { display: none !important; }
+
+.wrbc-jobs__notice {
+	margin: 0 0 1em;
+	padding: 0.75em 1em;
+	border-inline-start: 4px solid #b45309;
+	border-radius: 4px;
+	background: color-mix(in srgb, #b45309 10%, transparent);
+	font-size: 0.875em;
+}
+.wrbc-jobs__empty { margin: 0; color: var(--wrbc-muted); }
+.wrbc-jobs__count { margin: 0 0 1em; color: var(--wrbc-muted); font-size: 0.875em; }
+
+/* Filters: hidden without JavaScript (they need wrbc-filter to do anything). */
+.wrbc-jobs__filters {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.75em;
+	margin: 0 0 1.25em;
+}
+.wrbc-jobs:not(.is-ready) .wrbc-jobs__filters { display: none; }
+.wrbc-jobs__field { display: flex; flex-direction: column; gap: 0.35em; flex: 1 1 11em; min-width: 0; }
+.wrbc-jobs__field--search { flex-basis: 16em; flex-grow: 2; }
+.wrbc-jobs__field--chip { flex: 0 0 auto; }
+.wrbc-jobs__label { font-size: 0.8125em; font-weight: 600; }
+/* .wrbc-root in front: a theme's own field and button rules (Hello Elementor's
+   reset: input[type=search], [type=button] and its pink :hover/:focus) must
+   not repaint the filters (#c36 on a dark block is 3.6:1). */
+.wrbc-root .wrbc-jobs__input,
+.wrbc-root .wrbc-jobs__select,
+.wrbc-root .wrbc-jobs__chip {
+	min-height: 2.75em;
+	margin: 0;
+	padding: 0.55em 0.85em;
+	/* A control's boundary: 3:1 on the block's background (WCAG 1.4.11). */
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: min(var(--wrbc-radius), 1.375em);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: 0.9375em;
+	line-height: 1.3;
+	text-align: start;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.wrbc-jobs__select option { color: initial; }
+/* The browser's grey placeholder is fixed (≈ 3.9:1 on a dark block): follow
+   the block's text instead, like the other secondary texts. */
+.wrbc-jobs__input::placeholder { color: var(--wrbc-muted); opacity: 1; }
+/* The native parts (select menu, search clear button) follow the tone. */
+.wrbc-is-dark .wrbc-jobs__input,
+.wrbc-is-dark .wrbc-jobs__select { color-scheme: dark; }
+.wrbc-is-light .wrbc-jobs__input,
+.wrbc-is-light .wrbc-jobs__select { color-scheme: light; }
+.wrbc-root .wrbc-jobs__chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45em;
+	white-space: nowrap;
+	cursor: pointer;
+	--wrbc-icon-size: 1.1em;
+}
+.wrbc-root .wrbc-jobs__chip:hover,
+.wrbc-root .wrbc-jobs__chip:focus {
+	border-color: currentColor;
+	background: var(--wrbc-surface);
+	color: inherit;
+}
+.wrbc-root .wrbc-jobs__chip[aria-pressed="true"],
+.wrbc-root .wrbc-jobs__chip[aria-pressed="true"]:hover,
+.wrbc-root .wrbc-jobs__chip[aria-pressed="true"]:focus {
+	/* The fill may not stand out on every background (indigo on a dark block):
+	   the edge in the accent made readable there always does. */
+	border-color: var(--wrbc-accent-text);
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+}
+/* Pressed swaps the house for a check: the state doesn't rest on the fill. */
+.wrbc-jobs__chip .wrbc-jobs__chip-on,
+.wrbc-jobs__chip[aria-pressed="true"] .wrbc-jobs__chip-off { display: none; }
+.wrbc-jobs__chip[aria-pressed="true"] .wrbc-jobs__chip-on { display: inline-block; }
+
+/* Groups */
+.wrbc-jobs__group + .wrbc-jobs__group { margin-top: 2.25em; }
+.wrbc-jobs__group-title {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5em;
+	margin: 0 0 0.35em;
+	font-size: 1.2em;
+	line-height: 1.3;
+}
+.wrbc-jobs__group-count {
+	min-width: 1.6em;
+	padding: 0.05em 0.5em;
+	border-radius: 999px;
+	background: var(--wrbc-surface);
+	color: var(--wrbc-muted);
+	font-size: 0.7em;
+	font-weight: 500;
+	text-align: center;
+}
+
+/* Lists */
+.wrbc-jobs__list,
+.wrbc-jobs__cards,
+.wrbc-jobs__meta { margin: 0; padding: 0; list-style: none; }
+.wrbc-jobs__list > .wrbc-jobs__item { border-top: 1px solid var(--wrbc-line); }
+.wrbc-jobs__list > .wrbc-jobs__item:last-child { border-bottom: 1px solid var(--wrbc-line); }
+.wrbc-jobs__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75em 1.5em;
+	padding-block: 1.1em;
+}
+.wrbc-jobs--list .wrbc-jobs__row { padding-block: 1.4em; }
+.wrbc-jobs__main { flex: 1 1 18em; min-width: 0; }
+.wrbc-jobs__title {
+	margin: 0;
+	font-size: 1.0625em;
+	font-weight: 600;
+	line-height: 1.35;
+	/* A long word (a stack, a URL-like title) wraps instead of pushing the page sideways at 320 px. */
+	overflow-wrap: anywhere;
+}
+.wrbc-jobs--list .wrbc-jobs__title { font-size: 1.2em; }
+/* :where() so the block's link colour (supports.color.link) wins. */
+:where(.wrbc-jobs) .wrbc-jobs__link { color: inherit; text-decoration: none; }
+/* A theme's link hover colour (Hello: #336) would turn a title dark on a dark
+   block: unless the block sets its own (Color → Link: .wrbc-has-link-color on
+   the root, or on the editor's wrapper), a title keeps its colour. */
+.wrbc-jobs__link:where(:hover, :active):not(.wrbc-has-link-color *) { color: inherit; }
+.wrbc-jobs__link:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+/* Focus rings: the shared one (assets/shared.css, 2 px --wrbc-focus). */
+.wrbc-jobs__link:focus-visible { border-radius: 2px; }
+.wrbc-jobs__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35em 1.1em;
+	margin-top: 0.4em;
+	color: var(--wrbc-muted);
+	font-size: 0.875em;
+}
+.wrbc-jobs__meta-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	--wrbc-icon-size: 1.05em;
+}
+.wrbc-jobs__badge {
+	display: inline-block;
+	padding: 0.1em 0.6em;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--wrbc-accent) 12%, transparent);
+	/* The accent readable on this tint (Render::colors() --wrbc-jobs-badge-text),
+	   or as text on the background when the tint costs nothing. */
+	color: var(--wrbc-jobs-badge-text, var(--wrbc-accent-text));
+	font-size: 0.875em;
+	font-weight: 600;
+	white-space: nowrap;
+}
+.wrbc-jobs__meta .wrbc-jobs__badge { font-size: 1em; }
+.wrbc-jobs__apply { flex: 0 0 auto; }
+
+/* Description */
+.wrbc-jobs__desc { padding-bottom: 1.1em; font-size: 0.9375em; }
+.wrbc-jobs__card .wrbc-jobs__desc { padding-bottom: 0; }
+/* As wide as its words (the click area is what you see) and 24 px tall at least (WCAG 2.5.8). */
+.wrbc-jobs__desc-toggle {
+	width: fit-content;
+	max-width: 100%;
+	padding-block: 0.2em;
+	cursor: pointer;
+	color: var(--wrbc-accent-text);
+	font-weight: 600;
+}
+.wrbc-jobs__desc-body { margin-top: 0.75em; max-width: 46em; }
+/* Links in the provider's text are underlined wherever they sit (a bare <div>
+   too, not only p/li): colour alone doesn't set them apart (WCAG 1.4.1). */
+/* In the accent made readable on the block, in every state (the theme's link
+   colours may not be: Hello's #c36 is 3.6:1 on a dark block, its hover #336
+   1.6:1), unless the block sets its own Link colour. */
+.wrbc-jobs__desc-body a { text-decoration-line: underline; text-underline-offset: 0.15em; }
+.wrbc-jobs__desc-body a:not(.wrbc-has-link-color *) { color: var(--wrbc-accent-text); }
+.wrbc-jobs__desc-body > :first-child { margin-top: 0; }
+/* Every level: render.php moves the provider's headings under the job title
+   (h5/h6 are common then), and the theme's h5/h6 can be tiny. */
+.wrbc-jobs__desc-body h1,
+.wrbc-jobs__desc-body h2,
+.wrbc-jobs__desc-body h3,
+.wrbc-jobs__desc-body h4,
+.wrbc-jobs__desc-body h5,
+.wrbc-jobs__desc-body h6 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+
+/* Cards */
+.wrbc-jobs__cards {
+	--wrbc-pv: var(--wrbc-cols-m, 1);
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-pv), minmax(0, 1fr));
+	gap: var(--wrbc-gap);
+}
+@container (min-width: 600px) {
+	.wrbc-jobs__cards { --wrbc-pv: var(--wrbc-cols-t, 2); }
+}
+@container (min-width: 960px) {
+	.wrbc-jobs__cards { --wrbc-pv: var(--wrbc-cols-d, 3); }
+}
+.wrbc-jobs__cards > .wrbc-jobs__item { display: flex; }
+.wrbc-jobs__card {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	gap: 0.75em;
+	min-width: 0;
+	padding: 1.4em;
+	border: 1px solid var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-card-bg, transparent);
+	/* The card animates its border; the reveal animates the item around it. */
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.wrbc-jobs__card:hover,
+.wrbc-jobs__card:focus-within {
+	border-color: color-mix(in srgb, var(--wrbc-accent) 55%, transparent);
+	box-shadow: 0 0.5em 1.5em -0.75em color-mix(in srgb, currentColor 30%, transparent);
+}
+.wrbc-jobs__card .wrbc-jobs__meta { margin-top: 0; }
+.wrbc-jobs__card .wrbc-jobs__apply { margin-top: auto; align-self: flex-start; }
+/* Cards with their own background: Render::colors() gives each card its tone
+   class (light or ink text) and the accent made readable on that colour. */
+.wrbc-jobs--card-tone .wrbc-jobs__card {
+	--wrbc-accent-text: var(--wrbc-card-accent-text);
+	--wrbc-focus: var(--wrbc-card-accent-text);
+	--wrbc-jobs-badge-text: var(--wrbc-card-badge-text);
+}
+
+/* Table */
+/* position: the screen-reader texts (absolute) stay inside the scroller.
+   Its focus ring (the shared one) is drawn inside: at 320 px the box is as
+   wide as the window and a ring outside it would fall off the edge. */
+.wrbc-jobs__table-wrap { position: relative; overflow-x: auto; --wrbc-focus-offset: -2px; }
+.wrbc-jobs__table {
+	width: 100%;
+	margin: 0;
+	border-collapse: collapse;
+	font-size: 0.9375em;
+}
+.wrbc-jobs__th,
+.wrbc-jobs__cell {
+	padding: 0.8em 1em 0.8em 0;
+	border: 0;
+	border-bottom: 1px solid var(--wrbc-line);
+	text-align: start;
+	vertical-align: middle;
+}
+.wrbc-jobs__th {
+	color: var(--wrbc-muted);
+	font-size: 0.8em;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+.wrbc-jobs__cell--title { font-weight: 600; min-width: 12em; }
+/* A theme's zebra rows (Hello: 7 % grey, 10 % on hover) would sit under the
+   badge and the muted texts, whose colours were measured on the block. */
+.wrbc-root .wrbc-jobs__th,
+.wrbc-root .wrbc-jobs__cell { background-color: transparent; }
+.wrbc-jobs__cell--apply { padding-inline-end: 0; text-align: end; white-space: nowrap; }
+.wrbc-jobs__table .wrbc-jobs__apply { min-height: 2.25em; padding: 0.4em 1em; font-size: 0.875em; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-jobs__card,
+	.wrbc-root .wrbc-jobs__input,
+	.wrbc-root .wrbc-jobs__select,
+	.wrbc-root .wrbc-jobs__chip { transition: none; }
+}

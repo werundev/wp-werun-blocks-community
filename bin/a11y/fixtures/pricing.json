@@ -1,0 +1,505 @@
+[
+    {
+        "id": "pricing-three",
+        "title": "Pricing: three columns (variation default: bordered, switch, featured taller, buttons auto)",
+        "markup": "<!-- wp:werun-community/pricing -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-two",
+        "title": "Pricing: two columns, one price (no switch, featured not taller)",
+        "markup": "<!-- wp:werun-community/pricing {\"columnsDesktop\":2,\"columnsTablet\":2,\"showToggle\":false,\"featuredScale\":false,\"cardStyle\":\"bordered\",\"contentAlign\":\"left\",\"showExcluded\":true} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-centered",
+        "title": "Pricing: centred, filled (no excluded lines)",
+        "markup": "<!-- wp:werun-community/pricing {\"cardStyle\":\"filled\",\"contentAlign\":\"center\",\"showExcluded\":false} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-shadow-fill",
+        "title": "Pricing: shadow cards, all buttons filled, yearly first, currency after (€)",
+        "markup": "<!-- wp:werun-community/pricing {\"cardStyle\":\"shadow\",\"buttonStyle\":\"fill\",\"defaultPeriod\":\"yearly\",\"currency\":\"€\",\"currencyPosition\":\"after\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-outline-nobadge",
+        "title": "Pricing: all buttons outline, no badge (featured by its ring), title H3 → plans H4",
+        "markup": "<!-- wp:werun-community/pricing {\"buttonStyle\":\"outline\",\"showBadge\":false,\"titleLevel\":3} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-noheader",
+        "title": "Pricing: no section header (plans are H2), switch on the left, icons and notes off",
+        "markup": "<!-- wp:werun-community/pricing {\"showHeader\":false,\"headerAlign\":\"left\",\"showPlanIcon\":false,\"showNote\":false} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-custom-light-accent",
+        "title": "Pricing: custom colours — light accent #facc15, featured #4f46e5, cards #f1f5f9",
+        "markup": "<!-- wp:werun-community/pricing {\"accentColor\":\"#facc15\",\"featuredBg\":\"#4f46e5\",\"cardBg\":\"#f1f5f9\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-custom-dark-cards",
+        "title": "Pricing: custom colours — dark cards #111827, featured = accent #4f46e5, filled style",
+        "markup": "<!-- wp:werun-community/pricing {\"cardStyle\":\"filled\",\"cardBg\":\"#111827\",\"featuredBg\":\"#4f46e5\",\"buttonStyle\":\"fill\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-custom-midtones",
+        "title": "Pricing: custom colours — mid-tone cards #3b82f6, featured #0ea5e9, accent #4f46e5, chosen on-accent",
+        "markup": "<!-- wp:werun-community/pricing {\"cardStyle\":\"shadow\",\"cardBg\":\"#3b82f6\",\"featuredBg\":\"#0ea5e9\",\"onAccentColor\":\"#ffffff\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-midtone-accent",
+        "title": "Pricing: mid-tone accent #6366f1 (neither white nor ink reads on it: black), all buttons filled, yearly first",
+        "markup": "<!-- wp:werun-community/pricing {\"accentColor\":\"#6366f1\",\"buttonStyle\":\"fill\",\"defaultPeriod\":\"yearly\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-own-dark-bg",
+        "title": "Pricing: the table's own dark background (#0f172a), no text colour chosen",
+        "markup": "<!-- wp:werun-community/pricing {\"style\":{\"color\":{\"background\":\"#0f172a\"}}} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ],
+        "contexts": [
+            "light"
+        ]
+    },
+    {
+        "id": "pricing-plan-colours",
+        "title": "Pricing: per-plan Color panel (dark plan, black plan, light plan in the dark)",
+        "markup": "<!-- wp:werun-community/pricing {\"cardStyle\":\"bordered\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}],\"style\":{\"color\":{\"background\":\"#111827\"}}} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}],\"backgroundColor\":\"black\"} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}],\"style\":{\"color\":{\"background\":\"#ffffff\"}}} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-narrow",
+        "title": "Pricing: two columns on phones, long labels, an 18-line plan (reflow, reveal)",
+        "markup": "<!-- wp:werun-community/pricing {\"columnsMobile\":2,\"yearlyNote\":\"Save 20% every year\",\"monthlyLabel\":\"Billed monthly\",\"yearlyLabel\":\"Billed yearly\"} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"/contact/?plan=starter\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Feature line number 1 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 2 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 3 with a longer description that wraps\",\"included\":false},{\"text\":\"Feature line number 4 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 5 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 6 with a longer description that wraps\",\"included\":false},{\"text\":\"Feature line number 7 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 8 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 9 with a longer description that wraps\",\"included\":false},{\"text\":\"Feature line number 10 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 11 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 12 with a longer description that wraps\",\"included\":false},{\"text\":\"Feature line number 13 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 14 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 15 with a longer description that wraps\",\"included\":false},{\"text\":\"Feature line number 16 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 17 with a longer description that wraps\",\"included\":true},{\"text\":\"Feature line number 18 with a longer description that wraps\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"/contact/?plan=growth\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}],\"badge\":\"Most popular choice\"} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    },
+    {
+        "id": "pricing-links",
+        "title": "Pricing: a button without a URL (plain text), one opening in a new tab, looping icons",
+        "markup": "<!-- wp:werun-community/pricing {\"includedIcon\":{\"name\":\"check\",\"lib\":\"lucide\",\"anim\":\"pulse\",\"trigger\":\"loop\"}} -->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"sprout\",\"lib\":\"lucide\",\"anim\":\"pop\",\"trigger\":\"hover\"},\"name\":\"Starter\",\"description\":\"For a first site that has to look right.\",\"priceMonthly\":\"19\",\"priceYearly\":\"15\",\"ctaLabel\":\"Start with Starter\",\"ctaUrl\":\"\",\"note\":\"No card needed\",\"features\":[{\"text\":\"Up to 5 pages\",\"included\":true},{\"text\":\"Contact form with a <a href=\\\"#faq\\\">spam filter</a>\",\"included\":true},{\"text\":\"Basic analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":false},{\"text\":\"Custom integrations\",\"included\":false}]} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"rocket\",\"lib\":\"animated\",\"anim\":\"auto\",\"trigger\":\"hover\"},\"name\":\"Growth\",\"description\":\"For a business that sells through its site.\",\"priceMonthly\":\"49\",\"priceYearly\":\"39\",\"featured\":true,\"ctaLabel\":\"Choose Growth\",\"ctaUrl\":\"https://example.com/signup\",\"note\":\"14-day free trial\",\"features\":[{\"text\":\"Up to 20 pages\",\"included\":true},{\"text\":\"Blog and newsletter\",\"included\":true},{\"text\":\"Advanced analytics\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":false}],\"ctaNewTab\":true} /-->\n<!-- wp:werun-community/pricing-plan {\"icon\":{\"name\":\"building\",\"lib\":\"lucide\",\"anim\":\"tilt\",\"trigger\":\"hover\"},\"name\":\"Scale\",\"description\":\"For teams with several sites and languages.\",\"priceMonthly\":\"Custom\",\"priceYearly\":\"Custom\",\"ctaLabel\":\"Talk to us\",\"ctaUrl\":\"/contact/?plan=scale\",\"features\":[{\"text\":\"Unlimited pages\",\"included\":true},{\"text\":\"Several languages\",\"included\":true},{\"text\":\"Dedicated engineer\",\"included\":true},{\"text\":\"Priority support\",\"included\":true},{\"text\":\"Custom integrations\",\"included\":true}]} /-->\n<!-- /wp:werun-community/pricing -->",
+        "nonText": [
+            {
+                "selector": ".wrbc-pricing__switch",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "billing switch outline"
+            },
+            {
+                "selector": ".wrbc-pricing__radio:checked + .wrbc-pricing__option",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "selected billing period (ring)"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-included .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "included icon"
+            },
+            {
+                "selector": ".wrbc-plan__feature.is-excluded .wrbc-icon",
+                "property": "color",
+                "min": 3,
+                "label": "not-included icon"
+            },
+            {
+                "selector": ".wrbc-plan.is-featured",
+                "property": "border-top-color",
+                "min": 3,
+                "label": "featured plan ring"
+            }
+        ]
+    }
+]

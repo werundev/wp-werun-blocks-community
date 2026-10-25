@@ -1,0 +1,171 @@
+/* Section: a container for any blocks. The padding scale, columns and
+   stacking follow the section's own width (container queries). */
+.wrbc-section {
+	container-type: inline-size;
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	align-items: center;
+	min-height: var(--wrbc-section-min-h, auto);
+	/* Fluid steps of the padding scale; the active one is --wrbc-section-py. */
+	--wrbc-section-py-none: 0px;
+	--wrbc-section-py-sm: clamp(1.5em, 3cqi, 2.5em);
+	--wrbc-section-py-md: clamp(2.5em, 5cqi, 4em);
+	--wrbc-section-py-lg: clamp(3em, 7cqi, 6em);
+	--wrbc-section-py-xl: clamp(4em, 10cqi, 8.5em);
+}
+:where(.wrbc-section) {
+	/* Zero specificity: the block's Typography line height (inline) wins. */
+	line-height: 1.6;
+}
+.wrbc-section.has-gutter { padding-inline: clamp(16px, 4vw, 40px); }
+/* A section inside a section, without a background of its own, is already inside the gutter. */
+.wrbc-section__content .wrbc-section.has-gutter:not(.has-background):not(.has-bg-image) { padding-inline: 0; }
+.wrbc-section--valign-start { align-items: flex-start; }
+.wrbc-section--valign-end { align-items: flex-end; }
+
+/* Background image (an <img>, so it gets srcset and lazy loading) and overlay. */
+.wrbc-section__bg,
+.wrbc-section__overlay {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+.wrbc-section__bg {
+	z-index: -2;
+	overflow: hidden;
+	border-radius: inherit;
+}
+.wrbc-section__bg-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	object-position: var(--wrbc-section-focal, 50% 50%);
+}
+.wrbc-section__overlay {
+	z-index: -1;
+	border-radius: inherit;
+	background: var(--wrbc-section-overlay, #000);
+	opacity: var(--wrbc-section-over-o, 0.5);
+}
+/* Fixed background: the clip keeps a position:fixed image inside the section. */
+.wrbc-section--fixed .wrbc-section__bg { clip-path: inset(0); }
+.wrbc-section--fixed .wrbc-section__bg-img {
+	position: fixed;
+	inset: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+/* Inner box: max width and the vertical padding of the scale. */
+.wrbc-section__inner {
+	width: 100%;
+	max-width: var(--wrbc-section-max, none);
+	margin-inline: auto;
+	padding-block: var(--wrbc-section-py, 0px);
+	min-width: 0;
+}
+.wrbc-section--inner-content .wrbc-section__inner { max-width: var(--wp--style--global--content-size, 720px); }
+.wrbc-section--inner-wide .wrbc-section__inner { max-width: var(--wp--style--global--wide-size, 1200px); }
+.wrbc-section--inner-full .wrbc-section__inner { max-width: none; }
+
+.wrbc-section--py-none > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-none); }
+.wrbc-section--py-sm > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-sm); }
+.wrbc-section--py-md > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-md); }
+.wrbc-section--py-lg > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-lg); }
+.wrbc-section--py-xl > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-xl); }
+
+/* Tablet (600 to 959 px of section width) and below: the tablet step, when set. */
+@container (max-width: 959px) {
+	.wrbc-section--py-t-none > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-none); }
+	.wrbc-section--py-t-sm > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-sm); }
+	.wrbc-section--py-t-md > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-md); }
+	.wrbc-section--py-t-lg > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-lg); }
+	.wrbc-section--py-t-xl > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-xl); }
+}
+/* Phone (under 600 px): the phone step, when set. */
+@container (max-width: 599px) {
+	.wrbc-section--py-m-none > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-none); }
+	.wrbc-section--py-m-sm > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-sm); }
+	.wrbc-section--py-m-md > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-md); }
+	.wrbc-section--py-m-lg > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-lg); }
+	.wrbc-section--py-m-xl > .wrbc-section__inner { --wrbc-section-py: var(--wrbc-section-py-xl); }
+}
+
+/* One column: the blocks flow like a Group (is-layout-flow, theme block gap). */
+.wrbc-section__content { min-width: 0; }
+.wrbc-section--cols-one .wrbc-section__content > :first-child { margin-block-start: 0; }
+.wrbc-section--cols-one .wrbc-section__content > :last-child { margin-block-end: 0; }
+
+/* Two columns: every direct block is a cell. Stacked under 720 px. */
+.wrbc-section--cols-two .wrbc-section__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wrbc-section-gap, 48px);
+}
+.wrbc-section--cols-two .wrbc-section__content > * {
+	min-width: 0;
+	margin-block: 0;
+}
+.wrbc-section--cols-two.wrbc-section--mobile-reverse .wrbc-section__content { flex-direction: column-reverse; }
+@container (min-width: 720px) {
+	.wrbc-section--cols-two .wrbc-section__content,
+	.wrbc-section--cols-two.wrbc-section--mobile-reverse .wrbc-section__content {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: center;
+	}
+	.wrbc-section--ratio-60-40 .wrbc-section__content { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+	.wrbc-section--ratio-40-60 .wrbc-section__content { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+	.wrbc-section--valign-start .wrbc-section__content { align-items: start; }
+	.wrbc-section--valign-end .wrbc-section__content { align-items: end; }
+}
+
+/* Light / dark text helper: a text colour set on the block always wins (inline
+   or preset class). On the section's own colour render.php prints the readable
+   version of the tone (--wrbc-section-tone) when it needs one. */
+.wrbc-section--tone-light { color: var(--wrbc-section-tone, #fff); }
+.wrbc-section--tone-dark { color: var(--wrbc-section-tone, #0f172a); }
+.wrbc-section--tone-light :where(a:not(.wrbc-btn):not(.wp-element-button)),
+.wrbc-section--tone-dark :where(a:not(.wrbc-btn):not(.wp-element-button)) { color: inherit; }
+/* Links in running text (no class: what RichText writes) take the text colour,
+   so they get an underline: colour alone can't tell them apart (WCAG 1.4.1).
+   (0,2,0) keeps that colour on hover too, where a theme's a:hover (0,1,1) would
+   turn them dark on a dark band. A link colour set under Styles (here or on an
+   inner block: wrbc-has-link-color on werun blocks, wp-elements-* on core ones)
+   keeps its own colour. */
+.wrbc-section.wrbc-section--tone-light :where(a:not([class]):not([class*="wp-elements-"] a):not(.wrbc-has-link-color *)),
+.wrbc-section.wrbc-section--tone-dark :where(a:not([class]):not([class*="wp-elements-"] a):not(.wrbc-has-link-color *)) {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+/* Over a picture no colour can be checked against every pixel except the text
+   colour the overlay is held for (render.php keeps it at the readable floor).
+   For the section and every werun block inside it that doesn't paint its own
+   light background: secondary text (85 % white over a white pixel under a 54 %
+   black overlay is 3.7:1), control boundaries and focus rings take the full
+   text colour, and tints (hovers, filled cards) darken with the overlay colour
+   instead of lightening behind light text. The header's eyebrow takes the text
+   colour too, as in the CTA. */
+.wrbc-section.has-bg-image,
+.wrbc-section.has-bg-image :where(.wrbc-root, .wrbc-is-dark):not(.wrbc-is-light) {
+	--wrbc-muted: currentColor;
+	--wrbc-control-line: currentColor;
+	--wrbc-focus: var(--wrbc-section-text, currentColor);
+	--wrbc-surface: color-mix(in srgb, var(--wrbc-section-overlay, #000) 35%, transparent);
+}
+.wrbc-section.has-bg-image > .wrbc-section__inner > .wrbc-header > .wrbc-header__eyebrow { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+	/* A fixed background reads as motion while scrolling: scroll with the page. */
+	.wrbc-section--fixed .wrbc-section__bg { clip-path: none; }
+	.wrbc-section--fixed .wrbc-section__bg-img {
+		position: static;
+		width: 100%;
+		height: 100%;
+	}
+}

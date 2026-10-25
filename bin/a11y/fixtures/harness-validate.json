@@ -1,0 +1,83 @@
+[
+	{
+		"id": "v-hero-split-right",
+		"title": "Hero: split, image on the right (defaults + image)",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "v-hero-centered-stats",
+		"title": "Hero: centred, figures row, image underneath",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"centered\",\"showMedia\":true,\"showPoints\":false,\"showStats\":true,\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "v-hero-figures-left",
+		"title": "Hero: figures, image left, plain eyebrow, square buttons",
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"split\",\"mediaPosition\":\"left\",\"showMedia\":true,\"showStats\":true,\"showPoints\":false,\"eyebrowStyle\":\"plain\",\"buttonShape\":\"square\",\"mediaId\":{{img:illustration-square}},\"mediaUrl\":\"{{url:illustration-square}}\",\"mediaAlt\":\"\",\"mediaRatio\":\"1/1\"} /-->"
+	},
+	{
+		"id": "v-hero-bg-overlay",
+		"title": "Hero: text over a light background image, white text, default 55% overlay",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"minHeight\":60,\"minHeightUnit\":\"vh\",\"bgImageId\":{{img:bg-light}},\"bgImageUrl\":\"{{url:bg-light}}\",\"style\":{\"color\":{\"text\":\"#ffffff\"}}} /-->"
+	},
+	{
+		"id": "v-hero-video",
+		"title": "Hero: video background, white text",
+		"contexts": [
+			"light"
+		],
+		"markup": "<!-- wp:werun-community/hero {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"centered\",\"showMedia\":false,\"showPoints\":false,\"minHeight\":80,\"minHeightUnit\":\"vh\",\"overlayOpacity\":55,\"bgVideoId\":{{img:video}},\"bgVideoUrl\":\"{{url:video}}\",\"bgVideoPosterId\":{{img:video-poster}},\"bgVideoPosterUrl\":\"{{url:video-poster}}\",\"style\":{\"color\":{\"text\":\"#ffffff\"}}} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-hero__video-toggle",
+				"property": "border-top-color",
+				"min": 3,
+				"label": "pause button ring over the video"
+			},
+			{
+				"selector": ".wrbc-hero__video-toggle svg",
+				"property": "fill",
+				"min": 3,
+				"label": "pause icon on its button"
+			}
+		]
+	},
+	{
+		"id": "v-cta-centered",
+		"title": "CTA: centred banner (defaults: eyebrow, title, text, two buttons)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\"} /-->"
+	},
+	{
+		"id": "v-cta-split",
+		"title": "CTA: split with image on the right",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"split\",\"showMedia\":true,\"mediaPosition\":\"right\",\"mediaRatio\":\"4/3\",\"mediaId\":{{img:illustration}},\"mediaUrl\":\"{{url:illustration}}\",\"mediaAlt\":\"A dashboard with a bar chart\"} /-->"
+	},
+	{
+		"id": "v-cta-strip",
+		"title": "CTA: compact strip (title + one button)",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"strip\",\"showEyebrow\":false,\"showText\":false,\"showSecondary\":false} /-->"
+	},
+	{
+		"id": "v-cta-card",
+		"title": "CTA: floating card over a busy background image",
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"card\",\"contentAlign\":\"center\",\"contentWidth\":760,\"align\":\"full\",\"bgImageId\":{{img:bg-busy}},\"bgImageUrl\":\"{{url:bg-busy}}\"} /-->"
+	},
+	{
+		"id": "v-query-cards",
+		"title": "Query: whole-card links (stretched link), bordered cards",
+		"markup": "<!-- wp:werun-community/query {\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"perPage\":3},\"layout\":\"grid\",\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"date\",\"source\":\"published\",\"dateFormat\":\"\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12}]}} /-->"
+	},
+	{
+		"id": "v-cta-bad-pair",
+		"title": "CTA card with a white card and a pale text colour chosen by hand (the editor's ContrastAudit should list it)",
+		"contexts": [
+			"light"
+		],
+		"widths": [
+			1280
+		],
+		"markup": "<!-- wp:werun-community/cta {\"primaryUrl\":\"{{home}}contact/\",\"secondaryUrl\":\"{{home}}work/\",\"layout\":\"card\",\"cardBg\":\"#ffffff\",\"cardText\":\"#cbd5e1\",\"accentColor\":\"#facc15\",\"onAccentColor\":\"#ffffff\"} /-->"
+	}
+]

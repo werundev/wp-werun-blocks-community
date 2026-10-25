@@ -1,0 +1,166 @@
+/* Form: the frame around a provider's form (card, plain, inline), our own
+ * Mailchimp fields, the success message and the gated-download result. The
+ * providers' own markup keeps its own styles. */
+:where(.wrbc-form) { line-height: 1.5; }
+.wrbc-form { container-type: inline-size; }
+
+.wrbc-form__inner {
+	max-width: var(--wrbc-form-width, none);
+	margin-inline: auto;
+}
+/* The card: the colour chosen for it, or white with a hint of its text.
+ * render.php works out what it sits on (wrbc_form_colors()): in a dark
+ * section it stays a light card (.wrbc-is-light: ink text, so a plugin form
+ * with built-in dark text stays readable), a chosen card colour gets its
+ * own tone, and the accent text / focus ring are set on the card itself. */
+.wrbc-form--card .wrbc-form__inner {
+	padding: clamp(1.25em, 4cqi, 2.5em);
+	border: 1px solid var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-form-card-bg, color-mix(in srgb, #fff 97%, currentColor 3%));
+	box-shadow: 0 1px 2px color-mix(in srgb, currentColor 6%, transparent), 0 12px 32px -16px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.wrbc-form__header { margin-bottom: 1.25em; }
+.wrbc-form__title { margin: 0 0 0.35em; font-size: 1.6em; line-height: 1.2; }
+.wrbc-form__intro { margin: 0; color: var(--wrbc-muted); }
+
+/* Inline: title beside the form once the block is wide enough. */
+@container (min-width: 720px) {
+	.wrbc-form--inline .wrbc-form__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+		align-items: center;
+		gap: 2em;
+	}
+	.wrbc-form--inline .wrbc-form__header { margin-bottom: 0; }
+}
+
+/* Embeds. The slot takes the focus when the consent button that had it goes
+ * (view.js), so the shared ring (--wrbc-focus) shows where the form is coming. */
+.wrbc-form__slot { --wrbc-focus-offset: 4px; border-radius: 4px; }
+.wrbc-form__frame { display: block; width: 100%; border: 0; }
+.wrbc-form__loading { margin: 0 0 0.75em; }
+.wrbc-form__failed {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.75em;
+	margin: 0 0 1em;
+	padding: 1em 1.1em;
+	border: 1px solid var(--wrbc-line);
+	border-radius: calc(var(--wrbc-radius) / 2);
+	background: var(--wrbc-surface);
+}
+.wrbc-form__failed p { margin: 0; }
+
+/* Our own fields (Mailchimp) */
+.wrbc-form__native { display: grid; gap: 0.9em; margin: 0; }
+.wrbc-form__native[hidden] { display: none; }
+.wrbc-form__field { display: grid; gap: 0.3em; margin: 0; }
+.wrbc-form__label { font-size: 0.9em; font-weight: 600; }
+.wrbc-form__req { font-weight: 400; }
+/* .wrbc-root first: a theme's input styles (Hello's input[type=email], 0,1,1)
+ * would otherwise replace the boundary and the radius. The boundary is the
+ * control line (3:1 on what the field sits on, WCAG 1.4.11). */
+.wrbc-root .wrbc-form__input {
+	width: 100%;
+	min-height: 46px;
+	padding: 0.6em 0.9em;
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: calc(var(--wrbc-radius) / 2);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+.wrbc-root .wrbc-form__input:focus { border-color: var(--wrbc-control-line); }
+.wrbc-form__input { --wrbc-focus-offset: 1px; }
+/* Errors: in words (the message), so never by colour alone. The red is
+ * --wrbc-form-error, made readable (4.5:1) by render.php for what the form
+ * sits on; the fallback mixes it with the text colour (8.8:1 on white,
+ * 5.6:1 on #0f172a). wrbc-gate's error inside the form uses the same. */
+.wrbc-form__error,
+.wrbc-form .wrbc-gate__error {
+	margin: 0;
+	color: var(--wrbc-form-error, color-mix(in srgb, #b42318 60%, currentColor));
+	font-size: 0.9em;
+	font-weight: 600;
+}
+.wrbc-form__error:empty { display: none; }
+/* Mailchimp's answer about the whole form: an alert, kept rendered (empty, no room) so it's announced. */
+.wrbc-form__mc-message { margin: 0; font-weight: 600; }
+.wrbc-form__mc-message.is-error { color: var(--wrbc-form-error, color-mix(in srgb, #b42318 60%, currentColor)); }
+.wrbc-root .wrbc-form__input[aria-invalid="true"] {
+	border-color: var(--wrbc-form-error, color-mix(in srgb, #b42318 60%, currentColor));
+	box-shadow: inset 0 0 0 1px var(--wrbc-form-error, color-mix(in srgb, #b42318 60%, currentColor));
+}
+.wrbc-form__submit[aria-disabled="true"] { cursor: progress; }
+.wrbc-form__actions { margin: 0; }
+/* Mailchimp's bot trap: off the start edge (inset-inline-start, so an RTL page doesn't scroll sideways to it). */
+.wrbc-form__trap { position: absolute; inset-inline-start: -5000px; width: 1px; height: 1px; overflow: hidden; }
+@container (min-width: 520px) {
+	.wrbc-form--inline .wrbc-form__native {
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: end;
+	}
+	.wrbc-form--inline .wrbc-form__field:has(input[name="FNAME"]) { grid-column: 1 / -1; }
+}
+
+/* Form plugins' markup inside the form (Contact Form 7, WPForms, Gravity
+ * Forms, Fluent Forms, Ninja Forms, Formidable). Their look stays theirs,
+ * with two exceptions:
+ * - their field errors take the readable error red (--wrbc-form-error, set
+ *   for what the form sits on), at a specificity above their stock rules
+ *   (CF7's #dc3232 is 4.31:1 on the card). Gravity's boxed messages drop
+ *   their light fill, which would sit under a light red in a dark context.
+ * - their fields never get wider than the form (CF7's cols="40" textarea
+ *   is 342 px wide: WCAG 1.4.10 at 320 px), also as flex or grid items. */
+.wrbc-root.wrbc-form .wpcf7-not-valid-tip,
+.wrbc-root.wrbc-form .wpforms-container .wpforms-form .wpforms-error,
+.wrbc-root.wrbc-form .gform_wrapper .gfield_validation_message,
+.wrbc-root.wrbc-form .gform_wrapper .validation_message,
+.wrbc-root.wrbc-form .fluentform .ff-el-is-error .error,
+.wrbc-root.wrbc-form .fluentform .error.text-danger,
+.wrbc-root.wrbc-form .nf-form-cont .nf-error-msg,
+.wrbc-root.wrbc-form .nf-error-msg,
+.wrbc-root.wrbc-form .with_frm_style .frm_error,
+.wrbc-root.wrbc-form .frm_error {
+	color: var(--wrbc-form-error, color-mix(in srgb, #b42318 60%, currentColor));
+}
+.wrbc-root.wrbc-form .gform_wrapper .gfield_validation_message,
+.wrbc-root.wrbc-form .gform_wrapper .validation_message {
+	background: none;
+	border-color: currentColor;
+}
+/* CF7's message when the form has errors or fails: the same red edge (its stock yellow / red are under 3:1 on the card). */
+.wrbc-root.wrbc-form .wpcf7 form:is(.invalid, .unaccepted, .payment-required, .failed, .aborted) .wpcf7-response-output {
+	border-color: var(--wrbc-form-error, color-mix(in srgb, #b42318 60%, currentColor));
+}
+.wrbc-form__slot :is(input, select, textarea) {
+	min-width: 0;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* After sending. The success message and the gate's result are live regions
+ * printed empty (view.js / wrbc-gate fill them): no box until they have text. */
+.wrbc-form__success:not(:empty),
+.wrbc-form__ready {
+	margin: 1em 0 0;
+	padding: 0.85em 1em;
+	border-inline-start: 4px solid var(--wrbc-accent);
+	border-radius: 4px;
+	background: var(--wrbc-surface);
+}
+.wrbc-form__success { margin: 0; }
+.wrbc-form__ready { margin: 0 0 1em; }
+.wrbc-form__note { margin: 0.75em 0 0; font-size: 0.85em; color: var(--wrbc-muted); }
+.wrbc-form__gate.is-unlocked .wrbc-form__slot,
+.wrbc-form__gate.is-unlocked .wrbc-form__note { display: none; }
+.wrbc-form__result:not(:empty) { margin-top: 1em; }
+.wrbc-form__result .wrbc-form__retry { margin-top: 0.75em; }
+.wrbc-form__download { --wrbc-icon-size: 1.1em; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-form * { transition: none !important; animation: none !important; }
+}

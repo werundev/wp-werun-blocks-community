@@ -1,0 +1,82 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "werun-community/query",
+	"version": "1.0.0",
+	"title": "Query",
+	"category": "werun-community",
+	"icon": "list-view",
+	"description": "Cards from any post type: latest or related posts, team, events, locations on a map, a resource library, case studies or your own query. Visual query builder, grid, list, carousel or map, visitor filters and pagination.",
+	"keywords": [ "query", "posts", "loop", "team", "events", "locations", "map", "resources", "case studies", "related" ],
+	"textdomain": "werun-blocks-community",
+	"usesContext": [ "postId", "postType" ],
+	"attributes": {
+		"align": { "type": "string", "default": "wide" },
+		"variant": { "type": "string", "role": "content", "default": "posts", "enum": [ "posts", "related", "team", "events", "locations", "resources", "cases", "custom" ] },
+		"query": {
+			"type": "object",
+			"role": "content",
+			"default": { "postType": "", "mode": "query", "orderBy": "date", "order": "DESC", "perPage": 6, "excludeCurrent": true }
+		},
+		"showHeader": { "type": "boolean", "default": true },
+		"showEyebrow": { "type": "boolean", "default": true },
+		"showIntro": { "type": "boolean", "default": false },
+		"eyebrow": { "type": "string", "role": "content", "default": "" },
+		"title": { "type": "string", "role": "content", "default": "" },
+		"intro": { "type": "string", "role": "content", "default": "" },
+		"headerAlign": { "type": "string", "default": "left" },
+		"titleLevel": { "type": "number", "default": 2 },
+		"layout": { "type": "string", "default": "grid", "enum": [ "grid", "list", "carousel", "map" ] },
+		"columnsDesktop": { "type": "number", "default": 3 },
+		"columnsTablet": { "type": "number", "default": 2 },
+		"columnsMobile": { "type": "number", "default": 1 },
+		"gap": { "type": "number", "default": 24 },
+		"card": {
+			"type": "object",
+			"default": {
+				"style": "bordered",
+				"link": "card",
+				"imageRatio": "3/2",
+				"imageSize": "medium_large",
+				"fields": [ { "type": "image" }, { "type": "date" }, { "type": "title", "level": 3 }, { "type": "excerpt", "words": 20 } ]
+			}
+		},
+		"buttonText": { "type": "string", "role": "content", "default": "Read more" },
+		"filters": { "type": "object", "default": { "taxonomy": "", "showAll": true, "search": false, "sort": [] } },
+		"allLabel": { "type": "string", "role": "content", "default": "All" },
+		"pagination": { "type": "string", "default": "none", "enum": [ "none", "numbers", "prevNext", "loadMore" ] },
+		"loadMoreText": { "type": "string", "role": "content", "default": "Load more" },
+		"emptyText": { "type": "string", "role": "content", "default": "Nothing to show yet." },
+		"autoplay": { "type": "boolean", "default": false },
+		"interval": { "type": "number", "default": 6 },
+		"loop": { "type": "boolean", "default": true },
+		"pauseOnHover": { "type": "boolean", "default": true },
+		"showArrows": { "type": "boolean", "default": true },
+		"showDots": { "type": "boolean", "default": true },
+		"controlsPosition": { "type": "string", "default": "bottom", "enum": [ "bottom", "top" ] },
+		"prevIcon": { "type": "object", "default": { "name": "arrow-left", "lib": "animated", "anim": "auto", "trigger": "hover" } },
+		"nextIcon": { "type": "object", "default": { "name": "arrow-right", "lib": "animated", "anim": "auto", "trigger": "hover" } },
+		"map": {
+			"type": "object",
+			"default": { "provider": "default", "latKey": "", "lngKey": "", "combinedKey": "", "addressKey": "", "height": 420, "zoom": 12, "fitBounds": true, "cluster": true, "markerColor": "", "listPosition": "below" }
+		},
+		"gate": { "type": "object", "default": { "enabled": false, "mode": "soft" } },
+		"accentColor": { "type": "string" },
+		"cardBg": { "type": "string" },
+		"cardBorderColor": { "type": "string" },
+		"cardRadius": { "type": "number", "default": 14 }
+	},
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"html": false,
+		"color": { "background": true, "text": true, "gradients": true, "link": true },
+		"spacing": { "margin": true, "padding": true },
+		"typography": { "fontSize": true, "lineHeight": true }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": [ "wrbc-shared", "file:./style-index.css" ],
+	"viewScript": [ "wrbc-shared-view", "file:./view.js" ],
+	"render": "file:./render.php"
+}

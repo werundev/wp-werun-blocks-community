@@ -1,0 +1,90 @@
+[
+	{
+		"id": "p3-events-past-list",
+		"title": "p3 · Events (past only): list, title link, images, header H3 (cards H4), numbered pages",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Archive\",\"title\":\"Past events\",\"titleLevel\":3,\"variant\":\"events\",\"query\":{\"postType\":\"event\",\"mode\":\"query\",\"orderBy\":\"upcoming\",\"order\":\"DESC\",\"perPage\":1,\"excludeCurrent\":true,\"upcoming\":{\"startKey\":\"event_start_date\",\"endKey\":\"event_end_date\",\"format\":\"Ymd\",\"when\":\"past\",\"includeOngoing\":false}},\"layout\":\"list\",\"pagination\":\"numbers\",\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "p3-team-list-terms",
+		"title": "p3 · Team as a list: photos, title link, linked department terms, email",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Leadership\",\"variant\":\"team\",\"query\":{\"postType\":\"team\",\"mode\":\"query\",\"orderBy\":\"menu_order\",\"order\":\"ASC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"list\",\"card\":{\"style\":\"filled\",\"link\":\"title\",\"imageRatio\":\"1/1\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"terms\",\"taxonomy\":\"department\",\"max\":3,\"link\":true},{\"type\":\"meta\",\"key\":\"team_email\",\"format\":\"email\",\"label\":\"Email\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "p3-resources-gated-carousel",
+		"title": "p3 · Gated resources in a carousel (Get the file inside slides), whole-card links off",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Guides to download\",\"variant\":\"resources\",\"query\":{\"postType\":\"resource\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":6,\"excludeCurrent\":true},\"layout\":\"carousel\",\"columnsDesktop\":3,\"gate\":{\"enabled\":true,\"mode\":\"soft\"},\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"_wrbc_download_id\",\"format\":\"download\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "p3-cases-carousel-arrows",
+		"title": "p3 · Case studies carousel: title links, arrows only (no dots), loop on, logos as image meta",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Selected work\",\"variant\":\"cases\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":6,\"excludeCurrent\":true},\"layout\":\"carousel\",\"columnsDesktop\":2,\"showDots\":false,\"card\":{\"style\":\"shadow\",\"link\":\"title\",\"imageRatio\":\"16/9\",\"imageSize\":\"medium_large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"meta\",\"key\":\"case_logo_id\",\"format\":\"image\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12}]}} /-->"
+	},
+	{
+		"id": "p3-carousel-bare",
+		"title": "p3 · Carousel without arrows, dots or autoplay: whole-card links, the cards are the stops",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"More stories\",\"variant\":\"custom\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":5,\"excludeCurrent\":true},\"layout\":\"carousel\",\"columnsDesktop\":3,\"showDots\":false,\"showArrows\":false,\"card\":{\"style\":\"filled\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3}]}} /-->"
+	},
+	{
+		"id": "p3-locations-marker-combined",
+		"title": "p3 · Locations map: yellow marker colour (drawn darker), combined lat,lng field, whole-card links + Show on the map",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Find us\",\"variant\":\"locations\",\"query\":{\"postType\":\"location\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":6,\"excludeCurrent\":true},\"layout\":\"map\",\"map\":{\"provider\":\"leaflet\",\"latKey\":\"\",\"lngKey\":\"\",\"combinedKey\":\"location_latlng\",\"addressKey\":\"location_address\",\"height\":320,\"zoom\":10,\"fitBounds\":true,\"cluster\":false,\"markerColor\":\"#facc15\",\"listPosition\":\"below\"},\"columnsDesktop\":3,\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"location_hours\",\"format\":\"text\",\"label\":\"Open\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "p3-cases-full-width",
+		"title": "p3 · Case studies at full width (align full: Hello's 100vw + img width 100%), shadow cards, chips, load more",
+		"markup": "<!-- wp:werun-community/query {\"align\":\"full\",\"showHeader\":true,\"title\":\"All our work\",\"variant\":\"cases\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":3,\"pagination\":\"loadMore\",\"filters\":{\"taxonomy\":\"region\",\"showAll\":true,\"search\":false,\"sort\":[]},\"style\":{\"spacing\":{\"padding\":{\"left\":\"24px\",\"right\":\"24px\"}}},\"card\":{\"style\":\"shadow\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"large\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"case_client\",\"format\":\"text\",\"label\":\"Client\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "p3-accent-indigo-mid",
+		"title": "p3 · Mid-tone accent #6366f1 (black on the fill): chips with one chosen, search, numbered pages, filled cards",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Indigo accent\",\"variant\":\"resources\",\"query\":{\"postType\":\"resource\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"pagination\":\"numbers\",\"accentColor\":\"#6366f1\",\"filters\":{\"taxonomy\":\"resource_type\",\"showAll\":true,\"search\":true,\"sort\":[]},\"card\":{\"style\":\"filled\",\"link\":\"title\",\"imageRatio\":\"4/3\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"terms\",\"taxonomy\":\"resource_type\",\"max\":2,\"link\":true},{\"type\":\"excerpt\",\"words\":10},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "p3-card-dark-111827",
+		"title": "p3 · Dark card colour #111827 on the page: title links, linked terms, email meta link, button",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Dark cards\",\"variant\":\"team\",\"query\":{\"postType\":\"team\",\"mode\":\"query\",\"orderBy\":\"menu_order\",\"order\":\"ASC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":3,\"cardBg\":\"#111827\",\"card\":{\"style\":\"bordered\",\"link\":\"title\",\"imageRatio\":\"1/1\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"team_role\",\"format\":\"text\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"terms\",\"taxonomy\":\"department\",\"max\":2,\"link\":true},{\"type\":\"meta\",\"key\":\"team_email\",\"format\":\"email\",\"label\":\"Email\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "p3-card-translucent",
+		"title": "p3 · Translucent card colour rgba(15,23,42,.6) (a dark veil over the page / the dark section), shadow style",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Translucent cards\",\"variant\":\"cases\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"cardBg\":\"rgba(15,23,42,0.6)\",\"card\":{\"style\":\"shadow\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":12},{\"type\":\"terms\",\"taxonomy\":\"region\",\"max\":2,\"link\":true},{\"type\":\"meta\",\"key\":\"case_client\",\"format\":\"text\",\"label\":\"Client\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "p3-link-colour",
+		"title": "p3 · A link colour from the Color panel (#9f1239): meta links, terms and pagination keep it (light page only)",
+		"contexts": [ "light" ],
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"Own link colour\",\"variant\":\"team\",\"query\":{\"postType\":\"team\",\"mode\":\"query\",\"orderBy\":\"menu_order\",\"order\":\"ASC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":3,\"pagination\":\"prevNext\",\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"#9f1239\"}}}},\"card\":{\"style\":\"filled\",\"link\":\"title\",\"imageRatio\":\"1/1\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"team_email\",\"format\":\"email\",\"label\":\"Email\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"team_linkedin\",\"format\":\"url\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "p3-long-text",
+		"title": "p3 · Long texts: eyebrow, title, intro, All label, button and Load more labels, long words",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Everything we have published about accessibility\",\"title\":\"Internationalisation, localisation and the extraordinarily long words of German compound nouns: Donaudampfschifffahrtsgesellschaftskapitän\",\"showIntro\":true,\"intro\":\"A deliberately long introduction that wraps over several lines on a phone, to check that nothing is clipped when the text spacing is increased or the page is zoomed to 400 per cent.\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"pagination\":\"loadMore\",\"allLabel\":\"Everything, in every category we write about\",\"buttonText\":\"Read the whole article from the beginning to the end\",\"loadMoreText\":\"Show me more articles about accessibility, please\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":true,\"sort\":[\"newest\",\"oldest\",\"az\",\"za\",\"updated\"]},\"card\":{\"style\":\"bordered\",\"link\":\"button\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":40},{\"type\":\"button\"}]}} /-->"
+	},
+	{
+		"id": "p3-two-blocks",
+		"title": "p3 · Two identical filtered post grids on one page (ids, labels, search landmark names)",
+		"contexts": [ "light" ],
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":false,\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"pagination\":\"numbers\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":true,\"sort\":[\"az\"]},\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":2}]}} /--><!-- wp:werun-community/query {\"showHeader\":false,\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"pagination\":\"numbers\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":true,\"sort\":[\"az\"]},\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":2}]}} /-->"
+	},
+	{
+		"id": "p3-header-centre-h4",
+		"title": "p3 · Header centred at H4 (cards H5), list, author without avatar, reading time, modified date, prev/next",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"showEyebrow\":true,\"eyebrow\":\"Blog\",\"title\":\"From the team\",\"titleLevel\":4,\"headerAlign\":\"center\",\"showIntro\":true,\"intro\":\"Notes from the people who build it.\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"title\",\"order\":\"ASC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"list\",\"pagination\":\"prevNext\",\"card\":{\"style\":\"plain\",\"link\":\"title\",\"imageRatio\":\"auto\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"title\",\"level\":3},{\"type\":\"author\",\"avatar\":false},{\"type\":\"readingTime\",\"wpm\":200},{\"type\":\"date\",\"source\":\"modified\",\"dateFormat\":\"j M Y\"}]}} /-->"
+	},
+	{
+		"id": "p3-filters-no-all",
+		"title": "p3 · Chips without All + search only, plain cards with a whole-card link and no title field (named by the image)",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"By region\",\"variant\":\"cases\",\"query\":{\"postType\":\"case_study\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":3,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":3,\"filters\":{\"taxonomy\":\"region\",\"showAll\":false,\"search\":true,\"sort\":[]},\"card\":{\"style\":\"plain\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"image\"},{\"type\":\"meta\",\"key\":\"case_metric\",\"format\":\"text\",\"label\":\"\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	},
+	{
+		"id": "p3-own-gradient",
+		"title": "p3 · The block's own dark gradient background (Color panel gradient), chips, search, filled cards",
+		"contexts": [ "light" ],
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"On a gradient\",\"variant\":\"posts\",\"query\":{\"postType\":\"post\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true},\"layout\":\"grid\",\"columnsDesktop\":2,\"pagination\":\"numbers\",\"filters\":{\"taxonomy\":\"category\",\"showAll\":true,\"search\":true,\"sort\":[]},\"style\":{\"color\":{\"gradient\":\"linear-gradient(135deg,#0f172a 0%,#312e81 100%)\"}},\"card\":{\"style\":\"filled\",\"link\":\"card\",\"imageRatio\":\"3/2\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"excerpt\",\"words\":10},{\"type\":\"terms\",\"taxonomy\":\"category\",\"max\":2,\"link\":true}]}} /-->"
+	},
+	{
+		"id": "p3-meta-formats",
+		"title": "p3 · Event meta formats: number price with prefix, date with its own format, plain text venue, list",
+		"markup": "<!-- wp:werun-community/query {\"showHeader\":true,\"title\":\"What's on\",\"variant\":\"events\",\"query\":{\"postType\":\"event\",\"mode\":\"query\",\"orderBy\":\"upcoming\",\"order\":\"DESC\",\"perPage\":2,\"excludeCurrent\":true,\"upcoming\":{\"startKey\":\"event_start_date\",\"endKey\":\"event_end_date\",\"format\":\"Ymd\",\"when\":\"upcoming\",\"includeOngoing\":true}},\"layout\":\"grid\",\"columnsDesktop\":2,\"card\":{\"style\":\"bordered\",\"link\":\"card\",\"imageRatio\":\"16/9\",\"imageSize\":\"medium\",\"fields\":[{\"type\":\"title\",\"level\":3},{\"type\":\"meta\",\"key\":\"event_end_date\",\"format\":\"date\",\"label\":\"Ends\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"l, j F\"},{\"type\":\"meta\",\"key\":\"event_price\",\"format\":\"number\",\"label\":\"Price\",\"prefix\":\"EUR \",\"suffix\":\"\",\"decimals\":2,\"dateFormat\":\"\"},{\"type\":\"meta\",\"key\":\"event_venue\",\"format\":\"text\",\"label\":\"Venue\",\"prefix\":\"\",\"suffix\":\"\",\"decimals\":0,\"dateFormat\":\"\"}]}} /-->"
+	}
+]

@@ -1,0 +1,12 @@
+/* Feature grid, editor only: the "add card" button sits in the grid as a card. */
+.wrbc-features__grid > .block-list-appender {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 120px;
+	margin: 0;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-feature .wrbc-feature__stretched::after { pointer-events: none; }

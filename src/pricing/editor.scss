@@ -1,0 +1,49 @@
+/* Pricing, editor only. */
+.wrbc-pricing-notice { padding: 0 16px 16px; }
+.wrbc-pricing-notice .components-notice { margin: 0; }
+.wrbc-pricing__grid > .block-list-appender {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 160px;
+	margin: 0;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-plan__feature-edit {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+.wrbc-plan__feature-edit > [contenteditable] { flex: 1 1 auto; min-width: 0; }
+.wrbc-plan__feature-toggle,
+.wrbc-plan__feature-remove {
+	display: inline-grid;
+	place-items: center;
+	flex: 0 0 auto;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+}
+.wrbc-plan__feature-toggle:hover,
+.wrbc-plan__feature-remove:hover { background: var(--wrbc-surface); }
+/* Quiet, but still 3:1 for a control (0.4 left the × at about 2:1). */
+.wrbc-plan__feature-remove { opacity: 0.7; font-size: 16px; line-height: 1; }
+.wrbc-plan__feature-remove:hover { opacity: 1; }
+.wrbc-plan__add-feature {
+	align-self: flex-start;
+	padding: 4px 8px;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: 6px;
+	background: transparent;
+	color: inherit;
+	font-size: 0.85em;
+	cursor: pointer;
+}
+.wrbc-plan__price .wrbc-plan__value[contenteditable] { min-width: 1ch; }

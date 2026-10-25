@@ -1,0 +1,13 @@
+/* Stats, editor only: the "add stat" button sits in the grid as a stat. */
+.wrbc-stats__grid > .block-list-appender {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 96px;
+	margin: 0;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+}
+/* The appender is not a stat: no separator lines on it. */
+.wrbc-stats__grid > .block-list-appender::before { content: none; }

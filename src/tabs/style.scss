@@ -1,0 +1,306 @@
+/*
+ * Tabs (werun-community/tabs + werun-community/tab). Front end and editor share these rules.
+ *
+ * Structure (page and editor):
+ *   .wrbc-tabs > .wrbc-tabs__body > .wrbc-tabs__list > .wrbc-tabs__tab
+ *                               > .wrbc-tabs__panels > .wrbc-tab (panel)
+ * Every structural selector uses child combinators, so a tabs block inside
+ * a panel keeps its own style, orientation and mobile mode.
+ */
+
+$body: '> .wrbc-tabs__body';
+$list: '> .wrbc-tabs__body > .wrbc-tabs__list';
+$tab: '> .wrbc-tabs__body > .wrbc-tabs__list > .wrbc-tabs__tab';
+$panels: '> .wrbc-tabs__body > .wrbc-tabs__panels';
+$panel: '> .wrbc-tabs__body > .wrbc-tabs__panels > .wrbc-tab';
+
+.wrbc-tabs { container-type: inline-size; }
+:where(.wrbc-tabs) { line-height: 1.6; }
+// On its own background: room at the sides too (the shared section padding
+// is top and bottom), so the panel's focus ring stays on that background.
+// Zero specificity: the Dimensions panel's padding wins.
+:where(.wrbc-tabs.has-background) { padding-inline: clamp(16px, 4vw, 48px); }
+// Tabs are wide by default. In a column or another tab panel (containers
+// that aren't centred on the page) a theme's wide margins, and the shared
+// Hello fix for them (0,3,1), would push the block past the window (WCAG
+// 1.4.10): there it stays in its container. Same specificity, loads later.
+body :is(.wp-block-column, .wrbc-tab) .wrbc-tabs.alignwide { margin-inline: 0; }
+
+.wrbc-tabs__body {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+}
+
+/* wrbc-modules (assets/modules.css) has base rules for any [data-wrbc-tabs]
+ * (0,2,0–0,3,0): tab rows wrap, a vertical list is always a column and the
+ * list is hidden until the module is ready. This stylesheet loads after it,
+ * so the same specificity restores the block's own layout; the style rules
+ * below (0,3,0 and more) still win. Closed panels are hidden="until-found"
+ * (in-page find still opens them) and wrbc-tabs takes them out of the Tab
+ * order (tabindex -1). */
+.wrbc-tabs__body > .wrbc-tabs__list { flex-wrap: nowrap; gap: 0.375em; }
+.wrbc-tabs--vertical > .wrbc-tabs__body > .wrbc-tabs__list { flex-direction: row; }
+.wrbc-tabs__body:not(.is-ready) > .wrbc-tabs__list { display: flex; }
+
+/* ── Tab list ─────────────────────────────────────────────────────────── */
+.wrbc-tabs__list {
+	display: flex;
+	gap: 0.375em;
+	min-width: 0;
+	// Narrow screens (mode "scroll"): the row scrolls sideways.
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x proximity;
+	scrollbar-width: thin;
+}
+// Arrow keys: the focused tab is scrolled into view, and snapping back to a
+// tab's start must not push it half out again (WCAG 2.4.11).
+.wrbc-tabs__list:focus-within { scroll-snap-type: none; }
+
+// .wrbc-tabs__list > (0,2,0): a theme's button rules ([type=button], 0,1,0)
+// can't restyle the tabs, wherever its stylesheet loads.
+.wrbc-tabs__list > .wrbc-tabs__tab {
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	min-height: 2.75em;
+	margin: 0;
+	padding: 0.625em 1.125em;
+	border: 0;
+	border-radius: var(--wrbc-radius);
+	background: transparent;
+	color: var(--wrbc-muted);
+	font: inherit;
+	font-weight: 600;
+	line-height: 1.3;
+	text-align: center;
+	white-space: nowrap;
+	cursor: pointer;
+	scroll-snap-align: start;
+	transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+	// The ring goes inside the tab: the scrolling list clips anything outside.
+	// Through the shared ring's offset variable, so every ring rule agrees.
+	--wrbc-focus-offset: -2px;
+}
+// Hovered, focused or open: full text colour. Restated for :hover and :focus
+// because a theme's [type=button]:hover / :focus (0,2,0) fill buttons with
+// its own colours; each style below draws its own state on top (0,4,0+).
+.wrbc-tabs__list > .wrbc-tabs__tab:is(:hover, :focus, [aria-selected="true"]) { background-color: transparent; color: inherit; }
+// (0,4,0) beats a theme's [tabindex]:focus-visible ring (0,3,0), and its
+// glow (box-shadow) goes where a style doesn't draw its own.
+.wrbc-tabs__body > .wrbc-tabs__list > .wrbc-tabs__tab:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset); box-shadow: none; }
+.wrbc-tabs__label { min-width: 0; }
+.wrbc-tabs__icon { flex: 0 0 auto; }
+
+.wrbc-tabs--icon-top #{$tab} { flex-direction: column; gap: 0.375em; }
+.wrbc-tabs--icon-end #{$tab} > .wrbc-tabs__icon { order: 1; }
+
+/* Alignment (horizontal, not full width). Auto margins instead of
+ * justify-content, so a row that overflows still scrolls to its first tab. */
+.wrbc-tabs--align-center #{$list} > :first-child { margin-inline-start: auto; }
+.wrbc-tabs--align-center #{$list} > :last-child,
+.wrbc-tabs--align-center #{$list} > .wrbc-tabs__tab:last-of-type { margin-inline-end: auto; }
+.wrbc-tabs--align-end #{$list} > :first-child { margin-inline-start: auto; }
+.wrbc-tabs--full #{$tab} { flex: 1 0 auto; }
+
+/* ── Panels ───────────────────────────────────────────────────────────── */
+// The panel's ring is drawn around it, on the block's background: it keeps
+// the block's focus colour even when the panel paints its own (and turns its
+// tokens around with .wrbc-is-dark / -light).
+.wrbc-tabs__panels { --wrbc-tabs-focus: var(--wrbc-focus); }
+.wrbc-tab { min-width: 0; }
+.wrbc-tabs__body > .wrbc-tabs__panels > .wrbc-tab:focus-visible {
+	--wrbc-focus-offset: 4px;
+	outline: 2px solid var(--wrbc-tabs-focus, var(--wrbc-focus));
+	outline-offset: var(--wrbc-focus-offset);
+	border-radius: 4px;
+	box-shadow: none;
+}
+.wrbc-tab.has-background { padding: 1.5em; border-radius: var(--wrbc-radius); }
+// hidden="until-found" keeps the box (content-visibility: hidden): no padding left over.
+.wrbc-tab.has-background[hidden] { padding: 0; }
+.wrbc-tab__heading { margin: 0 0 0.75em; font-size: 1.25em; line-height: 1.3; }
+.wrbc-tab__content > :first-child { margin-top: 0; }
+.wrbc-tab__content > :last-child { margin-bottom: 0; }
+
+/* ── Styles ───────────────────────────────────────────────────────────────
+ * The open tab is marked by a shape — a line, a ring, an edge — not only by
+ * colour (WCAG 1.4.1), drawn as a border in the accent made readable on the
+ * block's background (--wrbc-accent-text, 3:1 and more; 1.4.11). Borders, not
+ * box-shadows: the editor's contrast check and the audit read their colour.
+ * Padding gives back the border's width, so the tabs keep their size. */
+.wrbc-tabs--underline {
+	#{$list} { gap: 0; box-shadow: inset 0 -1px 0 var(--wrbc-line); }
+	#{$tab} { border-radius: 0; border-bottom: 2px solid transparent; }
+	#{$tab}:hover { border-bottom-color: var(--wrbc-line); }
+	#{$tab}[aria-selected="true"] { border-bottom-color: var(--wrbc-accent-text); }
+}
+
+/* Pills: the open one is filled with the accent. On a dark background that
+ * fill can stay under 3:1, so it also has an edge in the readable accent
+ * (the same colour as the fill when that reads already). */
+.wrbc-tabs--pills {
+	#{$list} { gap: 0.5em; }
+	#{$tab} { padding: calc(0.625em - 2px) calc(1.125em - 2px); border: 2px solid transparent; border-radius: 999px; }
+	#{$tab}:hover { background: var(--wrbc-surface); }
+	// An accent ring on the accent pill wouldn't show: the open pill's ring is
+	// drawn inside it in the text colour (WCAG 2.4.7), clear of the edge.
+	#{$tab}[aria-selected="true"] { border-color: var(--wrbc-accent-text); background: var(--wrbc-accent); color: var(--wrbc-on-accent); --wrbc-focus-offset: -5px; }
+	#{$tab}[aria-selected="true"]:focus-visible { outline-color: var(--wrbc-on-accent); }
+}
+
+/* Boxed: the open box has a 2 px ring (border + inset line), the others a
+ * 1 px decorative one. The focus ring sits inside it with a gap. */
+.wrbc-tabs--boxed {
+	#{$list} { gap: 0.5em; }
+	#{$tab} { padding: calc(0.625em - 1px) calc(1.125em - 1px); border: 1px solid var(--wrbc-line); --wrbc-focus-offset: -6px; }
+	#{$tab}:hover { background: var(--wrbc-surface); }
+	#{$tab}[aria-selected="true"] {
+		border-color: var(--wrbc-accent-text);
+		background: color-mix(in srgb, var(--wrbc-accent) 10%, transparent);
+		box-shadow: inset 0 0 0 1px var(--wrbc-accent-text);
+	}
+	#{$panels} { padding: 1.5em; border: 1px solid var(--wrbc-line); border-radius: var(--wrbc-radius); }
+}
+
+/* Segmented: a track; the chosen tab is a raised segment in the page's own
+ * canvas colours (a matching pair, so it reads on light and dark). On a
+ * light track its control edge (CanvasText 64 %) sets it apart; on a dark
+ * one the light segment itself does. Its focus ring is CanvasText too: the
+ * block's focus colour is made for the track, not for the segment. */
+.wrbc-tabs--segmented {
+	#{$list} {
+		gap: 0.25em;
+		width: fit-content;
+		max-width: 100%;
+		padding: 0.25em;
+		border-radius: var(--wrbc-radius);
+		background: var(--wrbc-surface);
+		box-shadow: inset 0 0 0 1px var(--wrbc-line);
+	}
+	#{$tab} { padding: calc(0.625em - 1px) calc(1.125em - 1px); border: 1px solid transparent; border-radius: calc(var(--wrbc-radius) - 0.25em); }
+	#{$tab}[aria-selected="true"] {
+		border-color: var(--wrbc-control-line);
+		background: Canvas;
+		color: CanvasText;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+		--wrbc-focus-offset: -3px;
+	}
+	#{$tab}[aria-selected="true"]:focus-visible { outline-color: CanvasText; }
+}
+.wrbc-tabs--segmented.wrbc-tabs--align-center #{$list} { margin-inline: auto; }
+.wrbc-tabs--segmented.wrbc-tabs--align-end #{$list} { margin-inline-start: auto; }
+.wrbc-tabs--segmented.wrbc-tabs--full #{$list} { width: auto; }
+// The track holds the auto margins now, not the tabs.
+.wrbc-tabs--segmented.wrbc-tabs--align-center #{$list} > :first-child,
+.wrbc-tabs--segmented.wrbc-tabs--align-end #{$list} > :first-child { margin-inline-start: 0; }
+.wrbc-tabs--segmented.wrbc-tabs--align-center #{$list} > :last-child,
+.wrbc-tabs--segmented.wrbc-tabs--align-center #{$list} > .wrbc-tabs__tab:last-of-type { margin-inline-end: 0; }
+
+/* ── Vertical: list beside the panels from 600 px of block width; narrower,
+ * the horizontal rules above apply (tabs on top, scrolling). ────────────── */
+@container (min-width: 600px) {
+	.wrbc-tabs--vertical {
+		#{$body} {
+			display: grid;
+			grid-template-columns: minmax(0, var(--wrbc-tabs-nav-w, 240px)) minmax(0, 1fr);
+			gap: 1.5em 2.5em;
+			align-items: start;
+		}
+		#{$list} { flex-direction: column; overflow: visible; }
+		#{$tab} { justify-content: flex-start; text-align: start; white-space: normal; }
+	}
+	.wrbc-tabs--vertical.wrbc-tabs--icon-top #{$tab} { align-items: flex-start; }
+	.wrbc-tabs--vertical.wrbc-tabs--underline {
+		#{$list} { box-shadow: none; border-inline-start: 1px solid var(--wrbc-line); }
+		#{$tab},
+		#{$tab}:hover,
+		#{$tab}[aria-selected="true"] { border-bottom: 0; }
+		#{$tab} { margin-inline-start: -1px; border-inline-start: 2px solid transparent; }
+		#{$tab}:hover { border-inline-start-color: var(--wrbc-line); }
+		#{$tab}[aria-selected="true"] { border-inline-start-color: var(--wrbc-accent-text); }
+	}
+	.wrbc-tabs--vertical.wrbc-tabs--segmented #{$list} { width: auto; }
+}
+
+/* ── Accordion below a breakpoint (mode "accordion") ──────────────────────
+ * The list and the panels stop drawing boxes (display: contents) and each
+ * tab sits right above its own panel through `order`. The tabs keep their
+ * roles and keyboard: one panel is always open, the others are hidden.
+ * Chrome, Firefox and Safari 17+ keep the tablist role of an element with
+ * display: contents (older Safari dropped it: the tabs still work, without
+ * "tab 1 of 3"). */
+@mixin wrbc-tabs-accordion {
+	#{$body} { display: flex; flex-direction: column; gap: 0; }
+	#{$list},
+	#{$panels} { display: contents; }
+	#{$tab} {
+		order: calc(var(--wrbc-tab-i, 0) * 2);
+		justify-content: flex-start;
+		width: 100%;
+		margin: 0;
+		padding: 1em 0.25em;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		box-shadow: inset 0 -1px 0 var(--wrbc-line);
+		color: inherit;
+		text-align: start;
+		white-space: normal;
+		flex-direction: row;
+	}
+	#{$tab}::after {
+		content: "";
+		flex: 0 0 auto;
+		width: 0.5em;
+		height: 0.5em;
+		margin-inline: auto 0.25em;
+		border-right: 2px solid currentColor;
+		border-bottom: 2px solid currentColor;
+		transform: translateY(-25%) rotate(45deg);
+		transition: transform 0.25s ease;
+	}
+	#{$tab}[aria-selected="true"] { color: var(--wrbc-accent-text); background: none; box-shadow: inset 0 -1px 0 var(--wrbc-line); }
+	#{$tab}[aria-selected="true"]::after { transform: translateY(25%) rotate(-135deg); }
+	// No pill, box or segment here: the plain inside ring of every style.
+	#{$tab}[aria-selected] { --wrbc-focus-offset: -2px; }
+	#{$tab}[aria-selected]:focus-visible { outline-color: var(--wrbc-focus); }
+	#{$tab} > .wrbc-tabs__icon { order: 0; }
+	#{$panel} { order: calc(var(--wrbc-tab-i, 0) * 2 + 1); }
+	#{$panel}:not([hidden]) { padding-block: 1em 1.5em; }
+	#{$panel}.has-background:not([hidden]) { margin-top: 0.75em; padding-inline: 1.5em; }
+}
+@container (max-width: 479.98px) { .wrbc-tabs.wrbc-tabs--acc-480 { @include wrbc-tabs-accordion; } }
+@container (max-width: 599.98px) { .wrbc-tabs.wrbc-tabs--acc-600 { @include wrbc-tabs-accordion; } }
+@container (max-width: 781.98px) { .wrbc-tabs.wrbc-tabs--acc-782 { @include wrbc-tabs-accordion; } }
+@container (max-width: 959.98px) { .wrbc-tabs.wrbc-tabs--acc-960 { @include wrbc-tabs-accordion; } }
+
+/* ── Before / without the wrbc-tabs module (page only: [data-wrbc-tabs]) ─────
+ * The panel headings label the panels when there's no tab list. The module
+ * marks the root .is-ready once it hid the inactive panels (hidden=
+ * "until-found"). Before that, with scripting on, only the first panel
+ * shows (no flash of every panel); with scripting off the list goes and
+ * every panel shows with its heading. */
+.wrbc-tabs__body.is-ready[data-wrbc-tabs] > .wrbc-tabs__panels > .wrbc-tab > .wrbc-tab__heading { display: none; }
+@media (scripting: enabled) {
+	.wrbc-tabs__body[data-wrbc-tabs] > .wrbc-tabs__panels > .wrbc-tab > .wrbc-tab__heading { display: none; }
+	.wrbc-tabs__body[data-wrbc-tabs]:not(.is-ready) > .wrbc-tabs__panels > .wrbc-tab:not(.wrbc-tab--initial) { display: none; }
+}
+@media (scripting: none) {
+	.wrbc-tabs__body[data-wrbc-tabs] > .wrbc-tabs__list { display: none; }
+	.wrbc-tabs__body[data-wrbc-tabs] > .wrbc-tabs__panels { display: flex; flex-direction: column; gap: 2em; }
+}
+
+/* Forced colours (Windows high contrast) replace the colours, fills and
+ * shadows that mark the open tab: its label is underlined instead. */
+@media (forced-colors: active) {
+	.wrbc-tabs__tab[aria-selected="true"] > .wrbc-tabs__label { text-decoration: underline 2px; text-underline-offset: 0.3em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-tabs__tab,
+	.wrbc-tabs__tab::after { transition: none; }
+}

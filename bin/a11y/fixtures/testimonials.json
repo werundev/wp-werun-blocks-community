@@ -1,0 +1,488 @@
+[
+	{
+		"id": "t-carousel",
+		"title": "Carousel (default variation): bordered, 3 in view, arrows + dots; photos, a link in the role, 0–5 stars",
+		"markup": "<!-- wp:werun-community/testimonials -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "t-carousel-untitled",
+		"title": "Carousel without header: controls on top, no loop, no dots, shadow cards, centred, 2 in view",
+		"markup": "<!-- wp:werun-community/testimonials {\"showHeader\":false,\"controlsPosition\":\"top\",\"loop\":false,\"showDots\":false,\"cardStyle\":\"shadow\",\"contentAlign\":\"center\",\"columnsDesktop\":2} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			}
+		]
+	},
+	{
+		"id": "t-spotlight",
+		"title": "One at a time (variation): autoplay with pause button, plain, centred, dots, no arrows",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"carousel\",\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"contentAlign\":\"center\",\"cardStyle\":\"plain\",\"autoplay\":true,\"showArrows\":false,\"headerAlign\":\"center\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "t-grid-filled",
+		"title": "Grid (variation): filled cards, 2 columns, intro",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"filled\",\"columnsDesktop\":2,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"left\",\"headerAlign\":\"left\",\"showIntro\":true,\"intro\":\"What our clients say about working with us.\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-grid-bordered",
+		"title": "Grid: bordered cards, 3 columns",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"bordered\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"left\",\"headerAlign\":\"left\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-grid-shadow",
+		"title": "Grid: shadow cards (white), 3 columns, H3 title",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"shadow\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"left\",\"headerAlign\":\"left\",\"titleLevel\":3} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-grid-plain",
+		"title": "Grid: plain cards, 4 columns, centred, no quote icon, no photos",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"plain\",\"columnsDesktop\":4,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"center\",\"headerAlign\":\"left\",\"showQuoteIcon\":false,\"showAvatar\":false} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-query-carousel",
+		"title": "From a post type (variation): carousel, role and stars from custom fields, featured image",
+		"markup": "<!-- wp:werun-community/testimonials {\"source\":\"query\",\"query\":{\"postType\":\"testimonial_cpt\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":6,\"excludeCurrent\":true},\"map\":{\"quote\":\"excerpt\",\"name\":\"title\",\"role\":\"meta:testimonial_role\",\"avatar\":\"featured\",\"rating\":\"meta:testimonial_rating\",\"words\":40}} -->\n\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "t-query-grid-shadow",
+		"title": "From a post type: grid of shadow cards",
+		"markup": "<!-- wp:werun-community/testimonials {\"source\":\"query\",\"query\":{\"postType\":\"testimonial_cpt\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":6,\"excludeCurrent\":true},\"map\":{\"quote\":\"excerpt\",\"name\":\"title\",\"role\":\"meta:testimonial_role\",\"avatar\":\"featured\",\"rating\":\"meta:testimonial_rating\",\"words\":40},\"layout\":\"grid\",\"cardStyle\":\"shadow\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"left\",\"headerAlign\":\"left\"} -->\n\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-query-empty",
+		"title": "From a post type: nothing matches, the text for that case",
+		"markup": "<!-- wp:werun-community/testimonials {\"source\":\"query\",\"query\":{\"postType\":\"testimonial_cpt\",\"mode\":\"handpicked\",\"include\":[999999]},\"map\":{\"quote\":\"excerpt\",\"name\":\"title\",\"role\":\"meta:testimonial_role\",\"avatar\":\"featured\",\"rating\":\"meta:testimonial_rating\",\"words\":40},\"emptyText\":\"No testimonials yet.\"} -->\n\n<!-- /wp:werun-community/testimonials -->"
+	},
+	{
+		"id": "t-custom-light",
+		"title": "Custom colours at extremes: light accent #facc15, light stars #fde047, light card #fef3c7, border #fcd34d",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"bordered\",\"columnsDesktop\":3,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"left\",\"headerAlign\":\"left\",\"accentColor\":\"#facc15\",\"starColor\":\"#fde047\",\"cardBg\":\"#fef3c7\",\"cardBorderColor\":\"#fcd34d\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-custom-dark-card",
+		"title": "Custom colours: dark card #1e293b (filled) on the page, light accent #a5b4fc, carousel",
+		"markup": "<!-- wp:werun-community/testimonials {\"cardStyle\":\"filled\",\"cardBg\":\"#1e293b\",\"accentColor\":\"#a5b4fc\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "t-own-colours",
+		"title": "Cards with their own colours: dark (#312e81), light (#ecfeff), teal with white text, and a plain one",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"bordered\",\"columnsDesktop\":4,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"left\",\"headerAlign\":\"left\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"A card with its own dark background.\",\"name\":\"Elif Yılmaz\",\"role\":\"Brand Designer, \\u003ca href=\\\"https://example.com/tailspin\\\"\\u003eTailspin\\u003c/a\\u003e\",\"rating\":5,\"style\":{\"color\":{\"background\":\"#312e81\"}}} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A card with its own light background.\",\"name\":\"Farah Haddad\",\"role\":\"Head of Sales\",\"rating\":4,\"style\":{\"color\":{\"background\":\"#ecfeff\"}}} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Its own background and text colour.\",\"name\":\"Gabriel Rossi\",\"role\":\"Account Executive\",\"rating\":3,\"style\":{\"color\":{\"background\":\"#0f766e\",\"text\":\"#ffffff\"}}} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No colours of its own.\",\"name\":\"Hana Kobayashi\",\"role\":\"Frontend Engineer\",\"rating\":4} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "t-autoplay-fast",
+		"title": "Autoplay every 2 s, one in view, default quote icon (pops in view): no animation may start while it plays",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"carousel\",\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"contentAlign\":\"center\",\"cardStyle\":\"plain\",\"autoplay\":true,\"showArrows\":false,\"headerAlign\":\"center\",\"interval\":2} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			}
+		]
+	},
+	{
+		"id": "t-autoplay-loop-icon",
+		"title": "Autoplay every 2 s with a looping quote icon (pulse) and a drawn one would be: icons stay still while it plays",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"carousel\",\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"contentAlign\":\"center\",\"cardStyle\":\"bordered\",\"autoplay\":true,\"showArrows\":false,\"headerAlign\":\"center\",\"interval\":2,\"quoteIcon\":{\"name\":\"quote\",\"lib\":\"lucide\",\"anim\":\"pulse\",\"trigger\":\"loop\"}} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			}
+		]
+	},
+	{
+		"id": "t-no-controls",
+		"title": "Carousel with arrows, dots and autoplay all off: the arrows still show while slides are hidden",
+		"markup": "<!-- wp:werun-community/testimonials {\"showArrows\":false,\"showDots\":false,\"autoplay\":false,\"columnsDesktop\":2} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			}
+		]
+	},
+	{
+		"id": "t-edge",
+		"title": "Edge: two per row on phones with long words, a card without a name (photo keeps its alt), eyebrow without a title",
+		"markup": "<!-- wp:werun-community/testimonials {\"columnsMobile\":2,\"title\":\"\\u003cstrong\\u003e\\u003c/strong\\u003e\",\"eyebrow\":\"Kundenstimmen\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"Kommunikationsfähigkeit und Internationalisierungsstrategie: hervorragend.\",\"name\":\"Maximiliane Oberhauser-Wittgenstein\",\"role\":\"Geschäftsführerin, Donaudampfschifffahrtsgesellschaft\",\"rating\":5} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A card without a name, with a photo.\",\"name\":\"\",\"role\":\"\",\"rating\":4,\"avatarId\":{{img:person-3}},\"avatarUrl\":\"{{url:person-3}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Third.\",\"name\":\"Eve\",\"role\":\"Ops\",\"rating\":5} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			}
+		]
+	},
+	{
+		"id": "p3-t-align-full",
+		"title": "p3: carousel align full (Hello .alignfull: 100vw, overflow), shadow cards, header with intro, autoplay, controls on top",
+		"markup": "<!-- wp:werun-community/testimonials {\"align\":\"full\",\"cardStyle\":\"shadow\",\"showIntro\":true,\"intro\":\"Full width: the cards, their shadows and the focus ring must stay inside the window.\",\"autoplay\":true,\"controlsPosition\":\"top\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "p3-t-grid-full",
+		"title": "p3: grid align full, filled cards, 4 columns, centred",
+		"markup": "<!-- wp:werun-community/testimonials {\"align\":\"full\",\"layout\":\"grid\",\"cardStyle\":\"filled\",\"columnsDesktop\":4,\"columnsTablet\":2,\"columnsMobile\":1,\"contentAlign\":\"center\",\"headerAlign\":\"center\"} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "p3-t-mid-tone",
+		"title": "p3: mid-tone #6366f1 as card background (filled) and accent: black text, readable stars, link and ring on the card; dots",
+		"markup": "<!-- wp:werun-community/testimonials {\"cardStyle\":\"filled\",\"cardBg\":\"#6366f1\",\"accentColor\":\"#6366f1\",\"showEyebrow\":true} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "p3-t-dark-card",
+		"title": "p3: dark card #111827 (shadow style) in a 3-column grid, accent #6366f1, link in the role",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"shadow\",\"cardBg\":\"#111827\",\"accentColor\":\"#6366f1\",\"columnsDesktop\":3} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "p3-t-translucent-light",
+		"title": "p3: translucent white card rgba(255,255,255,.12) (bordered): a light tint on the dark section, invisible on white",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"bordered\",\"cardBg\":\"rgba(255,255,255,0.12)\",\"cardBorderColor\":\"rgba(255,255,255,0.3)\",\"columnsDesktop\":2} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on their card"
+			}
+		]
+	},
+	{
+		"id": "p3-t-translucent-dark",
+		"title": "p3: translucent ink card rgba(15,23,42,.08) (filled carousel), stars and dots",
+		"markup": "<!-- wp:werun-community/testimonials {\"cardStyle\":\"filled\",\"cardBg\":\"rgba(15,23,42,0.08)\",\"columnsDesktop\":2} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "p3-t-minimal",
+		"title": "p3: minimal content: a quote only (no name, role, photo, stars), an empty quote with a name, no stars / role shown, H4 title",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"grid\",\"cardStyle\":\"bordered\",\"showRating\":false,\"showRole\":false,\"titleLevel\":4,\"headerAlign\":\"right\",\"columnsDesktop\":3} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"Only a quote.\",\"name\":\"\",\"role\":\"\",\"rating\":0} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"\",\"name\":\"Name only\",\"role\":\"Role (hidden)\",\"rating\":5} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- /wp:werun-community/testimonials -->"
+	},
+	{
+		"id": "p3-t-single",
+		"title": "p3: a carousel with a single card: no controls, no track Tab stop, still a named carousel",
+		"markup": "<!-- wp:werun-community/testimonials {} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- /wp:werun-community/testimonials -->"
+	},
+	{
+		"id": "p3-t-two-untitled",
+		"title": "p3: two untitled carousels on one page (unique ids, landmark names)",
+		"markup": "<!-- wp:werun-community/testimonials {\"showHeader\":false} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->\n<!-- wp:werun-community/testimonials {\"showHeader\":false,\"cardStyle\":\"filled\",\"columnsDesktop\":2} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"They rebuilt our site in six weeks and our \\u003cstrong\\u003eleads doubled\\u003c/strong\\u003e. Communication was excellent throughout.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"CTO, Contoso\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"No stars on this one.\",\"name\":\"Dana Okafor\",\"role\":\"Product Designer, Fabrikam\",\"rating\":0,\"avatarId\":{{img:person-4}},\"avatarUrl\":\"{{url:person-4}}\"} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	},
+	{
+		"id": "p3-t-long-spotlight",
+		"title": "p3: spotlight with a very long quote and a long role, filled, autoplay without hover pause, loop off, controls top",
+		"markup": "<!-- wp:werun-community/testimonials {\"layout\":\"carousel\",\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"contentAlign\":\"center\",\"cardStyle\":\"filled\",\"autoplay\":true,\"showArrows\":false,\"headerAlign\":\"center\",\"pauseOnHover\":false,\"loop\":false,\"controlsPosition\":\"top\",\"interval\":3} -->\n<!-- wp:werun-community/testimonial {\"quote\":\"Before we started, our site took eleven seconds to load on a phone and nobody on the team dared to touch it. Six weeks later it loads in under two, the editors publish on their own, and the support tickets about the website have stopped. What surprised us most was how much of the work was about our content and not the code: they rewrote the navigation with us, cut forty pages nobody visited, and taught us how to keep it that way.\",\"name\":\"Ana García\",\"role\":\"CEO, \\u003ca href=\\\"https://example.com/northwind\\\"\\u003eNorthwind\\u003c/a\\u003e\",\"rating\":4,\"avatarId\":{{img:person-1}},\"avatarUrl\":\"{{url:person-1}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"Short and sweet: on time, on budget.\",\"name\":\"Bruno Silva\",\"role\":\"Chief Technology Officer and co-founder, Contoso Pharmaceuticals International (Europe, Middle East and Africa)\",\"rating\":5,\"avatarUrl\":\"{{url:person-2}}\"} /-->\n<!-- wp:werun-community/testimonial {\"quote\":\"A longer quote so the cards have different heights: every card in a row stretches to the same height, and nothing is clipped when the visitor widens the text spacing.\",\"name\":\"Chen Wei\",\"role\":\"\",\"rating\":3,\"hideAvatar\":true} /-->\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			},
+			{
+				"selector": ".wrbc-carousel__btn",
+				"property": "color",
+				"min": 3,
+				"label": "arrow / pause icon"
+			}
+		]
+	},
+	{
+		"id": "p3-t-query-filled-auto",
+		"title": "p3: from a post type: spotlight (one at a time, autoplay), filled cards, stars, centred",
+		"markup": "<!-- wp:werun-community/testimonials {\"source\":\"query\",\"query\":{\"postType\":\"testimonial_cpt\",\"mode\":\"query\",\"orderBy\":\"date\",\"order\":\"DESC\",\"perPage\":4,\"excludeCurrent\":true},\"map\":{\"quote\":\"excerpt\",\"name\":\"title\",\"role\":\"meta:testimonial_role\",\"avatar\":\"featured\",\"rating\":\"meta:testimonial_rating\",\"words\":30},\"layout\":\"carousel\",\"columnsDesktop\":1,\"columnsTablet\":1,\"columnsMobile\":1,\"contentAlign\":\"center\",\"cardStyle\":\"filled\",\"autoplay\":true,\"showArrows\":false,\"headerAlign\":\"center\"} -->\n\n<!-- /wp:werun-community/testimonials -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-testimonials__item:first-child .wrbc-testi__star",
+				"property": "color",
+				"min": 3,
+				"label": "rating stars on the first slide"
+			},
+			{
+				"selector": ".wrbc-carousel__dot:not([aria-current=\"true\"])",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "inactive dot"
+			},
+			{
+				"selector": ".wrbc-carousel__dot[aria-current=\"true\"]",
+				"pseudo": "::before",
+				"property": "background-color",
+				"min": 3,
+				"label": "current dot"
+			}
+		]
+	}
+]

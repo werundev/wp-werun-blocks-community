@@ -1,0 +1,221 @@
+[
+	{
+		"id": "stats-row",
+		"title": "Stats: counter row (variation defaults: 4 numbers, separators, centred)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-cards",
+		"title": "Stats: cards (variation defaults: filled cards, left, 2.75 em numbers)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":false} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-icons",
+		"title": "Stats: with icons (variation defaults: icon in a circle, no separators)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":true,\"iconStyle\":\"circle\",\"iconSize\":24,\"separators\":false,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			}
+		]
+	},
+	{
+		"id": "stats-large",
+		"title": "Stats: large with description (variation defaults: 3 columns, rule above, descriptions)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"large\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":3,\"columnsTablet\":3,\"numberSize\":4.5,\"cardStyle\":\"filled\",\"showDescription\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-cards-filled",
+		"title": "Stats: filled cards + descriptions + header (H2)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":true,\"showHeader\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-cards-bordered",
+		"title": "Stats: bordered cards + descriptions",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"bordered\",\"showDescription\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-cards-shadow",
+		"title": "Stats: shadow cards (white) + descriptions — light cards in the dark context",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"shadow\",\"showDescription\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-icon-square",
+		"title": "Stats: icons in a square holder, separators on, label above",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":true,\"iconStyle\":\"square\",\"iconSize\":24,\"separators\":true,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false,\"labelPosition\":\"above\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			}
+		]
+	},
+	{
+		"id": "stats-icon-ring",
+		"title": "Stats: icons in a ring, cards (bordered), icon animation loop",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":true,\"iconStyle\":\"outline\",\"iconSize\":24,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"bordered\",\"showDescription\":false,\"itemIcon\":{\"name\":\"rocket\",\"lib\":\"lucide\",\"anim\":\"bounce\",\"trigger\":\"loop\"}} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--none.wrbc-stat__icon, .wrbc-icon-wrap--outline.wrbc-stat__icon",
+				"property": "color",
+				"min": 3,
+				"label": "icon"
+			}
+		]
+	},
+	{
+		"id": "stats-icon-plain",
+		"title": "Stats: plain icons (no holder), large layout",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"large\",\"showIcon\":true,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":3,\"columnsTablet\":3,\"numberSize\":4.5,\"cardStyle\":\"filled\",\"showDescription\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--none.wrbc-stat__icon, .wrbc-icon-wrap--outline.wrbc-stat__icon",
+				"property": "color",
+				"min": 3,
+				"label": "icon"
+			}
+		]
+	},
+	{
+		"id": "stats-full-cards",
+		"title": "Stats: full width (align full) cards with icons in circles, header and descriptions (Hello's .alignfull rules)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":true,\"iconStyle\":\"circle\",\"iconSize\":24,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":true,\"align\":\"full\",\"showHeader\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			}
+		]
+	},
+	{
+		"id": "stats-row-6-desc",
+		"title": "Stats: row with 6 stats (two rows of separators), descriptions, left, header H3 with eyebrow and intro",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":true,\"showHeader\":true,\"titleLevel\":3,\"headerAlign\":\"left\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- wp:werun-community/stat {\"number\":\"98%\",\"label\":\"Clients who stay\",\"description\":\"Renew their care plan after the first year.\"} /--><!-- wp:werun-community/stat {\"number\":\"35\",\"label\":\"People on the team\",\"description\":\"Designers, developers and strategists.\",\"hideDescription\":true} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-no-motion",
+		"title": "Stats: no count-up, no reveal, no separators, header H4",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":false,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false,\"animate\":false,\"reveal\":false,\"showHeader\":true,\"titleLevel\":4} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-phone-2col",
+		"title": "Stats: two columns on phones (cards, small padding) with long figures and long words",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":true,\"columnsMobile\":2,\"gap\":16,\"cardPadding\":20} --><!-- wp:werun-community/stat {\"number\":\"1.200.000+\",\"label\":\"Kundenzufriedenheitsbefragungen\",\"description\":\"Datenschutzgrundverordnungskonform ausgewertet.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4,500,000\",\"label\":\"Raised\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> over twelve months.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\"} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-accent-yellow",
+		"title": "Stats: custom light accent #facc15 (numbers, icons in a circle, eyebrow)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":true,\"iconStyle\":\"circle\",\"iconSize\":24,\"separators\":false,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false,\"accentColor\":\"#facc15\",\"showHeader\":true} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			}
+		]
+	},
+	{
+		"id": "stats-cardbg-dark",
+		"title": "Stats: dark card colour #1e293b on filled cards (text and accent follow the card)",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":true,\"cardBg\":\"#1e293b\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-cardbg-light",
+		"title": "Stats: light card colour #eef2ff + light accent #818cf8 on bordered cards with a custom border",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"bordered\",\"showDescription\":true,\"cardBg\":\"#eef2ff\",\"cardBorderColor\":\"#c7d2fe\",\"accentColor\":\"#818cf8\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-cardbg-translucent",
+		"title": "Stats: translucent card colour #ffffff14 (8 % white) on shadow cards",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"shadow\",\"showDescription\":true,\"cardBg\":\"#ffffff14\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->"
+	},
+	{
+		"id": "stats-custom-decor",
+		"title": "Stats: custom separator, icon and icon-background colours",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":true,\"iconStyle\":\"circle\",\"iconSize\":24,\"separators\":true,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false,\"separatorColor\":\"#94a3b8\",\"iconColor\":\"#ffffff\",\"iconBg\":\"#4f46e5\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			}
+		]
+	},
+	{
+		"id": "stats-icon-on-accent",
+		"title": "Stats: icon background = the accent (#4f46e5, square) with no icon colour: the icon is made readable on it",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":true,\"iconStyle\":\"square\",\"iconSize\":24,\"separators\":false,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false,\"iconBg\":\"#4f46e5\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			}
+		]
+	},
+	{
+		"id": "stats-icon-pale",
+		"title": "Stats: pale icon colour #e0e7ff without a holder, and #fde047 in circles on cards",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":true,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":false,\"iconColor\":\"#e0e7ff\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats --><!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":true,\"iconStyle\":\"circle\",\"iconSize\":24,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"shadow\",\"showDescription\":false,\"iconColor\":\"#fde047\"} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"nonText": [
+			{
+				"selector": ".wrbc-icon-wrap--circle.wrbc-stat__icon, .wrbc-icon-wrap--square.wrbc-stat__icon",
+				"property": "color",
+				"against": "self:background-color",
+				"min": 3,
+				"label": "icon on its holder"
+			},
+			{
+				"selector": ".wrbc-icon-wrap--none.wrbc-stat__icon, .wrbc-icon-wrap--outline.wrbc-stat__icon",
+				"property": "color",
+				"min": 3,
+				"label": "icon"
+			}
+		]
+	},
+	{
+		"id": "stats-own-dark-bg",
+		"title": "Stats: the block's own dark background (#0f172a) without a text colour",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"row\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"center\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":3,\"cardStyle\":\"filled\",\"showDescription\":true,\"showHeader\":true,\"style\":{\"color\":{\"background\":\"#0f172a\"}}} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"contexts": [
+			"light"
+		]
+	},
+	{
+		"id": "stats-own-light-bg",
+		"title": "Stats: the block's own light background (#f1f5f9) inside the dark context",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":true,\"style\":{\"color\":{\"background\":\"#f1f5f9\"}}} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"contexts": [
+			"dark"
+		]
+	},
+	{
+		"id": "stats-text-kept",
+		"title": "Stats: block text colour #fde68a kept on dark cards (#1e293b), dark context",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":true,\"cardBg\":\"#1e293b\",\"style\":{\"color\":{\"text\":\"#fde68a\"}}} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"description\":\"Sites, shops and platforms launched since 2016.\"} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"description\":\"In <a href=\\\"https://example.com/case\\\">funding rounds</a> we supported.\"} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"description\":\"Uptime, security and backups, every day.\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\",\"description\":\"Across 300 reviews on Google and Clutch.\",\"icon\":{\"name\":\"star\",\"lib\":\"lucide\",\"anim\":\"none\",\"trigger\":\"hover\"}} /--><!-- /wp:werun-community/stats -->",
+		"contexts": [
+			"dark"
+		]
+	},
+	{
+		"id": "stats-stat-own-colours",
+		"title": "Stats: one stat with its own background (#fef3c7) and one with its own dark background and text",
+		"markup": "<!-- wp:werun-community/stats {\"layout\":\"cards\",\"showIcon\":false,\"iconStyle\":\"none\",\"iconSize\":28,\"separators\":true,\"contentAlign\":\"left\",\"columnsDesktop\":4,\"columnsTablet\":2,\"numberSize\":2.75,\"cardStyle\":\"filled\",\"showDescription\":false} --><!-- wp:werun-community/stat {\"number\":\"1,200+\",\"label\":\"Projects delivered\",\"style\":{\"color\":{\"background\":\"#fef3c7\"}}} /--><!-- wp:werun-community/stat {\"number\":\"$4.5M\",\"label\":\"Raised for clients\",\"style\":{\"color\":{\"background\":\"#312e81\",\"text\":\"#ffffff\"}}} /--><!-- wp:werun-community/stat {\"number\":\"24/7\",\"label\":\"Monitoring\",\"noCount\":true} /--><!-- wp:werun-community/stat {\"number\":\"4.9\",\"label\":\"Average rating\"} /--><!-- /wp:werun-community/stats -->"
+	}
+]

@@ -1,0 +1,36 @@
+/* Accordion, editor only: an item is a plain box with an editable question. */
+.wrbc-acc-item .wrbc-acc-item__summary { cursor: default; }
+.wrbc-acc-item__toggle-btn {
+	display: inline-grid;
+	place-items: center;
+	padding: 4px;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: var(--wrbc-accent-text);
+	cursor: pointer;
+}
+.wrbc-acc-item__toggle-btn:hover { background: var(--wrbc-surface); }
+/* The shared focus ring (--wrbc-focus), 1 px off the button. */
+.wrbc-acc-item__toggle-btn { --wrbc-focus-offset: 1px; }
+.wrbc-accordion--icon-left .wrbc-acc-item__toggle-btn { order: -1; }
+.wrbc-acc-item__toggle-btn .wrbc-acc-item__toggle { display: inline-grid; }
+.wrbc-acc-item__details:not(.is-open) .wrbc-acc-item__panel { display: none; }
+
+/* Two columns: the editor has one list of blocks, so CSS columns, broken
+   after the item that ends the first column (the page splits the items at
+   the same place into two column wrappers: render.php). One column while
+   the appender shows. */
+@container (min-width: 880px) {
+	.wrbc-accordion__list:not(:has(> .block-list-appender)) {
+		display: block;
+		columns: var(--wrbc-acc-cols, 1);
+	}
+	/* Above the styles' own gap (Lines: 0), as on the page. */
+	.wrbc-accordion .wrbc-accordion__list:not(:has(> .block-list-appender)) { column-gap: calc(var(--wrbc-gap) * 2.5); }
+	.wrbc-accordion__list > .wrbc-acc-item { break-inside: avoid; margin-bottom: var(--wrbc-gap); }
+	.wrbc-accordion__list > .wrbc-acc-item--col-end { break-after: column; }
+	.wrbc-accordion--separated .wrbc-accordion__list > .wrbc-acc-item { margin-bottom: 0; }
+	.wrbc-accordion--separated .wrbc-accordion__list > .wrbc-acc-item--col-end + .wrbc-acc-item { border-top: 1px solid var(--wrbc-item-border, var(--wrbc-line)); }
+	.wrbc-accordion--minimal .wrbc-accordion__list > .wrbc-acc-item { margin-bottom: calc(var(--wrbc-gap) / 3); }
+}

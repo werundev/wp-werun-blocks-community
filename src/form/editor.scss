@@ -1,0 +1,27 @@
+/* Form block in the editor: a card instead of the live embed. */
+.wrbc-form-editor__card {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 20px;
+	border: 1px dashed color-mix(in srgb, currentColor 35%, transparent);
+	border-radius: 10px;
+	background: color-mix(in srgb, currentColor 4%, transparent);
+	--wrbc-icon-size: 28px;
+	> svg { color: var(--wrbc-accent); flex: 0 0 auto; }
+	p { margin: 0; }
+	&.is-incomplete { border-color: #d97706; }
+}
+.wrbc-form-editor__provider { font-weight: 600; }
+.wrbc-form-editor__name { font-size: 0.95em; word-break: break-all; }
+/* Amber mixed with the canvas text colour: 6.8:1 on a light canvas, 5.4:1 on a dark one (#b45309 alone: 3.2:1 there). */
+.wrbc-form-editor__status { margin-top: 4px !important; font-size: 0.85em; font-weight: 600; color: color-mix(in srgb, #b45309 70%, currentColor); }
+.wrbc-form-editor__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px !important; }
+.wrbc-form-editor__chips:empty { display: none; }
+.wrbc-form-editor__chip {
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: color-mix(in srgb, currentColor 10%, transparent);
+	font-size: 0.75em;
+}
+.wrbc-form-editor__help { margin: 4px 0 12px; color: #757575; font-size: 12px; }

@@ -1,0 +1,1030 @@
+/**
+ * werun.Blocks.Community admin UI kit (werun-blocks-community-ui-*), the same as werun.Toolkit's.
+ * Dark canvas, pills for everything clickable, hairlines instead of shadows.
+ */
+
+/* WordPress admin integration ------------------------------------------- */
+
+body.werun-blocks-community-screen,
+body.werun-blocks-community-screen #wpwrap,
+body.werun-blocks-community-screen #wpcontent,
+body.werun-blocks-community-screen #wpbody,
+body.werun-blocks-community-screen #wpbody-content {
+	background: #0a0a0a;
+}
+
+body.werun-blocks-community-screen #wpcontent {
+	padding-left: 0;
+}
+
+body.werun-blocks-community-screen #wpbody-content {
+	padding-bottom: 0;
+}
+
+body.werun-blocks-community-screen #wpfooter {
+	display: none;
+}
+
+.werun-blocks-community-ui-sprite {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+/* Base ------------------------------------------------------------------- */
+
+.werun-blocks-community-app {
+	min-height: calc(100vh - 32px);
+	color: var(--wrbc-admin-body);
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.werun-blocks-community-app *,
+.werun-blocks-community-app *::before,
+.werun-blocks-community-app *::after {
+	box-sizing: border-box;
+}
+
+.werun-blocks-community-app a {
+	color: var(--wrbc-admin-accent);
+	text-decoration: none;
+	transition: color var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app a:hover {
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app a:focus,
+.werun-blocks-community-app button:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+.werun-blocks-community-app :focus-visible,
+.werun-blocks-community-app a:focus-visible,
+.werun-blocks-community-app button:focus-visible {
+	outline: 2px solid var(--wrbc-admin-accent);
+	outline-offset: 3px;
+}
+
+.werun-blocks-community-app p {
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.werun-blocks-community-app h1,
+.werun-blocks-community-app h2,
+.werun-blocks-community-app h3 {
+	margin: 0;
+	padding: 0;
+	color: var(--wrbc-admin-ink);
+	font-family: var(--wrbc-admin-f-body);
+	font-weight: 400;
+}
+
+.werun-blocks-community-app button {
+	font: inherit;
+}
+
+.werun-blocks-community-ui-icon {
+	display: inline-block;
+	flex-shrink: 0;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	vertical-align: -0.125em;
+}
+
+/* Layout ----------------------------------------------------------------- */
+
+.werun-blocks-community-ui-canvas {
+	min-height: inherit;
+	background-color: var(--wrbc-admin-canvas);
+	background-image:
+		linear-gradient(var(--wrbc-admin-grid-line) 1px, transparent 1px),
+		linear-gradient(90deg, var(--wrbc-admin-grid-line) 1px, transparent 1px);
+	background-size: var(--wrbc-admin-grid-size) var(--wrbc-admin-grid-size);
+}
+
+.werun-blocks-community-ui-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	max-width: var(--wrbc-admin-wrap);
+	margin: 0 auto;
+	padding: var(--wrbc-admin-sp-3xl) var(--wrbc-admin-sp-2xl) var(--wrbc-admin-sp-4xl);
+}
+
+@media (max-width: 782px) {
+
+	.werun-blocks-community-ui-wrap {
+		gap: var(--wrbc-admin-sp-2xl);
+		padding: var(--wrbc-admin-sp-2xl) var(--wrbc-admin-sp-lg) var(--wrbc-admin-sp-3xl);
+	}
+}
+
+.werun-blocks-community-app .wp-header-end {
+	display: none;
+}
+
+/* Type ------------------------------------------------------------------- */
+
+.werun-blocks-community-app .werun-blocks-community-ui-display {
+	color: var(--wrbc-admin-ink);
+	font-size: 48px;
+	letter-spacing: -1.2px;
+	line-height: 52px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-display-accent {
+	color: var(--wrbc-admin-accent);
+}
+
+@media (max-width: 600px) {
+
+	.werun-blocks-community-app .werun-blocks-community-ui-display {
+		font-size: 36px;
+		letter-spacing: -0.8px;
+		line-height: 40px;
+	}
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-lead {
+	color: var(--wrbc-admin-body);
+	font-size: 18px;
+	line-height: 28px;
+	text-wrap: pretty;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-eyebrow {
+	color: var(--wrbc-admin-ink);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 14px;
+	letter-spacing: 1.4px;
+	line-height: 20px;
+	text-transform: uppercase;
+}
+
+.werun-blocks-community-ui-mono {
+	color: var(--wrbc-admin-mute);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 12px;
+	letter-spacing: 1.2px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+
+/* Badge ------------------------------------------------------------------ */
+
+.werun-blocks-community-ui-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--wrbc-admin-sp-sm);
+	width: fit-content;
+	padding: 4px 12px;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: transparent;
+	color: var(--wrbc-admin-body);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 12px;
+	letter-spacing: 1.2px;
+	line-height: 16px;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+a.werun-blocks-community-ui-badge {
+	color: var(--wrbc-admin-body);
+}
+
+a.werun-blocks-community-ui-badge:hover {
+	border-color: var(--wrbc-admin-ink);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-ui-badge-dot {
+	flex-shrink: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--wrbc-admin-mute);
+}
+
+.werun-blocks-community-ui-badge-good .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-accent);
+	animation: werun-blocks-community-pulse-indicator 2.4s ease-in-out infinite;
+}
+
+.werun-blocks-community-ui-badge-good {
+	border-color: var(--wrbc-admin-accent-line);
+}
+
+.werun-blocks-community-ui-badge-warn .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-warn);
+}
+
+.werun-blocks-community-ui-badge-danger .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-danger);
+}
+
+/* Chip ------------------------------------------------------------------- */
+
+.werun-blocks-community-app .werun-blocks-community-ui-chip {
+	appearance: none;
+	padding: 8px 16px;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: transparent;
+	color: var(--wrbc-admin-body);
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 14px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: background-color var(--wrbc-admin-t-fast) ease, border-color var(--wrbc-admin-t-fast) ease, color var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-chip:hover {
+	border-color: var(--wrbc-admin-ink);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-chip[aria-pressed="true"] {
+	border-color: var(--wrbc-admin-accent-line);
+	background: var(--wrbc-admin-accent-dim);
+	color: var(--wrbc-admin-ink);
+}
+
+/* Button ----------------------------------------------------------------- */
+
+.werun-blocks-community-app .werun-blocks-community-ui-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--wrbc-admin-sp-sm);
+	min-height: 0;
+	margin: 0;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: transparent;
+	color: var(--wrbc-admin-ink);
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background-color var(--wrbc-admin-t-fast) ease, border-color var(--wrbc-admin-t-fast) ease, color var(--wrbc-admin-t-fast) ease, transform var(--wrbc-admin-t-fast) ease, box-shadow var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button .werun-blocks-community-ui-icon {
+	font-size: 0.9em;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-sm {
+	padding: 4px 12px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary {
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+	color: var(--wrbc-admin-on-accent);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary:hover {
+	box-shadow: var(--wrbc-admin-shadow-accent);
+	color: var(--wrbc-admin-on-accent);
+	transform: translateY(-1px);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-outline {
+	border-color: var(--wrbc-admin-hairline-translucent);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-outline:hover {
+	border-color: var(--wrbc-admin-ink);
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-ghost {
+	color: var(--wrbc-admin-body);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-ghost:hover {
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-danger {
+	border-color: var(--wrbc-admin-danger);
+	color: var(--wrbc-admin-danger);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-danger:hover {
+	background: var(--wrbc-admin-danger-dim);
+	color: var(--wrbc-admin-danger);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button[disabled],
+.werun-blocks-community-app .werun-blocks-community-ui-button[aria-disabled="true"] {
+	box-shadow: none;
+	cursor: not-allowed;
+	opacity: 0.4;
+	transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button[disabled]:hover {
+	background: transparent;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary[disabled]:hover {
+	background: var(--wrbc-admin-accent);
+}
+
+/* Switch (cards: button role=switch) ------------------------------------- */
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch {
+	position: relative;
+	flex-shrink: 0;
+	width: 44px;
+	height: 24px;
+	padding: 0;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: transparent;
+	cursor: pointer;
+	transition: background-color var(--wrbc-admin-t-med) var(--wrbc-admin-ease), border-color var(--wrbc-admin-t-med) var(--wrbc-admin-ease);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch:hover {
+	border-color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-ui-switch-knob {
+	display: grid;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 18px;
+	height: 18px;
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: var(--wrbc-admin-mute);
+	color: var(--wrbc-admin-canvas);
+	font-size: 10px;
+	place-items: center;
+	transition: transform var(--wrbc-admin-t-med) var(--wrbc-admin-ease), background-color var(--wrbc-admin-t-med) var(--wrbc-admin-ease);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch[aria-checked="true"] {
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch[aria-checked="true"] .werun-blocks-community-ui-switch-knob {
+	background: var(--wrbc-admin-canvas);
+	color: var(--wrbc-admin-accent);
+	transform: translateX(20px);
+}
+
+.werun-blocks-community-ui-switch-spinner {
+	display: none;
+	width: 10px;
+	height: 10px;
+	animation: werun-blocks-community-spin 0.8s linear infinite;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch[aria-busy="true"] {
+	cursor: progress;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch[aria-busy="true"] .werun-blocks-community-ui-switch-spinner {
+	display: block;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch[aria-disabled="true"] {
+	cursor: not-allowed;
+	opacity: 0.4;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch[aria-disabled="true"]:hover {
+	border-color: var(--wrbc-admin-hairline-translucent);
+}
+
+/* Card ------------------------------------------------------------------- */
+
+.werun-blocks-community-ui-card {
+	padding: var(--wrbc-admin-sp-xl);
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas-card);
+}
+
+/* Form fields ------------------------------------------------------------ */
+
+.werun-blocks-community-ui-field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wrbc-admin-sp-sm);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-label {
+	display: block;
+	margin: 0;
+	padding: 0;
+	color: var(--wrbc-admin-mute);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 12px;
+	letter-spacing: 1.2px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input,
+.werun-blocks-community-app .werun-blocks-community-ui-select,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea {
+	width: 100%;
+	max-width: none;
+	min-height: 48px;
+	margin: 0;
+	padding: 12px 16px;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas-soft);
+	box-shadow: none;
+	color: var(--wrbc-admin-ink);
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 16px;
+	line-height: 24px;
+	transition: border-color var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input::placeholder,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea::placeholder {
+	color: var(--wrbc-admin-mute);
+	opacity: 1;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input:focus,
+.werun-blocks-community-app .werun-blocks-community-ui-select:focus,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea:focus {
+	border-color: var(--wrbc-admin-accent-line);
+	box-shadow: none;
+	outline: 2px solid var(--wrbc-admin-accent);
+	outline-offset: 2px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input[readonly] {
+	color: var(--wrbc-admin-mute);
+	cursor: default;
+}
+
+.werun-blocks-community-ui-select-wrap {
+	position: relative;
+}
+
+.werun-blocks-community-ui-select-wrap::after {
+	position: absolute;
+	top: 50%;
+	right: 18px;
+	width: 8px;
+	height: 8px;
+	border-right: 1px solid var(--wrbc-admin-mute);
+	border-bottom: 1px solid var(--wrbc-admin-mute);
+	content: "";
+	pointer-events: none;
+	transform: translateY(-70%) rotate(45deg);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select {
+	padding-right: 44px;
+	background-image: none;
+	appearance: none;
+	cursor: pointer;
+}
+
+/* Beats .wp-core-ui select:hover/:focus/:active (0,2,1), which paint #1e1e1e text on the dark field. */
+.werun-blocks-community-app .werun-blocks-community-ui-select:hover,
+.werun-blocks-community-app .werun-blocks-community-ui-select:active {
+	border-color: var(--wrbc-admin-hairline-translucent);
+	box-shadow: none;
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select:focus {
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select:-moz-focusring {
+	color: var(--wrbc-admin-ink);
+	text-shadow: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select option {
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-ui-input-group {
+	display: flex;
+	align-items: stretch;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input-group .werun-blocks-community-ui-input {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.werun-blocks-community-ui-input-suffix {
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-left: 0;
+	border-radius: 0 var(--wrbc-admin-radius) var(--wrbc-admin-radius) 0;
+	background: var(--wrbc-admin-canvas);
+	color: var(--wrbc-admin-mute);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 12px;
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-hint {
+	color: var(--wrbc-admin-mute);
+	font-size: 14px;
+	line-height: 20px;
+	text-wrap: pretty;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-fieldset legend {
+	margin-bottom: var(--wrbc-admin-sp-sm);
+}
+
+.werun-blocks-community-ui-checks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wrbc-admin-sp-sm);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-check {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+	gap: var(--wrbc-admin-sp-sm);
+	padding: 8px 16px 8px 12px;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: var(--wrbc-admin-radius-pill);
+	color: var(--wrbc-admin-body);
+	font-size: 14px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: border-color var(--wrbc-admin-t-fast) ease, background-color var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-check:hover {
+	border-color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-check-input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+	opacity: 0;
+}
+
+.werun-blocks-community-ui-check-box {
+	display: grid;
+	width: 16px;
+	height: 16px;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: 4px;
+	place-items: center;
+}
+
+.werun-blocks-community-ui-check-box::after {
+	width: 8px;
+	height: 4px;
+	border-bottom: 2px solid var(--wrbc-admin-on-accent);
+	border-left: 2px solid var(--wrbc-admin-on-accent);
+	content: "";
+	opacity: 0;
+	transform: translateY(-1px) rotate(-45deg);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-check:has(.werun-blocks-community-ui-check-input:checked) {
+	border-color: var(--wrbc-admin-accent-line);
+	background: var(--wrbc-admin-accent-dim);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-ui-check-input:checked + .werun-blocks-community-ui-check-box {
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-ui-check-input:checked + .werun-blocks-community-ui-check-box::after {
+	opacity: 1;
+}
+
+.werun-blocks-community-ui-check-input:focus-visible + .werun-blocks-community-ui-check-box {
+	outline: 2px solid var(--wrbc-admin-accent);
+	outline-offset: 3px;
+}
+
+/* Form switch (checkbox role=switch) */
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-row {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wrbc-admin-sp-lg);
+	cursor: pointer;
+}
+
+.werun-blocks-community-ui-switch-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.werun-blocks-community-ui-switch-label {
+	color: var(--wrbc-admin-ink);
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-input {
+	position: absolute;
+	right: 0;
+	width: 44px;
+	height: 24px;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.werun-blocks-community-ui-switch-track {
+	position: relative;
+	flex-shrink: 0;
+	width: 44px;
+	height: 24px;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: var(--wrbc-admin-radius-pill);
+	transition: background-color var(--wrbc-admin-t-med) var(--wrbc-admin-ease), border-color var(--wrbc-admin-t-med) var(--wrbc-admin-ease);
+}
+
+.werun-blocks-community-ui-switch-thumb {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 18px;
+	height: 18px;
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: var(--wrbc-admin-mute);
+	transition: transform var(--wrbc-admin-t-med) var(--wrbc-admin-ease), background-color var(--wrbc-admin-t-med) var(--wrbc-admin-ease);
+}
+
+.werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track {
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track .werun-blocks-community-ui-switch-thumb {
+	background: var(--wrbc-admin-canvas);
+	transform: translateX(20px);
+}
+
+.werun-blocks-community-ui-switch-input:focus-visible + .werun-blocks-community-ui-switch-track {
+	outline: 2px solid var(--wrbc-admin-accent);
+	outline-offset: 3px;
+}
+
+/* Notice banner ---------------------------------------------------------- */
+
+.werun-blocks-community-ui-notice {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wrbc-admin-sp-md);
+	padding: var(--wrbc-admin-sp-md) var(--wrbc-admin-sp-lg);
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas-card);
+	color: var(--wrbc-admin-body);
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.werun-blocks-community-ui-notice .werun-blocks-community-ui-icon {
+	margin-top: 2px;
+}
+
+.werun-blocks-community-ui-notice-good .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-ui-notice-warn {
+	border-color: rgba(250, 173, 20, 0.3);
+}
+
+.werun-blocks-community-ui-notice-warn .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-warn);
+}
+
+.werun-blocks-community-ui-notice-danger {
+	border-color: rgba(255, 77, 79, 0.3);
+}
+
+.werun-blocks-community-ui-notice-danger .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-danger);
+}
+
+/* Other plugins' admin notices on our screens */
+.werun-blocks-community-app .notice,
+.werun-blocks-community-app div.updated,
+.werun-blocks-community-app div.error {
+	margin: 0;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-left-width: 4px;
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: none;
+	color: var(--wrbc-admin-body);
+}
+
+.werun-blocks-community-app .notice p {
+	color: var(--wrbc-admin-body);
+}
+
+/* Kbd -------------------------------------------------------------------- */
+
+.werun-blocks-community-app .werun-blocks-community-ui-kbd {
+	display: inline-flex;
+	align-items: center;
+	margin: 0;
+	padding: 1px 8px;
+	border: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: transparent;
+	color: var(--wrbc-admin-body);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 11px;
+	letter-spacing: 0.6px;
+	line-height: 14px;
+	white-space: nowrap;
+}
+
+/* Empty state ------------------------------------------------------------ */
+
+.werun-blocks-community-ui-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--wrbc-admin-sp-lg);
+	padding: var(--wrbc-admin-sp-3xl) var(--wrbc-admin-sp-xl);
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-body);
+	text-align: center;
+}
+
+.werun-blocks-community-ui-empty > .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-mute);
+	font-size: 24px;
+}
+
+.werun-blocks-community-ui-empty[hidden] {
+	display: none;
+}
+
+/* Modal ------------------------------------------------------------------ */
+
+.werun-blocks-community-ui-modal {
+	display: grid;
+	position: fixed;
+	z-index: 100100;
+	padding: var(--wrbc-admin-sp-xl);
+	background: rgba(10, 10, 10, 0.72);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	inset: 0;
+	place-items: center;
+}
+
+.werun-blocks-community-ui-modal[hidden] {
+	display: none;
+}
+
+.werun-blocks-community-ui-modal-panel {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wrbc-admin-sp-xl);
+	width: 100%;
+	max-width: 560px;
+	max-height: calc(100vh - 48px);
+	padding: var(--wrbc-admin-sp-xl);
+	overflow: auto;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas);
+	box-shadow: var(--wrbc-admin-shadow-overlay);
+}
+
+.werun-blocks-community-ui-modal-head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--wrbc-admin-sp-lg);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-modal-title {
+	color: var(--wrbc-admin-ink);
+	font-size: 20px;
+	line-height: 28px;
+	text-wrap: pretty;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-icon-button {
+	display: grid;
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: var(--wrbc-admin-radius-pill);
+	background: transparent;
+	color: var(--wrbc-admin-mute);
+	cursor: pointer;
+	place-items: center;
+	transition: background-color var(--wrbc-admin-t-fast) ease, color var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-icon-button:hover {
+	background: var(--wrbc-admin-canvas-mid);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-ui-modal-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: var(--wrbc-admin-sp-sm);
+}
+
+/* Toast ------------------------------------------------------------------ */
+
+.werun-blocks-community-ui-toasts {
+	display: flex;
+	position: fixed;
+	z-index: 100050;
+	right: 24px;
+	bottom: 24px;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: var(--wrbc-admin-sp-sm);
+	max-width: calc(100vw - 48px);
+	pointer-events: none;
+}
+
+.werun-blocks-community-ui-toast {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wrbc-admin-sp-md);
+	max-width: 420px;
+	padding: var(--wrbc-admin-sp-md) var(--wrbc-admin-sp-lg);
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	background: var(--wrbc-admin-canvas);
+	box-shadow: var(--wrbc-admin-shadow-overlay);
+	color: var(--wrbc-admin-body);
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 14px;
+	line-height: 20px;
+	pointer-events: auto;
+}
+
+.werun-blocks-community-ui-toast > .werun-blocks-community-ui-icon {
+	margin-top: 2px;
+}
+
+.werun-blocks-community-ui-toast-good > .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-ui-toast-error > .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-danger);
+}
+
+.werun-blocks-community-ui-toast-body {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 16px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-action {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--wrbc-admin-accent);
+	font-family: var(--wrbc-admin-f-mono);
+	font-size: 12px;
+	letter-spacing: 1.2px;
+	line-height: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-action:hover {
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-close {
+	flex-shrink: 0;
+	margin-left: auto;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--wrbc-admin-mute);
+	line-height: 1;
+	cursor: pointer;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-close:hover {
+	color: var(--wrbc-admin-ink);
+}
+
+/* Footer ----------------------------------------------------------------- */
+
+.werun-blocks-community-ui-footer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--wrbc-admin-sp-md);
+	padding-top: var(--wrbc-admin-sp-xl);
+	border-top: 1px solid var(--wrbc-admin-hairline);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-footer a {
+	color: var(--wrbc-admin-mute);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-footer a:hover {
+	color: var(--wrbc-admin-accent);
+}
+
+/* Breadcrumb ------------------------------------------------------------- */
+
+.werun-blocks-community-ui-breadcrumb ol {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wrbc-admin-sp-sm);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.werun-blocks-community-ui-breadcrumb li {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--wrbc-admin-sp-sm);
+	margin: 0;
+}
+
+.werun-blocks-community-ui-breadcrumb li + li::before {
+	color: var(--wrbc-admin-hairline-translucent);
+	content: "/";
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb a {
+	color: var(--wrbc-admin-mute);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb a:hover {
+	color: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-ui-breadcrumb [aria-current="page"] {
+	color: var(--wrbc-admin-body);
+}

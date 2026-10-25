@@ -1,0 +1,204 @@
+[
+	{
+		"id": "mt-image-left",
+		"title": "Variation image left (defaults + image with alt, real link)",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-image-right",
+		"title": "Variation image right",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"mediaPosition\":\"right\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-video-youtube",
+		"title": "Variation video: YouTube facade with poster and title, 16:9",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"video\",\"provider\":\"youtube\",\"videoId\":\"dQw4w9WgXcQ\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"alt\":\"Product tour\"},\"mediaRatio\":\"16/9\",\"buttonUrl\":\"{{home}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-media-text__play-icon .wrbc-icon",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "mt-square",
+		"title": "Variation square media",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration-square}},\"url\":\"{{url:illustration-square}}\",\"alt\":\"A dashboard with a bar chart\"},\"mediaRatio\":\"1/1\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-text-first-decorative",
+		"title": "Text first on phones, decorative image (empty alt)",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"\"},\"mobileOrder\":\"text-first\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-right-text-first-portrait",
+		"title": "Media right + text first, 3:4, top aligned",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"mediaPosition\":\"right\",\"mobileOrder\":\"text-first\",\"mediaRatio\":\"3/4\",\"verticalAlign\":\"start\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-vimeo-bare",
+		"title": "Vimeo without poster or title (named by the block title), media right",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"video\",\"provider\":\"vimeo\",\"videoId\":\"76979871\",\"url\":\"https://vimeo.com/76979871\",\"alt\":\"\"},\"mediaRatio\":\"16/9\",\"mediaPosition\":\"right\",\"buttonUrl\":\"{{home}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-media-text__play-icon .wrbc-icon",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "mt-file-captions-transcript",
+		"title": "Uploaded video with captions track, poster and transcript",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"video\",\"provider\":\"file\",\"id\":{{img:video}},\"url\":\"{{url:video}}\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"alt\":\"Test pattern\",\"captionsId\":{{img:captions}},\"captionsUrl\":\"{{url:captions}}\",\"transcript\":\"A colour test pattern moves across the screen.\\n\\nThere is no speech: the captions say so.\"},\"mediaRatio\":\"16/9\",\"buttonUrl\":\"{{home}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-media-text__play-icon .wrbc-icon",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "mt-btn-outline-rounded",
+		"title": "Outline button, rounded",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"buttonStyle\":\"outline\",\"buttonShape\":\"rounded\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-btn-link-newtab-noicon",
+		"title": "Text-link button, new tab, no icon",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"buttonStyle\":\"link\",\"buttonNewTab\":true,\"buttonIcon\":{},\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-btn-square-solid",
+		"title": "Solid square button, new tab",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"buttonShape\":\"square\",\"buttonNewTab\":true,\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-no-link",
+		"title": "Default button URL (#): the label prints as text",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->"
+	},
+	{
+		"id": "mt-no-media",
+		"title": "No media: text only (readable measure)",
+		"markup": "<!-- wp:werun-community/media-text {\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-only-media",
+		"title": "Only the image (no title, text, checklist or button)",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"title\":\"\",\"text\":\"\",\"showPoints\":false,\"showButton\":false} /-->"
+	},
+	{
+		"id": "mt-h3-bottom",
+		"title": "H3, bottom aligned, no checklist",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"titleLevel\":3,\"verticalAlign\":\"end\",\"showPoints\":false,\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-h4-3by2-noreveal",
+		"title": "H4, 3:2, no reveal",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"titleLevel\":4,\"mediaRatio\":\"3/2\",\"reveal\":false,\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-loop-icons",
+		"title": "Checklist icons on a loop (stops after 3 rounds)",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"pointsIcon\":{\"name\":\"circle-check\",\"lib\":\"lucide\",\"anim\":\"pulse\",\"trigger\":\"loop\"},\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-long-words",
+		"title": "Long words in title, text, checklist and button (reflow)",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"title\":\"Kundenzufriedenheitsanalysewerkzeuge für Unternehmensentwicklungsabteilungen\",\"text\":\"See https://example.com/a/really/long/path/that/does/not/break/anywhere/at/all/because/it/is/one/word\",\"points\":[{\"text\":\"Kundenzufriedenheitsanalysewerkzeuge für Unternehmensentwicklungsabteilungen\"}],\"buttonLabel\":\"Unternehmensentwicklungsabteilungen\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-accent-light",
+		"title": "Extreme: light accent (amber) on the solid button and checklist",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"accentColor\":\"luminous-vivid-amber\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-accent-light-link",
+		"title": "Extreme: light accent (amber) as a text link",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"accentColor\":\"luminous-vivid-amber\",\"buttonStyle\":\"link\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-accent-light-video",
+		"title": "Extreme: light accent (pale cyan) on the play badge",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"video\",\"provider\":\"youtube\",\"videoId\":\"dQw4w9WgXcQ\",\"url\":\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\",\"posterId\":{{img:video-poster}},\"posterUrl\":\"{{url:video-poster}}\",\"alt\":\"Product tour\"},\"mediaRatio\":\"16/9\",\"accentColor\":\"pale-cyan-blue\",\"buttonUrl\":\"{{home}}\"} /-->",
+		"nonText": [
+			{
+				"selector": ".wrbc-media-text__play-icon .wrbc-icon",
+				"property": "fill",
+				"min": 3,
+				"label": "play icon on its badge"
+			}
+		]
+	},
+	{
+		"id": "mt-onaccent-bad-pick",
+		"title": "Extreme: white chosen as text on a pale cyan accent (adjusted)",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"accentColor\":\"pale-cyan-blue\",\"onAccentColor\":\"white\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-own-dark",
+		"title": "Extreme: own black background, no text colour",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"backgroundColor\":\"black\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-own-dark-text-outline",
+		"title": "Own black background, white text, outline button",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"backgroundColor\":\"black\",\"textColor\":\"white\",\"buttonStyle\":\"outline\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-own-light",
+		"title": "Extreme: own light background (pale cyan), no text colour",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"backgroundColor\":\"pale-cyan-blue\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-own-mid",
+		"title": "Extreme: own mid-tone background (vivid cyan blue), no text colour",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"backgroundColor\":\"vivid-cyan-blue\",\"buttonStyle\":\"link\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "mt-own-purple-white",
+		"title": "Own vivid purple background, white text, text-link button",
+		"markup": "<!-- wp:werun-community/media-text {\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"},\"backgroundColor\":\"vivid-purple\",\"textColor\":\"white\",\"buttonStyle\":\"link\",\"buttonUrl\":\"{{home}}\"} /-->"
+	},
+	{
+		"id": "p3-mt-align-full",
+		"title": "Align full (Hello: .alignfull img { width: 100% }), image right",
+		"markup": "<!-- wp:werun-community/media-text {\"align\":\"full\",\"mediaPosition\":\"right\",\"buttonUrl\":\"/more/\",\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->"
+	},
+	{
+		"id": "p3-mt-align-none",
+		"title": "No alignment (content width), square, outline button, no link (text)",
+		"markup": "<!-- wp:werun-community/media-text {\"align\":\"\",\"mediaRatio\":\"1/1\",\"buttonStyle\":\"outline\",\"media\":{\"type\":\"image\",\"id\":{{img:illustration-square}},\"url\":\"{{url:illustration-square}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->"
+	},
+	{
+		"id": "p3-mt-minimal",
+		"title": "Title and image only (empty text, no checklist, no button)",
+		"markup": "<!-- wp:werun-community/media-text {\"text\":\"\",\"showPoints\":false,\"showButton\":false,\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->"
+	},
+	{
+		"id": "p3-mt-file-plain",
+		"title": "Uploaded video without captions, transcript, poster or title (named by the block title), text first",
+		"markup": "<!-- wp:werun-community/media-text {\"mobileOrder\":\"text-first\",\"buttonUrl\":\"/more/\",\"media\":{\"type\":\"video\",\"provider\":\"file\",\"id\":{{img:video}},\"url\":\"{{url:video}}\"}} /-->"
+	},
+	{
+		"id": "p3-mt-video-own-dark",
+		"title": "YouTube on an own black background (palette), text-link button, no text colour",
+		"markup": "<!-- wp:werun-community/media-text {\"backgroundColor\":\"black\",\"buttonStyle\":\"link\",\"buttonUrl\":\"/more/\",\"media\":{\"type\":\"video\",\"provider\":\"youtube\",\"videoId\":\"dQw4w9WgXcQ\",\"posterId\":{{img:case-img-1}},\"posterUrl\":\"{{url:case-img-1}}\",\"alt\":\"Product tour\",\"transcript\":\"Line one of the transcript.\\n\\nA second paragraph.\"}} /-->"
+	},
+	{
+		"id": "p3-mt-accent-purple-link",
+		"title": "Vivid purple accent as text link and checklist icons (accent text lightened in the dark)",
+		"markup": "<!-- wp:werun-community/media-text {\"accentColor\":\"vivid-purple\",\"buttonStyle\":\"link\",\"buttonUrl\":\"/more/\",\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->"
+	},
+	{
+		"id": "p3-mt-two",
+		"title": "Two blocks on one page (unique ids), the second with media right and text first",
+		"markup": "<!-- wp:werun-community/media-text {\"buttonUrl\":\"/more/\",\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->\n<!-- wp:werun-community/media-text {\"buttonUrl\":\"/more/\",\"mediaPosition\":\"right\",\"mobileOrder\":\"text-first\",\"title\":\"A second media and text\",\"media\":{\"type\":\"image\",\"id\":{{img:illustration}},\"url\":\"{{url:illustration}}\",\"alt\":\"A dashboard with a bar chart\"}} /-->"
+	}
+]

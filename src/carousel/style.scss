@@ -1,0 +1,208 @@
+/* Carousel and its slides. A scroll-snap track (wrbc-carousel contract);
+   slides per view follow the block's width (container queries). Sizes in em. */
+.wrbc-carousel {
+	container-type: inline-size;
+	--wrbc-slide-pad: 2.5em;
+	--wrbc-peek: 0px;
+}
+
+/* ── Track ────────────────────────────────────────────────────────────────
+ * Slide width: the row minus the gaps and the peek, shared by the slides in
+ * view. Rows are at least the minimum height; a slide stretches to its row,
+ * so ratio, minimum height and content all hold: the tallest wins.
+ * On a narrow block (a phone, 320 px) the peek and the gap give way: the
+ * module's --wrbc-track-peek / --wrbc-track-gap (assets/modules.css) are
+ * capped against the row, so the slides in view keep room for their text
+ * (WCAG 1.4.10): a 240 px peek on a phone would leave an 80 px slide. */
+.wrbc-carousel .wrbc-carousel__track {
+	--wrbc-pv: var(--wrbc-pv-m, 1);
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: calc((100% - (var(--wrbc-pv) - 1) * var(--wrbc-track-gap, var(--wrbc-gap)) - var(--wrbc-track-peek, var(--wrbc-peek))) / var(--wrbc-pv));
+	grid-auto-rows: minmax(var(--wrbc-slide-min-h, 0px), auto);
+	align-items: stretch;
+	gap: var(--wrbc-track-gap, var(--wrbc-gap));
+	margin: 0;
+	padding: 6px 0; // room for the shadow style, never wider than the block
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+.wrbc-carousel .wrbc-carousel__track::-webkit-scrollbar { display: none; }
+/* The track's own ring (when it is a Tab stop) is drawn inside it: a track
+   as wide as the window (align full, where themes hide the overflow) or
+   taller than it (scrolled to the top edge on focus) would hide a ring
+   drawn outside. Top and bottom it sits in the track's 6 px padding. The
+   offset is set only while the track itself has focus: custom properties
+   inherit, and the links and buttons in the slides keep their outside ring. */
+.wrbc-carousel .wrbc-carousel__track:focus-visible {
+	--wrbc-focus-offset: -2px;
+	outline: 2px solid var(--wrbc-focus);
+	outline-offset: var(--wrbc-focus-offset);
+	border-radius: var(--wrbc-radius);
+}
+@container (min-width: 600px) {
+	.wrbc-carousel .wrbc-carousel__track { --wrbc-pv: var(--wrbc-pv-t, 1); }
+}
+@container (min-width: 960px) {
+	.wrbc-carousel .wrbc-carousel__track { --wrbc-pv: var(--wrbc-pv-d, 1); }
+}
+
+/* ── A slide ──────────────────────────────────────────────────────────── */
+.wrbc-slide {
+	position: relative;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-self: stretch;
+	width: 100%; // the ratio follows the column width, never widens it
+	min-width: 0;
+	margin: 0;
+	// At most an eighth of the slide's width (percentages follow the column),
+	// so a big padding never squeezes the text of a narrow slide to nothing.
+	padding: min(var(--wrbc-slide-pad), 12.5%);
+	aspect-ratio: var(--wrbc-ratio, auto);
+	border-radius: var(--wrbc-radius);
+	scroll-snap-align: start;
+}
+.wrbc-carousel--valign-top .wrbc-slide { justify-content: flex-start; }
+.wrbc-carousel--valign-bottom .wrbc-slide { justify-content: flex-end; }
+
+.wrbc-carousel--bordered .wrbc-slide { border: 1px solid var(--wrbc-slide-border, var(--wrbc-line)); background-color: var(--wrbc-slide-bg, transparent); }
+.wrbc-carousel--filled .wrbc-slide { background-color: var(--wrbc-slide-bg, var(--wrbc-surface)); }
+.wrbc-carousel--shadow .wrbc-slide {
+	background-color: var(--wrbc-slide-bg, #fff);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 10px 28px -16px rgba(0, 0, 0, 0.24);
+}
+
+/* Background image and overlay, under the content. Not overflow:hidden on
+   the slide: content taller than the ratio must never be cut off. */
+.wrbc-slide__bg,
+.wrbc-slide__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border-radius: inherit;
+}
+.wrbc-slide__bg {
+	max-width: none;
+	object-fit: cover;
+	object-position: var(--wrbc-focal, 50% 50%);
+}
+.wrbc-slide__overlay {
+	background: var(--wrbc-overlay, #000);
+	opacity: var(--wrbc-overlay-o, 0.55);
+}
+/* The text colour over the photo and the slide's tone (wrbc-is-dark /
+   wrbc-is-light) come from slide/render.php, with --wrbc-accent-text made for
+   the overlay. Links there take that accent, underlined: the theme's link
+   colour is meant for the page, not for a darkened photo. A link colour
+   chosen on the slide or the carousel (wrbc-has-link-color) wins; buttons
+   keep their own colours. */
+.wrbc-carousel:not(.wrbc-has-link-color) .wrbc-slide.has-bg-image:not(.wrbc-has-link-color) a:where(:not([class*="wrbc-"], .wp-element-button, .wp-block-button__link)) {
+	color: var(--wrbc-accent-text);
+	text-decoration-line: underline;
+}
+
+.wrbc-slide__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	min-width: 0;
+}
+.wrbc-slide__content > * { margin-block: 0; }
+
+/* Controls (arrows, dots, play): drawn by assets/modules.css (wrbc-modules). */
+
+/* ── Thumbnails (view.js) ─────────────────────────────────────────────── */
+.wrbc-carousel__thumbs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5em;
+	margin-top: 1em;
+}
+.wrbc-carousel__thumbs--left { justify-content: flex-start; }
+/* They need view.js: until then they keep their space but don't show. */
+.wrbc-carousel:not(.has-thumbs-ready) .wrbc-carousel__thumbs { visibility: hidden; }
+/* The current slide's thumbnail has a border (aria-current); the others fade
+   their image, never the button: a slide-number thumbnail keeps its text at
+   full contrast (WCAG 1.4.3), and the state never rests on opacity alone. */
+.wrbc-carousel__thumb {
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto;
+	width: var(--wrbc-thumb-size, 4em);
+	height: var(--wrbc-thumb-size, 4em);
+	padding: 0;
+	overflow: hidden;
+	border: 2px solid transparent;
+	border-radius: calc(var(--wrbc-radius) * 0.5);
+	background: var(--wrbc-surface);
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+/* The accent as a mark on the carousel's background (3:1 at least: it's
+   printed readable at 4.5:1 for that background). */
+.wrbc-carousel__thumb[aria-current="true"] { border-color: var(--wrbc-accent-text); }
+.wrbc-carousel__thumb:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, 2px); }
+/* Theme guard: themes style button elements in stylesheets that print after
+   the blocks' (Hello Elementor: [type=button] gets width: auto, padding, a
+   pink border, nowrap, and a pink fill with white text on :hover / :focus).
+   The thumbnails restate their look at (0,3,0), their states at (0,4,0). */
+.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb {
+	display: grid;
+	width: var(--wrbc-thumb-size, 4em);
+	height: var(--wrbc-thumb-size, 4em);
+	padding: 0;
+	border: 2px solid transparent;
+	border-radius: calc(var(--wrbc-radius) * 0.5);
+	background: var(--wrbc-surface);
+	color: inherit;
+	font: inherit;
+	line-height: 1.2;
+	white-space: normal;
+	transition: none; // the state shows at once (and a theme's "all .3s" can't fade it)
+}
+.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb:hover,
+.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb:focus {
+	border-color: transparent;
+	background: var(--wrbc-surface);
+	color: inherit;
+}
+.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb[aria-current="true"],
+.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb[aria-current="true"]:hover,
+.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb[aria-current="true"]:focus { border-color: var(--wrbc-accent-text); }
+.wrbc-carousel__thumb-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	opacity: 0.6;
+	transition: opacity 0.2s ease;
+}
+.wrbc-carousel__thumb:hover .wrbc-carousel__thumb-img,
+.wrbc-carousel__thumb.is-visible .wrbc-carousel__thumb-img { opacity: 0.85; }
+.wrbc-carousel__thumb[aria-current="true"] .wrbc-carousel__thumb-img { opacity: 1; }
+.wrbc-carousel__thumb-num { font-size: 0.9em; font-weight: 600; }
+/* Windows contrast themes paint every border, the transparent ones too: only
+   the current thumbnail keeps one. */
+@media (forced-colors: active) {
+	.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb { border-color: Canvas; }
+	.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb[aria-current="true"] { border-color: Highlight; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-carousel .wrbc-carousel__track { scroll-behavior: auto; }
+	.wrbc-carousel__thumb,
+	.wrbc-root .wrbc-carousel__thumbs .wrbc-carousel__thumb,
+	.wrbc-carousel__thumb-img { transition: none; }
+}

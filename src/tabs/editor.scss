@@ -1,0 +1,7 @@
+/* Tabs, editor only: the add button and the panels of the tabs that aren't open. */
+.wrbc-tabs__body > .wrbc-tabs__add { align-self: flex-start; margin-top: -0.75em; }
+.wrbc-tabs--vertical > .wrbc-tabs__body > .wrbc-tabs__add { grid-column: 1; }
+.wrbc-tabs--accordion > .wrbc-tabs__body > .wrbc-tabs__add { order: 9999; }
+.wrbc-tabs__panels > .wrbc-tab.is-inactive { display: none; }
+.wrbc-tabs__list > .wrbc-tabs__tab .wrbc-tabs__label[contenteditable] { cursor: text; min-width: 2em; }
+.wrbc-tabs--vertical > .wrbc-tabs__body > .wrbc-tabs__panels { grid-column: 2; grid-row: 1 / span 2; }

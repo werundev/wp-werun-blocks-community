@@ -1,0 +1,440 @@
+/* Comparison table. Sizes in em so the block's font size scales everything. */
+:where(.wrbc-comparison) {
+	padding-block: clamp(48px, 7vw, 96px);
+	line-height: 1.45;
+}
+.wrbc-comparison {
+	/* Opaque backgrounds: sticky cells cover what scrolls under them. */
+	--wrbc-cmp-bg: var(--wrbc-table-bg, var(--wp--preset--color--base, #fff));
+	/* The header row and the featured column: the exact colours render.php
+	 * worked their text out for; the picked value or the mix as fallback. */
+	--wrbc-cmp-head: var(--wrbc-cmp-head-bg, var(--wrbc-head-bg, var(--wrbc-cmp-bg)));
+	--wrbc-cmp-feat: var(--wrbc-cmp-feat-bg, var(--wrbc-featured-bg, color-mix(in srgb, var(--wrbc-accent) 7%, var(--wrbc-cmp-bg))));
+	/* Stripes: the colour render.php worked them out for (a 4 % tint of the
+	 * text, or the one picked), so a cell that changes its own text colour
+	 * keeps that stripe; the mix is the fallback. */
+	--wrbc-cmp-alt: var(--wrbc-cmp-alt-bg, var(--wrbc-zebra, color-mix(in srgb, currentColor 4%, var(--wrbc-cmp-bg))));
+	/* The featured column on a stripe: a 5 % accent tint over it, or the
+	 * featured background picked (kept as it is, so its colours still read). */
+	--wrbc-cmp-feat-alt: var(--wrbc-cmp-feat-alt-bg, var(--wrbc-featured-bg, color-mix(in srgb, var(--wrbc-accent) 5%, var(--wrbc-cmp-alt))));
+	--wrbc-cmp-pad: 0.85em 1em;
+	/* Below the admin bar, and below its own offset or a sticky Notice bar,
+	 * whichever ends lower (the Notice's view.js sets --wrbc-notice-top-h to
+	 * where its bars end, their own offset included). */
+	--wrbc-cmp-sticky: calc(max(var(--wrbc-sticky-top, 0px), var(--wrbc-notice-top-h, 0px)) + var(--wp-admin--admin-bar--height, 0px));
+	container-type: inline-size;
+}
+.wrbc-comparison--compact { --wrbc-cmp-pad: 0.45em 0.75em; }
+/* A part of the table that paints its own background (render.php's
+ * wrbc_comparison_area()) with a text colour worked out for it. */
+.wrbc-comparison .has-cmp-ink { color: var(--wrbc-cmp-ink); }
+
+/* The billing switch (same pattern as the pricing table): a radio group drawn
+ * as a segmented control. Each radio covers its option (invisible, on top),
+ * so a click anywhere on the option picks it and the browser handles the
+ * keyboard; the option shows its state. */
+.wrbc-comparison__switch-wrap { display: flex; margin: 0 0 1.75em; }
+.wrbc-comparison__switch-wrap.is-center { justify-content: center; }
+.wrbc-comparison__switch {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	padding: 4px;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: var(--wrbc-surface);
+}
+.wrbc-comparison__choice {
+	position: relative;
+	display: inline-flex;
+	margin: 0;
+	/* Themes set label { line-height: 1 }. */
+	line-height: inherit;
+	cursor: pointer;
+}
+.wrbc-comparison__radio {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	appearance: none;
+	cursor: pointer;
+}
+.wrbc-comparison__option {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	min-height: 40px;
+	padding: 0.5em 1.1em;
+	/* Transparent until checked (forced-colours mode draws it on each option). */
+	border: 2px solid transparent;
+	border-radius: 999px;
+	font-size: 0.95em;
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.wrbc-comparison__radio:checked + .wrbc-comparison__option {
+	background: var(--wrbc-accent);
+	/* The checked state reads on any track (3:1): a ring in the readable
+	 * accent, the same colour as the fill wherever the fill already does. */
+	border-color: var(--wrbc-accent-text);
+	color: var(--wrbc-on-accent);
+}
+.wrbc-comparison__radio:focus-visible + .wrbc-comparison__option { outline: 2px solid var(--wrbc-focus); outline-offset: 2px; }
+.wrbc-comparison__save {
+	padding: 0.15em 0.6em;
+	border-radius: 999px;
+	/* A 14 % accent tint over the switch, as the exact colour render.php
+	 * worked the text out for. */
+	background: var(--wrbc-cmp-save-bg, color-mix(in srgb, var(--wrbc-accent) 14%, transparent));
+	color: var(--wrbc-cmp-save, var(--wrbc-accent-text));
+	font-size: 0.78em;
+	font-weight: 600;
+	white-space: nowrap;
+}
+/* On the checked option the note keeps the option's own pair (on-accent on
+ * the accent) inside a thin ring: a white tint behind white text left it at 4:1. */
+.wrbc-comparison__radio:checked + .wrbc-comparison__option .wrbc-comparison__save {
+	background: transparent;
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--wrbc-on-accent) 60%, transparent);
+	color: var(--wrbc-on-accent);
+}
+.wrbc-comparison[data-period="monthly"] .wrbc-comparison__amount--yearly,
+.wrbc-comparison[data-period="yearly"] .wrbc-comparison__amount--monthly { display: none; }
+/* Without JavaScript nothing flips data-period: the checked radio itself
+ * shows its prices (these selectors outweigh the data-period ones). */
+.wrbc-comparison:has(.wrbc-comparison__radio[value="monthly"]:checked) .wrbc-comparison__amount--monthly,
+.wrbc-comparison:has(.wrbc-comparison__radio[value="yearly"]:checked) .wrbc-comparison__amount--yearly { display: inline-flex; }
+.wrbc-comparison:has(.wrbc-comparison__radio[value="monthly"]:checked) .wrbc-comparison__amount--yearly,
+.wrbc-comparison:has(.wrbc-comparison__radio[value="yearly"]:checked) .wrbc-comparison__amount--monthly { display: none; }
+
+/* The table. No scroll box on wide screens, so the sticky header follows the
+ * window (any overflow other than visible would make the box the sticky
+ * reference instead). */
+.wrbc-comparison__scroll { position: relative; }
+/* Focused while it scrolls: the shared ring (assets/shared.css, which beats
+ * the theme's [tabindex] ring, 2 px wide, 2 px out) inside a 6 px halo of the
+ * block's own background instead of the theme's white one: the ring has that
+ * colour on both sides even where the scroll box meets the block's edge and
+ * the page around it is another colour. */
+.wrbc-root.wrbc-comparison .wrbc-comparison__scroll:focus-visible { box-shadow: 0 0 0 6px var(--wrbc-cmp-surface, transparent); }
+.wrbc-comparison__table {
+	width: 100%;
+	margin: 0;
+	table-layout: fixed;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-cmp-bg);
+	font-size: 1em;
+}
+.wrbc-comparison__caption {
+	margin-bottom: 0.75em;
+	caption-side: top;
+	color: var(--wrbc-muted);
+	font-size: 0.9em;
+	text-align: start;
+}
+.wrbc-comparison__col-label { width: var(--wrbc-label-col, 32%); }
+.wrbc-comparison__table :is(th, td) {
+	padding: var(--wrbc-cmp-pad);
+	border: 0;
+	border-bottom: 1px solid var(--wrbc-line);
+	vertical-align: middle;
+	text-align: center;
+	overflow-wrap: anywhere;
+}
+.wrbc-comparison__table :is(th, td):first-child { text-align: start; }
+.wrbc-comparison__table > :last-child > tr:last-child > :is(th, td) { border-bottom: 0; }
+.wrbc-comparison__table > :last-child > tr:last-child > :first-child { border-end-start-radius: var(--wrbc-radius); }
+.wrbc-comparison__table > :last-child > tr:last-child > :last-child { border-end-end-radius: var(--wrbc-radius); }
+/* Focus not hidden under the sticky header (WCAG 2.4.11): view.js measures it. */
+.wrbc-comparison.has-sticky-head :is(tbody, tfoot) :is(a, button) {
+	scroll-margin-top: calc(var(--wrbc-cmp-sticky) + var(--wrbc-cmp-head-h, 0px) + 8px);
+}
+
+/* Header row */
+.wrbc-comparison__table thead :is(th, td) {
+	background: var(--wrbc-cmp-head);
+	vertical-align: bottom;
+	border-bottom-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+.wrbc-comparison__table thead tr > :first-child { border-start-start-radius: var(--wrbc-radius); }
+.wrbc-comparison__table thead tr > :last-child { border-start-end-radius: var(--wrbc-radius); }
+.wrbc-comparison.has-sticky-head .wrbc-comparison__table thead :is(th, td) {
+	position: sticky;
+	top: var(--wrbc-cmp-sticky);
+	z-index: 2;
+}
+.wrbc-comparison__plan { font-weight: 400; }
+.wrbc-comparison__name {
+	display: block;
+	font-size: 1.1em;
+	font-weight: 600;
+	line-height: 1.3;
+}
+.wrbc-comparison__badge {
+	display: inline-block;
+	/* A narrow column (six plans, 400 % zoom, wider letter spacing) wraps
+	 * the text instead of pushing the badge out of its cell. */
+	max-width: 100%;
+	margin-bottom: 0.5em;
+	padding: calc(0.25em - 1px) calc(0.75em - 1px);
+	/* Transparent here; forced-colours mode draws it, so the badge keeps its shape. */
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+	font-size: 0.72em;
+	font-weight: 600;
+	line-height: 1.4;
+}
+.wrbc-comparison__details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6em;
+	margin-top: 0.6em;
+}
+
+/* Prices */
+.wrbc-comparison__price { margin: 0; line-height: 1.1; }
+.wrbc-comparison__amount {
+	display: inline-flex;
+	align-items: baseline;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.1em 0.25em;
+	animation: wrbc-cmp-price-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wrbc-comparison__currency { align-self: flex-start; font-size: 0.9em; }
+.wrbc-comparison__value {
+	font-size: 1.75em;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+}
+.wrbc-comparison__period { color: var(--wrbc-cmp-muted, var(--wrbc-muted)); font-size: 0.8em; }
+@keyframes wrbc-cmp-price-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Buttons: the block's link colour must not repaint them (rule 8). */
+.wrbc-comparison .wrbc-comparison__cta.wrbc-btn { min-height: 40px; padding: 0.55em 1.1em; font-size: 0.88em; }
+.wrbc-comparison .wrbc-comparison__cta.wrbc-btn:not(.wrbc-btn--outline) { color: var(--wrbc-on-accent); }
+.wrbc-comparison .wrbc-comparison__cta.wrbc-btn--outline { color: inherit; }
+/* A button without a URL is printed as text with the button's look (no fake link). */
+.wrbc-root .wrbc-comparison__cta.is-static { cursor: default; }
+.wrbc-root .wrbc-comparison__cta.wrbc-btn.is-static:hover { border-color: var(--wrbc-accent); background: var(--wrbc-accent); }
+.wrbc-root .wrbc-comparison__cta.wrbc-btn--outline.is-static:hover { border-color: var(--wrbc-control-line); background: transparent; }
+.wrbc-comparison__foot { vertical-align: top; }
+.wrbc-comparison__foot > * + * { margin-top: 0.6em; }
+.wrbc-comparison__foot .wrbc-comparison__cta { width: 100%; }
+
+/* Group headings */
+.wrbc-comparison__table .wrbc-comparison__group > th {
+	padding-top: 1.4em;
+	background: var(--wrbc-cmp-bg);
+	font-size: 0.78em;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-align: start;
+	text-transform: uppercase;
+	color: var(--wrbc-cmp-muted, var(--wrbc-muted));
+}
+.wrbc-comparison__group-label { position: sticky; inset-inline-start: 1em; }
+
+/* Feature rows */
+.wrbc-comparison__label { font-weight: 500; }
+.wrbc-comparison__label-row { display: inline-flex; align-items: center; gap: 0.35em; }
+.wrbc-comparison__desc {
+	display: block;
+	margin-top: 0.25em;
+	color: var(--wrbc-cmp-muted, var(--wrbc-muted));
+	font-size: 0.85em;
+	font-weight: 400;
+	line-height: 1.45;
+}
+.wrbc-comparison__desc[hidden] { display: none; }
+/* The info button. Themes style every button (Hello Elementor: a pink border
+ * and padding, then a pink fill with white text on [type=button]:hover and
+ * :focus, 0,2,0, printed after the blocks): its look is restated with the
+ * block root, (0,3,0) at rest and (0,4,0) for its states, so no theme
+ * repaints it, its icon or its focus ring. */
+.wrbc-root.wrbc-comparison .wrbc-comparison__tip {
+	display: inline-grid;
+	place-items: center;
+	flex: 0 0 auto;
+	width: 1.6em;
+	height: 1.6em;
+	/* 24 px at least, whatever the font size (WCAG 2.5.8). */
+	min-width: 24px;
+	min-height: 24px;
+	margin: -0.3em 0;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	box-shadow: none;
+	color: var(--wrbc-cmp-tip, var(--wrbc-cmp-muted, var(--wrbc-muted)));
+	/* A button doesn't inherit the font: 1.6em of the browser's 13.3 px was 21 px. */
+	font: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	transition: none;
+	--wrbc-icon-size: 1em;
+	--wrbc-focus-offset: 1px;
+}
+.wrbc-root.wrbc-comparison .wrbc-comparison__tip[hidden] { display: none; }
+.wrbc-root.wrbc-comparison .wrbc-comparison__tip:focus { background: transparent; color: var(--wrbc-cmp-tip, var(--wrbc-cmp-muted, var(--wrbc-muted))); }
+/* Open or hovered: the accent as an icon, with no tint behind it (the
+ * readable accent is worked out for the cell's own background). */
+.wrbc-root.wrbc-comparison .wrbc-comparison__tip:hover,
+.wrbc-root.wrbc-comparison .wrbc-comparison__tip[aria-expanded="true"] { background: transparent; color: var(--wrbc-accent-text); }
+.wrbc-root.wrbc-comparison .wrbc-comparison__tip:focus-visible {
+	outline: 2px solid var(--wrbc-focus);
+	outline-offset: var(--wrbc-focus-offset);
+	box-shadow: none;
+}
+
+/* Themes paint table rows (Hello Elementor: grey odd rows and a hover tint at
+ * 0,1,3, printed after the blocks), which the colours here aren't worked out
+ * for: the table paints its own, at (0,2,0) and up; stripes and the featured
+ * column come next. */
+.wrbc-comparison__table .wrbc-comparison__row > * { background-color: transparent; }
+.wrbc-comparison__row.is-alt > * { background: var(--wrbc-cmp-alt); }
+.wrbc-comparison__cell .wrbc-comparison__icon { display: inline-block; vertical-align: middle; }
+.wrbc-comparison__cell.is-check .wrbc-comparison__icon { color: var(--wrbc-accent-text); }
+.wrbc-comparison__cell.is-cross .wrbc-comparison__icon { color: var(--wrbc-cmp-muted, var(--wrbc-muted)); }
+/* Between the readable accent and the text: both read here, so the mix does. */
+.wrbc-comparison__cell.is-partial .wrbc-comparison__icon { color: color-mix(in srgb, var(--wrbc-accent-text) 60%, currentColor); }
+.wrbc-comparison__text { font-size: 0.95em; }
+.wrbc-comparison__cell.is-partial .wrbc-comparison__text { margin-inline-start: 0.35em; color: var(--wrbc-cmp-muted, var(--wrbc-muted)); }
+
+/* Featured column */
+.wrbc-comparison__table :is(th, td).is-featured { background: var(--wrbc-cmp-feat); }
+.wrbc-comparison__table thead th.is-featured { box-shadow: inset 0 3px 0 var(--wrbc-accent-text); }
+.wrbc-comparison__row.is-alt > .is-featured { background: var(--wrbc-cmp-feat-alt); }
+/* Tinted cells: muted text a fifth of the way closer to the text colour, so
+ * it keeps on the tint the 4.5:1 the shared token has on white. */
+.wrbc-comparison__table :is(th, td).is-featured,
+.wrbc-comparison__row.is-alt > *,
+.wrbc-comparison__card.is-featured {
+	--wrbc-cmp-muted: color-mix(in srgb, var(--wrbc-muted) 80%, currentColor);
+}
+/* A theme link colour can fall under 4.5:1 on the featured tint (Hello's
+ * #c36: 4.96:1 on white, 4.47:1 there): links there take the text colour, the
+ * underline (shared rule) still tells them apart. A link colour chosen in the
+ * block's Color panel is kept (wrbc-has-link-color, includes/a11y/context.php). */
+.wrbc-comparison:not(.wrbc-has-link-color) :is(.wrbc-comparison__table .is-featured, .wrbc-comparison__card.is-featured) a:not([class]) { color: inherit; }
+
+/* Phone cards (stacked layout): hidden on wide screens, with the copy of the
+ * visible caption that goes with them. */
+.wrbc-comparison__cards,
+.wrbc-comparison__cards-caption { display: none; }
+.wrbc-comparison__cards-caption {
+	margin: 0 0 0.75em;
+	color: var(--wrbc-muted);
+	font-size: 0.9em;
+}
+.wrbc-comparison__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	padding: 1.4em;
+	border: 1px solid var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+	background: var(--wrbc-cmp-bg);
+}
+/* The featured card's outline borders what the block sits on (the list paints
+ * nothing between the cards): the accent made readable there, taken on the
+ * list, before the card sets its own for its inside. */
+.wrbc-comparison__cards { --wrbc-cmp-card-ring: var(--wrbc-accent-text); }
+.wrbc-comparison__card.is-featured { border-color: var(--wrbc-cmp-card-ring); box-shadow: inset 0 0 0 1px var(--wrbc-cmp-card-ring); background: var(--wrbc-cmp-feat); }
+/* After the name in the markup (headings navigation meets it), above it on screen. */
+.wrbc-comparison__card .wrbc-comparison__badge { order: -1; align-self: flex-start; margin: 0; }
+.wrbc-comparison__card-name { margin: 0; font-size: 1.2em; line-height: 1.3; }
+.wrbc-comparison__card .wrbc-comparison__amount { justify-content: flex-start; }
+.wrbc-comparison__card .wrbc-comparison__cta { width: 100%; }
+/* A heading (one level under the plan's): theme heading styles reset. */
+.wrbc-comparison__card-group {
+	margin: 0.5em 0 0;
+	color: var(--wrbc-cmp-muted, var(--wrbc-muted));
+	font-family: inherit;
+	font-size: 0.75em;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1.45;
+	text-transform: uppercase;
+}
+.wrbc-comparison__card-list { display: flex; flex-direction: column; gap: 0.5em; margin: 0; padding: 0; list-style: none; }
+.wrbc-comparison__card-item { display: flex; align-items: flex-start; gap: 0.6em; margin: 0; font-size: 0.95em; }
+.wrbc-comparison__card-item .wrbc-comparison__icon { margin-top: 0.05em; --wrbc-icon-size: 1.15em; }
+.wrbc-comparison__card-item.is-check .wrbc-comparison__icon { color: var(--wrbc-accent-text); }
+.wrbc-comparison__card-item.is-cross { color: var(--wrbc-cmp-muted, var(--wrbc-muted)); --wrbc-cmp-tip: currentColor; }
+.wrbc-comparison__card-item.is-cross .wrbc-comparison__card-label { text-decoration: line-through; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+/* The name with its info button, and the description under them. */
+.wrbc-comparison__card-main { flex: 1 1 auto; min-width: 0; }
+/* The excluded line is muted already: its description and info icon
+ * (--wrbc-cmp-tip above) take its colour; muting them again left them under
+ * 4.5:1 and 3:1. */
+.wrbc-comparison__card-item.is-cross .wrbc-comparison__desc { color: inherit; }
+.wrbc-comparison__card-value { margin-inline-start: auto; color: var(--wrbc-cmp-muted, var(--wrbc-muted)); text-align: end; }
+
+/* Narrow: scroll sideways or a card per plan. */
+@container (max-width: 719px) {
+	.wrbc-comparison--mobile-scroll .wrbc-comparison__scroll {
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		-webkit-overflow-scrolling: touch;
+	}
+	/* A button or link that gets focus while tabbing back is scrolled clear of
+	 * the sticky first column, not under it (WCAG 2.4.11), with room for its
+	 * ring on both sides (view.js scrolls it there). */
+	.wrbc-comparison--mobile-scroll.has-sticky-col .wrbc-comparison__scroll { scroll-padding-inline-start: calc(10em + 8px); }
+	.wrbc-comparison--mobile-scroll .wrbc-comparison__scroll :is(a, button) { scroll-margin-inline: 8px; }
+	.wrbc-comparison--mobile-scroll .wrbc-comparison__table {
+		/* Every plan keeps a readable width; the feature column too. */
+		min-width: calc(10em + var(--wrbc-plans, 3) * 8.5em);
+	}
+	.wrbc-comparison--mobile-scroll .wrbc-comparison__col-label { width: 10em; }
+	/* A scroll box can't stick to the window: the header row scrolls with it. */
+	.wrbc-comparison--mobile-scroll.has-sticky-head .wrbc-comparison__table thead :is(th, td) { position: static; }
+	.wrbc-comparison.has-sticky-col .wrbc-comparison__table tr > :first-child:not([colspan]) {
+		position: sticky;
+		inset-inline-start: 0;
+		z-index: 1;
+		background: var(--wrbc-cmp-bg);
+		box-shadow: inset -1px 0 0 var(--wrbc-line);
+	}
+	.wrbc-comparison.has-sticky-col .wrbc-comparison__table thead tr > :first-child { background: var(--wrbc-cmp-head); }
+	.wrbc-comparison.has-sticky-col .wrbc-comparison__table .wrbc-comparison__row.is-alt > :first-child { background: var(--wrbc-cmp-alt); }
+
+	.wrbc-comparison--mobile-stacked .wrbc-comparison__scroll { display: none; }
+	.wrbc-comparison--mobile-stacked .wrbc-comparison__cards { display: grid; gap: 1em; }
+	.wrbc-comparison--mobile-stacked .wrbc-comparison__cards-caption { display: block; }
+}
+@container (min-width: 480px) and (max-width: 719px) {
+	.wrbc-comparison--mobile-stacked .wrbc-comparison__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-comparison__amount { animation: none; }
+	.wrbc-comparison__option { transition: none; }
+}
+
+/* Forced colours drop backgrounds and shadows: the checked option, the
+ * featured column and plan card keep a shape of their own. */
+@media (forced-colors: active) {
+	.wrbc-comparison__radio:checked + .wrbc-comparison__option {
+		forced-color-adjust: none;
+		background: SelectedItem;
+		color: SelectedItemText;
+	}
+	.wrbc-comparison__radio:checked + .wrbc-comparison__option .wrbc-comparison__save {
+		box-shadow: inset 0 0 0 1px currentColor;
+		color: inherit;
+	}
+	.wrbc-comparison__table thead th.is-featured { border-top: 3px solid CanvasText; }
+	.wrbc-comparison__card.is-featured { border-width: 2px; }
+}

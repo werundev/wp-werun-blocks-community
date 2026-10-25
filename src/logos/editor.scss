@@ -1,0 +1,34 @@
+/* Logos, editor only: the sidebar list and a still preview of the controls. */
+.wrbc-logos .wrbc-logos__controls,
+.wrbc-logos .wrbc-logos__pause { pointer-events: none; }
+.wrbc-logos .wrbc-logos__link { cursor: default; }
+
+.wrbc-logos-edit__list { margin: 0 0 12px; padding: 0; list-style: none; }
+.wrbc-logos-edit__row {
+	margin: 0;
+	padding: 8px 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+.wrbc-logos-edit__thumb {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 32px;
+	border-radius: 2px;
+	background: #f0f0f0;
+}
+.wrbc-logos-edit__thumb img { max-width: 36px; max-height: 28px; object-fit: contain; }
+.wrbc-logos-edit__name.components-button.is-link { text-align: left; text-decoration: none; word-break: break-word; }
+.wrbc-logos-edit__warn { display: block; color: #b26200; font-size: 11px; }
+.wrbc-logos-edit__fields {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 12px 0 4px;
+}
+.wrbc-logos-edit__fields .components-button { align-self: flex-start; }
+.wrbc-logos-edit__empty { color: #757575; }
+
+/* "Logos fade into this background" at the top of the sidebar (edit.js: toneHint). */
+.wrbc-logos-edit__hint { padding: 0 16px 16px; }
+.wrbc-logos-edit__hint .components-notice { margin: 0; }

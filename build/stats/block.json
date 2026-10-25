@@ -1,0 +1,246 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/stats",
+  "version": "1.0.0",
+  "title": "Stats",
+  "category": "werun-community",
+  "icon": "chart-bar",
+  "description": "Key numbers that count up when they scroll into view: a row, cards or large figures with a description, with optional icons and a section header.",
+  "keywords": [
+    "stats",
+    "numbers",
+    "counter",
+    "figures",
+    "metrics",
+    "results",
+    "kpi"
+  ],
+  "textdomain": "werun-blocks-community",
+  "allowedBlocks": [
+    "werun-community/stat"
+  ],
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "showHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "showEyebrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIntro": {
+      "type": "boolean",
+      "default": true
+    },
+    "eyebrow": {
+      "type": "string",
+      "role": "content",
+      "default": "By the numbers"
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "Results that speak for themselves"
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": "A few figures from the last twelve months."
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "layout": {
+      "type": "string",
+      "default": "row",
+      "enum": [
+        "row",
+        "cards",
+        "large"
+      ]
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 4
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 32
+    },
+    "contentAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center"
+      ]
+    },
+    "separators": {
+      "type": "boolean",
+      "default": true
+    },
+    "separatorColor": {
+      "type": "string"
+    },
+    "cardStyle": {
+      "type": "string",
+      "default": "filled",
+      "enum": [
+        "bordered",
+        "filled",
+        "shadow"
+      ]
+    },
+    "cardBg": {
+      "type": "string"
+    },
+    "cardBorderColor": {
+      "type": "string"
+    },
+    "cardRadius": {
+      "type": "number",
+      "default": 14
+    },
+    "cardPadding": {
+      "type": "number",
+      "default": 28
+    },
+    "labelPosition": {
+      "type": "string",
+      "default": "below",
+      "enum": [
+        "above",
+        "below"
+      ]
+    },
+    "showDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": false
+    },
+    "itemIcon": {
+      "type": "object",
+      "default": {
+        "name": "trending-up",
+        "lib": "lucide",
+        "anim": "none",
+        "trigger": "hover"
+      }
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "none",
+      "enum": [
+        "none",
+        "circle",
+        "square",
+        "outline"
+      ]
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 28
+    },
+    "iconStroke": {
+      "type": "number",
+      "default": 2
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "iconBg": {
+      "type": "string"
+    },
+    "animate": {
+      "type": "boolean",
+      "default": true
+    },
+    "counterDuration": {
+      "type": "number",
+      "default": 1600
+    },
+    "numberSize": {
+      "type": "number",
+      "default": 3
+    },
+    "accentColor": {
+      "type": "string"
+    },
+    "reveal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "providesContext": {
+    "werun-community/stats/layout": "layout",
+    "werun-community/stats/labelPosition": "labelPosition",
+    "werun-community/stats/showDescription": "showDescription",
+    "werun-community/stats/showIcon": "showIcon",
+    "werun-community/stats/itemIcon": "itemIcon",
+    "werun-community/stats/iconStyle": "iconStyle",
+    "werun-community/stats/animate": "animate",
+    "werun-community/stats/counterDuration": "counterDuration",
+    "werun-community/stats/reveal": "reveal",
+    "werun-community/stats/cardStyle": "cardStyle",
+    "werun-community/stats/cardBg": "cardBg",
+    "werun-community/stats/accentColor": "accentColor",
+    "werun-community/stats/textColor": "textColor",
+    "werun-community/stats/style": "style",
+    "werun-community/stats/iconColor": "iconColor",
+    "werun-community/stats/iconBg": "iconBg"
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view",
+    "wrbc-counter"
+  ],
+  "render": "file:./render.php"
+}

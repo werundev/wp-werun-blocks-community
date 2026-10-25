@@ -1,0 +1,17 @@
+# Excluded from the release zip and from the WordPress.org SVN trunk
+# (bin/make-zip.mjs, bin/sync.mjs). Only the plugin itself ships.
+# Every dotfile and dot-folder (.git, .github, editor and tool settings, env files).
+.*
+*.local
+node_modules
+bin
+scripts
+src
+package.json
+package-lock.json
+*.zip
+*.log
+docs
+# No Markdown ships to WordPress.org (zip or SVN): docs, notes and READMEs stay in git only.
+*.md
+webpack.config.js

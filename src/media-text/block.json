@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "werun-community/media-text",
+	"version": "1.0.0",
+	"title": "Media and text",
+	"category": "werun-community",
+	"icon": "align-pull-left",
+	"description": "An image or a video beside a title, text, checklist and button. Fixed aspect ratios, media left or right, colours from the theme palette only.",
+	"keywords": [ "media", "image", "video", "text", "split", "columns" ],
+	"textdomain": "werun-blocks-community",
+	"attributes": {
+		"align": { "type": "string", "default": "wide" },
+		"media": { "type": "object", "role": "content", "default": { "type": "image" } },
+		"mediaRatio": { "type": "string", "default": "4/3", "enum": [ "1/1", "4/3", "3/2", "16/9", "3/4" ] },
+		"mediaFocal": { "type": "object", "role": "content", "default": { "x": 0.5, "y": 0.5 } },
+		"mediaPosition": { "type": "string", "default": "left", "enum": [ "left", "right" ] },
+		"mobileOrder": { "type": "string", "default": "media-first", "enum": [ "media-first", "text-first" ] },
+		"verticalAlign": { "type": "string", "default": "center", "enum": [ "start", "center", "end" ] },
+		"titleLevel": { "type": "number", "default": 2 },
+		"title": { "type": "string", "role": "content", "default": "Built around the way your team works" },
+		"text": { "type": "string", "role": "content", "default": "One paragraph that explains the benefit, not the feature. Keep it short: the picture does half the work." },
+		"showPoints": { "type": "boolean", "default": true },
+		"pointsIcon": { "type": "object", "default": { "name": "circle-check", "lib": "lucide", "anim": "draw", "trigger": "inview" } },
+		"points": {
+			"type": "array", "role": "content",
+			"default": [ { "text": "Set up in a week" }, { "text": "Training included" }, { "text": "Support in your language" } ]
+		},
+		"showButton": { "type": "boolean", "default": true },
+		"buttonLabel": { "type": "string", "role": "content", "default": "Learn more" },
+		"buttonUrl": { "type": "string", "role": "content", "default": "#" },
+		"buttonNewTab": { "type": "boolean", "default": false },
+		"buttonIcon": { "type": "object", "default": { "name": "arrow-right", "lib": "animated", "anim": "auto", "trigger": "hover" } },
+		"buttonStyle": { "type": "string", "default": "solid", "enum": [ "solid", "outline", "link" ] },
+		"buttonShape": { "type": "string", "default": "pill", "enum": [ "pill", "rounded", "square" ] },
+		"accentColor": { "type": "string", "default": "" },
+		"onAccentColor": { "type": "string", "default": "" },
+		"iconSize": { "type": "number", "default": 18 },
+		"iconStroke": { "type": "number", "default": 2 },
+		"reveal": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true,
+			"gradients": false,
+			"__experimentalDefaultControls": { "background": true, "text": true }
+		},
+		"spacing": { "margin": true, "padding": true },
+		"typography": { "fontSize": true, "lineHeight": true }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": [ "wrbc-shared", "wrbc-modules", "file:./style-index.css" ],
+	"viewScript": [ "wrbc-shared-view" ],
+	"render": "file:./render.php"
+}

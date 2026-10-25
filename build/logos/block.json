@@ -1,0 +1,236 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/logos",
+  "version": "1.0.0",
+  "title": "Logos",
+  "category": "werun-community",
+  "icon": "images-alt2",
+  "description": "Client and partner logos from the media library, with optional links and names, as a grid, an infinite marquee or a carousel. Grayscale and opacity with full colour on hover, or every logo in one flat colour for dark or light backgrounds.",
+  "keywords": [
+    "logos",
+    "clients",
+    "partners",
+    "brands",
+    "marquee",
+    "trusted by",
+    "carousel"
+  ],
+  "textdomain": "werun-blocks-community",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "showHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEyebrow": {
+      "type": "boolean",
+      "default": false
+    },
+    "showIntro": {
+      "type": "boolean",
+      "default": false
+    },
+    "eyebrow": {
+      "type": "string",
+      "role": "content",
+      "default": "Clients"
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "Trusted by teams at"
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "logos": {
+      "type": "array",
+      "role": "content",
+      "default": []
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid",
+      "enum": [
+        "grid",
+        "marquee",
+        "carousel"
+      ]
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 6
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 4
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 2
+    },
+    "gap": {
+      "type": "number",
+      "default": 40
+    },
+    "logoHeight": {
+      "type": "number",
+      "default": 48
+    },
+    "logoMaxWidth": {
+      "type": "number",
+      "default": 160
+    },
+    "itemAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "logoTone": {
+      "type": "string",
+      "default": "original",
+      "enum": [
+        "original",
+        "dark",
+        "light"
+      ]
+    },
+    "grayscale": {
+      "type": "boolean",
+      "default": false
+    },
+    "opacity": {
+      "type": "number",
+      "default": 100
+    },
+    "hoverReveal": {
+      "type": "boolean",
+      "default": true
+    },
+    "showNames": {
+      "type": "boolean",
+      "default": false
+    },
+    "marqueeSpeed": {
+      "type": "number",
+      "default": 3
+    },
+    "marqueeDirection": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "interval": {
+      "type": "number",
+      "default": 4
+    },
+    "pauseOnHover": {
+      "type": "boolean",
+      "default": true
+    },
+    "showArrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDots": {
+      "type": "boolean",
+      "default": false
+    },
+    "controlsPosition": {
+      "type": "string",
+      "default": "bottom",
+      "enum": [
+        "bottom",
+        "top"
+      ]
+    },
+    "prevIcon": {
+      "type": "object",
+      "default": {
+        "name": "arrow-left",
+        "lib": "animated",
+        "anim": "auto",
+        "trigger": "hover"
+      }
+    },
+    "nextIcon": {
+      "type": "object",
+      "default": {
+        "name": "arrow-right",
+        "lib": "animated",
+        "anim": "auto",
+        "trigger": "hover"
+      }
+    },
+    "accentColor": {
+      "type": "string"
+    },
+    "reveal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "wrbc-modules",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view",
+    "file:./view.js"
+  ],
+  "render": "file:./render.php"
+}

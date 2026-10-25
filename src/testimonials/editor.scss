@@ -1,0 +1,42 @@
+/* Testimonials, editor only: the controls are a preview; the appender sits at the end of the row. */
+.wrbc-testimonials__track > .block-list-appender {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 160px;
+	margin: 0;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-testimonials .wrbc-testimonials__controls { pointer-events: none; }
+.wrbc-testi__avatar-btn {
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: none;
+	cursor: pointer;
+}
+.wrbc-testi__avatar-empty {
+	display: inline-grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: 999px;
+	color: var(--wrbc-muted);
+}
+.wrbc-testi__rating-edit button {
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	line-height: 0;
+}
+
+/* A note under the Carousel panel's toggles (sidebar: #757575 on white, 4.6:1). */
+.wrbc-testimonials__help { margin: 4px 0 12px; color: #757575; font-size: 12px; }
+
+/* From a post type: the server's cards, dimmed while they reload. */
+.wrbc-testimonials__viewport.is-loading { opacity: 0.6; transition: opacity 0.2s ease; }
+.wrbc-testimonials > .components-notice { margin: 0 0 16px; }

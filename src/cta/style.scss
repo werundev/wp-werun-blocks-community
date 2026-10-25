@@ -1,0 +1,201 @@
+/* Call to action. Layouts follow the block's own width (container queries).
+   No overflow clipping on the root: it would cut a long word at 320 px and a
+   focus ring when the padding is small; the backdrop rounds itself instead. */
+.wrbc-cta {
+	container-type: inline-size;
+	position: relative;
+	isolation: isolate;
+}
+/* Zero specificity: the block's Dimensions padding and Typography line height win. */
+:where(.wrbc-cta) {
+	padding: clamp(40px, 6vw, 88px) clamp(16px, 4vw, 48px);
+	line-height: 1.6;
+}
+:where(.wrbc-cta--strip) { padding-block: clamp(20px, 3vw, 32px); }
+
+.wrbc-cta__bg {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	border-radius: inherit;
+}
+.wrbc-cta__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	border-radius: inherit;
+	background: var(--wrbc-overlay, #000);
+	opacity: var(--wrbc-overlay-o, 0.55);
+}
+/* Over an image every colour is checked against the lightest and the darkest
+   pixel under the overlay, which render.php holds at the floor for the text
+   colour; only that colour is sure to read there, so:
+   - secondary text, the outline button's border, focus rings and links in
+     the copy take it (white muted to 68–85 % over a white pixel under a
+     55 % black overlay is 3.2–3.7:1);
+   - the outline button's hover tint is the overlay colour, which darkens
+     behind light text (and lightens behind dark text): a tint of the text
+     colour would lower its own label to 3.9:1. */
+.wrbc-cta.has-bg-image {
+	--wrbc-surface: color-mix(in srgb, var(--wrbc-overlay, #000) 35%, transparent);
+	--wrbc-muted: currentColor;
+	--wrbc-control-line: currentColor;
+	--wrbc-focus: var(--wrbc-cta-text, currentColor);
+}
+.wrbc-cta.has-bg-image:not(.wrbc-has-link-color) .wrbc-cta__copy a:not([class]) { color: inherit; }
+
+.wrbc-cta__inner {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(24px, 5cqi, 56px);
+	width: 100%;
+	max-width: var(--wrbc-cta-max, 1100px);
+	margin-inline: auto;
+}
+.wrbc-cta__content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	min-width: 0;
+}
+.wrbc-cta__copy {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	min-width: 0;
+	/* A long word (a URL, a compound) wraps instead of running out at 320 px. */
+	overflow-wrap: anywhere;
+}
+.wrbc-cta__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	margin: 0;
+	/* The accent made readable on the block's background (or the card's). */
+	color: var(--wrbc-accent-text);
+	font-size: 0.85em;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1.3;
+	text-transform: uppercase;
+}
+.wrbc-cta.has-bg-image:not(.wrbc-cta--card) .wrbc-cta__eyebrow { color: inherit; }
+.wrbc-cta__title {
+	margin: 0;
+	/* em, not rem: the block's font size scales the title. */
+	font-size: clamp(1.75em, 1.1em + 2.6cqi, 3em);
+	line-height: 1.1;
+	letter-spacing: -0.015em;
+	text-wrap: balance;
+}
+.wrbc-cta__text {
+	max-width: 40em;
+	margin: 0;
+	color: var(--wrbc-muted);
+	font-size: 1.1em;
+}
+.wrbc-cta__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75em;
+}
+/* Every icon follows the block's icon size (shared .wrbc-btn would reset it to 1.1em). */
+.wrbc-cta .wrbc-cta__btn {
+	--wrbc-icon-size: inherit;
+	overflow-wrap: anywhere;
+}
+/* The primary button on a background of (almost) its own colour: a ring in the
+   colour that reads there shows where it is (render.php decides, 3:1). */
+.wrbc-cta--btn-ring .wrbc-btn.wrbc-cta__btn:not(.wrbc-btn--outline) { box-shadow: 0 0 0 2px var(--wrbc-cta-ring, currentColor); }
+/* A button without a link isn't a link: its label shows as text (the editor says so). */
+.wrbc-cta__btn--text {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	font-weight: 600;
+}
+
+.wrbc-cta__media {
+	margin: 0;
+	min-width: 0;
+}
+.wrbc-cta__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: var(--wrbc-media-ratio, auto);
+	object-fit: cover;
+	border-radius: var(--wrbc-radius);
+}
+
+/* Centred (and the card when centred). */
+.wrbc-cta--align-center .wrbc-cta__inner,
+.wrbc-cta--align-center .wrbc-cta__content,
+.wrbc-cta--align-center .wrbc-cta__copy {
+	align-items: center;
+	text-align: center;
+}
+.wrbc-cta--align-center .wrbc-cta__actions { justify-content: center; }
+.wrbc-cta--align-center .wrbc-cta__text { margin-inline: auto; }
+.wrbc-cta--centered .wrbc-cta__content { max-width: 46em; }
+/* Centred: the image is an illustration above the text (first in the markup
+   too, so the reading order is the order on screen). */
+.wrbc-cta--centered .wrbc-cta__media {
+	width: 100%;
+	max-width: 28em;
+}
+
+/* Split: text and image side by side from 760 px of block width. */
+.wrbc-cta--split .wrbc-cta__inner { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; }
+.wrbc-cta--mobile-media-first .wrbc-cta__media { order: -1; }
+@container (min-width: 760px) {
+	.wrbc-cta--split.has-media .wrbc-cta__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+	.wrbc-cta--split .wrbc-cta__media { order: 0; }
+	.wrbc-cta--split.wrbc-cta--media-left .wrbc-cta__media { order: -1; }
+}
+
+/* Strip: one compact row, the buttons at the end; wraps on narrow blocks. */
+.wrbc-cta--strip .wrbc-cta__content { gap: 1em; }
+.wrbc-cta--strip .wrbc-cta__copy { gap: 0.35em; }
+.wrbc-cta--strip .wrbc-cta__title { font-size: clamp(1.25em, 1em + 1.2cqi, 1.75em); }
+.wrbc-cta--strip .wrbc-cta__text { font-size: 1em; }
+@container (min-width: 720px) {
+	.wrbc-cta--strip .wrbc-cta__content {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2em;
+	}
+	.wrbc-cta--strip .wrbc-cta__actions { flex: 0 0 auto; }
+}
+
+/* Floating card: a box over the block's background (colour, gradient or image). */
+.wrbc-cta--card .wrbc-cta__inner {
+	max-width: min(var(--wrbc-cta-max, 1100px), 100%);
+	padding: clamp(28px, 5cqi, 56px);
+	border-radius: calc(var(--wrbc-radius) * 1.5);
+	background: var(--wrbc-cta-card-bg, #fff);
+	color: var(--wrbc-cta-card-fg, #0f172a);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 24px 48px -24px rgba(0, 0, 0, 0.35);
+	/* The card paints its own colour: render.php works out its text, accent
+	   text, secondary text and focus ring against it, not the block's background. */
+	--wrbc-accent-text: var(--wrbc-cta-card-accent, var(--wrbc-accent));
+	--wrbc-focus: var(--wrbc-accent-text);
+	--wrbc-muted: color-mix(in srgb, currentColor var(--wrbc-cta-card-muted, 76%), transparent);
+	--wrbc-control-line: color-mix(in srgb, currentColor 64%, transparent);
+	--wrbc-line: color-mix(in srgb, currentColor 14%, transparent);
+	--wrbc-surface: color-mix(in srgb, currentColor 4%, transparent);
+}
+
+@container (max-width: 480px) {
+	.wrbc-cta__actions { flex-direction: column; align-items: stretch; width: 100%; }
+	.wrbc-cta__btn { width: 100%; }
+}
+
+@media (forced-colors: active) {
+	.wrbc-cta--card .wrbc-cta__inner { border: 1px solid CanvasText; }
+}

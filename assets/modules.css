@@ -1,0 +1,666 @@
+/*
+ * werun.Blocks.Community: what the shared front-end modules draw. Contract in
+ * docs/shared-modules.md; handle wrbc-modules (depends on wrbc-shared, so the
+ * tokens --wrbc-accent, --wrbc-line, --wrbc-surface… are there).
+ *
+ * Every rule is under a wrbc- class or a data-wrbc-* attribute, sizes are in
+ * em where the block's font size should scale them, colours come from the
+ * block's custom properties, and everything that moves stops under
+ * prefers-reduced-motion. Logical properties (inline/block) keep RTL right.
+ *
+ * Colours follow docs/accessibility.md: fills use --wrbc-accent with
+ * --wrbc-on-accent on top; the accent as a mark on the block's background
+ * (current dot, links) is --wrbc-accent-text; focus rings are --wrbc-focus;
+ * the boundary of a control (inputs, chips, inactive dots) is
+ * --wrbc-control-line (3:1); --wrbc-line is decoration only. .wrbc-is-dark /
+ * .wrbc-is-light (shared.css) retune all of them for the background.
+ */
+
+/* ── Carousel (wrbc-carousel) ──────────────────────────────────────────────
+ * The root is the container: slides per view follow the block's width, not
+ * the window. --wrbc-pv-m/t/d are set by the block (phone / 600 px / 960 px);
+ * each falls back to the smaller one. The track is a plain scroll-snap row,
+ * so it swipes and scrolls before (and without) JS.
+ *
+ * Peek and gap are capped against the track's width (--wrbc-track-peek: a
+ * quarter at most; --wrbc-track-gap: 8 %, never under 12 px), so a large peek
+ * or gap can't squeeze the slides to a sliver at 320 px (WCAG 1.4.10). A
+ * block with its own track columns uses these two instead of --wrbc-peek /
+ * --wrbc-gap. */
+.wrbc-carousel,
+[data-wrbc-carousel] { container-type: inline-size; }
+
+.wrbc-carousel__track,
+[data-wrbc-track] {
+	--wrbc-pv: var(--wrbc-pv-m, 1);
+	--wrbc-track-peek: min(var(--wrbc-peek, 0px), 25%);
+	--wrbc-track-gap: min(var(--wrbc-gap, 24px), max(12px, 8%));
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: calc((100% - var(--wrbc-track-peek) - (var(--wrbc-pv) - 1) * var(--wrbc-track-gap)) / var(--wrbc-pv));
+	gap: var(--wrbc-track-gap);
+	margin: 0;
+	padding: 0;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	/* No scroll-behavior: smooth here: the browser's own scroll to a focused
+	 * link would be animated too, leaving it off screen for a moment (WCAG
+	 * 2.4.11). wrbc-carousel animates its own moves (unless reduced motion). */
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+@container (min-width: 600px) {
+	.wrbc-carousel__track,
+	[data-wrbc-track] { --wrbc-pv: var(--wrbc-pv-t, var(--wrbc-pv-m, 1)); }
+}
+@container (min-width: 960px) {
+	.wrbc-carousel__track,
+	[data-wrbc-track] { --wrbc-pv: var(--wrbc-pv-d, var(--wrbc-pv-t, var(--wrbc-pv-m, 1))); }
+}
+.wrbc-carousel__track::-webkit-scrollbar,
+[data-wrbc-track]::-webkit-scrollbar { display: none; }
+/* position: relative keeps what a slide positions (a visually hidden text,
+ * a badge) inside the slide, so a slide scrolled out of view can't widen the
+ * page (WCAG 1.4.10). */
+.wrbc-carousel__track > *,
+[data-wrbc-track] > * { position: relative; min-width: 0; scroll-snap-align: start; }
+/* wrbc-carousel makes the track a Tab stop (role="group", named) only while it
+ * scrolls and a slide has nothing focusable of its own. Rings in this file
+ * follow the shared one (shared.css): --wrbc-focus, and the offset through
+ * --wrbc-focus-offset, never outline-offset (the shared [tabindex] ring is
+ * 0,4,0). */
+.wrbc-carousel__track:focus-visible,
+[data-wrbc-track]:focus-visible {
+	outline: 2px solid var(--wrbc-focus);
+	outline-offset: var(--wrbc-focus-offset, 2px);
+	border-radius: var(--wrbc-radius, 12px);
+}
+
+/* Controls: they need JS, so they wait for .is-ready, and hide when every
+ * slide already fits (.is-static). */
+.wrbc-carousel__controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-block-start: 24px;
+}
+[data-wrbc-carousel]:not(.is-ready) .wrbc-carousel__controls,
+[data-wrbc-carousel].is-static .wrbc-carousel__controls { display: none; }
+.wrbc-carousel--controls-top .wrbc-carousel__controls { margin-block: 0 20px; }
+.wrbc-carousel--controls-center .wrbc-carousel__controls { justify-content: center; flex-wrap: wrap; }
+
+.wrbc-carousel__dots { display: flex; flex-wrap: wrap; gap: 4px; }
+/* 28 px target (WCAG 2.5.8 asks 24), an 8 px dot drawn inside it. A dot
+ * is a control: 3:1 against the background (--wrbc-control-line). The
+ * current one is longer (shape, not only colour) and in the accent as a
+ * mark (--wrbc-accent-text). */
+.wrbc-carousel__dot {
+	position: relative;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+.wrbc-carousel__dot::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: var(--wrbc-control-line);
+	transform: translate(-50%, -50%);
+	transition: width 0.3s ease, background-color 0.2s ease;
+}
+.wrbc-carousel__dot:hover::before { background: var(--wrbc-muted); }
+.wrbc-carousel__dot[aria-current="true"]::before { width: 22px; background: var(--wrbc-accent-text); }
+/* The ring sits inside the 28 px button, around the dot. */
+.wrbc-carousel__dot { --wrbc-focus-offset: -2px; }
+.wrbc-carousel__dot:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, -2px); border-radius: 999px; }
+
+.wrbc-carousel__arrows { display: flex; gap: 8px; margin-inline-start: auto; }
+.wrbc-carousel--controls-center .wrbc-carousel__arrows { margin-inline-start: 0; }
+.wrbc-carousel__btn {
+	display: inline-grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.wrbc-carousel__btn:hover { border-color: currentColor; background: var(--wrbc-surface); }
+.wrbc-carousel__btn:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, 2px); }
+/* With reduced motion nothing plays: the pause button is hidden (the class's
+ * display would otherwise beat the hidden attribute). */
+.wrbc-carousel__btn[hidden] { display: none; }
+/* At the ends without loop the module sets aria-disabled (not disabled), so
+ * an arrow that has focus keeps it. The icon fades, not the button: its
+ * focus ring stays at full strength. (Inactive controls are exempt from the
+ * contrast minimum, WCAG 1.4.3 / 1.4.11.) */
+.wrbc-carousel__btn:disabled,
+.wrbc-carousel__btn[aria-disabled="true"] { cursor: default; }
+.wrbc-carousel__btn:disabled > *,
+.wrbc-carousel__btn[aria-disabled="true"] > * { opacity: 0.35; }
+.wrbc-carousel__btn[aria-disabled="true"]:hover { border-color: var(--wrbc-line); background: transparent; }
+.wrbc-carousel__btn .wrbc-icon { --wrbc-icon-size: 18px; }
+/* The arrows point the reading way. The button flips, not the icon: the
+ * icon's own animation (nudge) runs on its transform. */
+[dir="rtl"] .wrbc-carousel__arrows .wrbc-carousel__btn { transform: scaleX(-1); }
+/* Pause bars while it plays, a play triangle once paused (.is-paused from
+ * wrbc-carousel; its name says the same: "Pause the slides" / "Play the
+ * slides"). aria-pressed="true" is the 2.0 markup. */
+.wrbc-carousel__play .wrbc-carousel__when-paused { display: none; }
+.wrbc-carousel__play.is-paused .wrbc-carousel__when-playing,
+.wrbc-carousel__play[aria-pressed="true"] .wrbc-carousel__when-playing { display: none; }
+.wrbc-carousel__play.is-paused .wrbc-carousel__when-paused,
+.wrbc-carousel__play[aria-pressed="true"] .wrbc-carousel__when-paused { display: inline-block; }
+
+/* Theme guard. Themes style button elements in stylesheets that print after
+ * the blocks' (Hello Elementor: [type=button] gets width: auto, padding, a
+ * pink border, nowrap, and a pink fill with white text on :hover / :focus).
+ * The carousel's own buttons restate their look with the block root
+ * (0,2,0; 0,3,0 on :hover / :focus). Sizes come from aspect-ratio, so a
+ * block that sizes them in em (logos) keeps its size. */
+.wrbc-root .wrbc-carousel__dot {
+	aspect-ratio: 1;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font-size: inherit;
+	line-height: 1;
+	white-space: normal;
+}
+.wrbc-root .wrbc-carousel__dot:hover,
+.wrbc-root .wrbc-carousel__dot:focus { background: transparent; color: inherit; }
+.wrbc-root .wrbc-carousel__btn {
+	display: inline-grid;
+	place-items: center;
+	aspect-ratio: 1;
+	padding: 0;
+	border: 1px solid var(--wrbc-line);
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font-size: inherit;
+	line-height: 1;
+	white-space: normal;
+}
+.wrbc-root .wrbc-carousel__btn:focus { border-color: var(--wrbc-line); background: transparent; color: inherit; }
+.wrbc-root .wrbc-carousel__btn:hover { border-color: currentColor; background: var(--wrbc-surface); color: inherit; }
+.wrbc-root .wrbc-carousel__btn[aria-disabled="true"]:hover { border-color: var(--wrbc-line); background: transparent; }
+
+/* ── Consent placeholder (wrbc_consent_placeholder) ───────────────────── */
+.wrbc-consent {
+	display: grid;
+	place-items: center;
+	min-height: var(--wrbc-consent-h, 220px);
+	padding: 24px;
+	border: 1px dashed var(--wrbc-line);
+	border-radius: var(--wrbc-radius, 12px);
+	background-color: var(--wrbc-surface);
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+}
+.wrbc-consent[hidden] { display: none; }
+/* Printed hidden until wrbc-consent runs (the button needs it); the editor
+ * doesn't run it, so its preview shows the placeholder as visitors will. */
+.editor-styles-wrapper .wrbc-consent[data-wrbc-consent-wait][hidden],
+.block-editor-block-list__layout .wrbc-consent[data-wrbc-consent-wait][hidden] { display: grid; }
+.wrbc-consent__noscript { margin: 0 0 1em; font-size: 0.9em; }
+.wrbc-consent--poster { position: relative; isolation: isolate; color: #fff; border: 0; }
+.wrbc-consent--poster::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	border-radius: inherit;
+	background: rgba(0, 0, 0, 0.62);
+}
+.wrbc-consent__box { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 34em; }
+.wrbc-consent__text { margin: 0; font-size: 0.9em; line-height: 1.5; }
+.wrbc-consent__text a { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+/* The whole line is the target (24 px tall at least, WCAG 2.5.8). */
+.wrbc-consent__remember { display: inline-flex; align-items: center; gap: 8px; min-height: 24px; font-size: 0.85em; cursor: pointer; }
+.wrbc-consent__remember input { flex: 0 0 auto; width: 1.1em; height: 1.1em; margin: 0; accent-color: var(--wrbc-accent-text); }
+/* A long "Load … (from host)" wraps (a theme's button reset sets nowrap). */
+.wrbc-consent .wrbc-consent__btn { white-space: normal; overflow-wrap: anywhere; }
+/* Loading: the button is aria-disabled (inactive, so exempt from contrast). */
+.wrbc-consent.is-loading .wrbc-consent__btn,
+.wrbc-consent__btn[aria-disabled="true"] { opacity: 0.6; cursor: progress; }
+.wrbc-consent.is-loading .wrbc-consent__btn { pointer-events: none; }
+/* The live region: in the accessibility tree from the start, shown once it says something. */
+.wrbc-consent__status,
+.wrbc-consent__error { margin: 0; font-size: 0.9em; }
+.wrbc-consent__status:empty {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+/* Over a poster (always under the 62 % black layer): white focus rings and a
+ * white tick box, whatever the image. */
+.wrbc-consent--poster { --wrbc-focus: #fff; --wrbc-focus-offset: 3px; }
+.wrbc-consent--poster .wrbc-consent__btn:focus-visible,
+.wrbc-consent--poster a:focus-visible { outline: 2px solid #fff; outline-offset: var(--wrbc-focus-offset, 3px); }
+.wrbc-consent--poster .wrbc-consent__remember input { accent-color: #fff; }
+
+/* ── Video (wrbc-video) ───────────────────────────────────────────────── */
+:where([data-wrbc-video]) { position: relative; }
+.wrbc-video__play {
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: var(--wrbc-video-ratio, 16 / 9);
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	border-radius: var(--wrbc-radius, 12px);
+	background: #000;
+	color: #fff;
+	font: inherit;
+	cursor: pointer;
+}
+.wrbc-video__poster {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.4s ease, opacity 0.2s ease;
+}
+.wrbc-video__play:hover .wrbc-video__poster { transform: scale(1.03); opacity: 0.9; }
+/* The play badge: a circle with a CSS triangle, so no icon is needed. */
+.wrbc-video__icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: grid;
+	place-items: center;
+	width: 4.5em;
+	height: 4.5em;
+	border-radius: 999px;
+	background: var(--wrbc-accent);
+	color: var(--wrbc-on-accent);
+	box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+	transform: translate(-50%, -50%);
+	transition: transform 0.2s ease;
+}
+.wrbc-video__icon:empty::before {
+	content: "";
+	margin-inline-start: 0.25em;
+	border-block: 0.7em solid transparent;
+	border-inline-start: 1.1em solid currentColor;
+}
+.wrbc-video__icon .wrbc-icon { --wrbc-icon-size: 1.8em; }
+.wrbc-video__play:hover .wrbc-video__icon,
+.wrbc-video__play:focus-visible .wrbc-video__icon { transform: translate(-50%, -50%) scale(1.08); }
+.wrbc-video__play { --wrbc-focus-offset: 3px; }
+.wrbc-video__play:focus-visible { outline: 3px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, 3px); }
+.wrbc-video__caption {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 0;
+	padding: 2.5em 1em 0.9em;
+	/* At least 75 % black under the text itself (from 2.5em, where it starts):
+	 * white text stays ≥ 10:1 on any poster (WCAG 1.4.3). */
+	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75) 2.5em);
+	color: #fff;
+	font-size: 0.9em;
+	text-align: start;
+}
+.wrbc-video__frame {
+	position: relative;
+	width: 100%;
+	aspect-ratio: var(--wrbc-video-ratio, 16 / 9);
+	overflow: hidden;
+	border-radius: var(--wrbc-radius, 12px);
+	background: #000;
+}
+.wrbc-video__media { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* The player's focus ring, drawn inside the frame (the frame, and a block's
+ * stage, clip anything outside it): a ring in the focus colour with a dark
+ * band against the picture. */
+.wrbc-video__frame::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: inherit;
+	pointer-events: none;
+}
+.wrbc-video__frame.is-focus-visible::after,
+.wrbc-video__frame:has(> .wrbc-video__media:focus-visible)::after {
+	box-shadow: inset 0 0 0 3px var(--wrbc-focus, #fff), inset 0 0 0 5px rgba(0, 0, 0, 0.75);
+}
+.wrbc-video__frame > .wrbc-video__media:focus-visible { outline: none; }
+[data-wrbc-video].is-asking .wrbc-video__play { display: none; }
+/* The placeholder keeps the video's shape but grows with its text (320 px,
+ * text spacing: WCAG 1.4.10 / 1.4.12). */
+[data-wrbc-video] .wrbc-consent { aspect-ratio: var(--wrbc-video-ratio, 16 / 9); min-height: auto; }
+
+/* Modal. The close button sits in a bar above the player, inside the dialog
+ * box, so it never ends up off screen on a short (landscape phone) window. */
+.wrbc-video__dialog {
+	--wrbc-video-bar: 52px;
+	width: min(92vw, calc((88vh - var(--wrbc-video-bar)) * (var(--wrbc-video-ratio, 16 / 9))), 1280px);
+	max-width: none;
+	max-height: none;
+	padding: var(--wrbc-video-bar) 0 0;
+	overflow: visible;
+	border: 0;
+	background: transparent;
+	color: #fff;
+}
+.wrbc-video__dialog::backdrop { background: rgba(0, 0, 0, 0.82); }
+.wrbc-video__dialog .wrbc-video__frame { border-radius: 8px; }
+.wrbc-video__dialog--fallback {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: grid;
+	place-items: center;
+	width: auto;
+	margin: 0;
+	padding: 4vh 4vw;
+	background: rgba(0, 0, 0, 0.82);
+}
+.wrbc-video__dialog--fallback .wrbc-video__frame { width: min(92vw, calc(82vh * (var(--wrbc-video-ratio, 16 / 9))), 1280px); }
+.wrbc-video__close {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-end: 0;
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 999px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	cursor: pointer;
+}
+.wrbc-video__dialog--fallback .wrbc-video__close { inset-block: 12px auto; inset-inline-end: 12px; }
+.wrbc-video__close:hover { background: rgba(255, 255, 255, 0.15); }
+.wrbc-video__close:focus-visible { outline: 2px solid #fff; outline-offset: var(--wrbc-focus-offset, 2px); }
+/* Theme guard (the dialog lives in <body>, outside any .wrbc-root). */
+.wrbc-video__dialog .wrbc-video__close {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 999px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	line-height: 1;
+}
+.wrbc-video__dialog .wrbc-video__close:focus { background: rgba(0, 0, 0, 0.5); color: #fff; }
+.wrbc-video__dialog .wrbc-video__close:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+.wrbc-video__close-icon,
+.wrbc-video__close-icon::before {
+	position: relative;
+	display: block;
+	width: 18px;
+	height: 2px;
+	border-radius: 2px;
+	background: currentColor;
+	transform: rotate(45deg);
+}
+.wrbc-video__close-icon::before { content: ""; position: absolute; inset: 0; transform: rotate(90deg); }
+html.wrbc-video-open { overflow: hidden; }
+
+/* Background video: under the content, with its pause button on top. */
+:where(.wrbc-video__bg) {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+.wrbc-video__toggle {
+	position: absolute;
+	inset-block-end: 16px;
+	inset-inline-end: 16px;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 999px;
+	/* 55 %: the white icon keeps ≥ 4.7:1 over a white frame. */
+	background: rgba(0, 0, 0, 0.55);
+	color: #fff;
+	cursor: pointer;
+}
+.wrbc-video__toggle[hidden] { display: none; }
+/* Theme guard: the toggle keeps its dark disc on :hover / :focus. */
+.wrbc-root .wrbc-video__toggle { padding: 0; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 999px; background: rgba(0, 0, 0, 0.55); color: #fff; }
+.wrbc-root .wrbc-video__toggle:hover,
+.wrbc-root .wrbc-video__toggle:focus { background: rgba(0, 0, 0, 0.7); color: #fff; }
+/* White ring with a dark halo: it shows on a bright or a dark frame alike (WCAG 2.4.7 / 1.4.11). */
+.wrbc-video__toggle:focus-visible,
+.wrbc-root .wrbc-video__toggle:focus-visible { outline: 2px solid #fff; outline-offset: var(--wrbc-focus-offset, 2px); box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.75); }
+/* Pause bars while playing, a triangle once paused. */
+.wrbc-video__toggle-icon { display: block; width: 12px; height: 14px; border-inline: 4px solid currentColor; }
+.is-paused > .wrbc-video__toggle .wrbc-video__toggle-icon {
+	width: 0;
+	height: 0;
+	margin-inline-start: 4px;
+	border-inline-end: 0;
+	border-inline-start: 13px solid currentColor;
+	border-block: 8px solid transparent;
+}
+
+/* ── Tabs (wrbc-tabs) ─────────────────────────────────────────────────────
+ * Base only: blocks draw their own look. Without JS every panel shows. */
+/* Zero specificity: a block's own tab layout (scrolling rows, accordion mode) always wins. */
+:where([data-wrbc-tabs] [role="tablist"]) { display: flex; flex-wrap: wrap; gap: 4px; }
+:where([data-wrbc-tabs] [role="tablist"][aria-orientation="vertical"]) { flex-direction: column; flex-wrap: nowrap; }
+:where([data-wrbc-tabs]:not(.is-ready) [role="tablist"]) { display: none; }
+[data-wrbc-tabs] [role="tab"] { cursor: pointer; }
+:where([data-wrbc-tabs] [role="tab"]:focus-visible, [data-wrbc-tabs] [role="tabpanel"]:focus-visible) { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, 2px); }
+/* The panel's own heading is for the no-JS view; the tab names it once JS runs. */
+[data-wrbc-tabs].is-ready .wrbc-tabs__nojs-heading {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+/* hidden="until-found" panels keep their box (the browser hides them with content-visibility), so in-page find reaches them. */
+:where([data-wrbc-tabs] [role="tabpanel"][hidden]:not([hidden="until-found"])) { display: none; }
+
+/* ── Filter (wrbc-filter) ─────────────────────────────────────────────────
+ * Fields and chips: a 3:1 boundary (--wrbc-control-line), the shared focus
+ * ring; a pressed chip is an accent fill with its on-colour. Restated with
+ * the block root so a theme's input and button resets (printed later) don't
+ * repaint them. */
+.wrbc-filter__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-block-end: 24px; }
+.wrbc-filter__search,
+.wrbc-filter__select,
+.wrbc-root .wrbc-filter__search,
+.wrbc-root .wrbc-filter__select {
+	min-height: 44px;
+	padding: 0.55em 0.9em;
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: 10px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+.wrbc-filter__search { flex: 1 1 16em; }
+/* Browsers draw placeholders light grey (2.3:1): the block's muted text instead. */
+.wrbc-filter__search::placeholder { color: var(--wrbc-muted); opacity: 1; }
+.wrbc-filter__search,
+.wrbc-filter__select { --wrbc-focus-offset: 1px; }
+.wrbc-filter__search:focus-visible,
+.wrbc-filter__select:focus-visible,
+.wrbc-root .wrbc-filter__search:focus-visible,
+.wrbc-root .wrbc-filter__select:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, 1px); border-color: currentColor; }
+.wrbc-filter__chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.wrbc-filter__chip,
+.wrbc-root .wrbc-filter__chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	min-height: 36px;
+	padding: 0.4em 0.95em;
+	border: 1px solid var(--wrbc-control-line);
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: 0.9em;
+	line-height: 1.2;
+	white-space: normal;
+	cursor: pointer;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.wrbc-filter__chip:hover,
+.wrbc-root .wrbc-filter__chip:hover,
+.wrbc-root .wrbc-filter__chip:focus { border-color: currentColor; background: transparent; color: inherit; }
+/* Pressed: the accent fill (its text in the on-colour), plus two cues that
+ * don't rely on the fill reading against the page (2.84:1 on #0f172a,
+ * WCAG 1.4.11): a border in --wrbc-accent-text, readable on the block's
+ * background, and a tick in the on-colour (6.29:1 on the fill, in every
+ * context). The tick is drawn, not text: aria-pressed tells screen readers. */
+.wrbc-filter__chip[aria-pressed="true"],
+.wrbc-root .wrbc-filter__chip[aria-pressed="true"],
+.wrbc-root .wrbc-filter__chip[aria-pressed="true"]:hover,
+.wrbc-root .wrbc-filter__chip[aria-pressed="true"]:focus { border-color: var(--wrbc-accent-text); background: var(--wrbc-accent); color: var(--wrbc-on-accent); }
+.wrbc-filter__chip[aria-pressed="true"]::before {
+	content: "";
+	flex: 0 0 auto;
+	width: 0.35em;
+	height: 0.65em;
+	margin-block-start: -0.15em;
+	border: solid currentColor;
+	border-width: 0 0.14em 0.14em 0;
+	transform: rotate(45deg);
+}
+.wrbc-filter__chip:focus-visible,
+.wrbc-root .wrbc-filter__chip:focus-visible { outline: 2px solid var(--wrbc-focus); outline-offset: var(--wrbc-focus-offset, 2px); }
+.wrbc-filter__empty { margin: 1.5em 0; color: var(--wrbc-muted); }
+[data-wrbc-filter-item][hidden],
+[data-wrbc-filter-empty][hidden] { display: none !important; }
+
+/* ── Counter (wrbc-counter) ───────────────────────────────────────────── */
+/* Digits of one width, so the number doesn't wobble while it counts. */
+[data-wrbc-count] { font-variant-numeric: tabular-nums; }
+
+/* ── Map (wrbc-map) ───────────────────────────────────────────────────── */
+[data-wrbc-map] { --wrbc-map-h: 420px; }
+.wrbc-map__canvas,
+[data-wrbc-map] .wrbc-consent {
+	width: 100%;
+	height: var(--wrbc-map-h);
+	min-height: 200px;
+	border-radius: var(--wrbc-radius, 12px);
+	overflow: hidden;
+}
+.wrbc-map__canvas { z-index: 0; background: var(--wrbc-surface); }
+/* Popups in the block's font, not Leaflet's 12 px. */
+.wrbc-map__canvas.leaflet-container { font-family: inherit; font-size: inherit; }
+[data-wrbc-map].is-loading .wrbc-map__canvas { opacity: 0.6; }
+/* "Leaflet | © OpenStreetMap": the link is underlined, not told apart by colour alone (WCAG 1.4.1). */
+.wrbc-map__canvas .leaflet-control-attribution a { text-decoration: underline; }
+/* The map and the list of locations side by side when there's room. */
+.wrbc-map__layout { display: grid; gap: var(--wrbc-gap, 24px); container-type: inline-size; }
+@container (min-width: 760px) {
+	.wrbc-map__layout--side { grid-template-columns: minmax(0, 1fr) minmax(16em, 0.42fr); }
+	.wrbc-map__layout--side .wrbc-map__list { max-height: var(--wrbc-map-h); overflow-y: auto; }
+}
+.wrbc-map__list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.wrbc-map__item { padding: 14px 16px; border: 1px solid var(--wrbc-line); border-radius: var(--wrbc-radius, 12px); }
+.wrbc-map__item-title { margin: 0; font-weight: 600; }
+.wrbc-map__item-address { margin: 0.2em 0 0; color: var(--wrbc-muted); font-size: 0.92em; font-style: normal; }
+.wrbc-map__focus,
+.wrbc-root .wrbc-map__focus,
+.wrbc-root .wrbc-map__focus:hover,
+.wrbc-root .wrbc-map__focus:focus {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px; /* WCAG 2.5.8 */
+	margin-block-start: 0.5em;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--wrbc-accent-text);
+	font: inherit;
+	font-size: 0.9em;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+	white-space: normal;
+	cursor: pointer;
+}
+[data-wrbc-map]:not(.is-ready) .wrbc-map__focus { display: none; }
+.wrbc-map__marker { background: none; border: 0; }
+.wrbc-map__pin { display: block; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35)); }
+.wrbc-map__pin svg { display: block; }
+.wrbc-map__popup { min-width: 10em; font-size: 0.95em; line-height: 1.4; }
+.wrbc-map__popup p { margin: 0; }
+.wrbc-map__popup-title { font-weight: 600; }
+.wrbc-map__popup-address { margin-block-start: 0.25em !important; color: #555; }
+
+/* ── Gate (wrbc-gate) ─────────────────────────────────────────────────── */
+/* A live region (role="status" from setup): empty, it takes no room but stays
+ * rendered (display: none would drop it from the accessibility tree, and the
+ * first message might not be announced). */
+.wrbc-gate__result { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-block-start: 16px; }
+.wrbc-gate__result:empty { margin: 0; }
+span.wrbc-gate__result > * { display: block; }
+.wrbc-gate__ready { margin: 0; font-weight: 600; }
+/* Red mixed half-and-half with the text colour: dark red on light
+ * backgrounds (≥ 6.9:1), light red on dark ones (≥ 5:1, e.g. on .wrbc-is-dark
+ * where the text is white). The message says it's an error in words too. */
+.wrbc-gate__error { margin: 0; color: #b42318; color: color-mix(in srgb, #b42318 50%, currentColor); }
+[data-wrbc-gate].is-unlocking .wrbc-gate__result { color: var(--wrbc-muted); }
+[data-wrbc-gate] [data-wrbc-gate-skip][hidden] { display: none; }
+
+/* ── Forced colours (Windows contrast themes) ────────────────────────────
+ * Backgrounds are replaced by the theme's: what is drawn with a background
+ * (dots, the close ×) gets a system colour so it doesn't vanish. */
+@media (forced-colors: active) {
+	.wrbc-carousel__dot::before { forced-color-adjust: none; background: ButtonText; }
+	.wrbc-carousel__dot[aria-current="true"]::before { background: Highlight; }
+	.wrbc-video__close-icon,
+	.wrbc-video__close-icon::before { forced-color-adjust: none; background: ButtonText; }
+	.wrbc-video__frame.is-focus-visible::after,
+	.wrbc-video__frame:has(> .wrbc-video__media:focus-visible)::after { forced-color-adjust: none; box-shadow: inset 0 0 0 3px Highlight; }
+	.wrbc-filter__chip[aria-pressed="true"] { border-width: 2px; }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-carousel__track,
+	[data-wrbc-track] { scroll-behavior: auto; }
+	.wrbc-carousel__dot::before,
+	.wrbc-carousel__btn,
+	.wrbc-video__poster,
+	.wrbc-video__icon,
+	.wrbc-filter__chip { transition: none; }
+	.wrbc-video__play:hover .wrbc-video__poster { transform: none; }
+	.wrbc-video__play:hover .wrbc-video__icon,
+	.wrbc-video__play:focus-visible .wrbc-video__icon { transform: translate(-50%, -50%); }
+}

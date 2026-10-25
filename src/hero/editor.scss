@@ -1,0 +1,13 @@
+/* Hero, editor only: the image placeholder fills its column. */
+.wrbc-hero__media .components-placeholder {
+	min-height: 280px;
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-hero .wrbc-btn [contenteditable] { cursor: text; }
+/* A button with no URL yet: printed as text on the page (render.php). A
+   dashed ring in the readable accent marks it here; no fading, which would
+   lower the label's contrast. */
+.wrbc-hero .wrbc-hero__btn.is-missing-url {
+	outline: 2px dashed var(--wrbc-focus);
+	outline-offset: 3px;
+}

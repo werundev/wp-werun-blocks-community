@@ -1,0 +1,19 @@
+/* Media and text, editor only. */
+.wrbc-media-text__media .components-placeholder {
+	position: absolute;
+	inset: 0;
+	min-height: 0;
+	border-radius: var(--wrbc-radius);
+}
+.wrbc-media-text__hint {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 1em;
+	font-size: 0.85em;
+	text-align: center;
+	color: var(--wrbc-muted);
+}
+.wrbc-media-text .wrbc-btn [contenteditable] { cursor: text; }
+/* "No link yet" notice at the top of the sidebar, spaced like the contrast audit. */
+.wrbc-media-text__notice { padding: 0 16px 16px; }
+.wrbc-media-text__notice .components-notice { margin: 0; }

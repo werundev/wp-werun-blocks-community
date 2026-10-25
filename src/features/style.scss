@@ -1,0 +1,193 @@
+/* Feature grid and its cards. Columns follow the block's own width.
+   A word longer than its column (a compound word, a URL) breaks instead of
+   pushing out of a narrow card at 320 px (reflow).
+   --wrbc-features-ring: the focus colour of what's around the cards, taken
+   here on the grid, so a card with its own tone (render.php) still draws
+   the ring that goes around it, outside it, in a colour that reads there. */
+.wrbc-features {
+	container-type: inline-size;
+	overflow-wrap: anywhere;
+	--wrbc-card-pad: 28px;
+	--wrbc-features-ring: var(--wrbc-focus);
+}
+.wrbc-features__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--wrbc-cols-m, 1), minmax(0, 1fr));
+	gap: var(--wrbc-gap);
+	margin: 0;
+	padding: 0;
+}
+@container (min-width: 600px) {
+	.wrbc-features__grid { grid-template-columns: repeat(var(--wrbc-cols-t, 2), minmax(0, 1fr)); }
+}
+@container (min-width: 960px) {
+	.wrbc-features__grid { grid-template-columns: repeat(var(--wrbc-cols-d, 3), minmax(0, 1fr)); }
+}
+.wrbc-features:not(.is-equal-height) .wrbc-features__grid { align-items: start; }
+
+/* A card. Its two shadows are custom properties, so a highlight ring, a
+   hover ring and the "shadow" style's drop shadow add up instead of
+   replacing each other. Hover lift uses `translate`, so it never fights the
+   entrance reveal, which animates `transform`. */
+.wrbc-feature {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	min-width: 0;
+	margin: 0;
+	padding: var(--wrbc-card-pad);
+	border-radius: var(--wrbc-radius);
+	box-shadow: var(--wrbc-feature-ring, inset 0 0 0 0 transparent), var(--wrbc-feature-shadow, 0 0 0 0 transparent);
+	transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+}
+/* The reveal's own fade and delay (shared.css) would be reset by the line above. */
+.wrbc-feature[data-wrbc-reveal] {
+	transition:
+		opacity 0.7s ease var(--wrbc-reveal-delay, 0s),
+		transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--wrbc-reveal-delay, 0s),
+		translate 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+		border-color 0.2s ease,
+		box-shadow 0.25s ease,
+		background-color 0.2s ease;
+}
+.wrbc-features--plain .wrbc-feature { padding-inline: 0; background: var(--wrbc-card-bg, transparent); }
+.wrbc-features--bordered .wrbc-feature { border: 1px solid var(--wrbc-card-border, var(--wrbc-line)); background: var(--wrbc-card-bg, transparent); }
+.wrbc-features--filled .wrbc-feature { background: var(--wrbc-card-bg, var(--wrbc-surface)); }
+.wrbc-features--shadow .wrbc-feature {
+	/* White, so a dark section gives these cards the light tone (render.php). */
+	background: var(--wrbc-card-bg, #fff);
+	--wrbc-feature-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px -12px rgba(0, 0, 0, 0.18);
+}
+/* The highlight ring: the accent as it reads on the card (3:1 at least). */
+.wrbc-feature.is-highlight {
+	border-color: var(--wrbc-accent-text);
+	--wrbc-feature-ring: inset 0 0 0 1px var(--wrbc-accent-text);
+}
+
+/* Hover. A plain grid only lifts (render.php prints hover-none for the rest). */
+.wrbc-features--hover-lift .wrbc-feature:hover { translate: 0 -4px; }
+.wrbc-features--hover-lift.wrbc-features--shadow .wrbc-feature:hover { --wrbc-feature-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 18px 40px -16px rgba(0, 0, 0, 0.28); }
+.wrbc-features--hover-border .wrbc-feature:hover { border-color: currentColor; }
+/* Filled and shadow cards have no border to recolour: draw a ring instead. */
+.wrbc-features--hover-border:not(.wrbc-features--bordered) .wrbc-feature:hover { --wrbc-feature-ring: inset 0 0 0 1px currentColor; }
+.wrbc-features--hover-accent .wrbc-feature:hover { border-color: var(--wrbc-accent-text); --wrbc-feature-ring: inset 0 0 0 1px var(--wrbc-accent-text); }
+
+/* Icon and badge. In a narrow card the badge goes under the icon, and a long
+   badge wraps instead of sticking out of the card. */
+.wrbc-feature__top {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+}
+.wrbc-feature__badge {
+	padding: 3px 10px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--wrbc-accent) 12%, transparent);
+	/* The accent made readable on that tint (render.php prints it per card). */
+	color: var(--wrbc-features-badge, var(--wrbc-accent-text));
+	font-size: 0.75em;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	line-height: 1.5;
+}
+.wrbc-feature__body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.wrbc-feature__title {
+	margin: 0;
+	font-size: 1.2em;
+	line-height: 1.3;
+}
+.wrbc-feature__text {
+	margin: 0;
+	color: var(--wrbc-muted);
+	line-height: 1.6;
+}
+.wrbc-feature__link {
+	align-self: flex-start;
+	margin-top: auto;
+	padding-top: 6px;
+	font-size: 0.95em;
+}
+.wrbc-feature__link.wrbc-btn--outline { padding-top: 0.6em; }
+.wrbc-feature__arrow { --wrbc-icon-size: 1em; }
+
+/* Whole card is the link: the title's link stretches over the card. It keeps
+   the title's colour in every state, as in the editor: neither the block's
+   link colour nor a theme's a:hover repaints it (.wrbc-root beats both). */
+.wrbc-root .wrbc-feature__stretched,
+.wrbc-root .wrbc-feature__stretched:hover,
+.wrbc-root .wrbc-feature__stretched:focus { color: inherit; text-decoration: none; }
+.wrbc-feature__stretched::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.wrbc-feature.is-card-link { cursor: pointer; isolation: isolate; }
+/* A link written in the card's text stays clickable above the stretched one. */
+.wrbc-feature.is-card-link .wrbc-feature__text a { position: relative; z-index: 1; }
+/* The focus ring goes around the whole card, only while its own link has
+   keyboard focus (a link in the text shows its own ring), and above the next
+   card, so a gap of 0 never covers part of it. */
+.wrbc-feature.is-card-link:has(.wrbc-feature__stretched:focus-visible) {
+	z-index: 1;
+	outline: 2px solid var(--wrbc-features-ring, var(--wrbc-focus));
+	outline-offset: 3px;
+}
+@supports not selector(:has(*)) {
+	.wrbc-feature.is-card-link:focus-within { z-index: 1; outline: 2px solid var(--wrbc-features-ring, var(--wrbc-focus)); outline-offset: 3px; }
+}
+.wrbc-feature .wrbc-feature__stretched:focus-visible { outline: none; box-shadow: none; }
+
+/* A theme's link colour is made for its page: on a card with a colour of its
+   own (its Color panel, or the grid's card colour), links in the card's text
+   take the accent made readable on that card, in every state — unless the
+   grid or the card sets a link colour (Color panel, wrbc-has-link-color). */
+.wrbc-feature.has-card-bg:not(.wrbc-has-link-color):not(.wrbc-has-link-color *) :where(p, li, [class*="__text"]) a:not([class*="wrbc-"]) {
+	color: var(--wrbc-accent-text);
+}
+
+/* Icon left of the text. A grid, so a card too narrow for both side by side
+   (two columns on a phone, a large icon, zoomed text) puts the text under
+   the icon instead of squeezing it to a few letters per line (reflow). */
+.wrbc-features--inline .wrbc-feature {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	grid-template-rows: auto 1fr;
+	row-gap: 0;
+	align-items: start;
+	container: wrbc-feature / inline-size;
+}
+.wrbc-features--inline .wrbc-feature__top { grid-column: 1; grid-row: 1; flex-direction: column; align-items: flex-start; }
+/* Full card height, so "same height" also lines the links up at the bottom. */
+.wrbc-features--inline .wrbc-feature__body { grid-column: 2; grid-row: 1 / -1; align-self: stretch; }
+/* A card that hides its own icon and badge: the text takes the whole width. */
+.wrbc-features--inline .wrbc-feature__body:first-child { grid-column: 1 / -1; }
+@container wrbc-feature (max-width: 13em) {
+	.wrbc-features--inline .wrbc-feature__top { grid-column: 1 / -1; margin-block-end: 18px; }
+	.wrbc-features--inline .wrbc-feature__body { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* Centred (stacked only: beside an icon the text stays left) */
+.wrbc-features--align-center:not(.wrbc-features--inline) .wrbc-feature { text-align: center; align-items: center; }
+.wrbc-features--align-center:not(.wrbc-features--inline) .wrbc-feature__top { justify-content: center; flex-direction: column; align-items: center; }
+.wrbc-features--align-center:not(.wrbc-features--inline) .wrbc-feature__link { align-self: center; }
+
+/* Staggered reveal, without the card knowing its index */
+.wrbc-features .wrbc-feature[data-wrbc-reveal]:nth-child(3n + 2) { --wrbc-reveal-delay: 0.08s; }
+.wrbc-features .wrbc-feature[data-wrbc-reveal]:nth-child(3n + 3) { --wrbc-reveal-delay: 0.16s; }
+
+@media (prefers-reduced-motion: reduce) {
+	.wrbc-feature,
+	.wrbc-feature[data-wrbc-reveal] { transition: none; }
+	.wrbc-features--hover-lift .wrbc-feature:hover { translate: none; }
+}
+
+/* Forced colours (Windows high contrast) drop box shadows, and with them the
+   highlight ring: draw it as an outline instead. */
+@media (forced-colors: active) {
+	.wrbc-feature.is-highlight { outline: 2px solid Highlight; outline-offset: -2px; }
+}

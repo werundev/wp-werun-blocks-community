@@ -1,0 +1,254 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "werun-community/carousel",
+  "version": "1.0.0",
+  "title": "Carousel",
+  "category": "werun-community",
+  "icon": "slides",
+  "description": "Slides that hold any blocks, with background images, slides per screen size, peek, arrows, dots, thumbnails, loop and autoplay. Keyboard, swipe and screen readers.",
+  "keywords": [
+    "carousel",
+    "slider",
+    "slides",
+    "gallery",
+    "slideshow",
+    "thumbnails"
+  ],
+  "textdomain": "werun-blocks-community",
+  "allowedBlocks": [
+    "werun-community/slide"
+  ],
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "showHeader": {
+      "type": "boolean",
+      "default": false
+    },
+    "showEyebrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIntro": {
+      "type": "boolean",
+      "default": false
+    },
+    "eyebrow": {
+      "type": "string",
+      "role": "content",
+      "default": "Highlights"
+    },
+    "title": {
+      "type": "string",
+      "role": "content",
+      "default": "A title for the carousel"
+    },
+    "intro": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "titleLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 1
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 1
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 24
+    },
+    "peek": {
+      "type": "number",
+      "default": 0
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "interval": {
+      "type": "number",
+      "default": 6
+    },
+    "pauseOnHover": {
+      "type": "boolean",
+      "default": true
+    },
+    "showArrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDots": {
+      "type": "boolean",
+      "default": true
+    },
+    "controlsPosition": {
+      "type": "string",
+      "default": "bottom",
+      "enum": [
+        "bottom",
+        "top"
+      ]
+    },
+    "prevIcon": {
+      "type": "object",
+      "default": {
+        "name": "arrow-left",
+        "lib": "animated",
+        "anim": "auto",
+        "trigger": "hover"
+      }
+    },
+    "nextIcon": {
+      "type": "object",
+      "default": {
+        "name": "arrow-right",
+        "lib": "animated",
+        "anim": "auto",
+        "trigger": "hover"
+      }
+    },
+    "slideStyle": {
+      "type": "string",
+      "default": "filled",
+      "enum": [
+        "plain",
+        "bordered",
+        "filled",
+        "shadow"
+      ]
+    },
+    "slideRadius": {
+      "type": "number",
+      "default": 16
+    },
+    "slidePadding": {
+      "type": "number",
+      "default": 40
+    },
+    "aspectRatio": {
+      "type": "string",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "21/9",
+        "16/9",
+        "3/2",
+        "4/3",
+        "1/1",
+        "3/4"
+      ]
+    },
+    "minHeight": {
+      "type": "number",
+      "default": 0
+    },
+    "verticalAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ]
+    },
+    "showThumbs": {
+      "type": "boolean",
+      "default": false
+    },
+    "thumbSize": {
+      "type": "number",
+      "default": 64
+    },
+    "thumbsAlign": {
+      "type": "string",
+      "default": "center",
+      "enum": [
+        "left",
+        "center"
+      ]
+    },
+    "accentColor": {
+      "type": "string"
+    },
+    "slideBg": {
+      "type": "string"
+    },
+    "slideBorderColor": {
+      "type": "string"
+    },
+    "reveal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "providesContext": {
+    "werun-community/carousel/showThumbs": "showThumbs",
+    "werun-community/carousel/slideStyle": "slideStyle",
+    "werun-community/carousel/slideBg": "slideBg",
+    "werun-community/carousel/accentColor": "accentColor",
+    "werun-community/carousel/textColor": "textColor",
+    "werun-community/carousel/style": "style"
+  },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "wrbc-shared",
+    "wrbc-modules",
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "wrbc-shared-view",
+    "wrbc-carousel",
+    "file:./view.js"
+  ],
+  "render": "file:./render.php"
+}

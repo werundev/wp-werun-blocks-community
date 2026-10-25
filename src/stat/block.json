@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "werun-community/stat",
+	"version": "1.0.0",
+	"title": "Stat",
+	"category": "werun-community",
+	"icon": "editor-ol",
+	"description": "One number of a stats block, with its label, an optional description and icon.",
+	"parent": [ "werun-community/stats" ],
+	"textdomain": "werun-blocks-community",
+	"attributes": {
+		"number": { "type": "string", "role": "content", "default": "" },
+		"label": { "type": "string", "role": "content", "default": "" },
+		"description": { "type": "string", "role": "content", "default": "" },
+		"icon": { "type": "object", "role": "content" },
+		"hideDescription": { "type": "boolean", "default": false },
+		"noCount": { "type": "boolean", "default": false }
+	},
+	"usesContext": [
+		"werun-community/stats/layout",
+		"werun-community/stats/labelPosition",
+		"werun-community/stats/showDescription",
+		"werun-community/stats/showIcon",
+		"werun-community/stats/itemIcon",
+		"werun-community/stats/iconStyle",
+		"werun-community/stats/animate",
+		"werun-community/stats/counterDuration",
+		"werun-community/stats/reveal",
+		"werun-community/stats/cardStyle",
+		"werun-community/stats/cardBg",
+		"werun-community/stats/accentColor",
+		"werun-community/stats/textColor",
+		"werun-community/stats/style",
+		"werun-community/stats/iconColor",
+		"werun-community/stats/iconBg"
+	],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"reusable": false,
+		"color": { "background": true, "text": true },
+		"spacing": { "padding": true }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
+}

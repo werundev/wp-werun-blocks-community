@@ -1,0 +1,94 @@
+# Builds werun-blocks-community.zip and attaches it to the GitHub release of a
+# v* tag. That zip is the package uploaded to WordPress.org. The release
+# description is the version's entry in changelog.txt, so every update is
+# recorded in its release.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build blocks and icons
+        run: npm run build
+
+      - name: Version matches the tag
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          grep -q "Version:           ${TAG}$" werun-blocks-community.php || { echo "werun-blocks-community.php Version does not match tag ${TAG}"; exit 1; }
+          grep -q "define( 'WERUN_BLOCKS_COMMUNITY_VERSION', '${TAG}' );" werun-blocks-community.php || { echo "WERUN_BLOCKS_COMMUNITY_VERSION does not match tag ${TAG}"; exit 1; }
+          grep -q "^Stable tag: ${TAG}$" readme.txt || { echo "readme.txt Stable tag does not match tag ${TAG}"; exit 1; }
+
+      - name: Changelog entry for this version
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          # The lines between "= X.Y.Z =" and the next "= … =" heading.
+          awk -v head="= ${TAG} =" '$0 == head { found = 1; next } /^= .+ =$/ { if ( found ) exit } found' changelog.txt > "$RUNNER_TEMP/release-notes.txt"
+          grep -q '[^[:space:]]' "$RUNNER_TEMP/release-notes.txt" || { echo "changelog.txt has no entry for ${TAG}"; exit 1; }
+          awk '/^== Changelog ==/ { c = 1 } c' readme.txt | grep -qx "= ${TAG} =" || { echo "readme.txt == Changelog == has no entry for ${TAG}"; exit 1; }
+
+      - name: Build zip
+        run: npm run zip
+
+      - name: Nothing but the plugin in the zip
+        run: |
+          # No Markdown, dotfiles, sources, tooling or dependencies: only what WordPress.org gets.
+          if unzip -Z1 werun-blocks-community.zip | grep -E '\.md$|(^|/)\.[^/]+|^werun-blocks-community/(bin|src|docs|scripts|node_modules)/|(^|/)(package(-lock)?\.json|webpack\.config\.js)$'; then
+            echo "The zip contains files that must not ship (listed above)."; exit 1
+          fi
+          for f in readme.txt changelog.txt werun-blocks-community.php; do
+            unzip -Z1 werun-blocks-community.zip | grep -qx "werun-blocks-community/$f" || { echo "The zip is missing $f"; exit 1; }
+          done
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: werun-blocks-community.zip
+          body_path: ${{ runner.temp }}/release-notes.txt
+
+  # The same release to the WordPress.org SVN (trunk, tags/X.Y.Z, assets/ from
+  # .wordpress-org/). Off until the plugin is approved: set the repository
+  # variable WPORG_DEPLOY to "true" and the secrets SVN_USERNAME / SVN_PASSWORD.
+  # The action copies everything but .distignore, the same files as the zip
+  # the job above checked: no .md, readme.txt and changelog.txt included.
+  wordpress-org:
+    needs: release
+    if: vars.WPORG_DEPLOY == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build blocks and icons
+        run: npm run build
+
+      - name: Deploy to WordPress.org SVN
+        uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2 # 2.3.0
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: werun-blocks-community

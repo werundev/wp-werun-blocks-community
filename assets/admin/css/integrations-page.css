@@ -1,0 +1,125 @@
+/**
+ * werun.Blocks.Community → Integrations (werun-blocks-community-integrations-*). The rest comes
+ * from ui.css, settings-page.css and tab-search.css.
+ */
+
+/* A tab holds several section cards. */
+.werun-blocks-community-integrations-panel {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wrbc-admin-sp-xl);
+}
+
+/* Long hints, read-only lists and notes take the whole row. */
+.werun-blocks-community-settings-fields > .werun-blocks-community-integrations-wide {
+	grid-column: 1 / -1;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-field-note .werun-blocks-community-settings-notice {
+	margin: 0;
+}
+
+/* Secret: password box with a show / hide button inside. */
+.werun-blocks-community-integrations-secret {
+	display: flex;
+	position: relative;
+	align-items: center;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-secret .werun-blocks-community-ui-input {
+	padding-right: 52px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-secret-toggle {
+	position: absolute;
+	right: 8px;
+}
+
+.werun-blocks-community-integrations-secret-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wrbc-admin-sp-md);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-secret-remove {
+	margin-top: var(--wrbc-admin-sp-xs);
+}
+
+.werun-blocks-community-ui-button[aria-busy="true"] .werun-blocks-community-ui-icon {
+	animation: werun-blocks-community-spin 0.8s linear infinite;
+}
+
+/* Detected plugins: one row each with a badge. */
+.werun-blocks-community-app .werun-blocks-community-integrations-detect {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+	gap: var(--wrbc-admin-sp-sm);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-detect-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wrbc-admin-sp-md);
+	margin: 0;
+	padding: var(--wrbc-admin-sp-md) var(--wrbc-admin-sp-lg);
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: var(--wrbc-admin-radius);
+	color: var(--wrbc-admin-body);
+	font-size: 14px;
+	line-height: 20px;
+}
+
+/* Hosts table. */
+.werun-blocks-community-app .werun-blocks-community-integrations-hosts code {
+	padding: 0;
+	background: none;
+	color: var(--wrbc-admin-ink);
+	font-size: 13px;
+	word-break: break-all;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-hosts td.werun-blocks-community-ui-mono {
+	color: var(--wrbc-admin-mute);
+	font-size: 12px;
+	white-space: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.werun-blocks-community-ui-button[aria-busy="true"] .werun-blocks-community-ui-icon {
+		animation: none;
+	}
+}
+
+/* Help: documentation, support on GitHub and custom work. */
+.werun-blocks-community-integrations-help {
+	margin-top: var(--wrbc-admin-sp-xl);
+}
+
+.werun-blocks-community-integrations-help-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: var(--wrbc-admin-sp-xl);
+	margin-top: var(--wrbc-admin-sp-lg);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item h3 {
+	margin: 0 0 var(--wrbc-admin-sp-sm);
+	color: var(--wrbc-admin-ink);
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item p {
+	margin: 0 0 var(--wrbc-admin-sp-md);
+	color: var(--wrbc-admin-body);
+}
+
+.werun-blocks-community-integrations-help-cta {
+	padding-left: var(--wrbc-admin-sp-xl);
+	border-left: 2px solid var(--wrbc-admin-accent-line);
+}

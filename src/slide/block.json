@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "werun-community/slide",
+	"version": "1.0.0",
+	"title": "Slide",
+	"category": "werun-community",
+	"icon": "slides",
+	"description": "One slide of a carousel: any blocks, with an optional background image or colour.",
+	"parent": [ "werun-community/carousel" ],
+	"textdomain": "werun-blocks-community",
+	"attributes": {
+		"bgId": { "type": "number", "role": "content" },
+		"bgUrl": { "type": "string", "role": "content", "default": "" },
+		"bgAlt": { "type": "string", "role": "content", "default": "" },
+		"bgFocal": { "type": "object", "role": "content", "default": { "x": 0.5, "y": 0.5 } },
+		"overlayColor": { "type": "string", "default": "#000000" },
+		"overlayOpacity": { "type": "number" },
+		"thumbId": { "type": "number", "role": "content" },
+		"thumbUrl": { "type": "string", "role": "content", "default": "" }
+	},
+	"usesContext": [ "werun-community/carousel/showThumbs", "werun-community/carousel/slideStyle", "werun-community/carousel/slideBg", "werun-community/carousel/accentColor", "werun-community/carousel/textColor", "werun-community/carousel/style" ],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"reusable": false,
+		"color": { "background": true, "text": true, "gradients": true, "link": true },
+		"spacing": { "padding": true }
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
