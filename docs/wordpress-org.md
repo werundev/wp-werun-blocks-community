@@ -234,6 +234,44 @@ El deploy a SVN se activa una vez aprobado el plugin:
 - crear los secrets `SVN_USERNAME` y `SVN_PASSWORD`;
 - poner el banner, el ícono y las capturas en `.wordpress-org/`.
 
+### 6.1 El repositorio SVN
+
+- SVN: `https://plugins.svn.wordpress.org/werun-blocks-community` (aprobado el 2026-10-29).
+- Página pública: `https://wordpress.org/plugins/werun-blocks-community/`.
+- Usuario SVN: `werundev`, que distingue mayúsculas. No acepta el email.
+- La contraseña SVN no es la de WordPress.org: se genera en el perfil de `werundev`, en "Account & Security". Si se regenera, hay que actualizar el secret `SVN_PASSWORD`.
+- Estructura:
+  - `trunk/`: la última versión;
+  - `tags/X.Y.Z/`: una copia de cada versión;
+  - `assets/`: banner, ícono y capturas de la página del directorio, sin entrar al plugin.
+- WordPress.org sirve la versión que indica el `Stable tag` del `readme.txt` de `trunk/`. Por eso ese valor tiene que existir en `tags/`.
+- La página se actualiza a los pocos minutos. La búsqueda del directorio puede tardar hasta 72 horas.
+
+### 6.2 Deploy manual a SVN
+
+Para cuando el job `wordpress-org` está apagado o falla. Se sube el contenido del tag de git, no la carpeta de trabajo, para que SVN reciba lo mismo que el release de GitHub:
+
+```bash
+VERSION=X.Y.Z
+SRC=$(mktemp -d)
+SVN=$(mktemp -d)
+git archive "v$VERSION" | tar -x -C "$SRC"
+svn checkout --depth immediates https://plugins.svn.wordpress.org/werun-blocks-community "$SVN"
+svn update --set-depth infinity "$SVN/trunk" "$SVN/assets"
+rsync -rc --delete --delete-excluded --exclude-from=.distignore "$SRC/" "$SVN/trunk/"
+[ -d .wordpress-org ] && rsync -rc --delete .wordpress-org/ "$SVN/assets/"
+cd "$SVN"
+svn add --force trunk assets
+svn status | awk '/^!/ { sub( /^![ ]+/, "" ); print }' | while read -r f; do svn rm "$f@"; done
+svn cp trunk "tags/$VERSION"
+svn status    # revisar: solo archivos del plugin
+svn commit -m "Release $VERSION" --username werundev --no-auth-cache
+```
+
+Después:
+- comprobar `https://plugins.svn.wordpress.org/werun-blocks-community/tags/X.Y.Z/` y el `Stable tag` de `trunk/readme.txt`;
+- comprobar que la página pública muestra la versión.
+
 ## 7. Registro de revisiones e incidentes
 
 ### 2026-10-25: revisión 1 de werun.Blocks.Community 1.0.0
@@ -305,3 +343,10 @@ Lo que quedaba abierto, también resuelto el mismo día:
 - Se corrigió tomando lo que va después del namespace, sea cual sea. Verificado en el editor: los 28 bloques muestran su ícono.
 - La regla quedó en 3.10.
 - Se armó un zip nuevo con el arreglo para reemplazar el enviado, antes de la siguiente revisión.
+
+### 2026-10-29: plugin aprobado y primera versión en SVN
+
+- WordPress.org aprobó werun.Blocks.Community con el slug `werun-blocks-community` y dio acceso SVN a `werundev` (sección 6.1).
+- La 1.0.0 publicada es la que se envió a revisión, con el arreglo de los íconos del editor (entrada anterior). Hasta ahora no tenía tag ni release en GitHub: `v1.0.0` se creó sobre ese código.
+- La 1.0.0 se subió a SVN a mano (sección 6.2). El deploy automático del workflow queda pendiente de crear la variable `WPORG_DEPLOY` y los secrets `SVN_USERNAME` y `SVN_PASSWORD`.
+- Todavía no hay banner, ícono ni capturas en `.wordpress-org/`: la página del directorio usa el ícono genérico.
