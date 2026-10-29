@@ -348,5 +348,5 @@ Lo que quedaba abierto, también resuelto el mismo día:
 
 - WordPress.org aprobó werun.Blocks.Community con el slug `werun-blocks-community` y dio acceso SVN a `werundev` (sección 6.1).
 - La 1.0.0 publicada es la que se envió a revisión, con el arreglo de los íconos del editor (entrada anterior). Hasta ahora no tenía tag ni release en GitHub: `v1.0.0` se creó sobre ese código.
-- La 1.0.0 se subió a SVN a mano (sección 6.2). El deploy automático del workflow queda pendiente de crear la variable `WPORG_DEPLOY` y los secrets `SVN_USERNAME` y `SVN_PASSWORD`.
+- La 1.0.0 se subió a SVN a mano (sección 6.2). Después se crearon la variable `WPORG_DEPLOY=true` y los secrets `SVN_USERNAME` y `SVN_PASSWORD`: desde la próxima versión, el tag `vX.Y.Z` sube también a SVN.
 - Todavía no hay banner, ícono ni capturas en `.wordpress-org/`: la página del directorio usa el ícono genérico.
