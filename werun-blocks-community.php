@@ -3,7 +3,7 @@
  * Plugin Name:       werun.Blocks.Community
  * Plugin URI:        https://github.com/werundev/wp-werun-blocks-community
  * Description:       Corporate blocks for the block editor: hero, sections, CTAs, feature and logo grids, stats, tabs, pricing and comparison, FAQ, testimonials, timelines, video, carousels, a visual query builder for any post type, jobs from your ATS and forms from the usual providers.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.6
  * Requires PHP:      7.4
  * Author:            werun.dev
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WERUN_BLOCKS_COMMUNITY_VERSION', '1.0.0' );
+define( 'WERUN_BLOCKS_COMMUNITY_VERSION', '1.0.1' );
 define( 'WERUN_BLOCKS_COMMUNITY_FILE', __FILE__ );
 define( 'WERUN_BLOCKS_COMMUNITY_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WERUN_BLOCKS_COMMUNITY_URL', plugin_dir_url( __FILE__ ) );

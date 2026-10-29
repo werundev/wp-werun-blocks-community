@@ -50,6 +50,7 @@ El repo público solo tiene el plugin y sus herramientas de desarrollo. Nada loc
 - **Sin rastros de las herramientas de trabajo.**
   - Ni archivos de configuración de editores o asistentes, ni menciones a sesiones o agentes en código, docs o mensajes de commit.
   - Ningún trailer `Co-Authored-By` ni enlaces a sesiones.
+  - Ningún metadato incrustado en imágenes que nombre la herramienta que creó el archivo: manifiestos C2PA, XMP o `<metadata>` en SVG. Se quitan antes del commit.
   - Los archivos locales de esas herramientas se excluyen en `.git/info/exclude` (local), nunca en el `.gitignore` público: nombrarlos ahí ya es un indicio.
 - **Identidad de los commits.** Siempre el email noreply de la cuenta de GitHub dueña del repo (`<id>+<cuenta>@users.noreply.github.com`), nunca un email personal.
 
@@ -59,6 +60,7 @@ Antes de cada push:
 git log --format='%ae%n%ce' | sort -u            # solo direcciones @users.noreply.github.com
 git log --format=%B | grep -i 'co-authored-by'   # nada
 git grep -nIE '/Users/|/Volumes/|[a-z0-9-]+\.local\b|BEGIN [A-Z ]*PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_|sk-[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}' -- . ':!docs/wordpress-org.md'   # nada
+git ls-files -z '*.svg' '*.png' '*.jpg' '*.jpeg' '*.webp' '*.gif' | xargs -0 grep -laiE 'c2pa|xmpmeta'   # nada
 ```
 
 Lo que ya se publicó queda en el historial. Un force-push no alcanza: GitHub sigue sirviendo los commits viejos por su SHA y los lista en la vista Activity del repo. Si algo se filtró, hay que:
@@ -229,10 +231,10 @@ Desde la raíz del plugin, con WP-CLI apuntando al sitio de prueba.
    - publica el release con el zip y con la entrada del changelog como descripción;
    - si el deploy está activo, sube a SVN `trunk/`, `tags/X.Y.Z/` y `assets/` (desde `.wordpress-org/`).
 
-El deploy a SVN se activa una vez aprobado el plugin:
-- crear la variable del repo `WPORG_DEPLOY=true`;
-- crear los secrets `SVN_USERNAME` y `SVN_PASSWORD`;
-- poner el banner, el ícono y las capturas en `.wordpress-org/`.
+El deploy a SVN está activo desde el 2026-10-29. Depende de:
+- la variable del repo `WPORG_DEPLOY=true`;
+- los secrets `SVN_USERNAME` y `SVN_PASSWORD`;
+- el banner, el ícono y las capturas en `.wordpress-org/` (sección 6.3).
 
 ### 6.1 El repositorio SVN
 
@@ -271,6 +273,20 @@ svn commit -m "Release $VERSION" --username werundev --no-auth-cache
 Después:
 - comprobar `https://plugins.svn.wordpress.org/werun-blocks-community/tags/X.Y.Z/` y el `Stable tag` de `trunk/readme.txt`;
 - comprobar que la página pública muestra la versión.
+
+### 6.3 Banner, ícono y capturas
+
+Viven en `.wordpress-org/` y el deploy los copia a `assets/` de SVN. No entran al plugin: `.distignore` excluye las carpetas ocultas.
+
+| Archivo | Tamaño | Qué es |
+|---|---|---|
+| `banner-772x250.png`, `banner-1544x500.png` | 772×250 y el doble | Cabecera de la página, en el design system de werun.dev |
+| `icon.svg`, `icon-128x128.png`, `icon-256x256.png` | 128 y 256 px | El monograma de `assets/brand/`, sin metadatos |
+| `screenshot-N.png` | 1280 px de ancho (el editor, 1440) | Capturas en el orden de `== Screenshots ==` |
+
+- Cada `screenshot-N.png` necesita su línea `N. …` en `== Screenshots ==` de `readme.txt`. Sin esa línea no se muestra.
+- Las capturas salen de páginas armadas con los fixtures de `bin/a11y` (contenido ficticio, `example.com`). No deben mostrar la barra de admin, el nombre del sitio de prueba, usuarios reales ni el menú de admin con otros plugins.
+- Cambiar solo `assets/` o el `readme.txt` no necesita una versión nueva. Como el deploy corre con cada tag, esos cambios se suben a mano: `assets/` y `readme.txt` en `trunk/` y en el tag del `Stable tag`.
 
 ## 7. Registro de revisiones e incidentes
 
@@ -349,4 +365,11 @@ Lo que quedaba abierto, también resuelto el mismo día:
 - WordPress.org aprobó werun.Blocks.Community con el slug `werun-blocks-community` y dio acceso SVN a `werundev` (sección 6.1).
 - La 1.0.0 publicada es la que se envió a revisión, con el arreglo de los íconos del editor (entrada anterior). Hasta ahora no tenía tag ni release en GitHub: `v1.0.0` se creó sobre ese código.
 - La 1.0.0 se subió a SVN a mano (sección 6.2). Después se crearon la variable `WPORG_DEPLOY=true` y los secrets `SVN_USERNAME` y `SVN_PASSWORD`: desde la próxima versión, el tag `vX.Y.Z` sube también a SVN.
-- Todavía no hay banner, ícono ni capturas en `.wordpress-org/`: la página del directorio usa el ícono genérico.
+- La página del directorio salió sin banner, ícono ni capturas. Se agregaron en la 1.0.1 (entrada siguiente).
+
+### 2026-10-29: metadatos C2PA en los SVG del plugin, y assets del directorio (detectado internamente)
+
+- Los tres monogramas del plugin (`assets/brand/werun-monograma-oscuro.svg`, `assets/admin/images/werun-monogram.svg` y `werun-monogram-active.svg`) traían un manifiesto C2PA. Era un bloque `<metadata>` de unos 7 KB que nombraba la herramienta que los generó. Estaba en el repo público y en el plugin publicado.
+- El chequeo de la sección 2 no lo encontraba: el manifiesto está en base64.
+- En la 1.0.1 se quitó: los SVG quedaron con solo el dibujo (de 8 KB a 0,5 KB). La regla y el chequeo nuevos están en la sección 2.
+- La misma versión agregó banner, ícono y 8 capturas en `.wordpress-org/` y la sección `== Screenshots ==` del readme (sección 6.3). Fue el primer deploy automático a SVN.

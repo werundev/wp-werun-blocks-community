@@ -2,6 +2,10 @@
 
 Every release, newest first. Each entry is also the description of its GitHub release, and readme.txt repeats the latest one under == Changelog ==.
 
+= 1.0.1 =
+* The werun.dev monogram images (admin menu and editor) no longer carry embedded file metadata.
+* readme.txt now has screenshots: the blocks on a page, the editor's contrast check and the Integrations screen.
+
 = 1.0.0 =
 * First public release of werun.Blocks.Community, the free edition for the WordPress.org directory: the full block catalog (hero, section, CTA, media + text, features, logos, stats, tabs, table of contents, query, pricing, comparison, accordion, testimonials, timeline, video, carousel, jobs, form, notice), Saved styles, Integrations screen and WCAG 2.2 AA accessibility.
 * Documentation (crm.werun.dev knowledge base) and support (GitHub issues) linked from the Integrations screen, the Plugins screen and readme.txt, with a contact link for custom work.

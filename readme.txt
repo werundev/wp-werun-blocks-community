@@ -4,7 +4,7 @@ Tags: blocks, accessibility, gdpr, jobs, query
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,7 +132,22 @@ Yes. Every block, class, option and endpoint has its own prefix, so both plugins
 
 Run `npm ci` and `npm run build`. The source is in `src/`; the release zip already contains the compiled `build/` folder.
 
+== Screenshots ==
+
+1. Hero: split layout with a checklist and two buttons.
+2. Feature grid and stats with count-up numbers.
+3. Pricing table with a working monthly / yearly switch.
+4. Jobs straight from your ATS, with search and filters.
+5. Query block: a team directory filtered by department.
+6. Locations with a map that waits for the visitor's consent.
+7. The contrast check in the editor: when a colour can't pass WCAG AA, the sidebar says so and offers a one-click fix.
+8. The Integrations screen: maps, privacy, forms, job boards and gated downloads in one place.
+
 == Changelog ==
+
+= 1.0.1 =
+* The werun.dev monogram images (admin menu and editor) no longer carry embedded file metadata.
+* readme.txt now has screenshots: the blocks on a page, the editor's contrast check and the Integrations screen.
 
 = 1.0.0 =
 * First public release: the full block catalog (hero, section, CTA, media + text, features, logos, stats, tabs, table of contents, query, pricing, comparison, accordion, testimonials, timeline, video, carousel, jobs, form, notice), Saved styles, the Integrations screen and WCAG 2.2 AA accessibility.
