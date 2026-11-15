@@ -4,7 +4,7 @@ Tags: blocks, accessibility, gdpr, jobs, query
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -144,6 +144,12 @@ Run `npm ci` and `npm run build`. The source is in `src/`; the release zip alrea
 8. The Integrations screen: maps, privacy, forms, job boards and gated downloads in one place.
 
 == Changelog ==
+
+= 1.1.0 =
+* The Integrations screen follows werun.dev's new look: a light canvas, near-black text, square corners and the werun.dev mark in the header and footer.
+* Colours now say what a control does: green for what is switched on and for saving, blue for what you can pick, red for what removes or fails.
+* The screen's font (Hanken Grotesk, SIL OFL 1.1) is bundled with the plugin: the admin makes no remote requests.
+* New werun.dev mark on the admin menu and on the blocks in the inserter. The plugin's page has a new icon, banner and Integrations screenshot.
 
 = 1.0.1 =
 * The werun.dev monogram images (admin menu and editor) no longer carry embedded file metadata.

@@ -94,12 +94,15 @@
 
 .werun-blocks-community-app .werun-blocks-community-settings-tab {
 	display: inline-flex;
-	padding: 8px 16px;
-	border: 1px solid var(--wrbc-admin-hairline-translucent);
-	border-radius: var(--wrbc-admin-radius-pill);
-	color: var(--wrbc-admin-body);
+	align-items: center;
+	min-height: 32px;
+	padding: 5px 12px;
+	border: 1px solid var(--wrbc-admin-control-line);
+	border-radius: var(--wrbc-admin-radius-control);
+	color: var(--wrbc-admin-ink);
 	font-size: 14px;
 	line-height: 20px;
+	text-decoration: none;
 }
 
 .werun-blocks-community-app .werun-blocks-community-settings-tab:hover {
@@ -108,9 +111,9 @@
 }
 
 .werun-blocks-community-app .werun-blocks-community-settings-tab[aria-current="page"] {
-	border-color: var(--wrbc-admin-accent-line);
-	background: var(--wrbc-admin-accent-dim);
-	color: var(--wrbc-admin-ink);
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+	color: var(--wrbc-admin-on-accent);
 }
 
 /* Data table (DataTable pattern: one bordered container, hairline rows) */
@@ -133,11 +136,11 @@
 	padding: 12px 16px;
 	border-bottom: 1px solid var(--wrbc-admin-hairline);
 	color: var(--wrbc-admin-mute);
-	font-family: var(--wrbc-admin-f-mono);
-	font-size: 12px;
-	font-weight: 400;
-	letter-spacing: 1.2px;
-	line-height: 16px;
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	line-height: 1.4;
 	text-align: left;
 	text-transform: uppercase;
 	white-space: nowrap;
@@ -221,7 +224,7 @@
 	gap: var(--wrbc-admin-sp-sm);
 	margin: var(--wrbc-admin-sp-sm) 0 0 var(--wrbc-admin-sp-lg);
 	padding: 0 0 0 var(--wrbc-admin-sp-md);
-	border-left: 1px solid var(--wrbc-admin-hairline-translucent);
+	border-left: 1px solid var(--wrbc-admin-hairline);
 	list-style: none;
 }
 
@@ -249,4 +252,22 @@
 
 .werun-blocks-community-app .werun-blocks-community-settings-notice-action {
 	flex-shrink: 0;
+}
+
+/* Horizontal tabs: info blue, the current one solid (state and action colours, see ui.css). */
+.werun-blocks-community-app .werun-blocks-community-settings-tab {
+	border-color: var(--wrbc-admin-info-edge);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-tab:hover {
+	border-color: var(--wrbc-admin-info);
+	background: var(--wrbc-admin-info-tint);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-tab[aria-current="page"] {
+	border-color: var(--wrbc-admin-info);
+	background: var(--wrbc-admin-info);
+	color: var(--wrbc-admin-on-state);
 }

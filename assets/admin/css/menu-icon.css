@@ -2,8 +2,9 @@
  * werun.Blocks.Community admin menu icon. Loaded on every admin screen, because the menu is global.
  *
  * The menu is registered with icon "none" so WordPress doesn't repaint the
- * SVG in a single color: the dark monogram shows at rest and the chartreuse
- * one while the werun.Blocks.Community menu (or one of its screens) is current.
+ * SVG in a single color: the monogram shows in the dark band's colours at
+ * rest (slate square, dark w) and as an off-white square with an ink w while
+ * the werun.Blocks.Community menu (or one of its screens) is current.
  */
 
 #adminmenu #toplevel_page_werun-blocks-community-integrations div.wp-menu-image::before {
@@ -13,7 +14,7 @@
 	height: 20px;
 	margin-top: 7px;
 	padding: 0;
-	border-radius: 4px;
+	border-radius: 0;
 	background: url("../images/werun-monogram.svg") center / 20px 20px no-repeat;
 	vertical-align: top;
 }

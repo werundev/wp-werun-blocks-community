@@ -2,6 +2,12 @@
 
 Every release, newest first. Each entry is also the description of its GitHub release, and readme.txt repeats the latest one under == Changelog ==.
 
+= 1.1.0 =
+* The Integrations screen follows werun.dev's new look: a light canvas, near-black text, square corners and the werun.dev mark in the header and footer.
+* Colours now say what a control does: green for what is switched on and for saving, blue for what you can pick, red for what removes or fails.
+* The screen's font (Hanken Grotesk, SIL OFL 1.1) is bundled with the plugin: the admin makes no remote requests.
+* New werun.dev mark on the admin menu and on the blocks in the inserter. The plugin's page has a new icon, banner and Integrations screenshot.
+
 = 1.0.1 =
 * The werun.dev monogram images (admin menu and editor) no longer carry embedded file metadata.
 * readme.txt now has screenshots: the blocks on a page, the editor's contrast check and the Integrations screen.

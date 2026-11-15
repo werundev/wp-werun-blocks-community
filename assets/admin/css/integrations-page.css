@@ -79,13 +79,22 @@
 	padding: 0;
 	background: none;
 	color: var(--wrbc-admin-ink);
-	font-size: 13px;
+	font-family: var(--wrbc-admin-f-body);
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 20px;
+	text-transform: none;
 	word-break: break-all;
 }
 
 .werun-blocks-community-app .werun-blocks-community-integrations-hosts td.werun-blocks-community-ui-mono {
 	color: var(--wrbc-admin-mute);
-	font-size: 12px;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 20px;
+	text-transform: none;
 	white-space: normal;
 }
 
@@ -110,8 +119,9 @@
 .werun-blocks-community-app .werun-blocks-community-integrations-help-item h3 {
 	margin: 0 0 var(--wrbc-admin-sp-sm);
 	color: var(--wrbc-admin-ink);
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: 400;
+	line-height: 1.3;
 }
 
 .werun-blocks-community-app .werun-blocks-community-integrations-help-item p {
@@ -121,5 +131,21 @@
 
 .werun-blocks-community-integrations-help-cta {
 	padding-left: var(--wrbc-admin-sp-xl);
-	border-left: 2px solid var(--wrbc-admin-accent-line);
+	border-left: 1px solid var(--wrbc-admin-hairline);
+}
+
+/* A detected plugin is "Active" (ok green, ui.css); one that is not there is off grey. */
+.werun-blocks-community-app .werun-blocks-community-integrations-detect-item .werun-blocks-community-ui-badge:not(.werun-blocks-community-ui-badge-good) {
+	border-color: var(--wrbc-admin-off-edge);
+	background: var(--wrbc-admin-off-tint);
+	color: var(--wrbc-admin-off);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-detect-item {
+	min-width: 0;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-detect-item > span:first-child {
+	min-width: 0;
+	overflow-wrap: anywhere;
 }

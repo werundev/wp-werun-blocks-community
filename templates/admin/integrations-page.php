@@ -56,7 +56,7 @@ foreach ( get_settings_errors( Integrations::OPTION ) as $werun_blocks_community
 
 			<nav class="werun-blocks-community-ui-breadcrumb werun-blocks-community-ui-mono" aria-label="<?php esc_attr_e( 'Breadcrumb', 'werun-blocks-community' ); ?>">
 				<ol>
-					<li><a href="<?php echo esc_url( Integrations_Page::url() ); ?>">werun.Blocks.Community</a></li>
+					<li><a class="werun-blocks-community-ui-breadcrumb-brand" href="<?php echo esc_url( Integrations_Page::url() ); ?>"><span class="werun-blocks-community-ui-brand"><img class="werun-blocks-community-ui-brand-mark" src="<?php echo esc_url( WERUN_BLOCKS_COMMUNITY_URL . 'assets/brand/werun-monograma-oscuro.svg' ); ?>" width="112" height="112" alt=""><span class="werun-blocks-community-ui-brand-name">werun<span class="werun-blocks-community-ui-brand-dot">.</span>Blocks.Community</span></span></a></li>
 					<li><span aria-current="page"><?php esc_html_e( 'Integrations', 'werun-blocks-community' ); ?></span></li>
 				</ol>
 			</nav>
@@ -132,7 +132,7 @@ foreach ( get_settings_errors( Integrations::OPTION ) as $werun_blocks_community
 						</div>
 
 						<div class="werun-blocks-community-settings-actions">
-							<button type="submit" class="werun-blocks-community-ui-button werun-blocks-community-ui-button-primary"><?php esc_html_e( 'Save changes', 'werun-blocks-community' ); ?></button>
+							<button type="submit" class="werun-blocks-community-ui-button werun-blocks-community-ui-button-primary werun-blocks-community-ui-button-commit"><?php esc_html_e( 'Save changes', 'werun-blocks-community' ); ?></button>
 						</div>
 					</form>
 				</div>
@@ -187,7 +187,7 @@ foreach ( get_settings_errors( Integrations::OPTION ) as $werun_blocks_community
 			</div>
 
 			<footer class="werun-blocks-community-ui-footer werun-blocks-community-ui-mono">
-				<span>werun.Blocks.Community <?php echo esc_html( WERUN_BLOCKS_COMMUNITY_VERSION ); ?> · <a href="https://werun.dev" target="_blank" rel="noopener">werun.dev<span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a></span>
+				<span class="werun-blocks-community-ui-footer-brand"><span class="werun-blocks-community-ui-brand"><img class="werun-blocks-community-ui-brand-mark" src="<?php echo esc_url( WERUN_BLOCKS_COMMUNITY_URL . 'assets/brand/werun-monograma-oscuro.svg' ); ?>" width="112" height="112" alt=""><span class="werun-blocks-community-ui-brand-name">werun<span class="werun-blocks-community-ui-brand-dot">.</span>Blocks.Community</span></span> <?php echo esc_html( WERUN_BLOCKS_COMMUNITY_VERSION ); ?> · <a href="https://werun.dev" target="_blank" rel="noopener">werun.dev<span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a></span>
 				<span><?php esc_html_e( 'Built to run.', 'werun-blocks-community' ); ?></span>
 			</footer>
 		</div>

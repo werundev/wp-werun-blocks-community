@@ -373,3 +373,9 @@ Lo que quedaba abierto, también resuelto el mismo día:
 - El chequeo de la sección 2 no lo encontraba: el manifiesto está en base64.
 - En la 1.0.1 se quitó: los SVG quedaron con solo el dibujo (de 8 KB a 0,5 KB). La regla y el chequeo nuevos están en la sección 2.
 - La misma versión agregó banner, ícono y 8 capturas en `.wordpress-org/` y la sección `== Screenshots ==` del readme (sección 6.3). Fue el primer deploy automático a SVN.
+
+### 2026-11-15: la pantalla del admin pasa al design system Editorial (1.1.0)
+
+- La pantalla Integrations y el ícono del menú pasaron al design system Editorial de werun.dev: fondo claro, tinta casi negra, esquinas rectas y colores de estado (verde, azul, rojo).
+- La fuente cambió de Geist a Hanken Grotesk, incluida en el plugin (`assets/admin/fonts/`). La línea de copyright de `OFL.txt` se copió de la tabla `name` del propio archivo de la fuente, no de memoria.
+- En `.wordpress-org/` se rehicieron el ícono, los dos banners y la captura 8 (Integrations). Las capturas 1 a 7 muestran bloques y el editor, que no cambiaron.

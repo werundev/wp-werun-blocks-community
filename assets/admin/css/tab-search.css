@@ -1,7 +1,7 @@
 /**
  * Vertical tabs with search (werun-blocks-community-ui-tabsearch-*), used by
- * werun.Blocks.Community → Integrations. Copy of werun.Toolkit's
- * assets/admin/css/tab-search.css with the werun-blocks-community prefix: keep them in sync.
+ * werun.Blocks.Community → Integrations, in the werun.dev Editorial design system:
+ * a hairline list of rows, the selected one marked in ink.
  */
 
 /* Search ------------------------------------------------------------------ */
@@ -35,9 +35,9 @@
 	height: 52px;
 	margin: 0;
 	padding: 0 56px 0 46px;
-	border: 1px solid var(--wrbc-admin-hairline);
-	border-radius: var(--wrbc-admin-radius-pill);
-	background: var(--wrbc-admin-canvas-soft);
+	border: 1px solid var(--wrbc-admin-control-line);
+	border-radius: var(--wrbc-admin-radius-control);
+	background: var(--wrbc-admin-canvas);
 	box-shadow: none;
 	color: var(--wrbc-admin-ink);
 	font-family: var(--wrbc-admin-f-body);
@@ -58,15 +58,15 @@
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-search-input:hover {
-	border-color: var(--wrbc-admin-hairline-translucent);
+	border-color: var(--wrbc-admin-ink);
 	color: var(--wrbc-admin-ink);
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-search-input:focus {
-	border-color: var(--wrbc-admin-accent-line);
+	border-color: var(--wrbc-admin-ink);
 	box-shadow: none;
 	color: var(--wrbc-admin-ink);
-	outline: 2px solid var(--wrbc-admin-accent);
+	outline: 2px solid var(--wrbc-admin-focus);
 	outline-offset: 3px;
 }
 
@@ -95,11 +95,11 @@
 	position: sticky;
 	top: 48px;
 	flex-direction: column;
-	gap: 2px;
-	padding: var(--wrbc-admin-sp-sm);
-	border: 1px solid var(--wrbc-admin-hairline);
+	gap: 0;
+	padding: 0;
+	border-top: 1px solid var(--wrbc-admin-hairline);
 	border-radius: var(--wrbc-admin-radius);
-	background: var(--wrbc-admin-canvas-card);
+	background: transparent;
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab {
@@ -111,9 +111,11 @@
 	gap: 2px var(--wrbc-admin-sp-sm);
 	width: 100%;
 	margin: 0;
-	padding: 10px 12px 10px 16px;
+	min-height: 44px;
+	padding: 11px 12px 11px 16px;
 	border: 0;
-	border-radius: 6px;
+	border-bottom: 1px solid var(--wrbc-admin-hairline);
+	border-radius: 0;
 	background: transparent;
 	color: var(--wrbc-admin-body);
 	font-family: var(--wrbc-admin-f-body);
@@ -126,11 +128,11 @@
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab::before {
 	position: absolute;
-	top: 8px;
-	bottom: 8px;
-	left: 4px;
+	top: 0;
+	bottom: 0;
+	left: 0;
 	width: 2px;
-	border-radius: 2px;
+	border-radius: 0;
 	background: transparent;
 	content: "";
 	transition: background-color var(--wrbc-admin-t-fast) ease;
@@ -142,13 +144,14 @@
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab:focus-visible {
-	outline: 2px solid var(--wrbc-admin-accent);
-	outline-offset: 2px;
+	outline: 2px solid var(--wrbc-admin-focus);
+	outline-offset: -2px;
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-selected="true"] {
 	background: var(--wrbc-admin-accent-dim);
 	color: var(--wrbc-admin-ink);
+	font-weight: 600;
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-selected="true"]::before {
@@ -172,14 +175,15 @@
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab-count,
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab-matches {
 	color: var(--wrbc-admin-mute);
-	font-size: 11px;
-	letter-spacing: 0.8px;
-	line-height: 16px;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	line-height: 18px;
 	white-space: nowrap;
 }
 
 .werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab-matches {
-	color: var(--wrbc-admin-accent);
+	color: var(--wrbc-admin-mark);
 }
 
 .werun-blocks-community-ui-tabsearch-panels {
@@ -191,7 +195,7 @@
 
 .werun-blocks-community-ui-tabsearch-panel:focus-visible {
 	border-radius: var(--wrbc-admin-radius);
-	outline: 2px solid var(--wrbc-admin-accent);
+	outline: 2px solid var(--wrbc-admin-focus);
 	outline-offset: 4px;
 }
 
@@ -206,8 +210,8 @@
 	bottom: 0;
 	left: -12px;
 	width: 2px;
-	border-radius: 2px;
-	background: var(--wrbc-admin-accent);
+	border-radius: 0;
+	background: var(--wrbc-admin-mark);
 	content: "";
 }
 
@@ -221,19 +225,22 @@
 		position: static;
 		flex-direction: row;
 		overflow-x: auto;
+		border-top: 0;
+		border-bottom: 1px solid var(--wrbc-admin-hairline);
 		scrollbar-width: thin;
 	}
 
 	.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab {
 		flex: 0 0 auto;
 		width: auto;
+		border-bottom: 0;
 	}
 
 	.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab::before {
 		top: auto;
-		right: 12px;
-		bottom: 2px;
-		left: 12px;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		width: auto;
 		height: 2px;
 	}
@@ -249,4 +256,39 @@
 	.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-search-input {
 		transition: none;
 	}
+}
+
+/* Tabs are things you pick: info blue, a tint on hover, the chosen one solid
+   (state and action colours, see ui.css). */
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab {
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab:hover {
+	background: var(--wrbc-admin-info-tint);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-selected="true"],
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-selected="true"]:hover {
+	background: var(--wrbc-admin-info);
+	color: var(--wrbc-admin-on-state);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-selected="true"]::before {
+	background: transparent;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-selected="true"] :is(.werun-blocks-community-ui-tabsearch-tab-count, .werun-blocks-community-ui-tabsearch-tab-matches) {
+	color: var(--wrbc-admin-on-state);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-disabled="true"],
+.werun-blocks-community-app .werun-blocks-community-ui-tabsearch-tab[aria-disabled="true"]:hover {
+	background: transparent;
+	color: var(--wrbc-admin-mute);
+}
+
+.werun-blocks-community-ui-tabsearch-tab-label {
+	overflow-wrap: anywhere;
 }

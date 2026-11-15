@@ -1,59 +1,76 @@
 /**
- * werun.dev design system tokens, scoped to the werun.Blocks.Community screens (copied from werun.Toolkit).
- * Source: werun.dev design system (tokens/colors, typography, layout, motion).
- * Fonts: Geist + Geist Mono, self-hosted (SIL OFL 1.1, see ../fonts/OFL.txt).
+ * werun.dev Editorial design system tokens, scoped to the werun.Blocks.Community screens.
+ * Light band: off-white canvas, near-black ink, hairlines, one slate blue for marks.
+ * Font: Hanken Grotesk (variable, 100 to 900), self-hosted (SIL OFL 1.1, see ../fonts/OFL.txt).
  */
 
 @font-face {
-	font-family: "Geist";
-	src: url("../fonts/Geist-Regular.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Geist Mono";
-	src: url("../fonts/GeistMono-Regular.woff2") format("woff2");
-	font-weight: 400;
+	font-family: "Hanken Grotesk";
+	src: url("../fonts/HankenGrotesk-Variable.woff2") format("woff2");
+	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
 }
 
 .werun-blocks-community-app {
 	/* Canvas */
-	--wrbc-admin-canvas: #0a0a0a;
-	--wrbc-admin-canvas-soft: #1a1c20;
-	--wrbc-admin-canvas-card: #191919;
-	--wrbc-admin-canvas-mid: #363a3f;
+	--wrbc-admin-canvas: #f0f0f0;
+	--wrbc-admin-canvas-soft: #e4e4e4;
+	--wrbc-admin-canvas-card: #f0f0f0;
+	--wrbc-admin-canvas-mid: #e4e4e4;
 
-	/* Hairlines */
-	--wrbc-admin-hairline: #212327;
-	--wrbc-admin-hairline-translucent: rgba(255, 255, 255, 0.25);
-	--wrbc-admin-hairline-soft: rgba(255, 255, 255, 0.1);
+	/* Hairlines: decorative rules, and the 3:1 line of everything you click or type into */
+	--wrbc-admin-hairline: #d6d6d6;
+	--wrbc-admin-hairline-translucent: #767676;
+	--wrbc-admin-hairline-soft: #d6d6d6;
+	--wrbc-admin-control-line: #767676;
 
 	/* Text */
-	--wrbc-admin-ink: #ffffff;
-	--wrbc-admin-body: #dadbdf;
-	--wrbc-admin-mute: #7d8187;
+	--wrbc-admin-ink: #1a1a1a;
+	--wrbc-admin-body: #454545;
+	--wrbc-admin-mute: #575757;
 
-	/* Accent */
-	--wrbc-admin-accent: #c8ff00;
-	--wrbc-admin-on-accent: #0a0a0a;
-	--wrbc-admin-accent-dim: rgba(200, 255, 0, 0.1);
-	--wrbc-admin-accent-line: rgba(200, 255, 0, 0.25);
-	--wrbc-admin-accent-glow: rgba(200, 255, 0, 0.3);
+	/* "On" colour: the solid button, switches, checks and selected items are ink, not a hue */
+	--wrbc-admin-accent: #1a1a1a;
+	--wrbc-admin-on-accent: #f0f0f0;
+	--wrbc-admin-accent-dim: #e4e4e4;
+	--wrbc-admin-accent-line: #1a1a1a;
 
-	/* Semantic */
-	--wrbc-admin-good: #52c41a;
-	--wrbc-admin-warn: #faad14;
-	--wrbc-admin-danger: #ff4d4f;
-	--wrbc-admin-danger-dim: rgba(255, 77, 79, 0.1);
-	--wrbc-admin-info: #78b4ff;
+	/* Slate blue, the only hue: small marks and the focus ring */
+	--wrbc-admin-mark: #3e4a57;
+	--wrbc-admin-focus: #3e4a57;
 
-	/* Type */
-	--wrbc-admin-f-body: "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
-	--wrbc-admin-f-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+	/* Semantic: small marks next to a text label, 4.5:1 on the canvas */
+	--wrbc-admin-good: var(--wrbc-admin-ok);
+	--wrbc-admin-warn: var(--wrbc-admin-wait);
+	--wrbc-admin-danger: var(--wrbc-admin-bad);
+	--wrbc-admin-danger-dim: var(--wrbc-admin-bad-tint);
+
+
+	/* State and action colours: one palette on every werun screen. Text / edge / tint;
+	   solid = the text colour with white on it. All pass 4.5:1 on their tint and on the canvas. */
+	--wrbc-admin-info: #1d4f91;
+	--wrbc-admin-info-edge: #8fb3df;
+	--wrbc-admin-info-tint: #e6eef9;
+	--wrbc-admin-wait: #8a4b00;
+	--wrbc-admin-wait-edge: #d9a441;
+	--wrbc-admin-wait-tint: #fbf1dc;
+	--wrbc-admin-ok: #166534;
+	--wrbc-admin-ok-edge: #7fc79b;
+	--wrbc-admin-ok-tint: #e6f4ea;
+	--wrbc-admin-ok-hover: #12512a;
+	--wrbc-admin-bad: #b3261e;
+	--wrbc-admin-bad-edge: #e39a94;
+	--wrbc-admin-bad-tint: #fbe9e7;
+	--wrbc-admin-bad-hover: #8f1e18;
+	--wrbc-admin-off: #575757;
+	--wrbc-admin-off-edge: #b8b8b8;
+	--wrbc-admin-off-tint: #e4e4e4;
+	--wrbc-admin-on-state: #ffffff;
+
+	/* Type: one family. The mono token stays for the rules that read it and resolves to the same face. */
+	--wrbc-admin-f-body: "Neue Haas Unica", "neue-haas-unica", "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+	--wrbc-admin-f-mono: var(--wrbc-admin-f-body);
 
 	/* Spacing (4px base) */
 	--wrbc-admin-sp-xs: 4px;
@@ -65,18 +82,15 @@
 	--wrbc-admin-sp-3xl: 48px;
 	--wrbc-admin-sp-4xl: 64px;
 
-	/* Shape */
-	--wrbc-admin-radius: 8px;
-	--wrbc-admin-radius-pill: 9999px;
+	/* Shape: square containers, 3px on controls (the pill token stays for the rules that read it) */
+	--wrbc-admin-radius: 0;
+	--wrbc-admin-radius-control: 3px;
+	--wrbc-admin-radius-pill: 3px;
 	--wrbc-admin-wrap: 1200px;
 
-	/* Depth: hairlines only, shadows for floating layers */
-	--wrbc-admin-shadow-overlay: 0 24px 80px rgba(0, 0, 0, 0.6);
-	--wrbc-admin-shadow-accent: 0 8px 28px var(--wrbc-admin-accent-glow);
-
-	/* Background grid texture */
-	--wrbc-admin-grid-line: rgba(255, 255, 255, 0.022);
-	--wrbc-admin-grid-size: 64px;
+	/* Depth: none. Separation is a hairline or a band change. */
+	--wrbc-admin-shadow-overlay: none;
+	--wrbc-admin-shadow-accent: none;
 
 	/* Motion */
 	--wrbc-admin-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -85,15 +99,17 @@
 	--wrbc-admin-t-slow: 600ms;
 }
 
-@keyframes werun-blocks-community-pulse-indicator {
-	0%,
-	100% {
-		box-shadow: 0 0 0 0 rgba(200, 255, 0, 0.5);
-	}
-
-	50% {
-		box-shadow: 0 0 0 5px rgba(200, 255, 0, 0);
-	}
+/* Dark band: toasts sit over the page, so they invert instead of casting a shadow. */
+.werun-blocks-community-app .werun-blocks-community-ui-toast {
+	--wrbc-admin-canvas: #1a1a1a;
+	--wrbc-admin-hairline: #2e2e2e;
+	--wrbc-admin-ink: #f0f0f0;
+	--wrbc-admin-body: #b8b8b8;
+	--wrbc-admin-mute: #a3a3a3;
+	--wrbc-admin-accent: #f0f0f0;
+	--wrbc-admin-mark: #8a9bb0;
+	--wrbc-admin-focus: #a9b8c9;
+	--wrbc-admin-danger: #ff8a80;
 }
 
 @keyframes werun-blocks-community-spin {
