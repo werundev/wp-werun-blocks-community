@@ -1,6 +1,9 @@
 /**
- * werun.dev Editorial design system tokens, scoped to the werun.Blocks.Community screens.
- * Light band: off-white canvas, near-black ink, hairlines, one slate blue for marks.
+ * werun.dev design tokens, scoped to the werun.Blocks.Community screens, in "Editorial, elevated" (v7), the look of
+ * the site's prototype v7 as werun.Portal carries it (the owner, 2026-11-24): a light canvas, white cards with a
+ * hairline and a soft shadow, 4px corners on cards and 3px on what you click or type into, ink for the
+ * ordinary solid button and pastel state sets (text, edge, tint and mark). The names are the earlier
+ * Editorial pass's, so every rule still reads them; the values are v7's.
  * Font: Hanken Grotesk (variable, 100 to 900), self-hosted (SIL OFL 1.1, see ../fonts/OFL.txt).
  */
 
@@ -13,64 +16,78 @@
 }
 
 .werun-blocks-community-app {
-	/* Canvas */
-	--wrbc-admin-canvas: #f0f0f0;
-	--wrbc-admin-canvas-soft: #e4e4e4;
-	--wrbc-admin-canvas-card: #f0f0f0;
-	--wrbc-admin-canvas-mid: #e4e4e4;
+	/* Canvas: the page, a quiet fill, and the white surface of a card */
+	--wrbc-admin-canvas: #f7f7f7;
+	--wrbc-admin-canvas-soft: #efefef;
+	--wrbc-admin-canvas-card: #ffffff;
+	--wrbc-admin-canvas-mid: #efefef;
 
-	/* Hairlines: decorative rules, and the 3:1 line of everything you click or type into */
-	--wrbc-admin-hairline: #d6d6d6;
+	/* Hairlines: decorative rules (and a stronger one for marks), and the 3:1 line of everything you click or type into */
+	--wrbc-admin-hairline: #e2e2e2;
 	--wrbc-admin-hairline-translucent: #767676;
-	--wrbc-admin-hairline-soft: #d6d6d6;
+	--wrbc-admin-hairline-soft: #e2e2e2;
+	--wrbc-admin-hairline-strong: #cecece;
 	--wrbc-admin-control-line: #767676;
 
 	/* Text */
 	--wrbc-admin-ink: #1a1a1a;
 	--wrbc-admin-body: #454545;
 	--wrbc-admin-mute: #575757;
+	--wrbc-admin-faint: #6b6b6b;
 
-	/* "On" colour: the solid button, switches, checks and selected items are ink, not a hue */
+	/* The ordinary solid button: ink, slate on hover */
 	--wrbc-admin-accent: #1a1a1a;
-	--wrbc-admin-on-accent: #f0f0f0;
-	--wrbc-admin-accent-dim: #e4e4e4;
+	--wrbc-admin-on-accent: #f7f7f7;
+	--wrbc-admin-accent-dim: #efefef;
 	--wrbc-admin-accent-line: #1a1a1a;
+	--wrbc-admin-accent-hover: #3e4a57;
 
-	/* Slate blue, the only hue: small marks and the focus ring */
+	/* Slate: the logo and small marks. The focus ring is the info blue. */
 	--wrbc-admin-mark: #3e4a57;
-	--wrbc-admin-focus: #3e4a57;
+	--wrbc-admin-focus: #33608f;
 
-	/* Semantic: small marks next to a text label, 4.5:1 on the canvas */
+	/* Semantic: small marks next to a text label */
 	--wrbc-admin-good: var(--wrbc-admin-ok);
 	--wrbc-admin-warn: var(--wrbc-admin-wait);
 	--wrbc-admin-danger: var(--wrbc-admin-bad);
 	--wrbc-admin-danger-dim: var(--wrbc-admin-bad-tint);
 
-
-	/* State and action colours: one palette on every werun screen. Text / edge / tint;
-	   solid = the text colour with white on it. All pass 4.5:1 on their tint and on the canvas. */
-	--wrbc-admin-info: #1d4f91;
-	--wrbc-admin-info-edge: #8fb3df;
-	--wrbc-admin-info-tint: #e6eef9;
-	--wrbc-admin-wait: #8a4b00;
-	--wrbc-admin-wait-edge: #d9a441;
-	--wrbc-admin-wait-tint: #fbf1dc;
-	--wrbc-admin-ok: #166534;
-	--wrbc-admin-ok-edge: #7fc79b;
-	--wrbc-admin-ok-tint: #e6f4ea;
-	--wrbc-admin-ok-hover: #12512a;
-	--wrbc-admin-bad: #b3261e;
-	--wrbc-admin-bad-edge: #e39a94;
-	--wrbc-admin-bad-tint: #fbe9e7;
-	--wrbc-admin-bad-hover: #8f1e18;
-	--wrbc-admin-off: #575757;
-	--wrbc-admin-off-edge: #b8b8b8;
-	--wrbc-admin-off-tint: #e4e4e4;
+	/* State and action colours: one palette on every werun screen (werun.Portal's). Text / edge / tint / mark (the
+	   dot and the 2px bar); solid = the text colour with white on it. Every text colour passes 4.5:1 on its tint
+	   and on the canvas. ai is the assistant's. */
+	--wrbc-admin-info: #33608f;
+	--wrbc-admin-info-edge: #c2d7ef;
+	--wrbc-admin-info-tint: #e0eaf6;
+	--wrbc-admin-info-mark: #78a3d6;
+	--wrbc-admin-wait: #94501a;
+	--wrbc-admin-wait-edge: #f2cfab;
+	--wrbc-admin-wait-tint: #f9e7d6;
+	--wrbc-admin-wait-mark: #eea366;
+	--wrbc-admin-ok: #2c6c51;
+	--wrbc-admin-ok-edge: #c1e2d2;
+	--wrbc-admin-ok-tint: #dfefe7;
+	--wrbc-admin-ok-mark: #76b997;
+	--wrbc-admin-ok-hover: #1f4d3a;
+	--wrbc-admin-bad: #a3352b;
+	--wrbc-admin-bad-edge: #f1c7c2;
+	--wrbc-admin-bad-tint: #f9e3e0;
+	--wrbc-admin-bad-mark: #e0766c;
+	--wrbc-admin-bad-hover: #872a22;
+	--wrbc-admin-off: #3e4a57;
+	--wrbc-admin-off-edge: #c9ced4;
+	--wrbc-admin-off-tint: #e2e5e9;
+	--wrbc-admin-off-mark: #8a9bb0;
+	--wrbc-admin-ai: #5f45b5;
+	--wrbc-admin-ai-edge: #d9cff9;
+	--wrbc-admin-ai-tint: #e9e4fa;
+	--wrbc-admin-ai-mark: #a08cf0;
 	--wrbc-admin-on-state: #ffffff;
 
-	/* Type: one family. The mono token stays for the rules that read it and resolves to the same face. */
+	/* Type: one family. The mono token stays for the rules that read it and resolves to the same face;
+	   --wrbc-admin-f-code is for hosts and keys only. */
 	--wrbc-admin-f-body: "Neue Haas Unica", "neue-haas-unica", "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
 	--wrbc-admin-f-mono: var(--wrbc-admin-f-body);
+	--wrbc-admin-f-code: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
 	/* Spacing (4px base) */
 	--wrbc-admin-sp-xs: 4px;
@@ -82,15 +99,17 @@
 	--wrbc-admin-sp-3xl: 48px;
 	--wrbc-admin-sp-4xl: 64px;
 
-	/* Shape: square containers, 3px on controls (the pill token stays for the rules that read it) */
-	--wrbc-admin-radius: 0;
+	/* Shape: 4px on cards and panels, 3px on what you click or type into (the pill token stays for the rules that read it) */
+	--wrbc-admin-radius: 4px;
 	--wrbc-admin-radius-control: 3px;
 	--wrbc-admin-radius-pill: 3px;
 	--wrbc-admin-wrap: 1200px;
 
-	/* Depth: none. Separation is a hairline or a band change. */
-	--wrbc-admin-shadow-overlay: none;
+	/* Depth: a soft shadow under cards, a deeper one under what floats over the page (toasts, dialogs) */
+	--wrbc-admin-shadow: 0 1px 2px rgba(26, 26, 26, 0.04), 0 12px 30px -16px rgba(26, 26, 26, 0.14);
+	--wrbc-admin-shadow-overlay: 0 1px 2px rgba(0, 0, 0, 0.25), 0 18px 44px -22px rgba(0, 0, 0, 0.55);
 	--wrbc-admin-shadow-accent: none;
+	--wrbc-admin-dot: rgba(26, 26, 26, 0.09);
 
 	/* Motion */
 	--wrbc-admin-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -99,7 +118,7 @@
 	--wrbc-admin-t-slow: 600ms;
 }
 
-/* Dark band: toasts sit over the page, so they invert instead of casting a shadow. */
+/* Dark band: toasts float over the page in ink, so their tokens invert. */
 .werun-blocks-community-app .werun-blocks-community-ui-toast {
 	--wrbc-admin-canvas: #1a1a1a;
 	--wrbc-admin-hairline: #2e2e2e;
@@ -109,7 +128,7 @@
 	--wrbc-admin-accent: #f0f0f0;
 	--wrbc-admin-mark: #8a9bb0;
 	--wrbc-admin-focus: #a9b8c9;
-	--wrbc-admin-danger: #ff8a80;
+	--wrbc-admin-danger: #f4b4ae;
 }
 
 @keyframes werun-blocks-community-spin {

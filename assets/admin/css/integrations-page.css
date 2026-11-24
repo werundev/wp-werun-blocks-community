@@ -149,3 +149,184 @@
 	min-width: 0;
 	overflow-wrap: anywhere;
 }
+
+/* =====================================================================================================
+   Editorial, elevated (v7)
+   The plugins found on the site as quiet tiles with their tag; hosts and CSP directives in the code
+   face.
+   ===================================================================================================== */
+
+.werun-blocks-community-app .werun-blocks-community-integrations-detect {
+	gap: 10px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-detect-item {
+	padding: 11px 12px 11px 14px;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: 3px;
+	background: var(--wrbc-admin-canvas);
+	color: var(--wrbc-admin-ink);
+	font-size: 14.5px;
+	font-weight: 500;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-hosts code {
+	color: var(--wrbc-admin-ink);
+	font-family: var(--wrbc-admin-f-code);
+	font-size: 13.5px;
+	line-height: 20px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-hosts td.werun-blocks-community-ui-mono {
+	color: var(--wrbc-admin-mute);
+	font-family: var(--wrbc-admin-f-code);
+	font-size: 13px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-secret-actions {
+	gap: 12px;
+}
+
+/* Help: each way on an icon tile in its colour; the custom work on a quiet panel with a mint wash (werun.Portal's
+   referrals card). The links point out of WordPress, so they carry the up-right arrow. */
+.werun-blocks-community-app .werun-blocks-community-integrations-help {
+	margin-top: 0;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-grid {
+	gap: 24px;
+	margin-top: 18px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	min-width: 0;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item::before {
+	flex: none;
+	width: 36px;
+	height: 36px;
+	margin-bottom: 6px;
+	border-radius: 3px;
+	background: var(--wrbc-admin-info-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2333608f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v16'/%3E%3Cpath d='M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z'/%3E%3C/svg%3E") center / 18px 18px no-repeat;
+	content: "";
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item:nth-child(2)::before {
+	background-color: var(--wrbc-admin-wait-tint);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394501a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m4.93 4.93 4.24 4.24'/%3E%3Cpath d='m14.83 9.17 4.24-4.24'/%3E%3Cpath d='m14.83 14.83 4.24 4.24'/%3E%3Cpath d='m9.17 14.83-4.24 4.24'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3C/svg%3E");
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item.werun-blocks-community-integrations-help-cta::before {
+	background-color: var(--wrbc-admin-ok-tint);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c6c51' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z'/%3E%3Cpath d='M20 2v4'/%3E%3Cpath d='M22 4h-4'/%3E%3Ccircle cx='4' cy='20' r='2'/%3E%3C/svg%3E");
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item h3 {
+	margin: 0;
+	color: var(--wrbc-admin-ink);
+	font-size: 17px;
+	font-weight: 500;
+	letter-spacing: -0.01em;
+	line-height: 1.35;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item p {
+	margin: 0 0 4px;
+	color: var(--wrbc-admin-body);
+	font-size: 15px;
+	line-height: 1.55;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item a:not(.werun-blocks-community-ui-button) {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid var(--wrbc-admin-hairline-strong);
+	color: var(--wrbc-admin-ink);
+	font-size: 14.5px;
+	font-weight: 500;
+	text-decoration: none;
+	transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item a:not(.werun-blocks-community-ui-button)::after {
+	flex: none;
+	width: 14px;
+	height: 14px;
+	background: currentColor;
+	content: "";
+	transition: transform 0.2s ease;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10M7 17 17 7'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10M7 17 17 7'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item a:not(.werun-blocks-community-ui-button):hover {
+	border-bottom-color: var(--wrbc-admin-info);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item a:not(.werun-blocks-community-ui-button):hover::after {
+	transform: translate(2px, -2px);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-cta {
+	padding: 22px;
+	overflow: hidden;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: 4px;
+	background: var(--wrbc-admin-canvas);
+	isolation: isolate;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-cta > *,
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item.werun-blocks-community-integrations-help-cta::before {
+	position: relative;
+	z-index: 1;
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-cta::after {
+	position: absolute;
+	z-index: 0;
+	background:
+		radial-gradient(var(--wrbc-admin-dot) 1px, transparent 1.5px) 0 0 / 18px 18px,
+		radial-gradient(80% 120% at 100% 100%, rgba(168, 217, 193, 0.6), transparent 70%);
+	content: "";
+	pointer-events: none;
+	inset: 0;
+	-webkit-mask-image: linear-gradient(90deg, transparent 20%, #000);
+	mask-image: linear-gradient(90deg, transparent 20%, #000);
+}
+
+.werun-blocks-community-app .werun-blocks-community-integrations-help-cta .werun-blocks-community-ui-button {
+	margin-top: 4px;
+}
+
+/* The other two ways start where the panel's content starts, so the tiles and titles line up. */
+.werun-blocks-community-app .werun-blocks-community-integrations-help-item:not(.werun-blocks-community-integrations-help-cta) {
+	padding-top: 23px;
+}
+
+@media (max-width: 782px) {
+
+	.werun-blocks-community-app .werun-blocks-community-integrations-help-cta {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.werun-blocks-community-app .werun-blocks-community-integrations-help-item:not(.werun-blocks-community-integrations-help-cta) {
+		padding-top: 0;
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-integrations-help-cta {
+		padding: 20px;
+	}
+}

@@ -2,6 +2,14 @@
 
 Every release, newest first. Each entry is also the description of its GitHub release, and readme.txt repeats the latest one under == Changelog ==.
 
+= 1.2.0 =
+* The Integrations screen follows werun.dev's newest look: a softer light ground, white cards with a fine border and a soft shadow, rounded corners, a light header with a pastel wash, and tags on a soft colour with a dot.
+* Settings tabs look like the werun.dev customers area: the open one is a white tile with a dark mark. Switches have a round knob, and fields get a blue ring when you type in them.
+* Search shows its counts on a blue tint and marks matching fields; sections with no match hide while you search.
+* On a phone, the table of hosts this site may load stacks each row instead of scrolling sideways.
+* The Help card has icon tiles and an arrow on the links that open another site. The footer says "Built to grow.", werun.dev's line.
+* The plugin's page has a new Integrations screenshot.
+
 = 1.1.0 =
 * The Integrations screen follows werun.dev's new look: a light canvas, near-black text, square corners and the werun.dev mark in the header and footer.
 * Colours now say what a control does: green for what is switched on and for saving, blue for what you can pick, red for what removes or fails.

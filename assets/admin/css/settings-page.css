@@ -271,3 +271,192 @@
 	background: var(--wrbc-admin-info);
 	color: var(--wrbc-admin-on-state);
 }
+
+/* =====================================================================================================
+   Editorial, elevated (v7)
+   The screen's header as a light band (werun.Portal's page header): a hairline frame with the
+   rails' cross marks at the top corners and a pastel wash with fine dots on the right. Section titles in
+   sentence case; the data table on a white card with a quiet head row, stacked on a phone.
+   ===================================================================================================== */
+
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb + .werun-blocks-community-settings-header {
+	margin-top: -14px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-header {
+	--hx: clamp(20px, 4vw, 40px);
+	--hy: clamp(26px, 4vw, 44px);
+	position: relative;
+	align-items: flex-end;
+	gap: 20px 32px;
+	padding: var(--hy) var(--hx);
+	border: 1px solid var(--wrbc-admin-hairline);
+	background: var(--wrbc-admin-canvas);
+	isolation: isolate;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-header::before {
+	position: absolute;
+	z-index: 3;
+	top: -5px;
+	right: -5px;
+	left: -5px;
+	height: 9px;
+	background:
+		linear-gradient(var(--wrbc-admin-hairline-strong), var(--wrbc-admin-hairline-strong)) left center / 9px 1px no-repeat,
+		linear-gradient(var(--wrbc-admin-hairline-strong), var(--wrbc-admin-hairline-strong)) left 4px center / 1px 9px no-repeat,
+		linear-gradient(var(--wrbc-admin-hairline-strong), var(--wrbc-admin-hairline-strong)) right center / 9px 1px no-repeat,
+		linear-gradient(var(--wrbc-admin-hairline-strong), var(--wrbc-admin-hairline-strong)) right 4px center / 1px 9px no-repeat;
+	content: "";
+	pointer-events: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-header::after {
+	position: absolute;
+	z-index: -1;
+	width: 62%;
+	background:
+		radial-gradient(var(--wrbc-admin-dot) 1px, transparent 1.5px) 0 0 / 18px 18px,
+		radial-gradient(55% 85% at 82% 8%, rgba(160, 195, 236, 0.5), transparent 70%),
+		radial-gradient(42% 70% at 48% 0%, rgba(196, 181, 253, 0.3), transparent 70%),
+		radial-gradient(48% 80% at 100% 78%, rgba(255, 194, 133, 0.36), transparent 70%);
+	content: "";
+	pointer-events: none;
+	inset: 0 0 0 auto;
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 48%);
+	mask-image: linear-gradient(90deg, transparent, #000 48%);
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-heading {
+	gap: 14px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-header-actions {
+	gap: 10px;
+}
+
+@media (max-width: 600px) {
+
+	.werun-blocks-community-app .werun-blocks-community-settings-header::after {
+		width: 100%;
+	}
+}
+
+/* Section cards: the title in sentence case, the description under it, a hairline before the fields. */
+.werun-blocks-community-app .werun-blocks-community-settings-section {
+	gap: 22px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-section-header {
+	gap: 6px;
+	padding-bottom: 18px;
+	border-bottom-color: var(--wrbc-admin-hairline);
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-section-header .werun-blocks-community-ui-eyebrow {
+	color: var(--wrbc-admin-ink);
+	font-size: 19px;
+	font-weight: 500;
+	letter-spacing: -0.01em;
+	line-height: 1.3;
+	text-transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-section-description {
+	max-width: 78ch;
+	font-size: 14.5px;
+	line-height: 1.5;
+}
+
+/* Horizontal tabs (things you pick): werun.Portal's filters. */
+.werun-blocks-community-app .werun-blocks-community-settings-tab {
+	border: 0;
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: inset 0 0 0 1px var(--wrbc-admin-hairline-strong);
+	color: var(--wrbc-admin-ink);
+	font-weight: 500;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-tab:hover {
+	background: var(--wrbc-admin-info-tint);
+	box-shadow: inset 0 0 0 1px var(--wrbc-admin-info-mark);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-tab[aria-current="page"],
+.werun-blocks-community-app .werun-blocks-community-settings-tab[aria-current="page"]:hover {
+	background: var(--wrbc-admin-info);
+	box-shadow: none;
+	color: var(--wrbc-admin-on-state);
+}
+
+/* Data table: a white card of its own with a quiet head row and hairline rows. */
+.werun-blocks-community-app .werun-blocks-community-settings-table-wrap {
+	border-color: var(--wrbc-admin-hairline);
+	border-radius: 4px;
+	background: var(--wrbc-admin-canvas-card);
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-table {
+	background: var(--wrbc-admin-canvas-card);
+	font-size: 14.5px;
+	line-height: 1.45;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-table th {
+	padding: 12px 18px;
+	border-bottom-color: var(--wrbc-admin-hairline);
+	background: var(--wrbc-admin-canvas);
+	color: var(--wrbc-admin-mute);
+	font-size: 12.5px;
+	letter-spacing: 0.07em;
+}
+
+.werun-blocks-community-app .werun-blocks-community-settings-table td {
+	padding: 13px 18px;
+	border-bottom-color: var(--wrbc-admin-hairline);
+}
+
+/* On a phone each row is a block: the first cell as its title, the others under it. */
+@media (max-width: 600px) {
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table,
+	.werun-blocks-community-app .werun-blocks-community-settings-table tbody,
+	.werun-blocks-community-app .werun-blocks-community-settings-table tr,
+	.werun-blocks-community-app .werun-blocks-community-settings-table td {
+		display: block;
+		width: 100%;
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table thead {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table tr {
+		padding: 14px 16px;
+		border-bottom: 1px solid var(--wrbc-admin-hairline);
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table tr:last-child {
+		border-bottom: 0;
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table td {
+		padding: 0;
+		border: 0;
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table td + td {
+		margin-top: 4px;
+	}
+
+	.werun-blocks-community-app .werun-blocks-community-settings-table td:first-child {
+		color: var(--wrbc-admin-ink);
+		font-weight: 500;
+	}
+}

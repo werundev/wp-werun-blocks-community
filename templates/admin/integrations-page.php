@@ -188,7 +188,7 @@ foreach ( get_settings_errors( Integrations::OPTION ) as $werun_blocks_community
 
 			<footer class="werun-blocks-community-ui-footer werun-blocks-community-ui-mono">
 				<span class="werun-blocks-community-ui-footer-brand"><span class="werun-blocks-community-ui-brand"><img class="werun-blocks-community-ui-brand-mark" src="<?php echo esc_url( WERUN_BLOCKS_COMMUNITY_URL . 'assets/brand/werun-monograma-oscuro.svg' ); ?>" width="112" height="112" alt=""><span class="werun-blocks-community-ui-brand-name">werun<span class="werun-blocks-community-ui-brand-dot">.</span>Blocks.Community</span></span> <?php echo esc_html( WERUN_BLOCKS_COMMUNITY_VERSION ); ?> · <a href="https://werun.dev" target="_blank" rel="noopener">werun.dev<span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'werun-blocks-community' ); ?></span></a></span>
-				<span><?php esc_html_e( 'Built to run.', 'werun-blocks-community' ); ?></span>
+				<span><?php esc_html_e( 'Built to grow.', 'werun-blocks-community' ); ?></span>
 			</footer>
 		</div>
 	</div>

@@ -1391,3 +1391,716 @@ a.werun-blocks-community-ui-badge:hover {
 .werun-blocks-community-app .werun-blocks-community-ui-toast-error > .werun-blocks-community-ui-icon {
 	color: #f2a6a6;
 }
+
+/* =====================================================================================================
+   Editorial, elevated (v7)
+   The owner, 2026-11-24: the look of the site's prototype v7 as werun.Portal carries it
+   (werun_portal/assets/css/werun-portal.css, the "Editorial, elevated" block). The tokens carry the values
+   (tokens.css); these rules redraw the pieces: a #f7f7f7 canvas; cards as white surfaces with a hairline,
+   4px corners and a soft shadow; field labels, tags, meta lines and the breadcrumb in sentence case (uppercase
+   stays on eyebrows, column heads and the buttons, as on the portal's pills); tags on their state's soft tint
+   with a dot; notices on the tint with a 2px mark; white fields with a blue focus; the ordinary solid button
+   ink and slate on hover, the one that commits green. They come last and repeat the selectors above, so they
+   win. settings-page.css, tab-search.css, integrations-page.css and connection-page.css end with their own part.
+   ===================================================================================================== */
+
+/* WordPress admin: the page canvas */
+body.werun-blocks-community-screen,
+body.werun-blocks-community-screen #wpwrap,
+body.werun-blocks-community-screen #wpcontent,
+body.werun-blocks-community-screen #wpbody,
+body.werun-blocks-community-screen #wpbody-content {
+	background: #f7f7f7;
+}
+
+/* Links: ink with a quiet underline; on hover the info blue and a full underline. */
+.werun-blocks-community-app a {
+	text-decoration-color: var(--wrbc-admin-hairline-strong);
+	text-underline-offset: 3px;
+	transition: color var(--wrbc-admin-t-fast) ease, text-decoration-color var(--wrbc-admin-t-fast) ease;
+}
+
+.werun-blocks-community-app a:hover {
+	color: var(--wrbc-admin-info);
+	text-decoration-color: currentColor;
+}
+
+/* Type */
+.werun-blocks-community-app .werun-blocks-community-ui-display {
+	font-size: clamp(32px, 3.6vw, 46px);
+	font-weight: 400;
+	letter-spacing: -0.04em;
+	line-height: 1.04;
+	text-wrap: balance;
+}
+
+/* A heading's second clause, in the second tone. */
+.werun-blocks-community-app .werun-blocks-community-ui-display-accent {
+	color: var(--wrbc-admin-faint);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-lead {
+	max-width: 62ch;
+	color: var(--wrbc-admin-body);
+	font-size: 17.5px;
+	line-height: 1.5;
+}
+
+/* Eyebrows stay small capitals; meta lines (the breadcrumb, the footer) are sentence case. */
+.werun-blocks-community-app .werun-blocks-community-ui-eyebrow {
+	color: var(--wrbc-admin-mute);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.07em;
+	line-height: 1.35;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-mono {
+	color: var(--wrbc-admin-mute);
+	font-size: 13.5px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.45;
+	text-transform: none;
+}
+
+/* Tags: the state's soft tint, its text colour and a dot, in sentence case. Grey (off) when no state is given. */
+.werun-blocks-community-app .werun-blocks-community-ui-badge {
+	gap: 7px;
+	min-height: 24px;
+	padding: 2px 9px;
+	border: 0;
+	border-radius: 3px;
+	background: var(--wrbc-admin-off-tint);
+	color: var(--wrbc-admin-off);
+	font-size: 13.5px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: 1.4;
+	text-transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge .werun-blocks-community-ui-badge-dot {
+	width: 6px;
+	height: 6px;
+	background: var(--wrbc-admin-off-mark);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-good {
+	background: var(--wrbc-admin-ok-tint);
+	color: var(--wrbc-admin-ok);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-good .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-ok-mark);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-warn {
+	background: var(--wrbc-admin-wait-tint);
+	color: var(--wrbc-admin-wait);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-warn .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-wait-mark);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-danger {
+	background: var(--wrbc-admin-bad-tint);
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-danger .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-bad-mark);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-info {
+	background: var(--wrbc-admin-info-tint);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-info .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-info-mark);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-mute {
+	background: var(--wrbc-admin-off-tint);
+	color: var(--wrbc-admin-off);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-mute .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-off-mark);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-off {
+	background: var(--wrbc-admin-off-tint);
+	color: var(--wrbc-admin-off);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-badge-off .werun-blocks-community-ui-badge-dot {
+	background: var(--wrbc-admin-off-mark);
+}
+
+.werun-blocks-community-app a.werun-blocks-community-ui-badge:hover {
+	box-shadow: inset 0 0 0 1px currentColor;
+	color: inherit;
+}
+
+/* Things you pick (chips): a white tile with a hairline; the info tint on hover; the chosen one solid blue. */
+.werun-blocks-community-app .werun-blocks-community-ui-chip {
+	border: 0;
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: inset 0 0 0 1px var(--wrbc-admin-hairline-strong);
+	color: var(--wrbc-admin-ink);
+	font-weight: 500;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-chip:hover {
+	background: var(--wrbc-admin-info-tint);
+	box-shadow: inset 0 0 0 1px var(--wrbc-admin-info-mark);
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-chip[aria-pressed="true"],
+.werun-blocks-community-app .werun-blocks-community-ui-chip[aria-pressed="true"]:hover {
+	background: var(--wrbc-admin-info);
+	box-shadow: none;
+	color: var(--wrbc-admin-on-state);
+}
+
+/* Buttons: the portal's pills. Ink solid (slate on hover), outline on a hairline of the control colour,
+   ghost (text only), green for the action that commits, red outline for a destructive one. */
+.werun-blocks-community-app .werun-blocks-community-ui-button {
+	transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary {
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+	color: var(--wrbc-admin-on-accent);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary:hover,
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary:focus-visible {
+	border-color: var(--wrbc-admin-accent-hover);
+	background: var(--wrbc-admin-accent-hover);
+	color: var(--wrbc-admin-on-accent);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-outline {
+	border-color: var(--wrbc-admin-control-line);
+	background: var(--wrbc-admin-canvas-card);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-outline:hover {
+	border-color: var(--wrbc-admin-ink);
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-ghost {
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-ghost:hover {
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-commit {
+	border-color: var(--wrbc-admin-ok);
+	background: var(--wrbc-admin-ok);
+	color: var(--wrbc-admin-on-state);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-commit:hover,
+.werun-blocks-community-app .werun-blocks-community-ui-button-commit:focus-visible {
+	border-color: var(--wrbc-admin-ok-hover);
+	background: var(--wrbc-admin-ok-hover);
+	box-shadow: 0 8px 22px -10px rgba(44, 108, 81, 0.7);
+	color: var(--wrbc-admin-on-state);
+	transform: translateY(-1px);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-danger {
+	border-color: var(--wrbc-admin-bad);
+	background: var(--wrbc-admin-canvas-card);
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-danger:hover {
+	border-color: var(--wrbc-admin-bad);
+	background: var(--wrbc-admin-bad-tint);
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-modal .werun-blocks-community-ui-button-danger {
+	border-color: var(--wrbc-admin-bad);
+	background: var(--wrbc-admin-bad);
+	color: var(--wrbc-admin-on-state);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-modal .werun-blocks-community-ui-button-danger:hover {
+	border-color: var(--wrbc-admin-bad-hover);
+	background: var(--wrbc-admin-bad-hover);
+	color: var(--wrbc-admin-on-state);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button[disabled],
+.werun-blocks-community-app .werun-blocks-community-ui-button[aria-disabled="true"] {
+	opacity: 0.45;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button[disabled]:hover,
+.werun-blocks-community-app .werun-blocks-community-ui-button[aria-disabled="true"]:hover {
+	box-shadow: none;
+	transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-outline[disabled]:hover {
+	border-color: var(--wrbc-admin-control-line);
+	background: var(--wrbc-admin-canvas-card);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-primary[disabled]:hover {
+	border-color: var(--wrbc-admin-accent);
+	background: var(--wrbc-admin-accent);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-button-commit[disabled]:hover {
+	border-color: var(--wrbc-admin-ok);
+	background: var(--wrbc-admin-ok);
+}
+
+/* Icon buttons (show / hide a key, clear the search): grey, the quiet fill and ink on hover. */
+.werun-blocks-community-app .werun-blocks-community-ui-icon-button {
+	color: var(--wrbc-admin-mute);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-icon-button:hover {
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-ink);
+}
+
+/* Cards: white, a hairline, 4px corners and the soft shadow. --wrbc-card-pad is their inner space. */
+.werun-blocks-community-app .werun-blocks-community-ui-card {
+	--wrbc-card-pad: 26px;
+	padding: var(--wrbc-card-pad);
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: 4px;
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: var(--wrbc-admin-shadow);
+}
+
+@media (max-width: 600px) {
+
+	.werun-blocks-community-app .werun-blocks-community-ui-card {
+		--wrbc-card-pad: 20px;
+	}
+}
+
+/* Fields: the label in sentence case over a white box; the box edges in ink on hover and in blue with a halo
+   when focused (werun.Portal's fields). */
+.werun-blocks-community-app .werun-blocks-community-ui-field {
+	gap: 8px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-label {
+	color: var(--wrbc-admin-ink);
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: 1.4;
+	text-transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input,
+.werun-blocks-community-app .werun-blocks-community-ui-select,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea {
+	min-height: 44px;
+	padding: 10px 14px;
+	border-color: var(--wrbc-admin-control-line);
+	border-radius: 3px;
+	background-color: var(--wrbc-admin-canvas-card);
+	font-size: 15.5px;
+	line-height: 22px;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input::placeholder,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea::placeholder {
+	color: var(--wrbc-admin-faint);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input:hover,
+.werun-blocks-community-app .werun-blocks-community-ui-select:hover,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea:hover {
+	border-color: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input:focus,
+.werun-blocks-community-app .werun-blocks-community-ui-select:focus,
+.werun-blocks-community-app .werun-blocks-community-ui-textarea:focus {
+	border-color: var(--wrbc-admin-info);
+	box-shadow: 0 0 0 1px var(--wrbc-admin-info), 0 0 0 4px var(--wrbc-admin-info-tint);
+	outline: 0;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input[readonly] {
+	background-color: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-mute);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input[readonly]:hover {
+	border-color: var(--wrbc-admin-control-line);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select {
+	padding-right: 44px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select-wrap::after {
+	right: 18px;
+	border-color: var(--wrbc-admin-mute);
+	border-right-width: 1.5px;
+	border-bottom-width: 1.5px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-select option {
+	background: var(--wrbc-admin-canvas-card);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-input-suffix {
+	padding: 0 14px;
+	border-color: var(--wrbc-admin-control-line);
+	background: var(--wrbc-admin-canvas);
+	color: var(--wrbc-admin-mute);
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-hint {
+	color: var(--wrbc-admin-mute);
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-label {
+	font-size: 15.5px;
+	line-height: 1.45;
+}
+
+/* Form switch: a round track and knob (werun.Portal's), the off track white on the control line so it keeps
+   3:1, the on one green with a white knob. */
+.werun-blocks-community-app .werun-blocks-community-ui-switch-input {
+	width: 40px;
+	height: 22px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-track {
+	width: 40px;
+	height: 22px;
+	border: 1px solid var(--wrbc-admin-control-line);
+	border-radius: 11px;
+	background: var(--wrbc-admin-canvas-card);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-thumb {
+	top: 3px;
+	left: 3px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--wrbc-admin-control-line);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-row:hover .werun-blocks-community-ui-switch-track {
+	border-color: var(--wrbc-admin-ink);
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: 0 0 0 3px var(--wrbc-admin-info-tint);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-row:hover .werun-blocks-community-ui-switch-thumb {
+	background: var(--wrbc-admin-ink);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track,
+.werun-blocks-community-app .werun-blocks-community-ui-switch-row:hover .werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track {
+	border-color: var(--wrbc-admin-ok);
+	background: var(--wrbc-admin-ok);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-row:hover .werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track {
+	border-color: var(--wrbc-admin-ok-hover);
+	background: var(--wrbc-admin-ok-hover);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track .werun-blocks-community-ui-switch-thumb,
+.werun-blocks-community-app .werun-blocks-community-ui-switch-row:hover .werun-blocks-community-ui-switch-input:checked + .werun-blocks-community-ui-switch-track .werun-blocks-community-ui-switch-thumb {
+	background: var(--wrbc-admin-on-state);
+	transform: translateX(18px);
+}
+
+/* Notices: the state's tint with a 2px mark on the left and the text in the state's colour (werun.Portal's
+   notes). Info when no state is given. */
+.werun-blocks-community-app .werun-blocks-community-ui-notice {
+	align-items: flex-start;
+	gap: 10px;
+	padding: 12px 16px 12px 14px;
+	border: 0;
+	border-left: 2px solid var(--wrbc-admin-info-mark);
+	border-radius: 0 3px 3px 0;
+	background: var(--wrbc-admin-info-tint);
+	color: var(--wrbc-admin-info);
+	font-size: 14.5px;
+	line-height: 1.5;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice .werun-blocks-community-ui-icon {
+	margin-top: 3px;
+	color: var(--wrbc-admin-info);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-good {
+	border-left-color: var(--wrbc-admin-ok-mark);
+	background: var(--wrbc-admin-ok-tint);
+	color: var(--wrbc-admin-ok);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-good .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-ok);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-warn {
+	border-left-color: var(--wrbc-admin-wait-mark);
+	background: var(--wrbc-admin-wait-tint);
+	color: var(--wrbc-admin-wait);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-warn .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-wait);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-danger {
+	border-left-color: var(--wrbc-admin-bad-mark);
+	background: var(--wrbc-admin-bad-tint);
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-danger .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-error {
+	border-left-color: var(--wrbc-admin-bad-mark);
+	background: var(--wrbc-admin-bad-tint);
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-notice-error .werun-blocks-community-ui-icon {
+	color: var(--wrbc-admin-bad);
+}
+
+/* Other plugins' notices on these screens: the same tint and mark. */
+.werun-blocks-community-app .notice,
+.werun-blocks-community-app div.updated,
+.werun-blocks-community-app div.error {
+	padding: 12px 16px 12px 14px;
+	border: 0;
+	border-left: 2px solid var(--wrbc-admin-info-mark);
+	border-radius: 0 3px 3px 0;
+	background: var(--wrbc-admin-info-tint);
+	box-shadow: none;
+	color: var(--wrbc-admin-info);
+	font-size: 14.5px;
+	line-height: 1.5;
+}
+
+.werun-blocks-community-app .notice.is-dismissible {
+	padding-right: 44px;
+}
+
+.werun-blocks-community-app .notice p,
+.werun-blocks-community-app div.updated p,
+.werun-blocks-community-app div.error p {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.werun-blocks-community-app .notice p + p {
+	margin-top: 6px;
+}
+
+.werun-blocks-community-app .notice-error,
+.werun-blocks-community-app div.error {
+	border-left-color: var(--wrbc-admin-bad-mark);
+	background: var(--wrbc-admin-bad-tint);
+	color: var(--wrbc-admin-bad);
+}
+
+.werun-blocks-community-app .notice-warning {
+	border-left-color: var(--wrbc-admin-wait-mark);
+	background: var(--wrbc-admin-wait-tint);
+	color: var(--wrbc-admin-wait);
+}
+
+.werun-blocks-community-app .notice-success,
+.werun-blocks-community-app div.updated {
+	border-left-color: var(--wrbc-admin-ok-mark);
+	background: var(--wrbc-admin-ok-tint);
+	color: var(--wrbc-admin-ok);
+}
+
+/* Notices one under another sit close together; the page's other blocks keep their space. */
+.werun-blocks-community-app .werun-blocks-community-ui-wrap > :is(.werun-blocks-community-ui-notice, .notice, div.updated, div.error) + :is(.werun-blocks-community-ui-notice, .notice, div.updated, div.error) {
+	margin-top: -28px;
+}
+
+@media (max-width: 782px) {
+
+	.werun-blocks-community-app .werun-blocks-community-ui-wrap > :is(.werun-blocks-community-ui-notice, .notice, div.updated, div.error) + :is(.werun-blocks-community-ui-notice, .notice, div.updated, div.error) {
+		margin-top: -20px;
+	}
+}
+
+/* Kbd: a quiet tile. */
+.werun-blocks-community-app .werun-blocks-community-ui-kbd {
+	padding: 1px 7px;
+	border: 0;
+	background: var(--wrbc-admin-canvas-soft);
+	color: var(--wrbc-admin-mute);
+	font-weight: 500;
+}
+
+/* Empty state: a white card, the icon on an info tile. */
+.werun-blocks-community-app .werun-blocks-community-ui-empty {
+	gap: 14px;
+	padding: 44px 24px;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: 4px;
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: var(--wrbc-admin-shadow);
+	color: var(--wrbc-admin-body);
+	font-size: 15.5px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-empty > .werun-blocks-community-ui-icon {
+	box-sizing: content-box;
+	width: 18px;
+	height: 18px;
+	padding: 9px;
+	border-radius: 3px;
+	background: var(--wrbc-admin-info-tint);
+	color: var(--wrbc-admin-info);
+	font-size: 18px;
+}
+
+/* Dialog: a white card over a dimmed page. */
+.werun-blocks-community-app .werun-blocks-community-ui-modal {
+	background: rgba(26, 26, 26, 0.5);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-modal-panel {
+	padding: 28px;
+	border: 1px solid var(--wrbc-admin-hairline);
+	border-radius: 4px;
+	background: var(--wrbc-admin-canvas-card);
+	box-shadow: var(--wrbc-admin-shadow-overlay);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-modal-title {
+	font-size: 22px;
+	font-weight: 500;
+	letter-spacing: -0.02em;
+}
+
+/* Toast: the one dark piece, a floating ink card (its tokens invert in tokens.css). */
+.werun-blocks-community-app .werun-blocks-community-ui-toast {
+	padding: 12px 14px 12px 16px;
+	border: 0;
+	border-radius: 4px;
+	background: #1a1a1a;
+	box-shadow: var(--wrbc-admin-shadow-overlay);
+	color: #f0f0f0;
+	font-size: 14.5px;
+	line-height: 1.45;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-good > .werun-blocks-community-ui-icon {
+	color: #a8d9c1;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-error > .werun-blocks-community-ui-icon {
+	color: #f4b4ae;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-action {
+	color: #f0f0f0;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0;
+	text-decoration-color: #767676;
+	text-transform: none;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-action:hover {
+	color: #ffffff;
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 2px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-close {
+	color: #a3a3a3;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-toast-close:hover {
+	color: #ffffff;
+}
+
+/* Footer: a meta line in sentence case under a hairline. */
+.werun-blocks-community-app .werun-blocks-community-ui-footer {
+	padding-top: 22px;
+	border-top-color: var(--wrbc-admin-hairline);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-footer a {
+	color: var(--wrbc-admin-mute);
+	text-decoration-color: var(--wrbc-admin-hairline-strong);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-footer a:hover {
+	color: var(--wrbc-admin-ink);
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 2px;
+}
+
+/* Breadcrumb: sentence case, the open page in ink. The brand link underlines its name on hover. */
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb {
+	font-size: 14px;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb li + li::before {
+	color: var(--wrbc-admin-hairline-strong);
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb [aria-current="page"] {
+	color: var(--wrbc-admin-ink);
+	font-weight: 500;
+}
+
+.werun-blocks-community-app .werun-blocks-community-ui-breadcrumb a.werun-blocks-community-ui-breadcrumb-brand:hover .werun-blocks-community-ui-brand-name {
+	text-decoration: underline;
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+/* Code: hosts and keys in the code face. */
+.werun-blocks-community-app code {
+	font-family: var(--wrbc-admin-f-code);
+}

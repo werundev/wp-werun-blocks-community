@@ -4,7 +4,7 @@ Tags: blocks, accessibility, gdpr, jobs, query
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -144,6 +144,14 @@ Run `npm ci` and `npm run build`. The source is in `src/`; the release zip alrea
 8. The Integrations screen: maps, privacy, forms, job boards and gated downloads in one place.
 
 == Changelog ==
+
+= 1.2.0 =
+* The Integrations screen follows werun.dev's newest look: a softer light ground, white cards with a fine border and a soft shadow, rounded corners, a light header with a pastel wash, and tags on a soft colour with a dot.
+* Settings tabs look like the werun.dev customers area: the open one is a white tile with a dark mark. Switches have a round knob, and fields get a blue ring when you type in them.
+* Search shows its counts on a blue tint and marks matching fields; sections with no match hide while you search.
+* On a phone, the table of hosts this site may load stacks each row instead of scrolling sideways.
+* The Help card has icon tiles and an arrow on the links that open another site. The footer says "Built to grow.", werun.dev's line.
+* The plugin's page has a new Integrations screenshot.
 
 = 1.1.0 =
 * The Integrations screen follows werun.dev's new look: a light canvas, near-black text, square corners and the werun.dev mark in the header and footer.
